@@ -1,0 +1,45 @@
+.customer-count-chart-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.customer-count-chart-header__titles h4 {
+  margin: 0;
+}
+
+.customer-count-chart-header__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.dashboard-chart-panel--customer-count {
+  grid-column: span 12;
+  margin-bottom: 0.75rem;
+}
+
+.dashboard-chart-wrap--customer-count {
+  height: 200px;
+}
+
+.location-chart-panel--customer-count {
+  margin-bottom: 0.75rem;
+}
+
+.location-chart-wrap--customer-count {
+  height: 200px;
+}
+
+@media (max-width: 576px) {
+  .customer-count-chart-header__controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

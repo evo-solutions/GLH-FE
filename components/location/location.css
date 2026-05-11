@@ -1,0 +1,685 @@
+.location-page {
+  padding: 1.25rem 1.5rem 2rem;
+}
+
+.location-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.location-page-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.location-list-table .ant-table-tbody > tr:hover > td,
+.location-customers-table .ant-table-tbody > tr:hover > td {
+  background: color-mix(in srgb, var(--pharma) 6%, transparent) !important;
+}
+
+.location-list-table .ant-table,
+.location-customers-table .ant-table {
+  table-layout: auto;
+}
+
+.location-list-table .ant-table-cell,
+.location-customers-table .ant-table-cell {
+  white-space: nowrap;
+}
+
+.location-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.location-card:hover {
+  border-color: var(--pharma);
+  box-shadow: 0 4px 16px rgba(13, 110, 141, 0.1);
+}
+
+.location-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.location-card-code {
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.location-card-name {
+  margin: 0.15rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-card-meta {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+
+.location-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 0.75rem;
+  font-size: 0.72rem;
+}
+
+.location-card-stats dt {
+  color: var(--muted);
+}
+
+.location-card-stats dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-breadcrumb {
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.location-breadcrumb a {
+  color: var(--pharma);
+}
+
+.location-breadcrumb a:hover {
+  color: var(--pharma);
+  opacity: 0.85;
+}
+
+.location-breadcrumb li:last-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.location-page .ant-tabs-top > .ant-tabs-nav::before,
+.location-page .ant-tabs-bottom > .ant-tabs-nav::before,
+.location-page .ant-tabs-top > div > .ant-tabs-nav::before,
+.location-page .ant-tabs-bottom > div > .ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+
+.location-detail-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.location-info-card {
+  margin-bottom: 0.75rem;
+}
+
+.location-info-address {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.location-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 992px) {
+  .location-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.location-kpi-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+}
+
+.location-kpi-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.location-kpi-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.location-kpi-growth {
+  font-size: 0.68rem;
+  margin-top: 0.2rem;
+}
+
+.location-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.location-chart-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 992px) {
+  .location-chart-grid--3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.location-chart-desc {
+  margin: 0 0 0.5rem;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.location-chart-wrap--md {
+  height: 200px;
+}
+
+.location-split-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.location-split-row--tables {
+  align-items: start;
+}
+
+.location-split-row--insights {
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .location-split-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.location-insights-heading {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-insights-chart {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.location-chart-wrap--insights {
+  flex: 1;
+  min-height: 220px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-insights-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 100%;
+}
+
+.location-insight-card {
+  flex: 1;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.location-manager-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.location-manager-avatar {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--pharma, #0d6e8d);
+  background: rgba(13, 110, 141, 0.12);
+  border: 1px solid rgba(13, 110, 141, 0.2);
+}
+
+.location-manager-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.location-manager-name {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.location-manager-role {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  padding: 0.12rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--pharma, #0d6e8d);
+  background: rgba(13, 110, 141, 0.08);
+  border: 1px solid rgba(13, 110, 141, 0.15);
+}
+
+.location-manager-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.location-manager-meta li {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.location-manager-meta .anticon {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  color: var(--pharma, #0d6e8d);
+  opacity: 0.85;
+}
+
+.location-manager-meta span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.location-staff-insight {
+  justify-content: center;
+}
+
+.location-staff-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  flex: 1;
+  align-content: center;
+}
+
+.location-staff-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.65rem 0.4rem;
+  border-radius: 10px;
+  background: var(--surface, rgba(0, 0, 0, 0.02));
+  border: 1px solid var(--border);
+}
+
+.location-staff-stat--active {
+  background: rgba(27, 94, 60, 0.06);
+  border-color: rgba(27, 94, 60, 0.2);
+}
+
+.location-staff-stat--active .location-staff-stat-value {
+  color: var(--leaf, #1b5e3c);
+}
+
+.location-staff-stat--leave {
+  background: rgba(201, 169, 79, 0.08);
+  border-color: rgba(201, 169, 79, 0.25);
+}
+
+.location-staff-stat--leave .location-staff-stat-value {
+  color: var(--gold, #9a7b2e);
+}
+
+.location-staff-stat-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.location-staff-stat-label {
+  margin-top: 0.25rem;
+  font-size: 0.65rem;
+  color: var(--muted);
+  line-height: 1.25;
+}
+
+@media (max-width: 480px) {
+  .location-staff-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location-manager-meta span {
+    white-space: normal;
+  }
+}
+
+.location-customer-drawer .ant-drawer-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-customer-drawer .ant-drawer-body {
+  flex: 1;
+  min-height: 0;
+}
+
+.location-customer-drawer .ant-drawer-header-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.location-drawer-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  gap: 0.75rem;
+}
+
+.location-drawer-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  flex-shrink: 0;
+}
+
+.location-drawer-card--timeline {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.location-drawer-card-title {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-drawer-card .location-drawer-dl {
+  margin: 0;
+}
+
+.location-drawer-timeline-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.location-drawer-timeline-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.location-drawer-timeline-scroll::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.location-drawer-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  padding-right: 0.25rem;
+}
+
+.location-drawer-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+
+.location-tier-tag {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+}
+
+.location-drawer-dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1.25rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.location-drawer-dl dt {
+  color: var(--muted);
+  font-size: 0.68rem;
+  margin-bottom: 0.15rem;
+}
+
+.location-drawer-dl dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-drawer-section-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-drawer-timeline .ant-timeline-item {
+  padding-bottom: 0.5rem;
+}
+
+.location-chart-panel {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+}
+
+.location-chart-panel--wide {
+  margin-bottom: 0.75rem;
+}
+
+.location-chart-wrap--products {
+  height: 220px;
+}
+
+.location-chart-panel--revenue {
+  margin-bottom: 0.75rem;
+}
+
+.location-chart-wrap--revenue {
+  height: 220px;
+}
+
+.location-chart-panel h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.location-chart-wrap {
+  height: 160px;
+  position: relative;
+}
+
+.location-panel {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.location-channel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.location-channel-chip {
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  background: rgba(13, 110, 141, 0.08);
+  border: 1px solid var(--border);
+}
+
+.customer-summary-card {
+  margin-bottom: 0.75rem;
+}
+
+.customer-summary-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.customer-summary-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.customer-summary-dl {
+  margin-bottom: 0;
+}
+
+.customer-detail-section {
+  margin-bottom: 0.75rem;
+}
+
+.customer-detail-section:last-child {
+  margin-bottom: 0;
+}
+
+.customer-chart-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 1.35fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .customer-chart-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.customer-chart-wrap {
+  height: 200px;
+  position: relative;
+  min-width: 0;
+}
+
+.customer-chart-table {
+  min-width: 0;
+}
+
+.customer-section-hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.customer-activity-scroll {
+  max-height: min(420px, 55vh);
+  overflow: auto;
+}
+
+.customer-activity-scroll .ant-table-cell {
+  white-space: nowrap;
+}
+
+.customer-order-link {
+  color: var(--pharma);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.customer-order-link:hover {
+  color: var(--text);
+}
+
+.customer-invoice-lines-scroll {
+  max-height: min(60vh, 520px);
+  overflow: auto;
+}
+
+.customer-invoice-lines-scroll .ant-table-cell {
+  white-space: nowrap;
+}

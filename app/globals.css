@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root,
+.light {
+  --pharma: #0d6e8d;
+  --leaf: #1b5e3c;
+  --gold: #c9a94f;
+  --danger: #c0392b;
+  --success: #1e8449;
+  --info: #1f6fad;
+  --warning: #d68910;
+  --bg-page: #eef5f7;
+  --text: #0e2a33;
+  --muted: #5a7580;
+  --border: rgba(13, 110, 141, 0.18);
+  --background: var(--bg-page);
+  --foreground: var(--text);
+  --primary: var(--pharma);
+}
+
+.dark {
+  --pharma: #4aafc9;
+  --leaf: #3d9a62;
+  --gold: #d4b86a;
+  --danger: #e74c3c;
+  --success: #52c97a;
+  --info: #5dade2;
+  --warning: #f5b041;
+  --bg-page: #0c1920;
+  --text: #e8f4f7;
+  --muted: #8aa8b3;
+  --border: rgba(74, 175, 201, 0.22);
+  --background: var(--bg-page);
+  --foreground: var(--text);
+  --primary: var(--pharma);
+}
+
+@theme inline {
+  --color-pharma: var(--pharma);
+  --color-leaf: var(--leaf);
+  --color-gold: var(--gold);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-warning: var(--warning);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  min-height: 100%;
+  background: var(--bg-page);
+  color: var(--text);
+}
+
+.ant-layout {
+  background: transparent !important;
+}
+
+.app-sidebar {
+  flex-shrink: 0;
+  height: 100%;
+}
+
+.app-sidebar .ant-layout-sider-children {
+  padding: 0.25rem;
+}
+
+.app-sidebar-menu {
+  background: transparent !important;
+  border-inline-end: none !important;
+}
+
+.app-nav-drawer-menu {
+  background: transparent !important;
+}
+
+.app-nav-drawer-menu .ant-menu-item {
+  margin-inline: 0.5rem;
+  width: calc(100% - 1rem);
+  border-radius: 8px;
+}

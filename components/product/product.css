@@ -1,0 +1,240 @@
+/* Reuse location page layout tokens */
+.product-page {
+  padding: 1.25rem 1.5rem 2rem;
+}
+
+.product-page-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.product-page-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.product-list-table .ant-table-tbody > tr:hover > td {
+  background: color-mix(in srgb, var(--pharma) 6%, transparent) !important;
+}
+
+.product-list-table .ant-table {
+  table-layout: auto;
+}
+
+.product-list-table .ant-table-cell {
+  white-space: nowrap;
+}
+
+.product-info-card {
+  margin-bottom: 0.75rem;
+}
+
+.product-info-name {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.product-info-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.product-info-desc {
+  margin: 0.65rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.45;
+  white-space: normal;
+}
+
+.product-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 992px) {
+  .product-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.product-kpi-card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+}
+
+.product-kpi-label {
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-bottom: 0.2rem;
+}
+
+.product-kpi-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.product-kpi-growth {
+  font-size: 0.68rem;
+  margin-top: 0.2rem;
+}
+
+.product-chart-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 992px) {
+  .product-chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-chart-panel {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem 0.85rem;
+}
+
+.product-chart-panel h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.product-chart-wrap {
+  height: 180px;
+  position: relative;
+}
+
+.product-panel {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-panel h4 {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.product-page .ant-tabs-nav::before {
+  border-bottom: none;
+}
+
+.product-location-link {
+  color: var(--pharma, #0d6e8d);
+  text-decoration: none;
+}
+
+.product-location-link:hover {
+  text-decoration: underline;
+}
+
+.product-instance-thumb {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.product-items-panel {
+  margin-bottom: 0;
+}
+
+.product-items-title {
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.product-items-panel .ant-table-cell {
+  white-space: nowrap;
+}
+
+.product-items-panel .ant-table-cell:has(.whitespace-normal) {
+  white-space: normal;
+  max-width: 220px;
+}
+
+.inbound-order-summary-card {
+  margin-bottom: 0.75rem;
+}
+
+.inbound-order-summary-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.inbound-order-summary-code {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.inbound-order-summary-dl {
+  margin-bottom: 0;
+}
+
+.inbound-order-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .inbound-order-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inbound-order-detail-main {
+  min-width: 0;
+}
+
+.inbound-order-timeline-panel {
+  position: sticky;
+  top: 0.75rem;
+}
+
+.inbound-order-timeline-scroll {
+  max-height: min(70vh, 640px);
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.inbound-order-lines-hint {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.inbound-order-line--current > td {
+  background: color-mix(in srgb, var(--pharma) 8%, transparent) !important;
+}
