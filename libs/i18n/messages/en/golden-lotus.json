@@ -1,0 +1,1380 @@
+{
+  "nav": {
+    "dashboard": "Overview",
+    "vendors": "Distributors",
+    "sku": "SKU & inventory",
+    "customer": "Customers",
+    "campaign": "Campaigns",
+    "research": "Market",
+    "cases": "Feedback",
+    "hrm": "HR",
+    "ai": "AI · R&D",
+    "settings": "Settings"
+  },
+  "navGroup": {
+    "ops": "Operations",
+    "trade": "Channel & distribution",
+    "brand": "Brand & customers",
+    "research": "Research & innovation",
+    "hrm": "Administration"
+  },
+  "shell": {
+    "brandTitle": "Golden Lotus Herbals",
+    "sidebarAria": "Main navigation",
+    "openMenu": "Open menu",
+    "searchPlaceholder": "Search vendor, SKU, ticket no.…",
+    "notifications": "Notifications",
+    "help": "Help",
+    "accountDemo": "Account",
+    "accountRole": "Ops Lead",
+    "language": "Language",
+    "toastNotify": "You have 7 unread operational notifications.",
+    "toastSearch": "Searching…",
+    "toastVendorProfile": "Vendor profile loaded:",
+    "toastNotifyToggle": "Notification preferences updated.",
+    "toastRealtime": [
+      "New signal: Vitamin C search volume ↑ in Hanoi",
+      "WMS connector: latency spike",
+      "Summer campaign: conversion holding at 3.8%"
+    ]
+  },
+  "crumb": {
+    "dashboard": "Golden Lotus Herbals / Platform / Executive Overview",
+    "vendors": "Golden Lotus Herbals / Trade / Vendors",
+    "sku": "Golden Lotus Herbals / Supply / SKU",
+    "customer": "Golden Lotus Herbals / CRM / Intelligence",
+    "campaign": "Golden Lotus Herbals / Marketing / Campaigns",
+    "research": "Golden Lotus Herbals / BI / Research",
+    "cases": "Golden Lotus Herbals / Operations / Tickets",
+    "hrm": "Golden Lotus Herbals / People / HRM",
+    "ai": "Golden Lotus Herbals / AI / Recommendations",
+    "settings": "Golden Lotus Herbals / Admin / Settings"
+  },
+  "tabNote": {
+    "title": "Quick summary",
+    "permLabel": "Who can view",
+    "flowLabel": "Main flow",
+    "sourceLabel": "Data sources",
+    "processLabel": "How it works"
+  },
+  "dashboard": {
+    "tabPerm": "Operations, trade marketing, brand marketing",
+    "tabFlow": "Signals → key performance indicators → alerts",
+    "tabSource": "Point-of-sale systems, customer relationship management, marketing, human resources",
+    "tabProcess": "Daily rollups by channel",
+    "flow": {
+      "s1t": "Data Sources",
+      "s1d": "POS · Customer · HRM · Marketing · ERP snapshots synced to SLA.",
+      "s2t": "Central Platform",
+      "s2d": "IAM · API Gateway · Event bus · Master data for SKU & customers.",
+      "s3t": "Data Processing",
+      "s3d": "Normalize · CDC · Quality rules · Feature store for AI/BI.",
+      "s4t": "Business Intelligence",
+      "s4d": "Vendor · Trade · Customer 360 · Campaign attribution.",
+      "s5t": "Decision Support",
+      "s5d": "Scenario · SLA · Workflow · AI recommendation queue.",
+      "s6t": "Business Actions",
+      "s6d": "Trade execution · Campaign · Field ops · HRM approvals."
+    },
+    "sectionOps": {
+      "h": "Overview",
+      "p": "Real-time KPI, revenue trend, distributor performance, customer segments, and decision alerts."
+    },
+    "highlight": {
+      "c1t": "Network gross revenue / month (bn ₫)",
+      "c1v": 312,
+      "c1s": "",
+      "c2t": "Active campaigns",
+      "c2v": 24,
+      "c3t": "Orders in queue",
+      "c3v": 1284
+    },
+    "kpi": {
+      "vendors": "Active Vendors",
+      "customers": "Customer Profiles",
+      "signals": "Market Signals",
+      "alerts": "Decision Alerts",
+      "revenue": "Monthly Revenue",
+      "stockout": "Stock-out Risks"
+    },
+    "kpiGrowth": {
+      "g1": "+4.2%",
+      "g2": "+2.1%",
+      "g3": "−1.4%",
+      "g4": "+12%",
+      "g5": "+6.8%",
+      "g6": "−5 SKU"
+    },
+    "charts": {
+      "revenue": "Revenue Trend",
+      "revenueY": "Revenue (₫B)",
+      "vendor": "Vendor Performance",
+      "vendorY": "Sell-through index",
+      "demand": "Product Demand",
+      "demandY": "Demand index",
+      "segments": "Customer Segments",
+      "segLabels": [
+        "Premium",
+        "Mass",
+        "Chronic",
+        "Price sens.",
+        "New"
+      ],
+      "campaignRoi": "Campaign ROI",
+      "campaignY": "ROI (×)",
+      "months": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "weeks": [
+        "W1",
+        "W2",
+        "W3",
+        "W4",
+        "W5",
+        "W6",
+        "W7",
+        "W8"
+      ],
+      "vendorLabels": [
+        "HN Hub",
+        "ĐN Link",
+        "SG Wellness",
+        "CT Supply",
+        "HP OTC"
+      ],
+      "campaignLabels": [
+        "Summer Immunity",
+        "Loyalty Booster",
+        "Pharmacy Expansion",
+        "Digestive push",
+        "Immunity reminder"
+      ],
+      "custPieLabels": [
+        "OTC",
+        "Chronic",
+        "Gift",
+        "Emergency"
+      ],
+      "retentionX": [
+        "M+0",
+        "M+1",
+        "M+2",
+        "M+3",
+        "M+4",
+        "M+5"
+      ],
+      "retentionY": "Retention %"
+    },
+    "map": {
+      "title": "Vietnam demand hotspot map",
+      "aria": "Vietnam hotspot map",
+      "hn": "Hanoi · High volatility",
+      "dn": "Da Nang · Monitor",
+      "hcm": "Ho Chi Minh City · Stable",
+      "ct": "Can Tho · Stable",
+      "stockOut": "Stock-out risk:",
+      "vendorScore": "Vendor perf score:",
+      "demandTrend": "Demand trend:",
+      "trendSampleHn": "+18% WoW",
+      "lgDanger": "Danger / high volatility",
+      "lgWarn": "Warning",
+      "lgStable": "Stable"
+    },
+    "alertsSection": {
+      "h": "Alerts",
+      "p": "Enterprise alerts: priority, signal source, decision proposal, SLA."
+    },
+    "alertsTable": {
+      "priority": "Priority",
+      "signal": "Signal",
+      "source": "Source",
+      "decision": "Decision",
+      "owner": "Owner",
+      "sla": "Due",
+      "status": "Status"
+    }
+  },
+  "vendors": {
+    "tabPerm": "Trade marketing, operations",
+    "tabFlow": "Filters → table → detail",
+    "tabSource": "Vendor master data, outlets, risk",
+    "tabProcess": "Scheduled sync; row opens profile",
+    "section": {
+      "h": "Distributors",
+      "p": "Distributor list, regional performance score, revenue, and inventory risk."
+    },
+    "filters": {
+      "search": "Search vendor / code…",
+      "regionAll": "All regions",
+      "regionN": "North",
+      "regionC": "Central",
+      "regionS": "South",
+      "riskAll": "Stock risk",
+      "riskLow": "Low",
+      "riskMed": "Medium",
+      "riskHigh": "High"
+    },
+    "table": {
+      "vendor": "Vendor",
+      "score": "Score",
+      "region": "Region",
+      "city": "HQ / Province",
+      "contact": "Contact",
+      "channel": "Primary channel",
+      "rev": "Monthly Rev",
+      "risk": "Inv. Risk",
+      "cov": "Coverage",
+      "trend": "Trend",
+      "outlets": "Outlet coverage",
+      "asm": "ASM",
+      "syncedAt": "Last sync"
+    },
+    "detail": {
+      "title": "Vendor profile",
+      "hint": "Select a row to view details.",
+      "code": "Vendor code",
+      "name": "Name",
+      "score": "Score",
+      "region": "Region",
+      "rev": "Monthly revenue",
+      "risk": "Stock risk",
+      "cov": "Coverage",
+      "outlets": "Outlet coverage",
+      "asm": "Area sales manager",
+      "syncedAt": "Last data sync"
+    },
+    "explain": {
+      "src": "Data Sources",
+      "proc": "Data Processing",
+      "out": "Business Output",
+      "srcItems": [
+        "POS sell-out",
+        "Inventory snapshots",
+        "Weekly distributor reports"
+      ],
+      "procItems": [
+        "Vendor scoring",
+        "Sell-out analysis",
+        "Distribution coverage"
+      ],
+      "outItems": [
+        "Vendor optimization",
+        "SKU expansion",
+        "Trade decisions"
+      ]
+    }
+  },
+  "sku": {
+    "tabPerm": "Operations, trade marketing",
+    "tabFlow": "Product listings → charts → low-stock alerts",
+    "tabSource": "Warehouse management system, sales data, forecasts",
+    "tabProcess": "Coverage and regional heat maps",
+    "section": {
+      "h": "SKU & inventory",
+      "p": "Track BSV Vitamin C, Ho Cảm, Dạ Dày, Gan — stock, distribution heatmap, low-stock alerts."
+    },
+    "explain": {
+      "in": "Input",
+      "proc": "Processing",
+      "out": "Output",
+      "inItems": [
+        "WMS · POS · distributor EDI"
+      ],
+      "procItems": [
+        "Forecast · allocation · ATP"
+      ],
+      "outItems": [
+        "Replenishment · route-to-market"
+      ]
+    },
+    "cards": {
+      "stock": "On hand",
+      "cov": "Coverage",
+      "trendLbl": "Trend",
+      "ordersWeek": "Orders this week (est.)",
+      "badgeReorder": "Reorder",
+      "badgeMonitor": "Monitor",
+      "badgeHealthy": "Healthy"
+    },
+    "charts": {
+      "invTitle": "Inventory vs forecast",
+      "onHand": "On hand (k)",
+      "forecast": "Forecast need (k)",
+      "skuLabels": [
+        "Vitamin C",
+        "Ho Cảm",
+        "Dạ Dày",
+        "Gan"
+      ]
+    },
+    "lowStock": {
+      "title": "Low stock alerts",
+      "sku": "SKU",
+      "dc": "DC",
+      "onHand": "On hand",
+      "safetyStock": "Safety stock",
+      "avgDailyOut": "Avg. issues / day",
+      "days": "Days cover",
+      "reorderProposal": "Reorder proposal",
+      "nextInbound": "Next inbound (ETA)",
+      "planner": "Owner",
+      "daysUnit": "days",
+      "status": "Status",
+      "critical": "Critical",
+      "watch": "Watch",
+      "ok": "OK"
+    },
+    "heatmap": {
+      "title": "Distribution heatmap",
+      "hint": "Darker cells = higher channel coverage.",
+      "cellTitle": "Channel intensity"
+    }
+  },
+  "customer": {
+    "tabPerm": "Brand marketing, trade marketing",
+    "tabFlow": "Full customer view → behavior → segments",
+    "tabSource": "Mobile application, point-of-sale, loyalty program",
+    "tabProcess": "Touchpoints and customer lifetime value",
+    "section": {
+      "h": "Customers",
+      "p": "Full profile, touchpoint history, segments, retention, and loyalty — stacked layout with horizontal scroll on wide tables."
+    },
+    "panel360": {
+      "h": "Customer 360 · Nguyen Thi Mai",
+      "sub": "ID: CUS-HCM-88421 · Tier: Gold · Channel: Pharmacy + App",
+      "tl1": "Purchased BSV Vitamin C — Lotte Mart Q7 pharmacy",
+      "tl2": "Redeemed loyalty points — 50k voucher",
+      "tl3": "CSAT survey after immunity campaign"
+    },
+    "dates": {
+      "d1": "2026-05-02",
+      "d2": "2026-04-18",
+      "d3": "2026-03-30"
+    },
+    "quick": {
+      "title": "Quick contact",
+      "lblPhone": "Phone",
+      "lblEmail": "Email",
+      "lblCity": "Location",
+      "lblChannel": "Primary channel",
+      "lblTier": "Membership tier",
+      "lblLastSeen": "Last activity",
+      "phone": "0903 *** 821",
+      "email": "mai.nguyen@demo.vn",
+      "city": "Ho Chi Minh City",
+      "channel": "Pharmacy & app",
+      "tier": "Gold",
+      "lastSeen": "2 hours ago"
+    },
+    "explain": {
+      "h": "Explain · Customer intelligence",
+      "src": "Data sources",
+      "proc": "Processing",
+      "out": "Output",
+      "srcItems": [
+        "Customer app",
+        "POS purchase",
+        "Loyalty system"
+      ],
+      "procItems": [
+        "Segmentation",
+        "Behavior analysis",
+        "Churn prediction"
+      ],
+      "outItems": [
+        "Campaign targeting",
+        "Next-best-offer recommendation"
+      ]
+    },
+    "charts": {
+      "seg": "Segment distribution",
+      "ret": "Retention cohort"
+    },
+    "loyalty": {
+      "h": "Loyalty & purchase frequency",
+      "colSeg": "Segment",
+      "colMem": "Members",
+      "colFreq": "Avg. frequency / 90d",
+      "colClv": "CLV index",
+      "colStat": "Status",
+      "row1": [
+        "Premium health",
+        "12,400",
+        "4.2",
+        "118",
+        "Healthy"
+      ],
+      "row2": [
+        "Price sensitive",
+        "38,200",
+        "1.8",
+        "62",
+        "Watch"
+      ],
+      "row3": [
+        "Chronic care",
+        "9,050",
+        "6.1",
+        "132",
+        "Upsell"
+      ],
+      "badgeHealthy": "Healthy",
+      "badgeWatch": "Watch",
+      "badgeUpsell": "Upsell"
+    },
+    "tables": {
+      "profile": {
+        "fullName": "Full name",
+        "customerId": "Customer ID",
+        "tier": "Tier",
+        "tierSince": "Tier since",
+        "primaryChannel": "Primary channel",
+        "phone": "Phone",
+        "email": "Email",
+        "city": "Location",
+        "memberSince": "Loyalty since",
+        "lastSeen": "Last activity",
+        "clvIndex": "CLV index",
+        "consentMarketing": "Marketing consent"
+      },
+      "activity": {
+        "h": "Activity & touchpoints",
+        "occurredAt": "Time",
+        "channel": "Channel",
+        "touchpoint": "Touchpoint",
+        "detail": "Detail",
+        "outcome": "Outcome"
+      },
+      "segmentMix": {
+        "h": "Segment mix (attributed revenue)",
+        "segment": "Purchase segment",
+        "sharePct": "Share",
+        "labeledRev": "Attrib. revenue / year",
+        "orders90d": "Orders 90d"
+      },
+      "retention": {
+        "h": "Retention by period (current cohort)",
+        "period": "Period",
+        "retentionPct": "Retention %",
+        "note": "Note"
+      }
+    }
+  },
+  "campaign": {
+    "tabPerm": "Brand marketing, trade marketing",
+    "tabFlow": "Campaigns → return on investment → vouchers",
+    "tabSource": "Spend & attributed revenue",
+    "tabProcess": "Track performance by period",
+    "section": {
+      "h": "Campaigns",
+      "p": "Active campaigns: Summer Immunity, Loyalty Booster, Pharmacy Expansion."
+    },
+    "cards": {
+      "roi": "ROI",
+      "conv": "Conv.",
+      "live": "Live"
+    },
+    "roiTable": {
+      "h": "ROI & conversion",
+      "campaign": "Campaign",
+      "period": "Run period",
+      "audience": "Audience",
+      "channel": "Channel",
+      "spend": "Spend",
+      "rev": "Revenue attrib.",
+      "roi": "ROI",
+      "conv": "Conversion",
+      "status": "Status"
+    },
+    "voucher": {
+      "h": "Voucher · Push notification",
+      "pool": "Pool",
+      "issued": "Issued",
+      "redeemed": "Redeemed",
+      "push": "Push delivered",
+      "open": "Open rate",
+      "expiry": "Valid until",
+      "costPerRedeem": "Cost / redemption",
+      "budgetLeft": "Budget remaining"
+    }
+  },
+  "research": {
+    "tabPerm": "Research and development, brand marketing",
+    "tabFlow": "Insights → trends → prompts",
+    "tabSource": "Retail, surveys, market",
+    "tabProcess": "Signals for new products",
+    "section": {
+      "h": "Market",
+      "p": "BI hub: trends, demand forecast, market opportunities, and AI insights."
+    },
+    "cards": {
+      "c1h": "Demand prediction",
+      "c1p": "Vitamin C — North +14% next 8 weeks (confidence 0.81).",
+      "c2h": "Market opportunities",
+      "c2p": "Digestive portfolio gap vs competitor X on Central coast.",
+      "c3h": "Trend reports",
+      "c3p": "Weekly PDF pack · SKU ranking · Share of shelf proxy."
+    },
+    "ai": {
+      "a1t": "AI insight",
+      "a1p": "Demand for Vitamin C rising in North Vietnam — suggest increasing allocation Da Nang → Hanoi corridor.",
+      "a2t": "AI insight",
+      "a2p": "Customer retention decreasing in HCMC — check promotion overlap and CS after ADR.",
+      "a3t": "AI insight",
+      "a3p": "Potential digestive product opportunity — scan social + OTC basket affinity."
+    }
+  },
+  "cases": {
+    "tabPerm": "Operations, quality assurance",
+    "tabFlow": "Queue → SLA commitments → handling status",
+    "tabSource": "Hotline, customer relationship management, field teams",
+    "tabProcess": "Priority, accountable owner, tracking",
+    "section": {
+      "h": "Feedback",
+      "p": "Tickets with deadlines, intake and current status, plus complaint / adverse-event handling."
+    },
+    "sla": {
+      "h": "SLA tracker",
+      "case": "Ticket ID",
+      "type": "Type",
+      "priority": "Priority",
+      "receivedBy": "Received by",
+      "receivedAt": "Received at",
+      "sla": "Time left",
+      "owner": "Owner",
+      "situation": "Current situation",
+      "status": "Status"
+    }
+  },
+  "hrm": {
+    "tabPerm": "Human resources management, operations",
+    "tabFlow": "Key performance indicators → departments → approvals",
+    "tabSource": "Attendance, requests, performance indicators",
+    "tabProcess": "Standard approval flows",
+    "section": {
+      "h": "HR",
+      "p": "Field & office HR: KPI, attendance, approvals, department performance."
+    },
+    "kpi": {
+      "head": "Headcount",
+      "att": "Attendance today",
+      "open": "Open approvals",
+      "g1": "+2.3%",
+      "g2": "On target",
+      "badge": "Mix HR/Finance"
+    },
+    "dept": {
+      "h": "Department performance",
+      "dept": "Dept",
+      "kpi": "KPI score",
+      "sla": "Ticket SLA",
+      "trend": "Trend",
+      "status": "Status",
+      "r1": [
+        "Trade Marketing",
+        "88",
+        "96%",
+        "+3%",
+        "OK"
+      ],
+      "r2": [
+        "Field Sales North",
+        "76",
+        "89%",
+        "−2%",
+        "Coach"
+      ],
+      "r3": [
+        "Customer Care",
+        "91",
+        "98%",
+        "+1%",
+        "OK"
+      ],
+      "badgeOk": "OK",
+      "badgeCoach": "Coach"
+    },
+    "approval": {
+      "h": "Approval workflows",
+      "approvalTable": {
+        "requester": "Requester",
+        "title": "Title / summary",
+        "type": "Request type",
+        "submitted": "Submitted",
+        "status": "Status"
+      }
+    },
+    "staff": {
+      "h": "Staff directory",
+      "name": "Name",
+      "employeeId": "Employee ID",
+      "role": "Role",
+      "dept": "Department",
+      "contact": "Contact",
+      "joinDate": "Start date",
+      "status": "Status"
+    }
+  },
+  "aiCenter": {
+    "tabPerm": "Research and development, strategy",
+    "tabFlow": "Priority → confidence score → accountable owner",
+    "tabSource": "Sales, feedback, market",
+    "tabProcess": "Ranked action suggestions",
+    "section": {
+      "h": "AI · R&D",
+      "p": "Strategic priorities: distribution expansion, vendor optimization, campaigns, and market forecasting."
+    },
+    "badges": {
+      "impact": "Impact:",
+      "conf": "Conf:"
+    },
+    "impactLevels": {
+      "high": "High",
+      "medium": "Medium"
+    }
+  },
+  "settings": {
+    "tabPerm": "System administrator",
+    "tabFlow": "Roles → users → integrations",
+    "tabSource": "Identity and access management, audit logs",
+    "tabProcess": "Permissions & notifications",
+    "section": {
+      "h": "Settings",
+      "p": "Roles, permissions, integrations, and notifications."
+    },
+    "roles": {
+      "h": "Role management",
+      "role": "Role",
+      "users": "Users",
+      "risk": "Risk",
+      "status": "Status",
+      "r1": [
+        "Central Admin",
+        "8",
+        "High",
+        "Active"
+      ],
+      "r2": [
+        "Regional ASM",
+        "42",
+        "Medium",
+        "Active"
+      ],
+      "r3": [
+        "Pharmacovigilance",
+        "6",
+        "High",
+        "Review"
+      ],
+      "active": "Active",
+      "review": "Review"
+    },
+    "integrations": {
+      "h": "Integrations",
+      "i1": "SAP B1 connector",
+      "i2": "Zalo OA CRM",
+      "i3": "Warehouse TMS",
+      "live": "Live",
+      "degraded": "Degraded"
+    },
+    "notify": {
+      "h": "Notification settings",
+      "n1": "Executive alerts · Email",
+      "n2": "Stock-out · SMS",
+      "n3": "Campaign digest · Slack"
+    },
+    "matrix": {
+      "h": "Permission matrix (abbrev.)",
+      "module": "Module",
+      "read": "Read",
+      "write": "Write",
+      "approve": "Approve",
+      "m1": [
+        "Vendor financials",
+        "R",
+        "Limited",
+        "CFO"
+      ],
+      "m2": [
+        "Campaign launch",
+        "All",
+        "Brand",
+        "CMO"
+      ]
+    }
+  },
+  "mockData": {
+    "alerts": [
+      {
+        "priority": "P1",
+        "signal": "Vendor sell-out dropped 28%",
+        "source": "Vendor POS · North",
+        "decision": "ASM visit + competitor promo audit",
+        "owner": "ASM North",
+        "sla": "24h",
+        "status": "danger",
+        "labelKey": "open"
+      },
+      {
+        "priority": "P2",
+        "signal": "Vitamin C demand increased 32%",
+        "source": "POS + Search signals",
+        "decision": "Increase allocation SKU-BSV-VC",
+        "owner": "Demand Planning",
+        "sla": "48h",
+        "status": "warning",
+        "labelKey": "inProgress"
+      },
+      {
+        "priority": "P2",
+        "signal": "ADR complaints increased WoW",
+        "source": "CRM · Hotline",
+        "decision": "PV review + batch correlation",
+        "owner": "Pharmacovigilance",
+        "sla": "12h",
+        "status": "danger",
+        "labelKey": "critical"
+      },
+      {
+        "priority": "P3",
+        "signal": "Competitor promotion detected",
+        "source": "Market intel · Field",
+        "decision": "Trade counter-campaign draft",
+        "owner": "Trade MKT",
+        "sla": "72h",
+        "status": "info",
+        "labelKey": "monitoring"
+      },
+      {
+        "priority": "P3",
+        "signal": "Ho Cảm stock-out risk Da Nang",
+        "source": "WMS + forecast",
+        "decision": "Emergency transfer DC-South",
+        "owner": "Supply Chain",
+        "sla": "36h",
+        "status": "warning",
+        "labelKey": "slaRisk"
+      },
+      {
+        "priority": "P4",
+        "signal": "Loyalty redemption spike",
+        "source": "App · CRM",
+        "decision": "Cap voucher burn rate",
+        "owner": "CRM Lead",
+        "sla": "5d",
+        "status": "success",
+        "labelKey": "stable"
+      }
+    ],
+    "vendors": [
+      {
+        "code": "VD-HN-042",
+        "name": "Medipharm North JSC",
+        "score": 61,
+        "regionKey": "north",
+        "city": "Hanoi",
+        "contact": "+84 24 3829 1100",
+        "channel": "OTC · chain B",
+        "rev": "₫ 9.2B",
+        "riskKey": "high",
+        "cov": "78%",
+        "trend": "+2%",
+        "outlets": "312 outlets",
+        "asm": "North ASM · Hung Tran",
+        "syncedAt": "Today 08:15"
+      },
+      {
+        "code": "VD-DN-019",
+        "name": "Central Pharma Link",
+        "score": 74,
+        "regionKey": "central",
+        "city": "Da Nang",
+        "contact": "+84 236 393 4411",
+        "channel": "OTC + ETC",
+        "rev": "₫ 6.1B",
+        "riskKey": "medium",
+        "cov": "82%",
+        "trend": "+5%",
+        "outlets": "186 outlets",
+        "asm": "Central ASM · Thu Le",
+        "syncedAt": "Today 07:58"
+      },
+      {
+        "code": "VD-HCM-003",
+        "name": "Saigon Wellness Dist.",
+        "score": 82,
+        "regionKey": "south",
+        "city": "Ho Chi Minh City",
+        "contact": "+84 28 3827 6600",
+        "channel": "OTC · wellness",
+        "rev": "₫ 14.8B",
+        "riskKey": "low",
+        "cov": "91%",
+        "trend": "+3%",
+        "outlets": "524 outlets",
+        "asm": "South ASM · Minh Pham",
+        "syncedAt": "Today 09:02"
+      },
+      {
+        "code": "VD-CT-011",
+        "name": "Mekong Retail Supply",
+        "score": 79,
+        "regionKey": "south",
+        "city": "Can Tho",
+        "contact": "+84 292 376 2200",
+        "channel": "OTC · retail",
+        "rev": "₫ 4.3B",
+        "riskKey": "low",
+        "cov": "85%",
+        "trend": "+1%",
+        "outlets": "141 outlets",
+        "asm": "Mekong ASM · An Vo",
+        "syncedAt": "Today 06:40"
+      },
+      {
+        "code": "VD-HP-008",
+        "name": "Hai Phong OTC Hub",
+        "score": 68,
+        "regionKey": "north",
+        "city": "Hai Phong",
+        "contact": "+84 225 384 1199",
+        "channel": "OTC · hub",
+        "rev": "₫ 3.9B",
+        "riskKey": "medium",
+        "cov": "74%",
+        "trend": "−4%",
+        "outlets": "97 outlets",
+        "asm": "Hai Phong ASM · Lan Do",
+        "syncedAt": "Today 08:44"
+      }
+    ],
+    "skuCards": [
+      {
+        "name": "BSV Vitamin C",
+        "sku": "SKU-BSV-VC-1000",
+        "stock": "124k units",
+        "cov": "22 days",
+        "badgeKey": "warning",
+        "trend": "+14%",
+        "weekOrders": "18.4k orders"
+      },
+      {
+        "name": "BSV Ho Cảm",
+        "sku": "SKU-BSV-HC-500",
+        "stock": "61k units",
+        "cov": "31 days",
+        "badgeKey": "success",
+        "trend": "+6%",
+        "weekOrders": "9.1k orders"
+      },
+      {
+        "name": "BSV Dạ Dày",
+        "sku": "SKU-BSV-DD-300",
+        "stock": "44k units",
+        "cov": "18 days",
+        "badgeKey": "danger",
+        "trend": "+3%",
+        "weekOrders": "6.8k orders"
+      },
+      {
+        "name": "BSV Gan",
+        "sku": "SKU-BSV-GN-450",
+        "stock": "52k units",
+        "cov": "26 days",
+        "badgeKey": "success",
+        "trend": "+2%",
+        "weekOrders": "7.9k orders"
+      }
+    ],
+    "campaigns": [
+      {
+        "title": "Summer Immunity Campaign",
+        "period": "May–Aug 2026",
+        "roi": "4.1×",
+        "conv": "3.8%",
+        "statusKey": "success",
+        "desc": "Vitamin C + Ho Cảm bundle · pharmacy tier A/B."
+      },
+      {
+        "title": "Loyalty Booster",
+        "period": "Rolling Q2",
+        "roi": "2.6×",
+        "conv": "5.1%",
+        "statusKey": "info",
+        "desc": "Double points · push + Zalo OA journeys."
+      },
+      {
+        "title": "Pharmacy Expansion Push",
+        "period": "North focus",
+        "roi": "3.3×",
+        "conv": "2.9%",
+        "statusKey": "warning",
+        "desc": "Shelf KPI · ASM cadence + display compliance."
+      }
+    ],
+    "campaignRoi": [
+      {
+        "name": "Summer Immunity",
+        "spend": "₫ 2.4B",
+        "rev": "₫ 9.8B",
+        "roi": "4.1×",
+        "conv": "3.8%",
+        "statusKey": "success",
+        "labelKey": "scale",
+        "period": "Jun 1 – Aug 31, 2026",
+        "audience": "Families · kids",
+        "channel": "App · Zalo OA · POS"
+      },
+      {
+        "name": "Loyalty Booster",
+        "spend": "₫ 0.9B",
+        "rev": "₫ 2.3B",
+        "roi": "2.6×",
+        "conv": "5.1%",
+        "statusKey": "info",
+        "labelKey": "optimize",
+        "period": "Q2 · rolling",
+        "audience": "Gold · Silver members",
+        "channel": "App · Email · SMS"
+      },
+      {
+        "name": "Pharmacy Expansion",
+        "spend": "₫ 1.8B",
+        "rev": "₫ 5.9B",
+        "roi": "3.3×",
+        "conv": "2.9%",
+        "statusKey": "warning",
+        "labelKey": "reviewGeo",
+        "period": "Apr 1 – Jun 30, 2026",
+        "audience": "OTC chains · North",
+        "channel": "Field ASM · Display"
+      }
+    ],
+    "campaignVouchers": [
+      {
+        "id": "VCH-EN-01",
+        "pool": "Summer voucher 50k",
+        "issued": "24,000",
+        "redeemed": "18,200",
+        "push": "210,000",
+        "openRate": "31%",
+        "expiry": "Sep 30, 2026",
+        "costPerRedeem": "₫ 12,800",
+        "budgetLeft": "~18% voucher pool left"
+      },
+      {
+        "id": "VCH-EN-02",
+        "pool": "Loyalty double points",
+        "issued": "—",
+        "redeemed": "—",
+        "push": "98,000",
+        "openRate": "27%",
+        "expiry": "Q2 rolling cycle",
+        "costPerRedeem": "—",
+        "budgetLeft": "~42% push budget"
+      },
+      {
+        "id": "VCH-EN-03",
+        "pool": "Immunization reminder · push",
+        "issued": "8,500",
+        "redeemed": "3,100",
+        "push": "156,000",
+        "openRate": "34%",
+        "expiry": "Aug 15, 2026",
+        "costPerRedeem": "₫ 8,900",
+        "budgetLeft": "26% Zalo budget left"
+      }
+    ],
+    "customerProfile": {
+      "customerId": "CUS-HCM-88421",
+      "fullName": "Thi Mai Nguyen",
+      "tier": "Gold",
+      "tierSince": "01/2025",
+      "primaryChannel": "Pharmacy · GL Herbals app",
+      "phone": "0903 *** 821",
+      "email": "mai.nguyen@demo.vn",
+      "city": "Ho Chi Minh City · District 7",
+      "memberSince": "08/2023",
+      "lastSeen": "2h ago · App",
+      "clvIndex": "118 · high band",
+      "consentMarketing": "Email · Push · Zalo OA"
+    },
+    "customerActivities": [
+      {
+        "id": "ACT-EN-01",
+        "occurredAt": "2026-05-02 10:14",
+        "channel": "Pharmacy",
+        "touchpoint": "POS · Lotte Mart Q7",
+        "detail": "BSV Vitamin C ×2",
+        "outcome": "Completed · points"
+      },
+      {
+        "id": "ACT-EN-02",
+        "occurredAt": "2026-04-18 15:02",
+        "channel": "App",
+        "touchpoint": "Loyalty burn",
+        "detail": "50,000 ₫ voucher",
+        "outcome": "Redeemed"
+      },
+      {
+        "id": "ACT-EN-03",
+        "occurredAt": "2026-03-30 09:40",
+        "channel": "Email",
+        "touchpoint": "Survey",
+        "detail": "After immunity campaign",
+        "outcome": "Response sent"
+      },
+      {
+        "id": "ACT-EN-04",
+        "occurredAt": "2026-03-12 18:22",
+        "channel": "Zalo OA",
+        "touchpoint": "Customer care",
+        "detail": "Hoan Cam interaction",
+        "outcome": "Replied within SLA"
+      },
+      {
+        "id": "ACT-EN-05",
+        "occurredAt": "2026-02-05 11:05",
+        "channel": "Pharmacy",
+        "touchpoint": "POS · Phuoc Long Q7",
+        "detail": "Hoan Cam ×1",
+        "outcome": "Points · no ADR"
+      }
+    ],
+    "customerSegmentMix": [
+      {
+        "id": "SEG-EN-01",
+        "segment": "OTC",
+        "sharePct": "44%",
+        "labeledRev": "₫ 42M",
+        "orders90d": "18"
+      },
+      {
+        "id": "SEG-EN-02",
+        "segment": "Chronic",
+        "sharePct": "28%",
+        "labeledRev": "₫ 31M",
+        "orders90d": "11"
+      },
+      {
+        "id": "SEG-EN-03",
+        "segment": "Gift",
+        "sharePct": "18%",
+        "labeledRev": "₫ 12M",
+        "orders90d": "7"
+      },
+      {
+        "id": "SEG-EN-04",
+        "segment": "Emergency",
+        "sharePct": "10%",
+        "labeledRev": "₫ 6M",
+        "orders90d": "4"
+      }
+    ],
+    "customerRetentionSeries": [
+      {
+        "period": "M+0",
+        "retentionPct": "100%",
+        "note": "Baseline cohort"
+      },
+      {
+        "period": "M+1",
+        "retentionPct": "82%",
+        "note": "Dip after promo ends"
+      },
+      {
+        "period": "M+2",
+        "retentionPct": "71%",
+        "note": "Hot season effect"
+      },
+      {
+        "period": "M+3",
+        "retentionPct": "64%",
+        "note": "OTC stable"
+      },
+      {
+        "period": "M+4",
+        "retentionPct": "58%",
+        "note": "Price competition"
+      },
+      {
+        "period": "M+5",
+        "retentionPct": "54%",
+        "note": "Suggest retention voucher"
+      }
+    ],
+    "cases": [
+      {
+        "id": "CASE-ADR-2405",
+        "type": "ADR report",
+        "pri": "P1",
+        "sla": "12h left",
+        "owner": "PV Team",
+        "statusKey": "danger",
+        "labelKey": "breachRisk",
+        "receivedBy": "Huong Vo — PV desk",
+        "receivedAt": "2026-05-10 08:12",
+        "situation": "WAITING · draft report — pharma control sign-off"
+      },
+      {
+        "id": "CASE-ST-8831",
+        "type": "Stock-out",
+        "pri": "P2",
+        "sla": "28h",
+        "owner": "Supply",
+        "statusKey": "warning",
+        "labelKey": "active",
+        "receivedBy": "Auto · TMS",
+        "receivedAt": "2026-05-09 21:40",
+        "situation": "Transfer replenishment from Central DC in progress"
+      },
+      {
+        "id": "CASE-VN-5520",
+        "type": "Vendor conflict",
+        "pri": "P2",
+        "sla": "48h",
+        "owner": "Trade",
+        "statusKey": "info",
+        "labelKey": "mediation",
+        "receivedBy": "Duc An Nguyen — CRM hotline",
+        "receivedAt": "2026-05-08 14:05",
+        "situation": "Mediation session #2 scheduled with distributor"
+      },
+      {
+        "id": "CASE-CS-4102",
+        "type": "Customer complaint",
+        "pri": "P3",
+        "sla": "72h",
+        "owner": "Care",
+        "statusKey": "success",
+        "labelKey": "resolved",
+        "receivedBy": "Thu Trang Tran — Tier-2 CS",
+        "receivedAt": "2026-05-05 09:30",
+        "situation": "Closed after refund and satisfaction survey"
+      }
+    ],
+    "aiRecs": [
+      {
+        "title": "Expand Vitamin C distribution in Hanoi",
+        "impactKey": "high",
+        "conf": "0.84",
+        "owner": "Trade · North",
+        "statusKey": "warning",
+        "detail": "Correlation with competitor promo + sell-through gap at VD-HN-042."
+      },
+      {
+        "title": "Increase loyalty incentives in HCMC",
+        "impactKey": "medium",
+        "conf": "0.76",
+        "owner": "CRM",
+        "statusKey": "info",
+        "detail": "Retention cohort Q1↓ vs baseline; test voucher ladder."
+      },
+      {
+        "title": "Investigate stock-out risk in Da Nang",
+        "impactKey": "high",
+        "conf": "0.79",
+        "owner": "Supply Chain",
+        "statusKey": "danger",
+        "detail": "Forecast error + inbound delay; TMS connector degraded."
+      },
+      {
+        "title": "Campaign budget shift · Pharmacy Expansion",
+        "impactKey": "medium",
+        "conf": "0.71",
+        "owner": "Brand",
+        "statusKey": "success",
+        "detail": "ROI north outperforming south for Ho Cảm displays."
+      }
+    ],
+    "lowStock": [
+      {
+        "id": "LS-EN-01",
+        "sku": "SKU-BSV-VC-1000",
+        "dc": "DC-North",
+        "onHand": "36k",
+        "safetyStock": "48k",
+        "avgDailyOut": "3.2k",
+        "daysCover": "11",
+        "reorderProposal": "+120k · PO-2405",
+        "nextInbound": "2026-05-18",
+        "planner": "Supply · North",
+        "statusKey": "danger"
+      },
+      {
+        "id": "LS-EN-02",
+        "sku": "SKU-BSV-DD-300",
+        "dc": "DC-Central",
+        "onHand": "52k",
+        "safetyStock": "55k",
+        "avgDailyOut": "2.8k",
+        "daysCover": "14",
+        "reorderProposal": "+80k · pending ASM",
+        "nextInbound": "2026-05-22",
+        "planner": "Planning · Central",
+        "statusKey": "warning"
+      },
+      {
+        "id": "LS-EN-03",
+        "sku": "SKU-BSV-HC-500",
+        "dc": "DC-South",
+        "onHand": "118k",
+        "safetyStock": "72k",
+        "avgDailyOut": "3.6k",
+        "daysCover": "31",
+        "reorderProposal": "None · sufficient cover",
+        "nextInbound": "—",
+        "planner": "DC South · WMS",
+        "statusKey": "success"
+      },
+      {
+        "id": "LS-EN-04",
+        "sku": "SKU-BSV-GAN-250",
+        "dc": "DC-North",
+        "onHand": "21k",
+        "safetyStock": "40k",
+        "avgDailyOut": "1.9k",
+        "daysCover": "9",
+        "reorderProposal": "+95k · urgent",
+        "nextInbound": "2026-05-16",
+        "planner": "DC North lead",
+        "statusKey": "danger"
+      }
+    ],
+    "hrmApprovals": [
+      {
+        "id": "APR-EN-001",
+        "requester": "Lan Anh Nguyen",
+        "title": "May holiday batch — trade marketing",
+        "type": "Leave",
+        "submitted": "2026-05-08",
+        "status": "3 pending",
+        "statusKey": "info"
+      },
+      {
+        "id": "APR-EN-002",
+        "requester": "Duc Minh Pham",
+        "title": "CAPEX — DC South warehouse expansion (>500M ₫)",
+        "type": "CAPEX",
+        "submitted": "2026-05-06",
+        "status": "CFO",
+        "statusKey": "warning"
+      },
+      {
+        "id": "APR-EN-003",
+        "requester": "Thu Ha Le",
+        "title": "Sales hire — Central region",
+        "type": "Recruiting",
+        "submitted": "2026-05-02",
+        "status": "Approved",
+        "statusKey": "success"
+      },
+      {
+        "id": "APR-EN-004",
+        "requester": "Viet Anh Hoang",
+        "title": "Travel advance — HCM workshop",
+        "type": "Travel",
+        "submitted": "2026-05-09",
+        "status": "Division director",
+        "statusKey": "warning"
+      },
+      {
+        "id": "APR-EN-005",
+        "requester": "Ngoc Mai Dang",
+        "title": "Internal GMP training — Q3 cohort",
+        "type": "Training",
+        "submitted": "2026-04-28",
+        "status": "Rejected",
+        "statusKey": "danger"
+      }
+    ],
+    "hrmStaff": [
+      {
+        "id": "STF-EN-001",
+        "name": "Tran Minh Tuan",
+        "employeeId": "EMP-HCM-2104",
+        "role": "ASM South",
+        "dept": "Field sales",
+        "contact": "tuuan.tran@demo.vn · 0904 *** 112",
+        "joinDate": "2019-03-12",
+        "status": "Active",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-EN-002",
+        "name": "Nguyen Thi Mai",
+        "employeeId": "EMP-HN-1188",
+        "role": "CS team lead",
+        "dept": "Customer care",
+        "contact": "mai.nguyen@demo.vn · 0983 *** 441",
+        "joinDate": "2021-07-05",
+        "status": "Active",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-EN-003",
+        "name": "Pham Quoc Huy",
+        "employeeId": "EMP-DN-0642",
+        "role": "OTC channel supervisor",
+        "dept": "Trade marketing",
+        "contact": "huy.pham@demo.vn · 0912 *** 903",
+        "joinDate": "2018-11-20",
+        "status": "Probation",
+        "statusKey": "warning"
+      },
+      {
+        "id": "STF-EN-004",
+        "name": "Le Hoang Nam",
+        "employeeId": "EMP-HN-3021",
+        "role": "Supply specialist",
+        "dept": "Supply chain",
+        "contact": "nam.le@demo.vn · 0937 *** 228",
+        "joinDate": "2024-02-14",
+        "status": "Active",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-EN-005",
+        "name": "Vo Khanh Linh",
+        "employeeId": "EMP-HCM-4490",
+        "role": "HRBP South",
+        "dept": "Human resources",
+        "contact": "linh.vo@demo.vn · 0901 *** 665",
+        "joinDate": "2020-09-01",
+        "status": "Parental leave",
+        "statusKey": "info"
+      }
+    ]
+  },
+  "labels": {
+    "campaignRoi": {
+      "scale": "Scale",
+      "optimize": "Optimize",
+      "reviewGeo": "Review geo"
+    },
+    "cases": {
+      "breachRisk": "Breached risk",
+      "active": "Active",
+      "mediation": "Mediation",
+      "resolved": "Resolved"
+    },
+    "alertStatus": {
+      "open": "Open",
+      "inProgress": "In progress",
+      "critical": "Critical",
+      "monitoring": "Monitoring",
+      "slaRisk": "SLA risk",
+      "stable": "Stable"
+    }
+  },
+  "langs": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "zh": "中文"
+  }
+}

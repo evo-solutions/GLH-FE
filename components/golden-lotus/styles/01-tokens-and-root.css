@@ -1,0 +1,65 @@
+/* Golden Lotus Herbals — Central Operation Platform (prototype styles) */
+:root {
+  /* Shared shell tint (sidebar + main column) */
+  --gl-shell-surface: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(240, 248, 250, 0.92) 100%
+  );
+  --gl-sidebar-pad-inline: 10px;
+  --bg-page: #eef5f7;
+  --bg-card: rgba(255, 255, 255, 0.72);
+  --bg-glass: rgba(255, 255, 255, 0.55);
+  --border: rgba(13, 110, 141, 0.12);
+  --shadow: 0 8px 32px rgba(13, 82, 94, 0.08);
+  --shadow-hover: 0 12px 40px rgba(13, 82, 94, 0.12);
+  /* Separation without hard 1px borders */
+  --gl-shell-edge: 8px 0 28px rgba(13, 110, 141, 0.07);
+  --gl-shell-under: 0 8px 22px rgba(13, 82, 94, 0.06);
+  --text: #0e2a33;
+  --muted: #5a7580;
+  --pharma: #0d6e8d;
+  --pharma-deep: #085a73;
+  --leaf: #1b5e3c;
+  --leaf-soft: rgba(27, 94, 60, 0.12);
+  --gold: #c9a94f;
+  --gold-soft: rgba(201, 169, 79, 0.18);
+  --danger: #c0392b;
+  --warning: #d68910;
+  --success: #1e8449;
+  --info: #1f6fad;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --sidebar-w: 240px;
+  --topbar-h: 64px;
+  --font: var(--font-inter), var(--font-noto-sc), "Segoe UI", system-ui, sans-serif;
+}
+
+.gl-root * {
+  box-sizing: border-box;
+}
+.gl-root html {
+  scroll-behavior: smooth;
+}
+.gl-root {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(13, 110, 141, 0.08), transparent),
+    radial-gradient(900px 500px at 100% 0%, rgba(27, 94, 60, 0.06), transparent),
+    linear-gradient(180deg, #f8fbfc 0%, var(--bg-page) 40%, #e8f2f5 100%);
+  line-height: 1.5;
+  /* Shell height: inner .gl-app fills; only main content scrolls */
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.gl-root > .ant-layout.gl-app {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+}

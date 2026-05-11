@@ -1,0 +1,265 @@
+
+.gl-card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.gl-product-card {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  border: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+.gl-product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+.gl-product-card .gl-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--pharma-deep);
+}
+.gl-product-card .gl-sku {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin: 0.15rem 0 0.65rem;
+}
+.gl-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.gl-heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 0.5rem;
+}
+.gl-heatmap-cell {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  background: rgba(13, 110, 141, 0.15);
+  transition: transform 0.15s;
+}
+.gl-heatmap-cell:hover {
+  transform: scale(1.08);
+}
+.gl-heatmap-cell.gl-c1 {
+  background: rgba(13, 110, 141, 0.2);
+}
+.gl-heatmap-cell.gl-c2 {
+  background: rgba(13, 110, 141, 0.35);
+}
+.gl-heatmap-cell.gl-c3 {
+  background: rgba(27, 94, 60, 0.45);
+}
+.gl-heatmap-cell.gl-c4 {
+  background: rgba(27, 94, 60, 0.65);
+}
+
+.gl-ai-card {
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: none;
+  /* Same treatment as .gl-panel / KPI cards — solid white, no gold tint */
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+  margin-bottom: 0.75rem;
+}
+.gl-ai-card strong {
+  color: var(--pharma-deep);
+  font-size: 0.88rem;
+}
+.gl-ai-card p {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.gl-timeline {
+  border-left: 2px solid rgba(13, 110, 141, 0.2);
+  margin-left: 0.5rem;
+  padding-left: 1rem;
+}
+.gl-tl-item {
+  position: relative;
+  padding-bottom: 1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.gl-tl-item::before {
+  content: "";
+  position: absolute;
+  left: -1.35rem;
+  top: 0.2rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--pharma);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px rgba(13, 110, 141, 0.25);
+}
+.gl-tl-item b {
+  color: var(--text);
+  display: block;
+  font-size: 0.8rem;
+}
+
+.gl-setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0;
+  border-bottom: none;
+  box-shadow: inset 0 -1px 0 rgba(13, 110, 141, 0.06);
+  font-size: 0.82rem;
+}
+.gl-toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(13, 110, 141, 0.25);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gl-toggle.gl-on {
+  background: var(--leaf);
+}
+.gl-toggle::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+.gl-toggle.gl-on::after {
+  transform: translateX(20px);
+}
+
+.gl-toast-host {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 360px;
+  pointer-events: none;
+}
+.gl-toast {
+  pointer-events: auto;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  background: rgba(14, 42, 51, 0.95);
+  color: #fff;
+  font-size: 0.78rem;
+  box-shadow: var(--shadow-hover);
+  animation: glToastIn 0.35s ease;
+  border-left: 4px solid var(--gold);
+}
+.gl-toast.gl-info {
+  border-left-color: var(--info);
+}
+.gl-toast.gl-warn {
+  border-left-color: var(--warning);
+}
+@keyframes glToastIn {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.gl-vendor-cell-line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.gl-vendor-cell-sep {
+  color: var(--muted);
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.gl-vendor-cell-code {
+  font-size: 0.8rem;
+}
+
+.gl-filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  align-items: center;
+}
+.gl-filters-bar input,
+.gl-filters-bar select {
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 0.8rem;
+  background: #fff;
+}
+
+.gl-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 99;
+}
+.gl-sidebar-overlay.gl-show {
+  display: block;
+}
+
+@media (max-width: 1200px) {
+  .gl-chart-panel {
+    grid-column: span 12;
+  }
+  .gl-split {
+    grid-template-columns: 1fr;
+  }
+  .gl-explain-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Vendor explain row: resilient columns when main column is wide enough */
+.gl-vendor-explain.gl-explain-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+@media (max-width: 900px) {
+  /* Sidebar is Drawer on small viewports (GoldenLotusChrome); old fixed-sidebar slide rules removed */
+  .gl-menu-toggle {
+    display: flex;
+  }
+  .gl-topbar-search {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .gl-kpi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gl-page {
+    padding: 1rem;
+  }
+}

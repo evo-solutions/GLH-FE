@@ -1,0 +1,1380 @@
+{
+  "nav": {
+    "dashboard": "总览",
+    "vendors": "经销商",
+    "sku": "SKU 与库存",
+    "customer": "客户",
+    "campaign": "活动",
+    "research": "市场",
+    "cases": "反馈",
+    "hrm": "人力",
+    "ai": "AI · 研发",
+    "settings": "设置"
+  },
+  "navGroup": {
+    "ops": "运营中枢",
+    "trade": "渠道与分销",
+    "brand": "客户与品牌",
+    "research": "研究与研发",
+    "hrm": "内部管理"
+  },
+  "shell": {
+    "brandTitle": "Golden Lotus Herbals",
+    "sidebarAria": "主导航",
+    "openMenu": "打开菜单",
+    "searchPlaceholder": "搜索经销商、SKU、工单号…",
+    "notifications": "通知",
+    "help": "帮助",
+    "accountDemo": "账户",
+    "accountRole": "运营负责人",
+    "language": "语言",
+    "toastNotify": "您有 7 条未读运营通知。",
+    "toastSearch": "正在搜索…",
+    "toastVendorProfile": "已加载经销商档案：",
+    "toastNotifyToggle": "已更新通知偏好。",
+    "toastRealtime": [
+      "新信号：河内地区维生素 C 搜索量 ↑",
+      "WMS 连接器：延迟升高",
+      "夏季活动：转化率维持在 3.8%"
+    ]
+  },
+  "crumb": {
+    "dashboard": "Golden Lotus Herbals / 平台 / 高管概览",
+    "vendors": "Golden Lotus Herbals / 贸易 / 经销商",
+    "sku": "Golden Lotus Herbals / 供应链 / SKU",
+    "customer": "Golden Lotus Herbals / CRM / 智能",
+    "campaign": "Golden Lotus Herbals / 营销 / 活动",
+    "research": "Golden Lotus Herbals / BI / 研究",
+    "cases": "Golden Lotus Herbals / 运营 / 工单",
+    "hrm": "Golden Lotus Herbals / 人力 / HRM",
+    "ai": "Golden Lotus Herbals / AI / 推荐",
+    "settings": "Golden Lotus Herbals / 管理 / 设置"
+  },
+  "tabNote": {
+    "title": "一页看懂",
+    "permLabel": "谁能看",
+    "flowLabel": "主流程",
+    "sourceLabel": "数据从哪来",
+    "processLabel": "怎么处理"
+  },
+  "dashboard": {
+    "tabPerm": "运营、渠道、品牌",
+    "tabFlow": "业务信号 → 关键绩效指标 → 预警",
+    "tabSource": "门店收银终端、客户关系管理、营销、人力资源",
+    "tabProcess": "按日与渠道汇总",
+    "flow": {
+      "s1t": "数据来源",
+      "s1d": "POS · 客户 · HRM · 营销 · ERP 快照按 SLA 同步。",
+      "s2t": "中央平台",
+      "s2d": "IAM · API 网关 · 事件总线 · SKU 与客户主数据。",
+      "s3t": "数据处理",
+      "s3d": "标准化 · CDC · 质量规则 · AI/BI 特征存储。",
+      "s4t": "商业智能",
+      "s4d": "经销商 · 贸易 · 客户360 · 活动归因。",
+      "s5t": "决策支持",
+      "s5d": "情景 · SLA · 工作流 · AI 推荐队列。",
+      "s6t": "业务行动",
+      "s6d": "贸易执行 · 营销活动 · 外勤 · HRM 审批。"
+    },
+    "sectionOps": {
+      "h": "总览",
+      "p": "实时 KPI、收入趋势、经销商表现、客户细分与决策预警。"
+    },
+    "highlight": {
+      "c1t": "本月网络含税销售额（亿越南盾）",
+      "c1v": 312,
+      "c1s": "",
+      "c2t": "在跑营销活动",
+      "c2v": 24,
+      "c3t": "待处理订单",
+      "c3v": 1284
+    },
+    "kpi": {
+      "vendors": "活跃经销商",
+      "customers": "客户档案数",
+      "signals": "市场信号",
+      "alerts": "决策预警",
+      "revenue": "月度收入",
+      "stockout": "断货风险"
+    },
+    "kpiGrowth": {
+      "g1": "+4.2%",
+      "g2": "+2.1%",
+      "g3": "−1.4%",
+      "g4": "+12%",
+      "g5": "+6.8%",
+      "g6": "−5 SKU"
+    },
+    "charts": {
+      "revenue": "收入趋势",
+      "revenueY": "收入（₫B）",
+      "vendor": "经销商业绩",
+      "vendorY": "动销指数",
+      "demand": "产品需求",
+      "demandY": "需求指数",
+      "segments": "客户细分",
+      "segLabels": [
+        "高端",
+        "大众",
+        "慢病",
+        "价格敏感",
+        "新客"
+      ],
+      "campaignRoi": "活动 ROI",
+      "campaignY": "ROI（倍）",
+      "months": [
+        "1月",
+        "2月",
+        "3月",
+        "4月",
+        "5月",
+        "6月"
+      ],
+      "weeks": [
+        "第1周",
+        "第2周",
+        "第3周",
+        "第4周",
+        "第5周",
+        "第6周",
+        "第7周",
+        "第8周"
+      ],
+      "vendorLabels": [
+        "河内枢纽",
+        "岘港链路",
+        "西贡康养",
+        "芹苴供应",
+        "海防 OTC"
+      ],
+      "campaignLabels": [
+        "夏季免疫",
+        "忠诚提升",
+        "药房拓展",
+        "消化品类",
+        "免疫提醒"
+      ],
+      "custPieLabels": [
+        "OTC",
+        "慢病",
+        "礼品",
+        "应急"
+      ],
+      "retentionX": [
+        "M+0",
+        "M+1",
+        "M+2",
+        "M+3",
+        "M+4",
+        "M+5"
+      ],
+      "retentionY": "留存率 %"
+    },
+    "map": {
+      "title": "越南需求热点地图",
+      "aria": "越南热点示意地图",
+      "hn": "河内 · 高波动",
+      "dn": "岘港 · 监控",
+      "hcm": "胡志明市 · 稳定",
+      "ct": "芹苴 · 稳定",
+      "stockOut": "断货风险：",
+      "vendorScore": "经销商业绩分：",
+      "demandTrend": "需求趋势：",
+      "trendSampleHn": "+18% 周环比",
+      "lgDanger": "危险 / 高波动",
+      "lgWarn": "警告",
+      "lgStable": "稳定"
+    },
+    "alertsSection": {
+      "h": "预警",
+      "p": "企业级预警：优先级、信号来源、决策建议、SLA。"
+    },
+    "alertsTable": {
+      "priority": "优先级",
+      "signal": "信号",
+      "source": "来源",
+      "decision": "决策",
+      "owner": "负责人",
+      "sla": "处理时限",
+      "status": "状态"
+    }
+  },
+  "vendors": {
+    "tabPerm": "渠道、运营",
+    "tabFlow": "筛选 → 列表 → 详情",
+    "tabSource": "经销商主数据、终端、风险",
+    "tabProcess": "定时同步；点行看档案",
+    "section": {
+      "h": "经销商",
+      "p": "经销商名录、区域业绩分、收入与库存风险。"
+    },
+    "filters": {
+      "search": "搜索经销商 / 编码…",
+      "regionAll": "全部区域",
+      "regionN": "北部",
+      "regionC": "中部",
+      "regionS": "南部",
+      "riskAll": "库存风险",
+      "riskLow": "低",
+      "riskMed": "中",
+      "riskHigh": "高"
+    },
+    "table": {
+      "vendor": "经销商",
+      "score": "评分",
+      "region": "区域",
+      "city": "总部 / 省份",
+      "contact": "联系方式",
+      "channel": "主渠道",
+      "rev": "月度收入",
+      "risk": "库存风险",
+      "cov": "覆盖",
+      "trend": "趋势",
+      "outlets": "覆盖终端",
+      "asm": "ASM",
+      "syncedAt": "最近同步"
+    },
+    "detail": {
+      "title": "经销商档案",
+      "hint": "请选择表格中的一行查看详情。",
+      "code": "经销商编码",
+      "name": "名称",
+      "score": "评分",
+      "region": "区域",
+      "rev": "月度收入",
+      "risk": "库存风险",
+      "cov": "覆盖",
+      "outlets": "覆盖终端数",
+      "asm": "区域销售主管",
+      "syncedAt": "最近同步时间"
+    },
+    "explain": {
+      "src": "数据来源",
+      "proc": "数据处理",
+      "out": "业务产出",
+      "srcItems": [
+        "POS 实销",
+        "库存快照",
+        "经销商周报"
+      ],
+      "procItems": [
+        "经销商评分",
+        "实销分析",
+        "分销覆盖"
+      ],
+      "outItems": [
+        "经销商优化",
+        "SKU 拓展",
+        "贸易决策"
+      ]
+    }
+  },
+  "sku": {
+    "tabPerm": "运营、渠道",
+    "tabFlow": "单品编码 → 图表 → 低库存预警",
+    "tabSource": "仓储管理系统、销售数据、预测",
+    "tabProcess": "覆盖度与区域热力",
+    "section": {
+      "h": "SKU 与库存",
+      "p": "跟踪 BSV 维生素 C、感冒胃肝系列 — 库存、分销热力图、低库存预警。"
+    },
+    "explain": {
+      "in": "输入",
+      "proc": "处理",
+      "out": "输出",
+      "inItems": [
+        "WMS · POS · 经销商 EDI"
+      ],
+      "procItems": [
+        "预测 · 分配 · ATP"
+      ],
+      "outItems": [
+        "补货 · 通路"
+      ]
+    },
+    "cards": {
+      "stock": "在手库存",
+      "cov": "覆盖",
+      "trendLbl": "趋势",
+      "ordersWeek": "本周订单（预估）",
+      "badgeReorder": "需补货",
+      "badgeMonitor": "监控",
+      "badgeHealthy": "健康"
+    },
+    "charts": {
+      "invTitle": "库存与预测",
+      "onHand": "在手（千）",
+      "forecast": "预测需求（千）",
+      "skuLabels": [
+        "Vitamin C",
+        "Ho Cảm",
+        "Dạ Dày",
+        "Gan"
+      ]
+    },
+    "lowStock": {
+      "title": "低库存预警",
+      "sku": "SKU",
+      "dc": "配送中心",
+      "onHand": "在手库存",
+      "safetyStock": "安全库存",
+      "avgDailyOut": "日均出库",
+      "days": "可销天数",
+      "reorderProposal": "补货建议",
+      "nextInbound": "预计到货",
+      "planner": "负责人",
+      "daysUnit": "天",
+      "status": "状态",
+      "critical": "紧急",
+      "watch": "关注",
+      "ok": "正常"
+    },
+    "heatmap": {
+      "title": "分销热力图",
+      "hint": "颜色越深表示渠道覆盖越高。",
+      "cellTitle": "渠道强度"
+    }
+  },
+  "customer": {
+    "tabPerm": "品牌、渠道",
+    "tabFlow": "客户全景视图 → 行为 → 分群",
+    "tabSource": "移动应用、门店终端、会员体系",
+    "tabProcess": "触点汇总与客户终身价值",
+    "section": {
+      "h": "客户",
+      "p": "完整档案、触点轨迹、分群、留存与忠诚表 — 纵向排列，宽表可横向滚动。"
+    },
+    "panel360": {
+      "h": "客户 360 · 阮氏梅",
+      "sub": "编号：CUS-HCM-88421 · 等级：金 · 渠道：药店 + App",
+      "tl1": "购买 BSV 维生素 C — Lotte Mart Q7 药店",
+      "tl2": "兑换积分 — 5 万代金券",
+      "tl3": "免疫活动后满意度调研"
+    },
+    "dates": {
+      "d1": "2026-05-02",
+      "d2": "2026-04-18",
+      "d3": "2026-03-30"
+    },
+    "quick": {
+      "title": "快速联系信息",
+      "lblPhone": "电话",
+      "lblEmail": "邮箱",
+      "lblCity": "城市",
+      "lblChannel": "主渠道",
+      "lblTier": "会员等级",
+      "lblLastSeen": "最近活跃",
+      "phone": "0903 *** 821",
+      "email": "mai.nguyen@demo.vn",
+      "city": "胡志明市",
+      "channel": "药店与 App",
+      "tier": "金卡",
+      "lastSeen": "2 小时前"
+    },
+    "explain": {
+      "h": "说明 · 客户智能",
+      "src": "数据来源",
+      "proc": "处理",
+      "out": "输出",
+      "srcItems": [
+        "客户 App",
+        "POS 购买",
+        "会员系统"
+      ],
+      "procItems": [
+        "分群",
+        "行为分析",
+        "流失预测"
+      ],
+      "outItems": [
+        "活动定向",
+        "次优推荐"
+      ]
+    },
+    "charts": {
+      "seg": "分群分布",
+      "ret": "留存队列"
+    },
+    "loyalty": {
+      "h": "忠诚度与购买频次",
+      "colSeg": "分群",
+      "colMem": "会员",
+      "colFreq": "平均频次 / 90 天",
+      "colClv": "客户终身价值指数",
+      "colStat": "状态",
+      "row1": [
+        "高端养生",
+        "12,400",
+        "4.2",
+        "118",
+        "良好"
+      ],
+      "row2": [
+        "价格敏感",
+        "38,200",
+        "1.8",
+        "62",
+        "关注"
+      ],
+      "row3": [
+        "慢病照护",
+        "9,050",
+        "6.1",
+        "132",
+        "加售"
+      ],
+      "badgeHealthy": "良好",
+      "badgeWatch": "关注",
+      "badgeUpsell": "加售"
+    },
+    "tables": {
+      "profile": {
+        "fullName": "姓名",
+        "customerId": "客户编号",
+        "tier": "等级",
+        "tierSince": "等级起始",
+        "primaryChannel": "主渠道",
+        "phone": "电话",
+        "email": "邮箱",
+        "city": "地区",
+        "memberSince": "入会时间",
+        "lastSeen": "最近活跃",
+        "clvIndex": "CLV 指数",
+        "consentMarketing": "营销授权"
+      },
+      "activity": {
+        "h": "行为轨迹 & 触点",
+        "occurredAt": "时间",
+        "channel": "渠道",
+        "touchpoint": "触点",
+        "detail": "明细",
+        "outcome": "结果"
+      },
+      "segmentMix": {
+        "h": "客群结构（归因销售额）",
+        "segment": "购买客群",
+        "sharePct": "占比",
+        "labeledRev": "年归因销售额",
+        "orders90d": "90 天订单数"
+      },
+      "retention": {
+        "h": "留存曲线（当前 cohort）",
+        "period": "周期",
+        "retentionPct": "留存率",
+        "note": "说明"
+      }
+    }
+  },
+  "campaign": {
+    "tabPerm": "品牌、渠道",
+    "tabFlow": "营销活动 → 投资回报率 → 优惠券",
+    "tabSource": "花费与归因收入",
+    "tabProcess": "按周期看成效",
+    "section": {
+      "h": "活动",
+      "p": "进行中的活动：夏季免疫、忠诚提升、药房拓展。"
+    },
+    "cards": {
+      "roi": "ROI",
+      "conv": "转化",
+      "live": "进行中"
+    },
+    "roiTable": {
+      "h": "ROI 与转化",
+      "campaign": "活动",
+      "period": "投放周期",
+      "audience": "受众",
+      "channel": "渠道",
+      "spend": "支出",
+      "rev": "归因收入",
+      "roi": "ROI",
+      "conv": "转化",
+      "status": "状态"
+    },
+    "voucher": {
+      "h": "代金券 · 推送通知",
+      "pool": "池",
+      "issued": "已发行",
+      "redeemed": "已核销",
+      "push": "推送送达",
+      "open": "打开率",
+      "expiry": "有效期截止",
+      "costPerRedeem": "单次核销成本",
+      "budgetLeft": "剩余预算"
+    }
+  },
+  "research": {
+    "tabPerm": "研究与开发、品牌营销",
+    "tabFlow": "洞察 → 趋势 → 提示",
+    "tabSource": "零售、调研、市场",
+    "tabProcess": "汇总新品信号",
+    "section": {
+      "h": "市场",
+      "p": "BI 中心：趋势、需求预测、市场机会与 AI 洞察。"
+    },
+    "cards": {
+      "c1h": "需求预测",
+      "c1p": "维生素 C — 北部未来 8 周 +14%（置信度 0.81）。",
+      "c2h": "市场机会",
+      "c2p": "消化品类与中部海岸竞争对手 X 的差距。",
+      "c3h": "趋势报告",
+      "c3p": "每周 PDF · SKU 排名 · 货架份额代理。"
+    },
+    "ai": {
+      "a1t": "AI 洞察",
+      "a1p": "越南北部维生素 C 需求上升 — 建议提高岘港—河内走廊分配。",
+      "a2t": "AI 洞察",
+      "a2p": "胡志明市客户留存下降 — 检查促销重叠与 ADR 后客服。",
+      "a3t": "AI 洞察",
+      "a3p": "潜在消化品类机会 — 扫描社交与 OTC 购物篮关联。"
+    }
+  },
+  "cases": {
+    "tabPerm": "运营、质量",
+    "tabFlow": "列表 → SLA 承诺 → 处理状态",
+    "tabSource": "服务热线、客户关系管理、一线现场",
+    "tabProcess": "优先级、负责人、跟进",
+    "section": {
+      "h": "反馈",
+      "p": "按时限跟踪的工单，含受理人、受理时间与当前进展，以及投诉 / 不良反应处理。"
+    },
+    "sla": {
+      "h": "时限跟踪",
+      "case": "工单",
+      "type": "类型",
+      "priority": "优先级",
+      "receivedBy": "受理人",
+      "receivedAt": "受理时间",
+      "sla": "剩余时间",
+      "owner": "负责人",
+      "situation": "当前进展",
+      "status": "状态"
+    }
+  },
+  "hrm": {
+    "tabPerm": "人力资源、运营管理",
+    "tabFlow": "关键绩效指标 → 部门 → 审批",
+    "tabSource": "考勤、申请、指标",
+    "tabProcess": "标准审批流",
+    "section": {
+      "h": "人力",
+      "p": "一线与总部人力：KPI、考勤、审批、部门绩效。"
+    },
+    "kpi": {
+      "head": "人数",
+      "att": "今日考勤",
+      "open": "待审批",
+      "g1": "+2.3%",
+      "g2": "达标",
+      "badge": "人力/财务混合"
+    },
+    "dept": {
+      "h": "部门绩效",
+      "dept": "部门",
+      "kpi": "KPI 得分",
+      "sla": "工单 SLA",
+      "trend": "趋势",
+      "status": "状态",
+      "r1": [
+        "商贸营销",
+        "88",
+        "96%",
+        "+3%",
+        "正常"
+      ],
+      "r2": [
+        "北部一线销售",
+        "76",
+        "89%",
+        "−2%",
+        "辅导"
+      ],
+      "r3": [
+        "客户服务",
+        "91",
+        "98%",
+        "+1%",
+        "正常"
+      ],
+      "badgeOk": "正常",
+      "badgeCoach": "辅导"
+    },
+    "approval": {
+      "h": "审批流程",
+      "approvalTable": {
+        "requester": "申请人",
+        "title": "标题 / 摘要",
+        "type": "单据类型",
+        "submitted": "提交时间",
+        "status": "状态"
+      }
+    },
+    "staff": {
+      "h": "人员列表",
+      "name": "姓名",
+      "employeeId": "工号",
+      "role": "职位",
+      "dept": "部门",
+      "contact": "联系方式",
+      "joinDate": "入职日期",
+      "status": "状态"
+    }
+  },
+  "aiCenter": {
+    "tabPerm": "研究与开发、战略规划",
+    "tabFlow": "优先级 → 置信度 → 负责人",
+    "tabSource": "销售、反馈、市场",
+    "tabProcess": "行动建议排序",
+    "section": {
+      "h": "AI · 研发",
+      "p": "战略重点：扩张分销、优化经销商、活动与市场预测。"
+    },
+    "badges": {
+      "impact": "影响：",
+      "conf": "置信度："
+    },
+    "impactLevels": {
+      "high": "高",
+      "medium": "中"
+    }
+  },
+  "settings": {
+    "tabPerm": "超级管理员",
+    "tabFlow": "角色 → 用户 → 集成",
+    "tabSource": "身份与访问管理、审计日志",
+    "tabProcess": "权限与通知",
+    "section": {
+      "h": "设置",
+      "p": "角色、权限、集成与通知。"
+    },
+    "roles": {
+      "h": "角色管理",
+      "role": "角色",
+      "users": "用户",
+      "risk": "风险",
+      "status": "状态",
+      "r1": [
+        "中央管理员",
+        "8",
+        "高",
+        "启用"
+      ],
+      "r2": [
+        "区域 ASM",
+        "42",
+        "中",
+        "启用"
+      ],
+      "r3": [
+        "药物警戒",
+        "6",
+        "高",
+        "复核"
+      ],
+      "active": "启用",
+      "review": "复核"
+    },
+    "integrations": {
+      "h": "集成",
+      "i1": "SAP B1 连接器",
+      "i2": "Zalo OA CRM",
+      "i3": "仓储 TMS",
+      "live": "在线",
+      "degraded": "降级"
+    },
+    "notify": {
+      "h": "通知设置",
+      "n1": "高管预警 · 邮件",
+      "n2": "断货 · 短信",
+      "n3": "活动摘要 · Slack"
+    },
+    "matrix": {
+      "h": "权限矩阵（简）",
+      "module": "模块",
+      "read": "读",
+      "write": "写",
+      "approve": "审批",
+      "m1": [
+        "经销商财务",
+        "读",
+        "受限",
+        "首席财务官"
+      ],
+      "m2": [
+        "活动上线",
+        "全部",
+        "品牌",
+        "首席营销官"
+      ]
+    }
+  },
+  "mockData": {
+    "alerts": [
+      {
+        "priority": "P1",
+        "signal": "经销商销售额下降 28%",
+        "source": "经销商 POS · 北部",
+        "decision": "ASM 拜访 + 竞品促销核查",
+        "owner": "北部 ASM",
+        "sla": "24 小时",
+        "status": "danger",
+        "labelKey": "open"
+      },
+      {
+        "priority": "P2",
+        "signal": "维生素 C 需求上升 32%",
+        "source": "POS + 搜索信号",
+        "decision": "增加 SKU-BSV-VC 分配",
+        "owner": "需求计划",
+        "sla": "48 小时",
+        "status": "warning",
+        "labelKey": "inProgress"
+      },
+      {
+        "priority": "P2",
+        "signal": "ADR 投诉周环比上升",
+        "source": "CRM · 热线",
+        "decision": "PV 复核 + 批次关联",
+        "owner": "药物警戒",
+        "sla": "12 小时",
+        "status": "danger",
+        "labelKey": "critical"
+      },
+      {
+        "priority": "P3",
+        "signal": "检测到竞品促销",
+        "source": "市场情报 · 一线",
+        "decision": "商贸反击活动草案",
+        "owner": "商贸营销",
+        "sla": "72 小时",
+        "status": "info",
+        "labelKey": "monitoring"
+      },
+      {
+        "priority": "P3",
+        "signal": "岘港 Ho Cảm 断货风险",
+        "source": "WMS + 预测",
+        "decision": "紧急调拨南部 DC",
+        "owner": "供应链",
+        "sla": "36 小时",
+        "status": "warning",
+        "labelKey": "slaRisk"
+      },
+      {
+        "priority": "P4",
+        "signal": "会员兑换激增",
+        "source": "App · CRM",
+        "decision": "限制代金券消耗速率",
+        "owner": "CRM 负责人",
+        "sla": "5 天",
+        "status": "success",
+        "labelKey": "stable"
+      }
+    ],
+    "vendors": [
+      {
+        "code": "VD-HN-042",
+        "name": "Medipharm North JSC",
+        "score": 61,
+        "regionKey": "north",
+        "city": "河内",
+        "contact": "+84 24 3829 1100",
+        "channel": "OTC · B 类连锁",
+        "rev": "₫ 9.2B",
+        "riskKey": "high",
+        "cov": "78%",
+        "trend": "+2%",
+        "outlets": "312 家门店",
+        "asm": "北部 ASM · 陈雄",
+        "syncedAt": "今日 08:15"
+      },
+      {
+        "code": "VD-DN-019",
+        "name": "Central Pharma Link",
+        "score": 74,
+        "regionKey": "central",
+        "city": "岘港",
+        "contact": "+84 236 393 4411",
+        "channel": "OTC + ETC",
+        "rev": "₫ 6.1B",
+        "riskKey": "medium",
+        "cov": "82%",
+        "trend": "+5%",
+        "outlets": "186 家门店",
+        "asm": "中部 ASM · 黎秋",
+        "syncedAt": "今日 07:58"
+      },
+      {
+        "code": "VD-HCM-003",
+        "name": "Saigon Wellness Dist.",
+        "score": 82,
+        "regionKey": "south",
+        "city": "胡志明市",
+        "contact": "+84 28 3827 6600",
+        "channel": "OTC · wellness",
+        "rev": "₫ 14.8B",
+        "riskKey": "low",
+        "cov": "91%",
+        "trend": "+3%",
+        "outlets": "524 家门店",
+        "asm": "南部 ASM · 范明",
+        "syncedAt": "今日 09:02"
+      },
+      {
+        "code": "VD-CT-011",
+        "name": "Mekong Retail Supply",
+        "score": 79,
+        "regionKey": "south",
+        "city": "芹苴",
+        "contact": "+84 292 376 2200",
+        "channel": "OTC · 零售",
+        "rev": "₫ 4.3B",
+        "riskKey": "low",
+        "cov": "85%",
+        "trend": "+1%",
+        "outlets": "141 家门店",
+        "asm": "湄公 ASM · 武安",
+        "syncedAt": "今日 06:40"
+      },
+      {
+        "code": "VD-HP-008",
+        "name": "Hai Phong OTC Hub",
+        "score": 68,
+        "regionKey": "north",
+        "city": "海防",
+        "contact": "+84 225 384 1199",
+        "channel": "OTC · 枢纽",
+        "rev": "₫ 3.9B",
+        "riskKey": "medium",
+        "cov": "74%",
+        "trend": "−4%",
+        "outlets": "97 家门店",
+        "asm": "海防 ASM · 杜兰",
+        "syncedAt": "今日 08:44"
+      }
+    ],
+    "skuCards": [
+      {
+        "name": "BSV 维生素 C",
+        "sku": "SKU-BSV-VC-1000",
+        "stock": "12.4 万件",
+        "cov": "22 天",
+        "badgeKey": "warning",
+        "trend": "+14%",
+        "weekOrders": "1.84 万单"
+      },
+      {
+        "name": "BSV 感冒",
+        "sku": "SKU-BSV-HC-500",
+        "stock": "6.1 万件",
+        "cov": "31 天",
+        "badgeKey": "success",
+        "trend": "+6%",
+        "weekOrders": "9100 单"
+      },
+      {
+        "name": "BSV 胃药",
+        "sku": "SKU-BSV-DD-300",
+        "stock": "4.4 万件",
+        "cov": "18 天",
+        "badgeKey": "danger",
+        "trend": "+3%",
+        "weekOrders": "6800 单"
+      },
+      {
+        "name": "BSV 肝药",
+        "sku": "SKU-BSV-GN-450",
+        "stock": "5.2 万件",
+        "cov": "26 天",
+        "badgeKey": "success",
+        "trend": "+2%",
+        "weekOrders": "7950 单"
+      }
+    ],
+    "campaigns": [
+      {
+        "title": "夏季免疫活动",
+        "period": "2026 年 5–8 月",
+        "roi": "4.1×",
+        "conv": "3.8%",
+        "statusKey": "success",
+        "desc": "维生素 C + 感冒组合 · 药店 A/B 层。"
+      },
+      {
+        "title": "忠诚提升",
+        "period": "二季度滚动",
+        "roi": "2.6×",
+        "conv": "5.1%",
+        "statusKey": "info",
+        "desc": "双倍积分 · 推送与 Zalo OA 旅程。"
+      },
+      {
+        "title": "药房拓展推进",
+        "period": "北部重点",
+        "roi": "3.3×",
+        "conv": "2.9%",
+        "statusKey": "warning",
+        "desc": "货架 KPI · ASM 节奏与陈列合规。"
+      }
+    ],
+    "campaignRoi": [
+      {
+        "name": "夏季免疫",
+        "spend": "₫ 24 亿",
+        "rev": "₫ 98 亿",
+        "roi": "4.1×",
+        "conv": "3.8%",
+        "statusKey": "success",
+        "labelKey": "scale",
+        "period": "2026/06/01 – 08/31",
+        "audience": "家庭 · 有儿童",
+        "channel": "App · Zalo OA · POS"
+      },
+      {
+        "name": "忠诚提升",
+        "spend": "₫ 9 亿",
+        "rev": "₫ 23 亿",
+        "roi": "2.6×",
+        "conv": "5.1%",
+        "statusKey": "info",
+        "labelKey": "optimize",
+        "period": "二季度 · 持续",
+        "audience": "金卡 · 银卡会员",
+        "channel": "应用 · 邮件 · 短信"
+      },
+      {
+        "name": "药房拓展",
+        "spend": "₫ 18 亿",
+        "rev": "₫ 59 亿",
+        "roi": "3.3×",
+        "conv": "2.9%",
+        "statusKey": "warning",
+        "labelKey": "reviewGeo",
+        "period": "2026/04/01 – 06/30",
+        "audience": "OTC 连锁 · 北部",
+        "channel": "一线 ASM · 陈列"
+      }
+    ],
+    "campaignVouchers": [
+      {
+        "id": "VCH-ZH-01",
+        "pool": "夏季代金券 5万",
+        "issued": "24,000",
+        "redeemed": "18,200",
+        "push": "210,000",
+        "openRate": "31%",
+        "expiry": "2026/09/30",
+        "costPerRedeem": "₫ 12,800",
+        "budgetLeft": "代金券池约剩 18%"
+      },
+      {
+        "id": "VCH-ZH-02",
+        "pool": "忠诚双倍积分",
+        "issued": "—",
+        "redeemed": "—",
+        "push": "98,000",
+        "openRate": "27%",
+        "expiry": "二季度轮换",
+        "costPerRedeem": "—",
+        "budgetLeft": "推送预算约剩 42%"
+      },
+      {
+        "id": "VCH-ZH-03",
+        "pool": "免疫提醒 · 推送",
+        "issued": "8,500",
+        "redeemed": "3,100",
+        "push": "156,000",
+        "openRate": "34%",
+        "expiry": "2026/08/15",
+        "costPerRedeem": "₫ 8,900",
+        "budgetLeft": "Zalo 渠道约剩 26%"
+      }
+    ],
+    "customerProfile": {
+      "customerId": "CUS-HCM-88421",
+      "fullName": "阮氏梅",
+      "tier": "金卡",
+      "tierSince": "2025/01",
+      "primaryChannel": "药店 · GL Herbals App",
+      "phone": "0903 *** 821",
+      "email": "mai.nguyen@demo.vn",
+      "city": "胡志明市 · 第七郡",
+      "memberSince": "2023/08",
+      "lastSeen": "2 小时前 · App",
+      "clvIndex": "118 · 高价值带",
+      "consentMarketing": "邮件 · 推送 · Zalo OA"
+    },
+    "customerActivities": [
+      {
+        "id": "ACT-ZH-01",
+        "occurredAt": "2026-05-02 10:14",
+        "channel": "药店",
+        "touchpoint": "POS · Lotte Mart Q7",
+        "detail": "购买 BSV 维生素 C ×2",
+        "outcome": "完成 · 积分"
+      },
+      {
+        "id": "ACT-ZH-02",
+        "occurredAt": "2026-04-18 15:02",
+        "channel": "应用",
+        "touchpoint": "积分兑换",
+        "detail": "5 万盾代金券",
+        "outcome": "兑换成功"
+      },
+      {
+        "id": "ACT-ZH-03",
+        "occurredAt": "2026-03-30 09:40",
+        "channel": "邮件",
+        "touchpoint": "问卷",
+        "detail": "免疫活动后满意度",
+        "outcome": "已提交反馈"
+      },
+      {
+        "id": "ACT-ZH-04",
+        "occurredAt": "2026-03-12 18:22",
+        "channel": "Zalo OA",
+        "touchpoint": "客服",
+        "detail": "咨询换咳药品相互作用",
+        "outcome": "SLA 内已回复"
+      },
+      {
+        "id": "ACT-ZH-05",
+        "occurredAt": "2026-02-05 11:05",
+        "channel": "药店",
+        "touchpoint": "POS · 福禄隆 Q7",
+        "detail": "购买换咳 ×1",
+        "outcome": "积分 · 无 ADR"
+      }
+    ],
+    "customerSegmentMix": [
+      {
+        "id": "SEG-ZH-01",
+        "segment": "非处方 OTC",
+        "sharePct": "44%",
+        "labeledRev": "₫ 42M",
+        "orders90d": "18"
+      },
+      {
+        "id": "SEG-ZH-02",
+        "segment": "慢病",
+        "sharePct": "28%",
+        "labeledRev": "₫ 31M",
+        "orders90d": "11"
+      },
+      {
+        "id": "SEG-ZH-03",
+        "segment": "礼品",
+        "sharePct": "18%",
+        "labeledRev": "₫ 12M",
+        "orders90d": "7"
+      },
+      {
+        "id": "SEG-ZH-04",
+        "segment": "急诊",
+        "sharePct": "10%",
+        "labeledRev": "₫ 6M",
+        "orders90d": "4"
+      }
+    ],
+    "customerRetentionSeries": [
+      {
+        "period": "M+0",
+        "retentionPct": "100%",
+        "note": "首次购买后基准 cohort"
+      },
+      {
+        "period": "M+1",
+        "retentionPct": "82%",
+        "note": "促销结束后回落"
+      },
+      {
+        "period": "M+2",
+        "retentionPct": "71%",
+        "note": "炎热季节影响"
+      },
+      {
+        "period": "M+3",
+        "retentionPct": "64%",
+        "note": "OTC 群稳定"
+      },
+      {
+        "period": "M+4",
+        "retentionPct": "58%",
+        "note": "竞品价格压力"
+      },
+      {
+        "period": "M+5",
+        "retentionPct": "54%",
+        "note": "建议发放留存券"
+      }
+    ],
+    "cases": [
+      {
+        "id": "CASE-ADR-2405",
+        "type": "ADR 报告",
+        "pri": "P1",
+        "sla": "剩余 12 小时",
+        "owner": "PV 团队",
+        "statusKey": "danger",
+        "labelKey": "breachRisk",
+        "receivedBy": "武氏香 — PV 席",
+        "receivedAt": "2026-05-10 08:12",
+        "situation": "待定 · 法规草稿 — 待药物警戒签发"
+      },
+      {
+        "id": "CASE-ST-8831",
+        "type": "断货",
+        "pri": "P2",
+        "sla": "28 小时",
+        "owner": "供应",
+        "statusKey": "warning",
+        "labelKey": "active",
+        "receivedBy": "自动 · TMS",
+        "receivedAt": "2026-05-09 21:40",
+        "situation": "正从中部配送中心调拨补货"
+      },
+      {
+        "id": "CASE-VN-5520",
+        "type": "经销商纠纷",
+        "pri": "P2",
+        "sla": "48 小时",
+        "owner": "商贸",
+        "statusKey": "info",
+        "labelKey": "mediation",
+        "receivedBy": "阮德安 — CRM 热线",
+        "receivedAt": "2026-05-08 14:05",
+        "situation": "已与经销商安排第二次调解"
+      },
+      {
+        "id": "CASE-CS-4102",
+        "type": "客户投诉",
+        "pri": "P3",
+        "sla": "72 小时",
+        "owner": "客服",
+        "statusKey": "success",
+        "labelKey": "resolved",
+        "receivedBy": "陈秋庄 — 二线客服",
+        "receivedAt": "2026-05-05 09:30",
+        "situation": "退款与回访后已结案"
+      }
+    ],
+    "aiRecs": [
+      {
+        "title": "扩大河内维生素 C 分销",
+        "impactKey": "high",
+        "conf": "0.84",
+        "owner": "商贸 · 北部",
+        "statusKey": "warning",
+        "detail": "与竞品促销及 VD-HN-042 销售缺口相关。"
+      },
+      {
+        "title": "提高胡志明市会员激励",
+        "impactKey": "medium",
+        "conf": "0.76",
+        "owner": "CRM",
+        "statusKey": "info",
+        "detail": "一季度留存队列低于基线；测试代金券阶梯。"
+      },
+      {
+        "title": "调查岘港断货风险",
+        "impactKey": "high",
+        "conf": "0.79",
+        "owner": "供应链",
+        "statusKey": "danger",
+        "detail": "预测误差与入库延迟；TMS 连接降级。"
+      },
+      {
+        "title": "活动预算倾斜 · 药房拓展",
+        "impactKey": "medium",
+        "conf": "0.71",
+        "owner": "品牌",
+        "statusKey": "success",
+        "detail": "北部感冒陈列 ROI 优于南部。"
+      }
+    ],
+    "lowStock": [
+      {
+        "id": "LS-ZH-01",
+        "sku": "SKU-BSV-VC-1000",
+        "dc": "DC-北部",
+        "onHand": "3.6 万",
+        "safetyStock": "4.8 万",
+        "avgDailyOut": "3200 / 天",
+        "daysCover": "11",
+        "reorderProposal": "+12 万 · PO-2405",
+        "nextInbound": "2026/05/18",
+        "planner": "供应 · 北部",
+        "statusKey": "danger"
+      },
+      {
+        "id": "LS-ZH-02",
+        "sku": "SKU-BSV-DD-300",
+        "dc": "DC-中部",
+        "onHand": "5.2 万",
+        "safetyStock": "5.5 万",
+        "avgDailyOut": "2800 / 天",
+        "daysCover": "14",
+        "reorderProposal": "+8 万 · 待 ASM",
+        "nextInbound": "2026/05/22",
+        "planner": "计划 · 中部",
+        "statusKey": "warning"
+      },
+      {
+        "id": "LS-ZH-03",
+        "sku": "SKU-BSV-HC-500",
+        "dc": "DC-南部",
+        "onHand": "11.8 万",
+        "safetyStock": "7.2 万",
+        "avgDailyOut": "3600 / 天",
+        "daysCover": "31",
+        "reorderProposal": "无需 · 覆盖充足",
+        "nextInbound": "—",
+        "planner": "南部 DC · WMS",
+        "statusKey": "success"
+      },
+      {
+        "id": "LS-ZH-04",
+        "sku": "SKU-BSV-GAN-250",
+        "dc": "DC-北部",
+        "onHand": "2.1 万",
+        "safetyStock": "4.0 万",
+        "avgDailyOut": "1900 / 天",
+        "daysCover": "9",
+        "reorderProposal": "+9.5 万 · 紧急",
+        "nextInbound": "2026/05/16",
+        "planner": "北部 DC 主管",
+        "statusKey": "danger"
+      }
+    ],
+    "hrmApprovals": [
+      {
+        "id": "APR-ZH-001",
+        "requester": "阮兰英",
+        "title": "五月假期批量请假 — 商贸营销组",
+        "type": "请假",
+        "submitted": "2026-05-08",
+        "status": "3 待审批",
+        "statusKey": "info"
+      },
+      {
+        "id": "APR-ZH-002",
+        "requester": "范德明",
+        "title": "南部配送中心扩建 CAPEX（>5 亿越南盾）",
+        "type": "资本支出",
+        "submitted": "2026-05-06",
+        "status": "首席财务官",
+        "statusKey": "warning"
+      },
+      {
+        "id": "APR-ZH-003",
+        "requester": "黎秋霞",
+        "title": "招聘一线销售 — 中部大区",
+        "type": "招聘",
+        "submitted": "2026-05-02",
+        "status": "已批准",
+        "statusKey": "success"
+      },
+      {
+        "id": "APR-ZH-004",
+        "requester": "黄越英",
+        "title": "差旅预支 — 胡志明研讨会",
+        "type": "差旅",
+        "submitted": "2026-05-09",
+        "status": "事业部总监",
+        "statusKey": "warning"
+      },
+      {
+        "id": "APR-ZH-005",
+        "requester": "邓玉梅",
+        "title": "内部 GMP 培训 — Q3 班",
+        "type": "培训",
+        "submitted": "2026-04-28",
+        "status": "已驳回",
+        "statusKey": "danger"
+      }
+    ],
+    "hrmStaff": [
+      {
+        "id": "STF-ZH-001",
+        "name": "陈民俊",
+        "employeeId": "EMP-HCM-2104",
+        "role": "南部 ASM",
+        "dept": "一线销售",
+        "contact": "tuuan.tran@demo.vn · 0904 *** 112",
+        "joinDate": "2019-03-12",
+        "status": "在职",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-ZH-002",
+        "name": "阮氏梅",
+        "employeeId": "EMP-HN-1188",
+        "role": "客服组长",
+        "dept": "客户服务",
+        "contact": "mai.nguyen@demo.vn · 0983 *** 441",
+        "joinDate": "2021-07-05",
+        "status": "在职",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-ZH-003",
+        "name": "范国辉",
+        "employeeId": "EMP-DN-0642",
+        "role": "OTC 渠道督导",
+        "dept": "商贸营销",
+        "contact": "huy.pham@demo.vn · 0912 *** 903",
+        "joinDate": "2018-11-20",
+        "status": "试用期",
+        "statusKey": "warning"
+      },
+      {
+        "id": "STF-ZH-004",
+        "name": "黎黄南",
+        "employeeId": "EMP-HN-3021",
+        "role": "供应专员",
+        "dept": "供应链",
+        "contact": "nam.le@demo.vn · 0937 *** 228",
+        "joinDate": "2024-02-14",
+        "status": "在职",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-ZH-005",
+        "name": "武庆玲",
+        "employeeId": "EMP-HCM-4490",
+        "role": "南部 HRBP",
+        "dept": "人力资源",
+        "contact": "linh.vo@demo.vn · 0901 *** 665",
+        "joinDate": "2020-09-01",
+        "status": "产假",
+        "statusKey": "info"
+      }
+    ]
+  },
+  "labels": {
+    "campaignRoi": {
+      "scale": "扩量",
+      "optimize": "优化",
+      "reviewGeo": "复核区域"
+    },
+    "cases": {
+      "breachRisk": "违反 SLA 风险",
+      "active": "处理中",
+      "mediation": "调解",
+      "resolved": "已解决"
+    },
+    "alertStatus": {
+      "open": "开启",
+      "inProgress": "处理中",
+      "critical": "严重",
+      "monitoring": "监控",
+      "slaRisk": "SLA 风险",
+      "stable": "稳定"
+    }
+  },
+  "langs": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "zh": "中文"
+  }
+}

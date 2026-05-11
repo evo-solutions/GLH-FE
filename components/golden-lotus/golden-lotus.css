@@ -1,0 +1,2 @@
+/* Re-export modular styles — keep path stable for imports */
+@import "./styles/index.css";

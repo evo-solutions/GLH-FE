@@ -1,0 +1,1380 @@
+{
+  "nav": {
+    "dashboard": "Tổng quan",
+    "vendors": "NPP & kênh",
+    "sku": "SKU & tồn kho",
+    "customer": "Khách hàng",
+    "campaign": "Chiến dịch",
+    "research": "Thị trường",
+    "cases": "Phản hồi",
+    "hrm": "Nhân sự",
+    "ai": "AI · R&D",
+    "settings": "Cấu hình"
+  },
+  "navGroup": {
+    "ops": "Điều hành",
+    "trade": "Kênh & phân phối",
+    "brand": "Khách hàng & thương hiệu",
+    "research": "Nghiên cứu & R&D",
+    "hrm": "Quản trị nội bộ"
+  },
+  "shell": {
+    "brandTitle": "Golden Lotus Herbals",
+    "sidebarAria": "Điều hướng chính",
+    "openMenu": "Mở menu",
+    "searchPlaceholder": "Tìm nhà phân phối, mã SKU, mã phiếu…",
+    "notifications": "Thông báo",
+    "help": "Trợ giúp",
+    "accountDemo": "Tài khoản",
+    "accountRole": "Trưởng vận hành",
+    "language": "Ngôn ngữ",
+    "toastNotify": "Bạn có 7 thông báo vận hành chưa đọc.",
+    "toastSearch": "Đang tìm kiếm…",
+    "toastVendorProfile": "Đã tải hồ sơ nhà phân phối:",
+    "toastNotifyToggle": "Đã cập nhật tùy chọn thông báo.",
+    "toastRealtime": [
+      "Tín hiệu mới: lượt tìm Vitamin C tăng tại Hà Nội",
+      "Kết nối WMS: độ trễ tăng",
+      "Chiến dịch mùa hè: tỷ lệ chuyển đổi duy trì 3,8%"
+    ]
+  },
+  "crumb": {
+    "dashboard": "Golden Lotus Herbals / Nền tảng / Tổng quan điều hành",
+    "vendors": "Golden Lotus Herbals / Kinh doanh / Nhà phân phối",
+    "sku": "Golden Lotus Herbals / Cung ứng / SKU",
+    "customer": "Golden Lotus Herbals / CRM / Trí tuệ",
+    "campaign": "Golden Lotus Herbals / Marketing / Chiến dịch",
+    "research": "Golden Lotus Herbals / BI / Nghiên cứu",
+    "cases": "Golden Lotus Herbals / Vận hành / Tiếp nhận",
+    "hrm": "Golden Lotus Herbals / Nhân sự / HRM",
+    "ai": "Golden Lotus Herbals / AI / Gợi ý",
+    "settings": "Golden Lotus Herbals / Quản trị / Cài đặt"
+  },
+  "tabNote": {
+    "title": "Tóm tắt nhanh",
+    "permLabel": "Ai xem được",
+    "flowLabel": "Luồng chính",
+    "sourceLabel": "Dữ liệu từ đâu",
+    "processLabel": "Xử lý thế nào"
+  },
+  "dashboard": {
+    "tabPerm": "Điều hành vận hành, tiếp thị kênh, tiếp thị thương hiệu",
+    "tabFlow": "Tín hiệu → chỉ số hiệu suất then chốt → cảnh báo",
+    "tabSource": "Điểm bán lẻ, quan hệ khách hàng, truyền thông tiếp thị, nhân sự",
+    "tabProcess": "Tổng hợp theo ngày và kênh",
+    "flow": {
+      "s1t": "Nguồn dữ liệu",
+      "s1d": "Điểm bán · Khách hàng · Nhân sự · Marketing · Ảnh chụp ERP đồng bộ theo thoả thuận phục vụ.",
+      "s2t": "Nền tảng trung tâm",
+      "s2d": "Quản trị truy cập · Cổng giao diện lập trình · Luồng sự kiện · Dữ liệu chủ cho mã hàng và khách hàng.",
+      "s3t": "Xử lý dữ liệu",
+      "s3d": "Chuẩn hóa · Đồng bộ thay đổi · Quy tắc chất lượng · Kho đặc trưng cho phân tích và AI.",
+      "s4t": "Trí tuệ kinh doanh",
+      "s4d": "Nhà phân phối · Kinh doanh · Khách hàng 360 độ · Phân bổ chiến dịch.",
+      "s5t": "Hỗ trợ quyết định",
+      "s5d": "Kịch bản · Cam kết thời gian · Quy trình · Hàng đợi gợi ý AI.",
+      "s6t": "Hành động kinh doanh",
+      "s6d": "Thực thi kinh doanh · Chiến dịch · Hiện trường · Phê duyệt nhân sự."
+    },
+    "sectionOps": {
+      "h": "Tổng quan",
+      "p": "KPI theo thời gian thực, xu hướng doanh thu, hiệu suất nhà phân phối, phân khúc khách và cảnh báo quyết định."
+    },
+    "highlight": {
+      "c1t": "Doanh thu gộp mạng (tháng)",
+      "c1v": 312,
+      "c1s": "tỷ ₫",
+      "c2t": "Chiến dịch đang chạy",
+      "c2v": 24,
+      "c3t": "Đơn chờ xử lý",
+      "c3v": 1284
+    },
+    "kpi": {
+      "vendors": "Nhà phân phối hoạt động",
+      "customers": "Hồ sơ khách hàng",
+      "signals": "Tín hiệu thị trường",
+      "alerts": "Cảnh báo quyết định",
+      "revenue": "Doanh thu tháng",
+      "stockout": "Rủi ro hết hàng"
+    },
+    "kpiGrowth": {
+      "g1": "+4.2%",
+      "g2": "+2.1%",
+      "g3": "−1.4%",
+      "g4": "+12%",
+      "g5": "+6.8%",
+      "g6": "−5 SKU"
+    },
+    "charts": {
+      "revenue": "Xu hướng doanh thu",
+      "revenueY": "Doanh thu (tỷ ₫)",
+      "vendor": "Hiệu suất nhà phân phối",
+      "vendorY": "Chỉ số bán ra",
+      "demand": "Nhu cầu sản phẩm",
+      "demandY": "Chỉ số nhu cầu",
+      "segments": "Phân khúc khách hàng",
+      "segLabels": [
+        "Cao cấp",
+        "Đại chúng",
+        "Mạn tính",
+        "Nhạy giá",
+        "Mới"
+      ],
+      "campaignRoi": "ROI chiến dịch",
+      "campaignY": "ROI (lần)",
+      "months": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ],
+      "weeks": [
+        "Tuần 1",
+        "Tuần 2",
+        "Tuần 3",
+        "Tuần 4",
+        "Tuần 5",
+        "Tuần 6",
+        "Tuần 7",
+        "Tuần 8"
+      ],
+      "vendorLabels": [
+        "Trung tâm HN",
+        "Liên kết ĐN",
+        "Chăm sóc SG",
+        "Cung ứng CT",
+        "OTC HP"
+      ],
+      "campaignLabels": [
+        "Miễn dịch mùa hè",
+        "Tăng điểm thân thiết",
+        "Mở rộng nhà thuốc",
+        "Tiêu hóa",
+        "Nhắc miễn dịch"
+      ],
+      "custPieLabels": [
+        "Không kê đơn",
+        "Mạn tính",
+        "Quà tặng",
+        "Cấp cứu"
+      ],
+      "retentionX": [
+        "M+0",
+        "M+1",
+        "M+2",
+        "M+3",
+        "M+4",
+        "M+5"
+      ],
+      "retentionY": "Tỷ lệ giữ chân %"
+    },
+    "map": {
+      "title": "Bản đồ hotspot nhu cầu Việt Nam",
+      "aria": "Bản đồ hotspot Việt Nam",
+      "hn": "Hà Nội · Biến động cao",
+      "dn": "Đà Nẵng · Theo dõi",
+      "hcm": "Hồ Chí Minh · Ổn định",
+      "ct": "Cần Thơ · Ổn định",
+      "stockOut": "Rủi ro hết hàng:",
+      "vendorScore": "Điểm hiệu suất NPP:",
+      "demandTrend": "Xu hướng nhu cầu:",
+      "lgDanger": "Nguy hiểm / biến động cao",
+      "lgWarn": "Cảnh báo",
+      "lgStable": "Ổn định",
+      "trendSampleHn": "+18% so với tuần trước"
+    },
+    "alertsSection": {
+      "h": "Cảnh báo",
+      "p": "Bảng cảnh báo doanh nghiệp: ưu tiên, nguồn tín hiệu, đề xuất quyết định, SLA."
+    },
+    "alertsTable": {
+      "priority": "Ưu tiên",
+      "signal": "Tín hiệu",
+      "source": "Nguồn",
+      "decision": "Quyết định",
+      "owner": "Người phụ trách",
+      "sla": "Hạn xử lý",
+      "status": "Trạng thái"
+    }
+  },
+  "vendors": {
+    "tabPerm": "Tiếp thị kênh, điều hành vận hành",
+    "tabFlow": "Lọc → bảng → chi tiết",
+    "tabSource": "Dữ liệu gốc nhà phân phối, điểm bán, rủi ro",
+    "tabProcess": "Đồng bộ định kỳ; chọn dòng xem hồ sơ",
+    "section": {
+      "h": "NPP & kênh",
+      "p": "Danh sách nhà phân phối, điểm hiệu suất vùng, doanh thu và rủi ro tồn kho."
+    },
+    "filters": {
+      "search": "Tìm nhà phân phối hoặc mã…",
+      "regionAll": "Tất cả vùng",
+      "regionN": "Bắc",
+      "regionC": "Trung",
+      "regionS": "Nam",
+      "riskAll": "Rủi ro kho",
+      "riskLow": "Thấp",
+      "riskMed": "Trung bình",
+      "riskHigh": "Cao"
+    },
+    "table": {
+      "vendor": "Nhà phân phối",
+      "score": "Điểm",
+      "region": "Vùng",
+      "city": "Trụ sở / tỉnh",
+      "contact": "Liên hệ",
+      "channel": "Kênh chính",
+      "rev": "Doanh thu tháng",
+      "risk": "Rủi ro kho",
+      "cov": "Độ phủ",
+      "trend": "Xu hướng",
+      "outlets": "Điểm bán phủ",
+      "asm": "ASM",
+      "syncedAt": "Đồng bộ"
+    },
+    "detail": {
+      "title": "Hồ sơ nhà phân phối",
+      "hint": "Chọn một dòng trong bảng để xem chi tiết.",
+      "code": "Mã nhà phân phối",
+      "name": "Tên",
+      "score": "Điểm",
+      "region": "Vùng",
+      "rev": "Doanh thu tháng",
+      "risk": "Rủi ro tồn",
+      "cov": "Độ phủ",
+      "outlets": "Điểm bán phủ",
+      "asm": "Quản lý khu vực",
+      "syncedAt": "Đồng bộ dữ liệu"
+    },
+    "explain": {
+      "src": "Nguồn dữ liệu",
+      "proc": "Xử lý dữ liệu",
+      "out": "Kết quả kinh doanh",
+      "srcItems": [
+        "Bán ra tại điểm bán",
+        "Ảnh chụp tồn kho",
+        "Báo cáo tuần nhà phân phối"
+      ],
+      "procItems": [
+        "Chấm điểm nhà phân phối",
+        "Phân tích bán ra",
+        "Độ phủ phân phối"
+      ],
+      "outItems": [
+        "Tối ưu nhà phân phối",
+        "Mở rộng mã hàng",
+        "Quyết định kinh doanh"
+      ]
+    }
+  },
+  "sku": {
+    "tabPerm": "Điều hành vận hành, tiếp thị kênh",
+    "tabFlow": "Mã hàng → biểu đồ → cảnh báo tồn kho thấp",
+    "tabSource": "Hệ thống quản lý kho, dữ liệu bán ra, dự báo",
+    "tabProcess": "Độ phủ phân phối và bản đồ nhiệt theo vùng",
+    "section": {
+      "h": "SKU & tồn kho",
+      "p": "Theo dõi BSV Vitamin C, Ho Cảm, Dạ Dày, Gan — tồn kho, bản đồ phân phối và cảnh báo tồn thấp."
+    },
+    "explain": {
+      "in": "Đầu vào",
+      "proc": "Xử lý",
+      "out": "Đầu ra",
+      "inItems": [
+        "WMS · Điểm bán · EDI nhà phân phối"
+      ],
+      "procItems": [
+        "Dự báo · Phân bổ · Khả năng đáp ứng"
+      ],
+      "outItems": [
+        "Bổ hàng · Đường đến thị trường"
+      ]
+    },
+    "cards": {
+      "stock": "Tồn",
+      "cov": "Độ phủ",
+      "trendLbl": "Xu hướng",
+      "ordersWeek": "Đơn tuần (ước)",
+      "badgeReorder": "Cần bổ hàng",
+      "badgeMonitor": "Theo dõi",
+      "badgeHealthy": "Ổn định"
+    },
+    "charts": {
+      "invTitle": "Tồn kho so với dự báo",
+      "onHand": "Tồn tay (nghìn)",
+      "forecast": "Nhu cầu dự báo (nghìn)",
+      "skuLabels": [
+        "Vitamin C",
+        "Ho Cảm",
+        "Dạ Dày",
+        "Gan"
+      ]
+    },
+    "lowStock": {
+      "title": "Cảnh báo tồn thấp",
+      "sku": "SKU",
+      "dc": "DC",
+      "onHand": "Tồn tay",
+      "safetyStock": "Tồn an toàn",
+      "avgDailyOut": "Xuất TB / ngày",
+      "days": "Ngày đủ bán",
+      "reorderProposal": "Đề xuất bổ hàng",
+      "nextInbound": "ETA nhập kho",
+      "planner": "Người phụ trách",
+      "status": "Trạng thái",
+      "critical": "Nguy cấp",
+      "watch": "Theo dõi",
+      "ok": "Ổn định",
+      "daysUnit": "ngày"
+    },
+    "heatmap": {
+      "title": "Bản đồ nhiệt phân phối",
+      "hint": "Ô đậm = độ phủ kênh cao hơn.",
+      "cellTitle": "Cường độ kênh"
+    }
+  },
+  "customer": {
+    "tabPerm": "Tiếp thị thương hiệu, tiếp thị kênh",
+    "tabFlow": "Khách hàng toàn diện → hành vi → phân khúc",
+    "tabSource": "Ứng dụng di động, điểm bán lẻ, chương trình thân thiết",
+    "tabProcess": "Gom các điểm chạm, tính giá trị khách hàng trọn đời",
+    "section": {
+      "h": "Khách hàng",
+      "p": "Hồ sơ đầy đủ, lịch sử điểm chạm, phân khúc, giữ chân và thân thiết — bố cục dọc, cuộn ngang khi bảng rộng."
+    },
+    "panel360": {
+      "h": "Khách hàng 360 độ · Nguyễn Thị Mai",
+      "sub": "Mã: CUS-HCM-88421 · Hạng: Vàng · Kênh: Nhà thuốc và ứng dụng",
+      "tl1": "Mua BSV Vitamin C — nhà thuốc Lotte Mart Q7",
+      "tl2": "Đổi điểm thân thiết — voucher 50.000 đ",
+      "tl3": "Khảo sát hài lòng sau chiến dịch miễn dịch"
+    },
+    "dates": {
+      "d1": "2026-05-02",
+      "d2": "2026-04-18",
+      "d3": "2026-03-30"
+    },
+    "quick": {
+      "title": "Thông tin liên hệ nhanh",
+      "lblPhone": "Điện thoại",
+      "lblEmail": "Email",
+      "lblCity": "Địa điểm",
+      "lblChannel": "Kênh chính",
+      "lblTier": "Hạng thành viên",
+      "lblLastSeen": "Hoạt động gần nhất",
+      "phone": "0903 *** 821",
+      "email": "mai.nguyen@demo.vn",
+      "city": "TP. Hồ Chí Minh",
+      "channel": "Nhà thuốc và ứng dụng",
+      "tier": "Vàng",
+      "lastSeen": "2 giờ trước"
+    },
+    "explain": {
+      "h": "Giải thích · Trí tuệ khách hàng",
+      "src": "Nguồn dữ liệu",
+      "proc": "Xử lý",
+      "out": "Đầu ra",
+      "srcItems": [
+        "Ứng dụng khách hàng",
+        "Mua tại điểm bán",
+        "Hệ thống thân thiết"
+      ],
+      "procItems": [
+        "Phân khúc",
+        "Phân tích hành vi",
+        "Dự báo rời bỏ"
+      ],
+      "outItems": [
+        "Nhắm chiến dịch",
+        "Gợi ý ưu đãi tiếp theo"
+      ]
+    },
+    "charts": {
+      "seg": "Phân bổ phân khúc",
+      "ret": "Nhóm giữ chân"
+    },
+    "loyalty": {
+      "h": "Thân thiết và tần suất mua",
+      "colSeg": "Phân khúc",
+      "colMem": "Thành viên",
+      "colFreq": "Tần suất TB / 90 ngày",
+      "colClv": "Chỉ số giá trị trọn đời",
+      "colStat": "Trạng thái",
+      "row1": [
+        "Chăm sóc cao cấp",
+        "12.400",
+        "4,2",
+        "118",
+        "Tốt"
+      ],
+      "row2": [
+        "Nhạy giá",
+        "38.200",
+        "1,8",
+        "62",
+        "Theo dõi"
+      ],
+      "row3": [
+        "Mạn tính",
+        "9.050",
+        "6,1",
+        "132",
+        "Mở bán thêm"
+      ],
+      "badgeHealthy": "Tốt",
+      "badgeWatch": "Theo dõi",
+      "badgeUpsell": "Mở bán thêm"
+    },
+    "tables": {
+      "profile": {
+        "fullName": "Họ tên",
+        "customerId": "Mã khách hàng",
+        "tier": "Hạng",
+        "tierSince": "Hạng từ",
+        "primaryChannel": "Kênh chính",
+        "phone": "Điện thoại",
+        "email": "Email",
+        "city": "Địa điểm",
+        "memberSince": "Tham gia thân thiết",
+        "lastSeen": "Hoạt động gần nhất",
+        "clvIndex": "Chỉ số CLV",
+        "consentMarketing": "Đồng ý tiếp thị"
+      },
+      "activity": {
+        "h": "Dòng hoạt động & điểm chạm",
+        "occurredAt": "Thời điểm",
+        "channel": "Kênh",
+        "touchpoint": "Điểm chạm",
+        "detail": "Chi tiết",
+        "outcome": "Kết quả"
+      },
+      "segmentMix": {
+        "h": "Phân bổ phân khúc (doanh thu gán nhãn)",
+        "segment": "Phân khúc mua",
+        "sharePct": "Tỷ trọng",
+        "labeledRev": "DT gán nhãn / năm",
+        "orders90d": "Đơn 90 ngày"
+      },
+      "retention": {
+        "h": "Giữ chân theo kỳ (cohort hiện tại)",
+        "period": "Kỳ",
+        "retentionPct": "Giữ chân %",
+        "note": "Ghi chú"
+      }
+    }
+  },
+  "campaign": {
+    "tabPerm": "Tiếp thị thương hiệu, tiếp thị kênh",
+    "tabFlow": "Chiến dịch → tỷ suất hoàn vốn → phiếu ưu đãi",
+    "tabSource": "Chi tiêu, doanh thu gán nhãn",
+    "tabProcess": "Theo dõi hiệu quả theo kỳ",
+    "section": {
+      "h": "Chiến dịch",
+      "p": "Chiến dịch đang chạy: Miễn dịch mùa hè, Tăng điểm thân thiết, Mở rộng nhà thuốc."
+    },
+    "cards": {
+      "roi": "ROI",
+      "conv": "Chuyển đổi",
+      "live": "Đang chạy"
+    },
+    "roiTable": {
+      "h": "ROI và chuyển đổi",
+      "campaign": "Chiến dịch",
+      "period": "Kỳ chạy",
+      "audience": "Đối tượng",
+      "channel": "Kênh",
+      "spend": "Chi tiêu",
+      "rev": "Doanh thu được quy",
+      "roi": "ROI",
+      "conv": "Chuyển đổi",
+      "status": "Trạng thái"
+    },
+    "voucher": {
+      "h": "Voucher và thông báo đẩy",
+      "pool": "Quỹ",
+      "issued": "Đã phát",
+      "redeemed": "Đã đổi",
+      "push": "Đã gửi đẩy",
+      "open": "Tỷ lệ mở",
+      "expiry": "Hạn hiệu lực",
+      "costPerRedeem": "Chi phí / lượt đổi",
+      "budgetLeft": "Ngân sách còn lại"
+    }
+  },
+  "research": {
+    "tabPerm": "Nghiên cứu và phát triển, tiếp thị thương hiệu",
+    "tabFlow": "Phân tích thông tin → xu hướng → gợi ý",
+    "tabSource": "Bán lẻ, khảo sát, thị trường",
+    "tabProcess": "Tổng hợp tín hiệu cho sản phẩm mới",
+    "section": {
+      "h": "Thị trường",
+      "p": "Trung tâm BI: xu hướng, dự báo nhu cầu, cơ hội thị trường và insight AI."
+    },
+    "cards": {
+      "c1h": "Dự báo nhu cầu",
+      "c1p": "Vitamin C — Miền Bắc +14% trong 8 tuần tới (độ tin cậy 0,81).",
+      "c2h": "Cơ hội thị trường",
+      "c2p": "Khoảng trống nhóm tiêu hóa so với đối thủ X tại duyên hải miền Trung.",
+      "c3h": "Báo cáo xu hướng",
+      "c3p": "Gói PDF hàng tuần · Xếp hạng mã hàng · Ước lượng thị phần kệ."
+    },
+    "ai": {
+      "a1t": "Phân tích AI",
+      "a1p": "Nhu cầu Vitamin C tăng tại miền Bắc — đề xuất tăng phân bổ hành lang Đà Nẵng đến Hà Nội.",
+      "a2t": "Phân tích AI",
+      "a2p": "Giữ chân khách giảm tại TP.HCM — kiểm tra chồng khuyến mãi và đội chăm sóc sau biến cố.",
+      "a3t": "Phân tích AI",
+      "a3p": "Thấy cơ hội nhóm tiêu hóa — quét mạng xã hội và giỏ OTC."
+    }
+  },
+  "cases": {
+    "tabPerm": "Điều hành vận hành, đảm bảo chất lượng",
+    "tabFlow": "Danh sách → cam kết SLA → trạng thái xử lý",
+    "tabSource": "Đường dây nóng, quản lý quan hệ khách hàng, hiện trường",
+    "tabProcess": "Ưu tiên, gán người phụ trách, theo dõi",
+    "section": {
+      "h": "Phản hồi",
+      "p": "Phiếu theo thời hạn xử lý, rõ người tiếp nhận — thời điểm — tình trạng, cùng khiếu nại và phản ứng có hại."
+    },
+    "sla": {
+      "h": "Theo dõi thời hạn xử lý",
+      "case": "Mã phiếu",
+      "type": "Loại",
+      "priority": "Ưu tiên",
+      "receivedBy": "Người tiếp nhận",
+      "receivedAt": "Tiếp nhận từ",
+      "sla": "Thời hạn",
+      "owner": "Người phụ trách",
+      "situation": "Tình trạng hiện tại",
+      "status": "Trạng thái"
+    }
+  },
+  "hrm": {
+    "tabPerm": "Quản lý nhân sự, điều hành vận hành",
+    "tabFlow": "Chỉ số hiệu suất → phòng ban → phê duyệt",
+    "tabSource": "Chấm công, đơn từ, chỉ số hiệu suất",
+    "tabProcess": "Luồng phê duyệt chuẩn",
+    "section": {
+      "h": "Nhân sự",
+      "p": "Nhân sự hiện trường và văn phòng: KPI, chấm công, phê duyệt và hiệu suất phòng ban."
+    },
+    "kpi": {
+      "head": "Quy mô nhân sự",
+      "att": "Chấm công hôm nay",
+      "open": "Phê duyệt mở",
+      "g1": "+2.3%",
+      "g2": "Đạt mục tiêu",
+      "badge": "Kết hợp nhân sự và tài chính"
+    },
+    "dept": {
+      "h": "Hiệu suất phòng ban",
+      "dept": "Phòng ban",
+      "kpi": "Điểm KPI",
+      "sla": "SLA phiếu",
+      "trend": "Xu hướng",
+      "status": "Trạng thái",
+      "r1": [
+        "Tiếp thị thương mại",
+        "88",
+        "96%",
+        "+3%",
+        "Đạt"
+      ],
+      "r2": [
+        "Kinh doanh hiện trường Miền Bắc",
+        "76",
+        "89%",
+        "−2%",
+        "Huấn luyện"
+      ],
+      "r3": [
+        "Chăm sóc khách hàng",
+        "91",
+        "98%",
+        "+1%",
+        "Đạt"
+      ],
+      "badgeOk": "Đạt",
+      "badgeCoach": "Huấn luyện"
+    },
+    "approval": {
+      "h": "Quy trình phê duyệt",
+      "approvalTable": {
+        "requester": "Người yêu cầu",
+        "title": "Tiêu đề / Nội dung",
+        "type": "Loại phiếu",
+        "submitted": "Gửi lúc",
+        "status": "Trạng thái"
+      }
+    },
+    "staff": {
+      "h": "Danh sách nhân sự",
+      "name": "Họ tên",
+      "employeeId": "Mã nhân viên",
+      "role": "Chức danh",
+      "dept": "Phòng ban",
+      "contact": "Liên hệ",
+      "joinDate": "Ngày vào làm",
+      "status": "Trạng thái"
+    }
+  },
+  "aiCenter": {
+    "tabPerm": "Nghiên cứu và phát triển, chiến lược",
+    "tabFlow": "Ưu tiên → độ tin cậy → người phụ trách",
+    "tabSource": "Bán hàng, phản hồi, thị trường",
+    "tabProcess": "Xếp hạng đề xuất hành động",
+    "section": {
+      "h": "AI · R&D",
+      "p": "Ưu tiên chiến lược: mở rộng phân phối, tối ưu nhà phân phối, chiến dịch và dự báo thị trường."
+    },
+    "badges": {
+      "impact": "Mức độ:",
+      "conf": "Độ tin cậy:"
+    },
+    "impactLevels": {
+      "high": "Cao",
+      "medium": "Trung bình"
+    }
+  },
+  "settings": {
+    "tabPerm": "Quản trị viên hệ thống",
+    "tabFlow": "Vai trò → người dùng → tích hợp",
+    "tabSource": "Quản lý định danh và quyền truy cập, nhật ký hệ thống",
+    "tabProcess": "Cấu hình quyền và thông báo",
+    "section": {
+      "h": "Cấu hình",
+      "p": "Vai trò, quyền, tích hợp và thông báo."
+    },
+    "roles": {
+      "h": "Quản lý vai trò",
+      "role": "Vai trò",
+      "users": "Người dùng",
+      "risk": "Rủi ro",
+      "status": "Trạng thái",
+      "r1": [
+        "Quản trị trung tâm",
+        "8",
+        "Cao",
+        "Đang hoạt động"
+      ],
+      "r2": [
+        "ASM khu vực",
+        "42",
+        "Trung bình",
+        "Đang hoạt động"
+      ],
+      "r3": [
+        "Dược kiểm",
+        "6",
+        "Cao",
+        "Đang rà soát"
+      ],
+      "active": "Đang hoạt động",
+      "review": "Đang rà soát"
+    },
+    "integrations": {
+      "h": "Tích hợp",
+      "i1": "Kết nối SAP B1",
+      "i2": "CRM Zalo OA",
+      "i3": "TMS kho vận",
+      "live": "Hoạt động",
+      "degraded": "Suy giảm"
+    },
+    "notify": {
+      "h": "Cấu hình thông báo",
+      "n1": "Cảnh báo điều hành · Email",
+      "n2": "Hết hàng · Tin nhắn",
+      "n3": "Tóm tắt chiến dịch · Slack"
+    },
+    "matrix": {
+      "h": "Ma trận quyền (rút gọn)",
+      "module": "Phân hệ",
+      "read": "Đọc",
+      "write": "Ghi",
+      "approve": "Phê duyệt",
+      "m1": [
+        "Tài chính nhà phân phối",
+        "Đ",
+        "Giới hạn",
+        "Giám đốc tài chính"
+      ],
+      "m2": [
+        "Ra mắt chiến dịch",
+        "Tất cả",
+        "Thương hiệu",
+        "Giám đốc marketing"
+      ]
+    }
+  },
+  "mockData": {
+    "alerts": [
+      {
+        "priority": "P1",
+        "signal": "Doanh số bán ra của nhà phân phối giảm 28%",
+        "source": "Điểm bán nhà phân phối · Miền Bắc",
+        "decision": "ASM khảo sát hiện trường và đối chiếu khuyến mãi đối thủ",
+        "owner": "ASM Miền Bắc",
+        "sla": "24 giờ",
+        "status": "danger",
+        "labelKey": "open"
+      },
+      {
+        "priority": "P2",
+        "signal": "Nhu cầu Vitamin C tăng 32%",
+        "source": "Điểm bán và tín hiệu tìm kiếm",
+        "decision": "Tăng phân bổ SKU-BSV-VC",
+        "owner": "Hoạch định nhu cầu",
+        "sla": "48 giờ",
+        "status": "warning",
+        "labelKey": "inProgress"
+      },
+      {
+        "priority": "P2",
+        "signal": "Khiếu nại ADR tăng so với tuần trước",
+        "source": "CRM · Đường dây nóng",
+        "decision": "Dược kiểm rà soát và tương quan theo lô",
+        "owner": "Dược kiểm",
+        "sla": "12 giờ",
+        "status": "danger",
+        "labelKey": "critical"
+      },
+      {
+        "priority": "P3",
+        "signal": "Phát hiện khuyến mãi đối thủ",
+        "source": "Tình báo thị trường · Hiện trường",
+        "decision": "Dự thảo phản chiến dịch thương mại",
+        "owner": "Tiếp thị thương mại",
+        "sla": "72 giờ",
+        "status": "info",
+        "labelKey": "monitoring"
+      },
+      {
+        "priority": "P3",
+        "signal": "Rủi ro hết hàng Ho Cảm tại Đà Nẵng",
+        "source": "Kho lớn và dự báo",
+        "decision": "Chuyển khẩn cấp từ DC phía Nam",
+        "owner": "Chuỗi cung ứng",
+        "sla": "36 giờ",
+        "status": "warning",
+        "labelKey": "slaRisk"
+      },
+      {
+        "priority": "P4",
+        "signal": "Đổi thưởng thân thiết tăng đột biến",
+        "source": "Ứng dụng · CRM",
+        "decision": "Giới hạn tốc độ đốt voucher",
+        "owner": "Trưởng CRM",
+        "sla": "5 ngày",
+        "status": "success",
+        "labelKey": "stable"
+      }
+    ],
+    "vendors": [
+      {
+        "code": "VD-HN-042",
+        "name": "Medipharm North JSC",
+        "score": 61,
+        "regionKey": "north",
+        "city": "Hà Nội",
+        "contact": "+84 24 3829 1100",
+        "channel": "OTC · chuỗi B",
+        "rev": "₫ 9.2B",
+        "riskKey": "high",
+        "cov": "78%",
+        "trend": "+2%",
+        "outlets": "312 điểm bán",
+        "asm": "ASM Miền Bắc · Trần Hùng",
+        "syncedAt": "08:15 hôm nay"
+      },
+      {
+        "code": "VD-DN-019",
+        "name": "Central Pharma Link",
+        "score": 74,
+        "regionKey": "central",
+        "city": "Đà Nẵng",
+        "contact": "+84 236 393 4411",
+        "channel": "OTC + ETC",
+        "rev": "₫ 6.1B",
+        "riskKey": "medium",
+        "cov": "82%",
+        "trend": "+5%",
+        "outlets": "186 điểm bán",
+        "asm": "ASM Miền Trung · Lê Thu",
+        "syncedAt": "07:58 hôm nay"
+      },
+      {
+        "code": "VD-HCM-003",
+        "name": "Saigon Wellness Dist.",
+        "score": 82,
+        "regionKey": "south",
+        "city": "TP. Hồ Chí Minh",
+        "contact": "+84 28 3827 6600",
+        "channel": "OTC · wellness",
+        "rev": "₫ 14.8B",
+        "riskKey": "low",
+        "cov": "91%",
+        "trend": "+3%",
+        "outlets": "524 điểm bán",
+        "asm": "ASM Miền Nam · Phạm Minh",
+        "syncedAt": "09:02 hôm nay"
+      },
+      {
+        "code": "VD-CT-011",
+        "name": "Mekong Retail Supply",
+        "score": 79,
+        "regionKey": "south",
+        "city": "Cần Thơ",
+        "contact": "+84 292 376 2200",
+        "channel": "OTC · bán lẻ",
+        "rev": "₫ 4.3B",
+        "riskKey": "low",
+        "cov": "85%",
+        "trend": "+1%",
+        "outlets": "141 điểm bán",
+        "asm": "ASM ĐBSCL · Võ An",
+        "syncedAt": "06:40 hôm nay"
+      },
+      {
+        "code": "VD-HP-008",
+        "name": "Hai Phong OTC Hub",
+        "score": 68,
+        "regionKey": "north",
+        "city": "Hải Phòng",
+        "contact": "+84 225 384 1199",
+        "channel": "OTC · trung tâm",
+        "rev": "₫ 3.9B",
+        "riskKey": "medium",
+        "cov": "74%",
+        "trend": "−4%",
+        "outlets": "97 điểm bán",
+        "asm": "ASM Hải Phòng · Đỗ Lan",
+        "syncedAt": "08:44 hôm nay"
+      }
+    ],
+    "skuCards": [
+      {
+        "name": "BSV Vitamin C",
+        "sku": "SKU-BSV-VC-1000",
+        "stock": "124 nghìn đơn vị",
+        "cov": "22 ngày",
+        "badgeKey": "warning",
+        "trend": "+14%",
+        "weekOrders": "18.400 đơn"
+      },
+      {
+        "name": "BSV Ho Cảm",
+        "sku": "SKU-BSV-HC-500",
+        "stock": "61 nghìn đơn vị",
+        "cov": "31 ngày",
+        "badgeKey": "success",
+        "trend": "+6%",
+        "weekOrders": "9.100 đơn"
+      },
+      {
+        "name": "BSV Dạ Dày",
+        "sku": "SKU-BSV-DD-300",
+        "stock": "44 nghìn đơn vị",
+        "cov": "18 ngày",
+        "badgeKey": "danger",
+        "trend": "+3%",
+        "weekOrders": "6.800 đơn"
+      },
+      {
+        "name": "BSV Gan",
+        "sku": "SKU-BSV-GN-450",
+        "stock": "52 nghìn đơn vị",
+        "cov": "26 ngày",
+        "badgeKey": "success",
+        "trend": "+2%",
+        "weekOrders": "7.950 đơn"
+      }
+    ],
+    "campaigns": [
+      {
+        "title": "Chiến dịch miễn dịch mùa hè",
+        "period": "Tháng 5–8 năm 2026",
+        "roi": "4,1×",
+        "conv": "3,8%",
+        "statusKey": "success",
+        "desc": "Combo Vitamin C và Ho Cảm · nhà thuốc hạng A/B."
+      },
+      {
+        "title": "Tăng điểm thân thiết",
+        "period": "Liên tục quý II",
+        "roi": "2,6×",
+        "conv": "5,1%",
+        "statusKey": "info",
+        "desc": "Nhân đôi điểm · tin nhắn đẩy và hành trình Zalo OA."
+      },
+      {
+        "title": "Đẩy mạnh mở nhà thuốc",
+        "period": "Trọng điểm miền Bắc",
+        "roi": "3,3×",
+        "conv": "2,9%",
+        "statusKey": "warning",
+        "desc": "KPI kệ · nhịp ASM và tuân thủ trưng bày."
+      }
+    ],
+    "campaignRoi": [
+      {
+        "name": "Miễn dịch mùa hè",
+        "spend": "₫ 2,4 nghìn tỷ",
+        "rev": "₫ 9,8 nghìn tỷ",
+        "roi": "4,1×",
+        "conv": "3,8%",
+        "statusKey": "success",
+        "labelKey": "scale",
+        "period": "01/06 – 31/08/2026",
+        "audience": "Hộ gia đình · có trẻ",
+        "channel": "App · Zalo OA · POS"
+      },
+      {
+        "name": "Tăng điểm thân thiết",
+        "spend": "₫ 0,9 nghìn tỷ",
+        "rev": "₫ 2,3 nghìn tỷ",
+        "roi": "2,6×",
+        "conv": "5,1%",
+        "statusKey": "info",
+        "labelKey": "optimize",
+        "period": "Quý II · liên tục",
+        "audience": "Thành viên Vàng · Bạc",
+        "channel": "Ứng dụng · Email · SMS"
+      },
+      {
+        "name": "Mở rộng nhà thuốc",
+        "spend": "₫ 1,8 nghìn tỷ",
+        "rev": "₫ 5,9 nghìn tỷ",
+        "roi": "3,3×",
+        "conv": "2,9%",
+        "statusKey": "warning",
+        "labelKey": "reviewGeo",
+        "period": "01/04 – 30/06/2026",
+        "audience": "Chuỗi OTC · miền Bắc",
+        "channel": "ASM hiện trường · Display"
+      }
+    ],
+    "campaignVouchers": [
+      {
+        "id": "VCH-VN-01",
+        "pool": "Voucher hè 50k",
+        "issued": "24.000",
+        "redeemed": "18.200",
+        "push": "210.000",
+        "openRate": "31%",
+        "expiry": "30/09/2026",
+        "costPerRedeem": "₫ 12.800",
+        "budgetLeft": "Còn ~18% quỹ voucher"
+      },
+      {
+        "id": "VCH-VN-02",
+        "pool": "Nhân đôi điểm thân thiết",
+        "issued": "—",
+        "redeemed": "—",
+        "push": "98.000",
+        "openRate": "27%",
+        "expiry": "Theo chu kỳ Q2",
+        "costPerRedeem": "—",
+        "budgetLeft": "~42% ngân sách push"
+      },
+      {
+        "id": "VCH-VN-03",
+        "pool": "Nhắc tiêm miễn dịch — push",
+        "issued": "8.500",
+        "redeemed": "3.100",
+        "push": "156.000",
+        "openRate": "34%",
+        "expiry": "15/08/2026",
+        "costPerRedeem": "₫ 8.900",
+        "budgetLeft": "Còn 26% kênh Zalo"
+      }
+    ],
+    "customerProfile": {
+      "customerId": "CUS-HCM-88421",
+      "fullName": "Nguyễn Thị Mai",
+      "tier": "Vàng",
+      "tierSince": "01/2025",
+      "primaryChannel": "Nhà thuốc · App GL Herbals",
+      "phone": "0903 *** 821",
+      "email": "mai.nguyen@demo.vn",
+      "city": "TP. Hồ Chí Minh · Q.7",
+      "memberSince": "08/2023",
+      "lastSeen": "2 giờ trước · App",
+      "clvIndex": "118 · nhóm cao",
+      "consentMarketing": "Email · Push · Zalo OA"
+    },
+    "customerActivities": [
+      {
+        "id": "ACT-VN-01",
+        "occurredAt": "2026-05-02 10:14",
+        "channel": "Nhà thuốc",
+        "touchpoint": "POS · Lotte Mart Q7",
+        "detail": "Mua BSV Vitamin C ×2",
+        "outcome": "Hoàn tất · tích điểm"
+      },
+      {
+        "id": "ACT-VN-02",
+        "occurredAt": "2026-04-18 15:02",
+        "channel": "Ứng dụng",
+        "touchpoint": "Đổi điểm thân thiết",
+        "detail": "Voucher 50.000 ₫",
+        "outcome": "Đã đổi thành công"
+      },
+      {
+        "id": "ACT-VN-03",
+        "occurredAt": "2026-03-30 09:40",
+        "channel": "Email",
+        "touchpoint": "Khảo sát",
+        "detail": "Sau chiến dịch miễn dịch",
+        "outcome": "Đã gửi phản hồi"
+      },
+      {
+        "id": "ACT-VN-04",
+        "occurredAt": "2026-03-12 18:22",
+        "channel": "Zalo OA",
+        "touchpoint": "CSKH",
+        "detail": "Hỏi tương tác thuốc Hoàn Cảm",
+        "outcome": "Đã phản hồi trong SLA"
+      },
+      {
+        "id": "ACT-VN-05",
+        "occurredAt": "2026-02-05 11:05",
+        "channel": "Nhà thuốc",
+        "touchpoint": "POS · Phước Long Q7",
+        "detail": "Mua Hoàn Cảm ×1",
+        "outcome": "Tích điểm · không ADR"
+      }
+    ],
+    "customerSegmentMix": [
+      {
+        "id": "SEG-VN-01",
+        "segment": "Không kê đơn",
+        "sharePct": "44%",
+        "labeledRev": "₫ 42M",
+        "orders90d": "18"
+      },
+      {
+        "id": "SEG-VN-02",
+        "segment": "Mạn tính",
+        "sharePct": "28%",
+        "labeledRev": "₫ 31M",
+        "orders90d": "11"
+      },
+      {
+        "id": "SEG-VN-03",
+        "segment": "Quà tặng",
+        "sharePct": "18%",
+        "labeledRev": "₫ 12M",
+        "orders90d": "7"
+      },
+      {
+        "id": "SEG-VN-04",
+        "segment": "Cấp cứu",
+        "sharePct": "10%",
+        "labeledRev": "₫ 6M",
+        "orders90d": "4"
+      }
+    ],
+    "customerRetentionSeries": [
+      {
+        "period": "M+0",
+        "retentionPct": "100%",
+        "note": "Cohort gốc sau lần mua đầu"
+      },
+      {
+        "period": "M+1",
+        "retentionPct": "82%",
+        "note": "Giảm nhẹ sau kết thúc KM"
+      },
+      {
+        "period": "M+2",
+        "retentionPct": "71%",
+        "note": "Ảnh hưởng mùa nóng"
+      },
+      {
+        "period": "M+3",
+        "retentionPct": "64%",
+        "note": "Ổn định nhóm OTC"
+      },
+      {
+        "period": "M+4",
+        "retentionPct": "58%",
+        "note": "Theo dõi đối thủ giá"
+      },
+      {
+        "period": "M+5",
+        "retentionPct": "54%",
+        "note": "Đề xuất voucher giữ chân"
+      }
+    ],
+    "cases": [
+      {
+        "id": "CASE-ADR-2405",
+        "type": "Báo cáo ADR",
+        "pri": "P1",
+        "sla": "Còn 12 giờ",
+        "owner": "Nhóm PV",
+        "statusKey": "danger",
+        "labelKey": "breachRisk",
+        "receivedBy": "Võ Thị Hương — Trung tâm PV",
+        "receivedAt": "10/05/2026 08:12",
+        "situation": "ĐANG CHỜ · dự thảo báo cáo — đơn vị dược kiểm"
+      },
+      {
+        "id": "CASE-ST-8831",
+        "type": "Hết hàng",
+        "pri": "P2",
+        "sla": "28 giờ",
+        "owner": "Cung ứng",
+        "statusKey": "warning",
+        "labelKey": "active",
+        "receivedBy": "Hệ thống · TMS",
+        "receivedAt": "09/05/2026 21:40",
+        "situation": "Đang chuyển bổ hàng từ DC Trung"
+      },
+      {
+        "id": "CASE-VN-5520",
+        "type": "Tranh chấp nhà phân phối",
+        "pri": "P2",
+        "sla": "48 giờ",
+        "owner": "Kinh doanh",
+        "statusKey": "info",
+        "labelKey": "mediation",
+        "receivedBy": "Nguyễn Đức An — Hotline CRM",
+        "receivedAt": "08/05/2026 14:05",
+        "situation": "Đã lên lịch hòa giải lần 2 với NPP"
+      },
+      {
+        "id": "CASE-CS-4102",
+        "type": "Khiếu nại khách hàng",
+        "pri": "P3",
+        "sla": "72 giờ",
+        "owner": "Chăm sóc",
+        "statusKey": "success",
+        "labelKey": "resolved",
+        "receivedBy": "Trần Thu Trang — CSKH cấp 2",
+        "receivedAt": "05/05/2026 09:30",
+        "situation": "Đã đóng sau hoàn tiền và khảo sát"
+      }
+    ],
+    "aiRecs": [
+      {
+        "title": "Mở rộng phân phối Vitamin C tại Hà Nội",
+        "impactKey": "high",
+        "conf": "0,84",
+        "owner": "Kinh doanh · Miền Bắc",
+        "statusKey": "warning",
+        "detail": "Liên quan khuyến mãi đối thủ và khoảng cách bán ra tại VD-HN-042."
+      },
+      {
+        "title": "Tăng ưu đãi thân thiết tại TP.HCM",
+        "impactKey": "medium",
+        "conf": "0,76",
+        "owner": "CRM",
+        "statusKey": "info",
+        "detail": "Nhóm giữ chân quý I giảm so đường cơ sở; thử thang voucher."
+      },
+      {
+        "title": "Điều tra rủi ro hết hàng tại Đà Nẵng",
+        "impactKey": "high",
+        "conf": "0,79",
+        "owner": "Chuỗi cung ứng",
+        "statusKey": "danger",
+        "detail": "Sai số dự báo và chậm nhập; kết nối TMS suy giảm."
+      },
+      {
+        "title": "Điều chỉnh ngân sách chiến dịch · Mở rộng nhà thuốc",
+        "impactKey": "medium",
+        "conf": "0,71",
+        "owner": "Thương hiệu",
+        "statusKey": "success",
+        "detail": "ROI miền Bắc vượt miền Nam cho trưng bày Ho Cảm."
+      }
+    ],
+    "lowStock": [
+      {
+        "id": "LS-VN-01",
+        "sku": "SKU-BSV-VC-1000",
+        "dc": "DC-Bắc",
+        "onHand": "36 nghìn",
+        "safetyStock": "48 nghìn",
+        "avgDailyOut": "3,2 nghìn",
+        "daysCover": "11",
+        "reorderProposal": "+120 nghìn · PO-2405",
+        "nextInbound": "18/05/2026",
+        "planner": "Cung ứng · Miền Bắc",
+        "statusKey": "danger"
+      },
+      {
+        "id": "LS-VN-02",
+        "sku": "SKU-BSV-DD-300",
+        "dc": "DC-Trung",
+        "onHand": "52 nghìn",
+        "safetyStock": "55 nghìn",
+        "avgDailyOut": "2,8 nghìn",
+        "daysCover": "14",
+        "reorderProposal": "+80 nghìn · chờ ASM",
+        "nextInbound": "22/05/2026",
+        "planner": "Hoạch định · Trung",
+        "statusKey": "warning"
+      },
+      {
+        "id": "LS-VN-03",
+        "sku": "SKU-BSV-HC-500",
+        "dc": "DC-Nam",
+        "onHand": "118 nghìn",
+        "safetyStock": "72 nghìn",
+        "avgDailyOut": "3,6 nghìn",
+        "daysCover": "31",
+        "reorderProposal": "Không · đủ cover",
+        "nextInbound": "—",
+        "planner": "DC Nam · WMS",
+        "statusKey": "success"
+      },
+      {
+        "id": "LS-VN-04",
+        "sku": "SKU-BSV-GAN-250",
+        "dc": "DC-Bắc",
+        "onHand": "21 nghìn",
+        "safetyStock": "40 nghìn",
+        "avgDailyOut": "1,9 nghìn",
+        "daysCover": "9",
+        "reorderProposal": "+95 nghìn · khẩn",
+        "nextInbound": "16/05/2026",
+        "planner": "Trưởng DC Bắc",
+        "statusKey": "danger"
+      }
+    ],
+    "hrmApprovals": [
+      {
+        "id": "APR-VN-001",
+        "requester": "Nguyễn Lan Anh",
+        "title": "Đợt nghỉ lễ tháng 5 — nhóm tiếp thị",
+        "type": "Nghỉ phép",
+        "submitted": "2026-05-08",
+        "status": "3 chờ duyệt",
+        "statusKey": "info"
+      },
+      {
+        "id": "APR-VN-002",
+        "requester": "Phạm Đức Minh",
+        "title": "Capex mở rộng kho DC Miền Nam (>500M ₫)",
+        "type": "Đầu tư CAPEX",
+        "submitted": "2026-05-06",
+        "status": "Giám đốc tài chính",
+        "statusKey": "warning"
+      },
+      {
+        "id": "APR-VN-003",
+        "requester": "Lê Thu Hà",
+        "title": "Tuyển dụng nhân viên kinh doanh — Miền Trung",
+        "type": "Tuyển dụng",
+        "submitted": "2026-05-02",
+        "status": "Đã duyệt",
+        "statusKey": "success"
+      },
+      {
+        "id": "APR-VN-004",
+        "requester": "Hoàng Việt Anh",
+        "title": "Tạm ứng công tác — Hội thảo HCM",
+        "type": "Chi phí công tác",
+        "submitted": "2026-05-09",
+        "status": "Giám đốc khối",
+        "statusKey": "warning"
+      },
+      {
+        "id": "APR-VN-005",
+        "requester": "Đặng Ngọc Mai",
+        "title": "Đào tạo GMP nội bộ — lớp Q3",
+        "type": "Đào tạo",
+        "submitted": "2026-04-28",
+        "status": "Từ chối",
+        "statusKey": "danger"
+      }
+    ],
+    "hrmStaff": [
+      {
+        "id": "STF-VN-001",
+        "name": "Trần Minh Tuấn",
+        "employeeId": "EMP-HCM-2104",
+        "role": "ASM Miền Nam",
+        "dept": "Kinh doanh hiện trường",
+        "contact": "tuuan.tran@demo.vn · 0904 *** 112",
+        "joinDate": "2019-03-12",
+        "status": "Đang làm việc",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-VN-002",
+        "name": "Nguyễn Thị Mai",
+        "employeeId": "EMP-HN-1188",
+        "role": "Trưởng nhóm CSKH",
+        "dept": "Chăm sóc khách hàng",
+        "contact": "mai.nguyen@demo.vn · 0983 *** 441",
+        "joinDate": "2021-07-05",
+        "status": "Đang làm việc",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-VN-003",
+        "name": "Phạm Quốc Huy",
+        "employeeId": "EMP-DN-0642",
+        "role": "Giám sát kênh OTC",
+        "dept": "Tiếp thị thương mại",
+        "contact": "huy.pham@demo.vn · 0912 *** 903",
+        "joinDate": "2018-11-20",
+        "status": "Thử việc",
+        "statusKey": "warning"
+      },
+      {
+        "id": "STF-VN-004",
+        "name": "Lê Hoàng Nam",
+        "employeeId": "EMP-HN-3021",
+        "role": "Chuyên viên cung ứng",
+        "dept": "Chuỗi cung ứng",
+        "contact": "nam.le@demo.vn · 0937 *** 228",
+        "joinDate": "2024-02-14",
+        "status": "Đang làm việc",
+        "statusKey": "success"
+      },
+      {
+        "id": "STF-VN-005",
+        "name": "Võ Khánh Linh",
+        "employeeId": "EMP-HCM-4490",
+        "role": "HRBP miền Nam",
+        "dept": "Nhân sự",
+        "contact": "linh.vo@demo.vn · 0901 *** 665",
+        "joinDate": "2020-09-01",
+        "status": "Nghỉ thai sản",
+        "statusKey": "info"
+      }
+    ]
+  },
+  "labels": {
+    "campaignRoi": {
+      "scale": "Mở rộng",
+      "optimize": "Tối ưu",
+      "reviewGeo": "Rà soát địa lý"
+    },
+    "cases": {
+      "breachRisk": "Rủi ro vi phạm SLA",
+      "active": "Đang xử lý",
+      "mediation": "Hòa giải",
+      "resolved": "Đã xử lý"
+    },
+    "alertStatus": {
+      "open": "Mở",
+      "inProgress": "Đang xử lý",
+      "critical": "Nghiêm trọng",
+      "monitoring": "Theo dõi",
+      "slaRisk": "Rủi ro SLA",
+      "stable": "Ổn định"
+    }
+  },
+  "langs": {
+    "vi": "Tiếng Việt",
+    "en": "English",
+    "zh": "中文"
+  }
+}

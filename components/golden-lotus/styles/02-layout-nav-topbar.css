@@ -1,0 +1,516 @@
+
+.gl-app {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Main column (header + scrollable body) */
+.gl-app > .ant-layout:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--gl-shell-surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.gl-sidebar {
+  /* Stay in flex row with Content — fixed + missing .gl-main-wrap margin caused overlap */
+  position: relative !important;
+  inset: auto !important;
+  flex-shrink: 0;
+  align-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  min-height: 0;
+  z-index: 1;
+  padding: 0;
+  background: var(--gl-shell-surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-right: none;
+  box-shadow: var(--gl-shell-edge);
+  display: flex;
+  flex-direction: column;
+}
+/* Ant Design wraps Sider children — stretch so inner column can scroll independently */
+.gl-sidebar.ant-layout-sider .ant-layout-sider-children {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: transparent;
+}
+.gl-sidebar-inner {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Same band height as main .gl-topbar (--topbar-h); aligns across shell */
+.gl-sidebar-header {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  height: var(--topbar-h);
+  min-height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  padding-inline: var(--gl-sidebar-pad-inline);
+  padding-block: 0;
+  border-bottom: none;
+  box-shadow: var(--gl-shell-under);
+  background: transparent;
+  position: relative;
+  z-index: 1;
+}
+.gl-sidebar-brand-title {
+  display: block;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--pharma-deep);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gl-sidebar-scroll {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-inline: var(--gl-sidebar-pad-inline);
+}
+.gl-drawer-sidebar-body {
+  min-height: 0;
+  background: transparent;
+}
+.gl-drawer-sidebar-body .gl-sidebar-inner {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Drawer (mobile): same shell bg as desktop sidebar, no white panel */
+.gl-drawer-sidebar .ant-drawer-content {
+  background: var(--gl-shell-surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.gl-drawer-sidebar .ant-drawer-header {
+  background: transparent;
+  border-bottom: none;
+  padding: 10px 10px 0;
+}
+.gl-drawer-sidebar .ant-drawer-body {
+  padding: 0;
+}
+
+/* Sidebar nav: inherit shell tint — no white Menu card */
+.gl-sidebar .ant-menu,
+.gl-sidebar .ant-menu-root.ant-menu-inline,
+.gl-sidebar .ant-menu-submenu,
+.gl-drawer-sidebar-body .ant-menu,
+.gl-drawer-sidebar-body .ant-menu-root.ant-menu-inline,
+.gl-drawer-sidebar-body .ant-menu-submenu {
+  background: transparent !important;
+  border-inline-end: none !important;
+}
+.gl-sidebar .ant-menu-item,
+.gl-sidebar .ant-menu-submenu-title,
+.gl-drawer-sidebar-body .ant-menu-item,
+.gl-drawer-sidebar-body .ant-menu-submenu-title {
+  background: transparent !important;
+}
+.gl-sidebar .ant-menu-item:hover,
+.gl-sidebar .ant-menu-submenu-title:hover,
+.gl-drawer-sidebar-body .ant-menu-item:hover,
+.gl-drawer-sidebar-body .ant-menu-submenu-title:hover {
+  background: rgba(13, 110, 141, 0.07) !important;
+}
+.gl-sidebar .ant-menu-item-selected,
+.gl-sidebar .ant-menu-submenu-selected > .ant-menu-submenu-title,
+.gl-drawer-sidebar-body .ant-menu-item-selected,
+.gl-drawer-sidebar-body .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  background: rgba(13, 110, 141, 0.11) !important;
+}
+.gl-sidebar .ant-menu-item-group-title,
+.gl-drawer-sidebar-body .ant-menu-item-group-title {
+  background: transparent !important;
+}
+
+.gl-brand {
+  padding: 0.25rem 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.gl-brand .gl-logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--pharma), var(--leaf));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  box-shadow: var(--shadow);
+}
+.gl-brand h1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--pharma-deep);
+}
+.gl-brand .gl-tag {
+  margin: 0.35rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.gl-nav-menu {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-right: 0.25rem;
+}
+.gl-nav-menu button {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.62rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.gl-nav-menu button i {
+  width: 1.1rem;
+  text-align: center;
+  color: var(--pharma);
+  opacity: 0.85;
+}
+.gl-nav-menu button:hover {
+  background: rgba(13, 110, 141, 0.06);
+  border-color: rgba(13, 110, 141, 0.1);
+}
+.gl-nav-menu button.gl-active {
+  background: linear-gradient(90deg, var(--gold-soft), rgba(255, 255, 255, 0.5));
+  border-color: rgba(201, 169, 79, 0.35);
+  color: var(--pharma-deep);
+  box-shadow: var(--shadow);
+}
+.gl-nav-menu button.gl-active i {
+  color: var(--leaf);
+}
+
+/* Sidebar: nhóm menu */
+.gl-nav-group-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.35rem 0 0.25rem;
+  line-height: 1.35;
+  white-space: normal;
+}
+.gl-nav-group-title {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pharma-deep);
+}
+.ant-menu-item-group-title {
+  padding-inline: 12px !important;
+}
+
+.gl-main-wrap {
+  flex: 1;
+  margin-left: var(--sidebar-w);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gl-topbar {
+  flex-shrink: 0;
+  z-index: 10;
+  height: var(--topbar-h);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  border-bottom: none;
+  box-shadow: var(--gl-shell-under);
+  position: relative;
+}
+.gl-menu-toggle {
+  display: none;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.65rem;
+  cursor: pointer;
+  color: var(--pharma);
+}
+.gl-topbar-title {
+  flex: 1;
+  min-width: 0;
+}
+.gl-screen-label {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pharma-deep);
+  letter-spacing: -0.02em;
+}
+.gl-breadcrumb {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+/* Let Ant Design handle radius/height/border (same token as Select). Only layout. */
+.gl-topbar-search.ant-input-affix-wrapper {
+  flex: 1 1 200px;
+  max-width: 320px;
+  min-width: 160px;
+}
+.gl-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.gl-lang-select.ant-select {
+  min-width: 130px;
+}
+.gl-icon-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pharma);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.gl-icon-btn:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+.gl-icon-btn .gl-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+  border: 2px solid #fff;
+}
+.gl-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.65rem 0.35rem 0.35rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: default;
+}
+.gl-user-pill .gl-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pharma), var(--leaf));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.gl-page.ant-layout-content {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.gl-page {
+  padding: 1.25rem 1.5rem 2.5rem;
+}
+
+.gl-screen {
+  display: none;
+  animation: glFadeIn 0.35s ease;
+}
+.gl-screen.gl-screen-active {
+  display: block;
+}
+
+@keyframes glFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gl-tab-data-note-stack {
+  margin-bottom: 1.35rem;
+}
+
+.gl-tab-data-note.ant-card {
+  border: none !important;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+}
+
+.gl-tab-data-note.ant-card .ant-card-body {
+  padding: 1rem 1.1rem;
+}
+
+.gl-tab-data-note__title {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--pharma-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.gl-tab-data-note__title .anticon {
+  color: var(--pharma);
+  opacity: 0.95;
+}
+
+.gl-system-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+  scrollbar-width: thin;
+}
+.gl-flow-step {
+  flex: 1;
+  min-width: 140px;
+  padding: 1rem 1rem 1rem 1.1rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gl-flow-step:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+.gl-flow-step .gl-fi {
+  font-size: 1.35rem;
+  color: var(--pharma);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.gl-flow-step h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--pharma-deep);
+}
+.gl-flow-step p {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.gl-flow-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  color: var(--gold);
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Dashboard highlight strip + denser SKU / customer panels */
+.gl-dashboard-highlight-row {
+  margin-bottom: 1.35rem;
+}
+
+.gl-highlight-stat.ant-card {
+  border: none !important;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+.gl-highlight-stat .ant-statistic-title {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.gl-highlight-stat .ant-statistic-content-value {
+  font-size: 1.35rem !important;
+}
+
+.gl-sku-cards-row {
+  margin-bottom: 1.35rem;
+}
+
+.gl-customer-split {
+  align-items: stretch;
+}
+
+.gl-customer-quick-card.ant-card .ant-card-head {
+  min-height: auto;
+}
+
+.gl-customer-quick-card.ant-card .ant-card-head-title {
+  font-size: 0.84rem;
+  font-weight: 700;
+}
