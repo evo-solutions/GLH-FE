@@ -1,0 +1,16 @@
+export { DashboardPage } from "./dashboard/page";
+export { EventsPage } from "./events/page";
+export { SettingsPage } from "./settings/page";
+export { HrmPage } from "./hrm/page";
+export { VendorsPage } from "./vendors/page";
+export { CustomerPage } from "./customer/page";
+export { SkuPage } from "./sku/page";
+export { InventoryPage } from "./inventory/page";
+export { CampaignPage } from "./campaign/page";
+export { OrdersPage } from "./orders/page";
+export { SelloutPage } from "./sellout/page";
+export { ArPage } from "./ar/page";
+export { ReconciliationPage } from "./reconciliation/page";
+export { CasesPage } from "./cases/page";
+export { ResearchPage } from "./research/page";
+export { AiPage } from "./ai/page";

@@ -1,28 +1,125 @@
 {
   "nav": {
-    "dashboard": "Overview",
-    "vendors": "Distributors",
-    "sku": "SKU & inventory",
-    "customer": "Customers",
-    "campaign": "Campaigns",
-    "research": "Market",
-    "cases": "Feedback",
-    "hrm": "HR",
-    "ai": "AI · R&D",
-    "settings": "Settings"
+    "dashboard": "Executive overview",
+    "events": "Event stream",
+    "settings": "Access & integrations",
+    "hrm": "Internal users",
+    "vendors": "Outlet directory",
+    "customer": "Outlet profile & history",
+    "sku": "Products & SKU",
+    "inventory": "Central & virtual stock",
+    "campaign": "Pricing & promotions",
+    "orders": "Orders",
+    "sellout": "Sell-out & scan-to-sell",
+    "ar": "Accounts receivable",
+    "reconciliation": "Stock & price reconciliation",
+    "cases": "Feedback & CX",
+    "research": "Reports & analytics",
+    "ai": "Sell-out intelligence"
   },
   "navGroup": {
-    "ops": "Operations",
-    "trade": "Channel & distribution",
-    "brand": "Brand & customers",
-    "research": "Research & innovation",
-    "hrm": "Administration"
+    "command": "Command & backbone",
+    "identity": "Users & permissions",
+    "outlets": "Outlets",
+    "catalog": "Catalog & inventory",
+    "commercial": "Commercial & sell-through",
+    "finance": "Finance & control",
+    "cx_intel": "Experience & intelligence"
+  },
+  "placeholders": {
+    "scopeLabel": "Scope per platform specification",
+    "inventory": {
+      "tabPerm": "Warehouse, ops, admins; outlets see their own virtual warehouse",
+      "tabFlow": "Central warehouse → allocate → outlet virtual stock → sell-out → end customer; returns flow back to central",
+      "tabSource": "WMS/ERP, replenishment orders, POS scans, cycle counts",
+      "tabProcess": "Allocation engine, auto replenishment, reverse allocation, FIFO/FEFO, expiry alerts",
+      "title": "IV. Inventory & virtual warehouse flow",
+      "summary": "Each outlet has one virtual warehouse reflecting allocated stock, batch/expiry, and pending returns. The manufacturer runs physical inbound/outbound/transfers and stocktake.",
+      "bullets": [
+        "Central warehouse: inbound, outbound, transfer, physical stocktake",
+        "Virtual stock: available qty per outlet, by batch and expiry",
+        "Allocation: replenishment cadence, sales, min stock, sell-through, promos, trade policy",
+        "Replenishment: low threshold → request → approve issue → increase virtual stock",
+        "Reverse allocation: near-expiry, damaged, surplus from virtual back to central",
+        "Expiry alerts at 30/60/90 days; FIFO/FEFO picking"
+      ]
+    },
+    "orders": {
+      "tabPerm": "Outlet portal, sales on behalf, warehouse/ops fulfillment",
+      "tabFlow": "Draft → Confirm → Shipping → Done; documents: GI, POD, invoice",
+      "tabSource": "Portal orders, sales CRM, warehouse integrations",
+      "tabProcess": "Edit qty, cancel lines, split orders, swap batches; returns → batch check → stock credit",
+      "title": "VI. Order management",
+      "summary": "Orders originate from the outlet portal or are created by sales; statuses are tracked and documents are downloadable on the portal.",
+      "bullets": [
+        "Order via portal or sales-assisted",
+        "Adjustments: quantity, line cancel, split, batch swap",
+        "Return request, batch verification, stock credit",
+        "Downloadable documents for outlets"
+      ]
+    },
+    "sellout": {
+      "tabPerm": "Checkout must scan before sale; HQ sees near-real-time",
+      "tabFlow": "Scan SKU/batch → validate (SKU, batch, outlet, virtual stock, price policy) → deduct virtual → SELL_OUT event",
+      "tabSource": "POS/scan app, price policy, SKU & batch master",
+      "tabProcess": "Five-layer checks; capture who/when/SKU/batch/price; detect wrong price, leakage, route fraud, phantom stock",
+      "title": "VII. Sell-out tracking (critical path)",
+      "summary": "Mandatory scan-before-sale; the system reconciles virtual stock and price policy and emits real-time events to the hub.",
+      "bullets": [
+        "Validate: SKU, batch, outlet ownership, virtual availability, policy price",
+        "Post-sale: virtual deduction + realtime event",
+        "Telemetry: outlet, time, SKU, batch, actual selling price",
+        "Detect: wrong price, grey leakage, wrong route, off-system SKU, stock fraud"
+      ]
+    },
+    "ar": {
+      "tabPerm": "Finance & ops; outlets see their own balance",
+      "tabFlow": "Track AR → aging → reminders (Zalo/Email) → partial/full payment; over limit → block ordering",
+      "tabSource": "Orders, invoices, payments, credit limits",
+      "tabProcess": "Automatic order block when credit limit is exceeded",
+      "title": "IX. Accounts receivable",
+      "summary": "AR by outlet and by sales; aging, credit limits, and reminder channels.",
+      "bullets": [
+        "Balances by outlet / by sales",
+        "Credit limits and aging reports",
+        "Collections: partial and full payments",
+        "Zalo/Email reminders; auto block when over limit"
+      ]
+    },
+    "reconciliation": {
+      "tabPerm": "Finance, internal control, trade audit",
+      "tabFlow": "Stock recon (system vs physical vs sell-out vs batch scans); price recon (policy vs actual) → alerts & risk score",
+      "tabSource": "Virtual stock, stocktake, sell-out logs, price books",
+      "tabProcess": "Audit trail and risk scoring on price variance",
+      "title": "VIII. Stock & selling price reconciliation",
+      "summary": "Two pillars: inventory reconciliation and price reconciliation to surface risk with audit evidence.",
+      "bullets": [
+        "Inventory: system vs physical vs sell-out vs batch scan evidence",
+        "Price: policy vs actual selling price → alerts, risk score, audit log"
+      ]
+    },
+    "events": {
+      "tabPerm": "Architects & ops leads; read-only streams by permission",
+      "tabFlow": "Every business action emits a domain event → consumers (BI, alerts, integrations)",
+      "tabSource": "Services: scans, allocations, price changes, low stock, returns, payments…",
+      "tabProcess": "Event backbone: SKU_SCANNED, SKU_ALLOCATED, SELL_OUT, PRICE_CHANGED, LOW_STOCK, RETURN_REQUESTED, RESTOCK_REQUESTED, PAYMENT_RECEIVED",
+      "title": "XIV. Event system (backbone)",
+      "summary": "Real-time data and integrations anchored on a single event catalog.",
+      "bullets": [
+        "SKU_SCANNED — at counter / pre-sale scan",
+        "SKU_ALLOCATED — stock moved into virtual outlet",
+        "SELL_OUT — validated sale-through",
+        "PRICE_CHANGED — price or policy update",
+        "LOW_STOCK — replenishment threshold",
+        "RETURN_REQUESTED / RESTOCK_REQUESTED / PAYMENT_RECEIVED"
+      ]
+    }
   },
   "shell": {
     "brandTitle": "Golden Lotus Herbals",
     "sidebarAria": "Main navigation",
     "openMenu": "Open menu",
-    "searchPlaceholder": "Search vendor, SKU, ticket no.…",
+    "searchPlaceholder": "Search outlet, SKU, lot, order, event…",
     "notifications": "Notifications",
     "help": "Help",
     "accountDemo": "Account",
@@ -39,16 +136,22 @@
     ]
   },
   "crumb": {
-    "dashboard": "Golden Lotus Herbals / Platform / Executive Overview",
-    "vendors": "Golden Lotus Herbals / Trade / Vendors",
-    "sku": "Golden Lotus Herbals / Supply / SKU",
-    "customer": "Golden Lotus Herbals / CRM / Intelligence",
-    "campaign": "Golden Lotus Herbals / Marketing / Campaigns",
-    "research": "Golden Lotus Herbals / BI / Research",
-    "cases": "Golden Lotus Herbals / Operations / Tickets",
-    "hrm": "Golden Lotus Herbals / People / HRM",
-    "ai": "Golden Lotus Herbals / AI / Recommendations",
-    "settings": "Golden Lotus Herbals / Admin / Settings"
+    "dashboard": "Pharma HQ / Ops / Overview",
+    "events": "Pharma HQ / Backbone / Event stream",
+    "settings": "Pharma HQ / IAM / Access & integrations",
+    "hrm": "Pharma HQ / IAM / Internal users",
+    "vendors": "Outlets / Directory & routes",
+    "customer": "Outlets / Profile & history",
+    "sku": "Catalog / Master SKU & lots",
+    "inventory": "Supply / Central & virtual stock",
+    "campaign": "Commercial / Pricing & promotion engine",
+    "orders": "Commercial / Orders & documents",
+    "sellout": "Commercial / Sell-out & scan",
+    "ar": "Finance / AR & credit limits",
+    "reconciliation": "Finance / Stock & price recon",
+    "cases": "CX / Feedback & SLA",
+    "research": "BI / Reports & analytics",
+    "ai": "BI / Sell-out intelligence"
   },
   "tabNote": {
     "title": "Quick summary",

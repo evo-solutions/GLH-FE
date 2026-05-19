@@ -1,5 +1,5 @@
-import { GoldenLotusPlatform } from "@/components/golden-lotus/GoldenLotusPlatform";
+import { redirect } from "next/navigation";
 
-export default function AppPage() {
-  return <GoldenLotusPlatform />;
+export default function HomePage() {
+  redirect("/dashboard");
 }

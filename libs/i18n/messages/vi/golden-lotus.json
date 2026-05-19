@@ -1,28 +1,125 @@
 {
   "nav": {
-    "dashboard": "Tổng quan",
-    "vendors": "NPP & kênh",
-    "sku": "SKU & tồn kho",
-    "customer": "Khách hàng",
-    "campaign": "Chiến dịch",
-    "research": "Thị trường",
-    "cases": "Phản hồi",
-    "hrm": "Nhân sự",
-    "ai": "AI · R&D",
-    "settings": "Cấu hình"
+    "dashboard": "Tổng quan điều hành",
+    "events": "Luồng sự kiện",
+    "settings": "Phân quyền & tích hợp",
+    "hrm": "Người dùng nội bộ",
+    "vendors": "Danh mục điểm bán",
+    "customer": "Hồ sơ & lịch sử điểm bán",
+    "sku": "Sản phẩm & SKU",
+    "inventory": "Kho tổng & kho ảo",
+    "campaign": "Giá & khuyến mãi",
+    "orders": "Đơn hàng",
+    "sellout": "Sell-out & quét bán",
+    "ar": "Công nợ",
+    "reconciliation": "Đối soát tồn & giá",
+    "cases": "Feedback & CSKH",
+    "research": "Báo cáo & phân tích",
+    "ai": "Sell-out intelligence"
   },
   "navGroup": {
-    "ops": "Điều hành",
-    "trade": "Kênh & phân phối",
-    "brand": "Khách hàng & thương hiệu",
-    "research": "Nghiên cứu & R&D",
-    "hrm": "Quản trị nội bộ"
+    "command": "Chỉ huy & backbone",
+    "identity": "Người dùng & phân quyền",
+    "outlets": "Điểm bán",
+    "catalog": "Sản phẩm & tồn kho",
+    "commercial": "Thương mại & bán ra",
+    "finance": "Tài chính & kiểm soát",
+    "cx_intel": "Trải nghiệm & trí tuệ"
+  },
+  "placeholders": {
+    "scopeLabel": "Phạm vi theo đặc tả nền tảng",
+    "inventory": {
+      "tabPerm": "Kho vận, điều hành, admin vận hành; điểm bán xem kho ảo của mình",
+      "tabFlow": "Kho tổng → allocate → kho ảo điểm bán → sell-out → khách cuối; hoàn hàng ngược về kho tổng",
+      "tabSource": "WMS/ERP, đơn cấp hàng, quét bán, điều chỉnh kiểm kê",
+      "tabProcess": "Allocation engine, replenishment tự động, reverse allocation, FIFO/FEFO, cảnh báo hạn",
+      "title": "IV. Tồn kho, kho ảo & luồng hàng",
+      "summary": "Một điểm bán gắn một kho ảo: phản ánh hàng được allocate, tồn theo batch/hạn, hàng chờ hoàn. Kho tổng của hãng thực hiện nhập–xuất–điều chuyển–kiểm kê.",
+      "bullets": [
+        "Kho tổng: nhập/xuất/điều chuyển/kiểm kê vật lý",
+        "Kho ảo: tồn khả dụng theo điểm bán, theo batch & hạn dùng",
+        "Allocation: chu kỳ nhập, doanh số, min stock, tốc độ bán, KM, trade policy",
+        "Replenishment: ngưỡng tồn thấp → yêu cầu cấp → duyệt xuất → tăng kho ảo",
+        "Reverse allocation: cận date, lỗi, tồn dư từ kho ảo về kho tổng",
+        "Cảnh báo hết hạn 30/60/90 ngày; xuất theo FIFO/FEFO"
+      ]
+    },
+    "orders": {
+      "tabPerm": "Điểm bán (portal), Sales tạo thay, kho/điều hành xử lý",
+      "tabFlow": "Draft → Confirm → Shipping → Done; chứng từ: phiếu xuất, biên bản giao nhận, invoice",
+      "tabSource": "Portal đặt hàng, CRM sales, tích hợp kho",
+      "tabProcess": "Sửa SL, hủy dòng, tách đơn, đổi batch; trả hàng → kiểm batch → hoàn kho",
+      "title": "VI. Quản lý đơn hàng",
+      "summary": "Đơn từ điểm bán hoặc do sales tạo hộ; trạng thái rõ ràng và chứng từ tải được trên portal.",
+      "bullets": [
+        "Đặt hàng qua portal hoặc sales thay",
+        "Điều chỉnh đơn: số lượng, hủy dòng, tách đơn, đổi batch",
+        "Return request, kiểm tra batch, hoàn kho",
+        "Chứng từ cho điểm bán tải về"
+      ]
+    },
+    "sellout": {
+      "tabPerm": "Thu ngân/điểm bán quét trước khi bán; hãng xem realtime",
+      "tabFlow": "Scan SKU/batch → validate (SKU, batch, điểm bán, kho ảo, giá policy) → trừ kho ảo → event SELL_OUT",
+      "tabSource": "POS/ứng dụng quét, policy giá, master SKU & batch",
+      "tabProcess": "Kiểm tra 5 lớp; ghi nhận khách–giờ–SKU–batch–giá; phát hiện sai giá, leak, sai tuyến, gian lận tồn",
+      "title": "VII. Sell-out tracking (trọng tâm)",
+      "summary": "Bắt buộc scan trước khi bán; hệ thống đối chiếu với kho ảo và chính sách giá, đồng thời bắn sự kiện realtime về trung tâm.",
+      "bullets": [
+        "Validate: SKU hợp lệ, batch hợp lệ, thuộc điểm bán, trong kho ảo, giá đúng policy",
+        "Sau bán: trừ tồn kho ảo + realtime event",
+        "Dữ liệu: nơi mua, thời điểm, SKU, batch, giá thực tế, điểm bán",
+        "Phát hiện: bán sai giá, leak hàng, sai tuyến, SKU ngoài hệ thống, gian lận tồn"
+      ]
+    },
+    "ar": {
+      "tabPerm": "Tài chính, điều hành; điểm bán xem dư nợ của mình",
+      "tabFlow": "Theo dõi dư nợ → aging → nhắc nợ (Zalo/Email) → thu từng phần / full; vượt hạn mức → khóa đặt hàng",
+      "tabSource": "Đơn hàng, hóa đơn, thanh toán, hạn mức tín dụng",
+      "tabProcess": "Rule tự động khóa đặt hàng khi vượt hạn mức",
+      "title": "IX. Công nợ",
+      "summary": "Theo dõi công nợ theo điểm bán và theo sales; aging, hạn mức và kênh nhắc nợ.",
+      "bullets": [
+        "Dư nợ theo điểm bán / theo sales",
+        "Hạn mức tín dụng, aging report",
+        "Thu hồi: thanh toán từng phần, full payment",
+        "Nhắc nợ Zalo/Email; vượt hạn mức → khóa đặt hàng tự động"
+      ]
+    },
+    "reconciliation": {
+      "tabPerm": "Tài chính, kiểm soát nội bộ, trade audit",
+      "tabFlow": "Đối soát tồn (hệ thống vs thực tế vs sell-out vs scan batch); đối soát giá (policy vs thực tế) → alert & risk score",
+      "tabSource": "Kho ảo, kiểm kê, log sell-out, bảng giá",
+      "tabProcess": "Audit log, risk score khi lệch giá",
+      "title": "VIII. Đối soát tồn & giá bán",
+      "summary": "Hai trục: inventory reconciliation và price reconciliation, hỗ trợ phát hiện rủi ro và ghi vết kiểm toán.",
+      "bullets": [
+        "Inventory: tồn hệ thống vs thực tế, sell-out, batch scan",
+        "Price: policy vs giá bán thực tế → alert, risk score, audit log"
+      ]
+    },
+    "events": {
+      "tabPerm": "Kiến trúc sư, điều hành; chỉ đọc stream theo quyền",
+      "tabFlow": "Mọi hành động phát sinh domain event → consumer (BI, cảnh báo, đồng bộ)",
+      "tabSource": "Dịch vụ nghiệp vụ: quét, allocate, đổi giá, tồn thấp, trả hàng, thanh toán…",
+      "tabProcess": "Event backbone: SKU_SCANNED, SKU_ALLOCATED, SELL_OUT, PRICE_CHANGED, LOW_STOCK, RETURN_REQUESTED, RESTOCK_REQUESTED, PAYMENT_RECEIVED",
+      "title": "XIV. Event system (backbone)",
+      "summary": "Luồng dữ liệu thời gian thực và tích hợp dựa trên catalog sự kiện thống nhất.",
+      "bullets": [
+        "SKU_SCANNED — tại quầy/scan trước bán",
+        "SKU_ALLOCATED — cấp hàng vào kho ảo",
+        "SELL_OUT — bán ra đã validate",
+        "PRICE_CHANGED — đổi giá/policy",
+        "LOW_STOCK — ngưỡng replenishment",
+        "RETURN_REQUESTED / RESTOCK_REQUESTED / PAYMENT_RECEIVED"
+      ]
+    }
   },
   "shell": {
     "brandTitle": "Golden Lotus Herbals",
     "sidebarAria": "Điều hướng chính",
     "openMenu": "Mở menu",
-    "searchPlaceholder": "Tìm nhà phân phối, mã SKU, mã phiếu…",
+    "searchPlaceholder": "Tìm điểm bán, SKU, lô, đơn hàng, sự kiện…",
     "notifications": "Thông báo",
     "help": "Trợ giúp",
     "accountDemo": "Tài khoản",
@@ -39,16 +136,22 @@
     ]
   },
   "crumb": {
-    "dashboard": "Golden Lotus Herbals / Nền tảng / Tổng quan điều hành",
-    "vendors": "Golden Lotus Herbals / Kinh doanh / Nhà phân phối",
-    "sku": "Golden Lotus Herbals / Cung ứng / SKU",
-    "customer": "Golden Lotus Herbals / CRM / Trí tuệ",
-    "campaign": "Golden Lotus Herbals / Marketing / Chiến dịch",
-    "research": "Golden Lotus Herbals / BI / Nghiên cứu",
-    "cases": "Golden Lotus Herbals / Vận hành / Tiếp nhận",
-    "hrm": "Golden Lotus Herbals / Nhân sự / HRM",
-    "ai": "Golden Lotus Herbals / AI / Gợi ý",
-    "settings": "Golden Lotus Herbals / Quản trị / Cài đặt"
+    "dashboard": "Hãng dược / Điều hành / Tổng quan",
+    "events": "Hãng dược / Backbone / Luồng sự kiện",
+    "settings": "Hãng dược / IAM / Phân quyền & tích hợp",
+    "hrm": "Hãng dược / IAM / Người dùng nội bộ",
+    "vendors": "Điểm bán / Danh mục & tuyến",
+    "customer": "Điểm bán / Hồ sơ & lịch sử",
+    "sku": "Sản phẩm / Master SKU & lô",
+    "inventory": "Cung ứng / Kho tổng & kho ảo",
+    "campaign": "Thương mại / Giá & promotion engine",
+    "orders": "Thương mại / Đơn hàng & chứng từ",
+    "sellout": "Thương mại / Sell-out & quét bán",
+    "ar": "Tài chính / Công nợ & hạn mức",
+    "reconciliation": "Tài chính / Đối soát tồn & giá",
+    "cases": "CSKH / Feedback & SLA",
+    "research": "BI / Báo cáo & phân tích",
+    "ai": "BI / Sell-out intelligence"
   },
   "tabNote": {
     "title": "Tóm tắt nhanh",

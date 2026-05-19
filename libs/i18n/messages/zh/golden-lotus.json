@@ -1,28 +1,125 @@
 {
   "nav": {
-    "dashboard": "总览",
-    "vendors": "经销商",
-    "sku": "SKU 与库存",
-    "customer": "客户",
-    "campaign": "活动",
-    "research": "市场",
-    "cases": "反馈",
-    "hrm": "人力",
-    "ai": "AI · 研发",
-    "settings": "设置"
+    "dashboard": "经营总览",
+    "events": "事件流",
+    "settings": "权限与集成",
+    "hrm": "内部用户",
+    "vendors": "终端门店目录",
+    "customer": "门店档案与历史",
+    "sku": "产品与 SKU",
+    "inventory": "总仓与虚拟仓",
+    "campaign": "价格与促销",
+    "orders": "订单",
+    "sellout": "动销与扫码售出",
+    "ar": "应收与账期",
+    "reconciliation": "库存与价格对账",
+    "cases": "反馈与客户服务",
+    "research": "报表与分析",
+    "ai": "动销智能"
   },
   "navGroup": {
-    "ops": "运营中枢",
-    "trade": "渠道与分销",
-    "brand": "客户与品牌",
-    "research": "研究与研发",
-    "hrm": "内部管理"
+    "command": "指挥与事件骨干",
+    "identity": "用户与权限",
+    "outlets": "终端门店",
+    "catalog": "商品与库存",
+    "commercial": "商务与售出",
+    "finance": "财务与内控",
+    "cx_intel": "体验与智能"
+  },
+  "placeholders": {
+    "scopeLabel": "按平台规格划定的范围",
+    "inventory": {
+      "tabPerm": "仓储、运营、系统管理员；门店仅看本店虚拟仓",
+      "tabFlow": "总仓 → 配货 → 门店虚拟仓 → 售出 → 消费者；退货回流总仓",
+      "tabSource": "WMS/ERP、补货单、POS 扫码、盘点",
+      "tabProcess": "配货引擎、自动补货、逆向配货、先进先出/先到期先出、效期预警",
+      "title": "IV. 库存与虚拟仓流程",
+      "summary": "每个终端绑定一个虚拟仓，体现已配货数量、按批次/效期的在库与待退。厂商侧管理实物入出库、调拨与盘点。",
+      "bullets": [
+        "总仓：入出库、调拨、实物盘点",
+        "虚拟仓：门店可用库存，按批次与效期",
+        "配货：进货节奏、销量、安全库存、动销、促销、渠道政策",
+        "补货：低库存阈值 → 申请 → 审批出库 → 虚拟仓增加",
+        "逆向：近效期、残次、积压从虚拟仓退回总仓",
+        "30/60/90 天效期预警；FIFO/FEFO 出库"
+      ]
+    },
+    "orders": {
+      "tabPerm": "门店门户、代下单销售、仓储运营处理",
+      "tabFlow": "草稿 → 确认 → 发货 → 完成；单据含出库单、签收、发票",
+      "tabSource": "门户订单、销售 CRM、仓储对接",
+      "tabProcess": "改数量、删行、拆单、换批；退货验批后回冲库存",
+      "title": "VI. 订单管理",
+      "summary": "订单来自门店自助或销售代建；状态清晰，门店可下载凭证。",
+      "bullets": [
+        "门户或销售代下单",
+        "订单调整：数量、删行、拆单、换批",
+        "退货申请、批次核验、库存回冲",
+        "门店侧下载单据"
+      ]
+    },
+    "sellout": {
+      "tabPerm": "收银必须先扫码；总部近实时可见",
+      "tabFlow": "扫 SKU/批号 → 五重校验 → 扣减虚拟仓 → 发出 SELL_OUT 事件",
+      "tabSource": "POS/扫码应用、价格政策、SKU 与批次主数据",
+      "tabProcess": "记录客/时/SKU/批号/实价；识别错价、窜货、路线异常、账实不符",
+      "title": "VII. 动销追踪（关键路径）",
+      "summary": "售出前强制扫码；系统对照虚拟仓与价格政策，并向中心实时上报。",
+      "bullets": [
+        "校验：SKU、批号、门店归属、虚拟仓、政策价",
+        "售出后：扣虚拟仓 + 实时事件",
+        "数据：门店、时间、SKU、批号、实际售价",
+        "识别：错价、外流、路线外销售、体系外 SKU、库存舞弊"
+      ]
+    },
+    "ar": {
+      "tabPerm": "财务与运营；门店查看自身欠款",
+      "tabFlow": "应收跟踪 → 账龄 → 提醒（Zalo/邮件）→ 部分/全额回款；超额授信自动锁单",
+      "tabSource": "订单、发票、回款、授信额度",
+      "tabProcess": "超额自动禁止下单",
+      "title": "IX. 应收账管理",
+      "summary": "按门店与按销售跟踪应收；账龄、额度与提醒渠道。",
+      "bullets": [
+        "按门店 / 按销售应收余额",
+        "授信额度与账龄报表",
+        "部分回款与全额结清",
+        "Zalo/邮件催收；超额自动锁单"
+      ]
+    },
+    "reconciliation": {
+      "tabPerm": "财务、内控、渠道稽查",
+      "tabFlow": "库存对账（系统 vs 实物 vs 动销 vs 扫码）；价格对账（政策 vs 实售）→ 预警与风险分",
+      "tabSource": "虚拟仓、盘点、动销日志、价目表",
+      "tabProcess": "价差写入审计与风险评分",
+      "title": "VIII. 库存与售价对账",
+      "summary": "库存对账与售价对账双轴，支撑风险发现与审计留痕。",
+      "bullets": [
+        "库存：系统、实物、动销、批次扫码证据",
+        "价格：政策价 vs 实售 → 预警、风险分、审计日志"
+      ]
+    },
+    "events": {
+      "tabPerm": "架构与运营负责人；按权限只读订阅",
+      "tabFlow": "业务动作产生领域事件 → 下游（BI、告警、集成）消费",
+      "tabSource": "扫码、配货、改价、低库存、退货、收款等服务",
+      "tabProcess": "事件骨干：SKU_SCANNED、SKU_ALLOCATED、SELL_OUT、PRICE_CHANGED、LOW_STOCK、RETURN_REQUESTED、RESTOCK_REQUESTED、PAYMENT_RECEIVED",
+      "title": "XIV. 事件系统（骨干）",
+      "summary": "以统一事件目录驱动实时数据与集成。",
+      "bullets": [
+        "SKU_SCANNED — 收银前扫码",
+        "SKU_ALLOCATED — 配入虚拟仓",
+        "SELL_OUT — 已校验售出",
+        "PRICE_CHANGED — 价格或政策变更",
+        "LOW_STOCK — 补货阈值",
+        "RETURN_REQUESTED / RESTOCK_REQUESTED / PAYMENT_RECEIVED"
+      ]
+    }
   },
   "shell": {
     "brandTitle": "Golden Lotus Herbals",
     "sidebarAria": "主导航",
     "openMenu": "打开菜单",
-    "searchPlaceholder": "搜索经销商、SKU、工单号…",
+    "searchPlaceholder": "搜索门店、SKU、批次、订单、事件…",
     "notifications": "通知",
     "help": "帮助",
     "accountDemo": "账户",
@@ -39,16 +136,22 @@
     ]
   },
   "crumb": {
-    "dashboard": "Golden Lotus Herbals / 平台 / 高管概览",
-    "vendors": "Golden Lotus Herbals / 贸易 / 经销商",
-    "sku": "Golden Lotus Herbals / 供应链 / SKU",
-    "customer": "Golden Lotus Herbals / CRM / 智能",
-    "campaign": "Golden Lotus Herbals / 营销 / 活动",
-    "research": "Golden Lotus Herbals / BI / 研究",
-    "cases": "Golden Lotus Herbals / 运营 / 工单",
-    "hrm": "Golden Lotus Herbals / 人力 / HRM",
-    "ai": "Golden Lotus Herbals / AI / 推荐",
-    "settings": "Golden Lotus Herbals / 管理 / 设置"
+    "dashboard": "药企总部 / 运营 / 总览",
+    "events": "药企总部 / 骨干 / 事件流",
+    "settings": "药企总部 / IAM / 权限与集成",
+    "hrm": "药企总部 / IAM / 内部用户",
+    "vendors": "终端门店 / 目录与路线",
+    "customer": "终端门店 / 档案与历史",
+    "sku": "商品 / 主数据与批次",
+    "inventory": "供应链 / 总仓与虚拟仓",
+    "campaign": "商务 / 价格与促销引擎",
+    "orders": "商务 / 订单与凭证",
+    "sellout": "商务 / 动销与扫码",
+    "ar": "财务 / 应收与授信",
+    "reconciliation": "财务 / 库存与价格对账",
+    "cases": "客服 / 反馈与 SLA",
+    "research": "BI / 报表与分析",
+    "ai": "BI / 动销智能"
   },
   "tabNote": {
     "title": "一页看懂",
