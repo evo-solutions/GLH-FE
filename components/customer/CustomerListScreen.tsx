@@ -1,11 +1,15 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { ListScreenFilters } from "@/components/list/ListScreenFilters";
 import { customerDetailPath } from "@/lib/customerRoutes";
+import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useCustomerList } from "@/hooks/useCustomer";
 import type { GlobalCustomerListItem } from "@/types/customer";
 import type { CustomerTier } from "@/types/location";
@@ -20,8 +24,53 @@ function tierColor(tier: CustomerTier) {
 export function CustomerListScreen() {
   const t = useTranslations("customer");
   const tSales = useTranslations("location.sales");
+  const tFilter = useTranslations("listFilters");
   const router = useRouter();
   const { data, isLoading, isError, refetch } = useCustomerList();
+
+  const [search, setSearch] = useState("");
+  const [tierFilter, setTierFilter] = useState<CustomerTier | undefined>();
+  const [locationFilter, setLocationFilter] = useState<string | undefined>();
+
+  const tierOptions = useMemo(
+    () => uniqueFilterOptions(data ?? [], (r) => r.tier, (r) => r.tierLabel),
+    [data]
+  );
+  const locationOptions = useMemo(
+    () =>
+      uniqueFilterOptions(
+        data ?? [],
+        (r) => r.locationId,
+        (r) => `${r.locationName} (${r.locationCode})`
+      ),
+    [data]
+  );
+
+  const filtered = useMemo(() => {
+    if (!data) return [];
+    return data.filter((row) => {
+      if (tierFilter && row.tier !== tierFilter) return false;
+      if (locationFilter && row.locationId !== locationFilter) return false;
+      return matchesSearch(
+        search,
+        row.name,
+        row.phone,
+        row.locationName,
+        row.locationCode,
+        row.tierLabel,
+        row.totalSpent,
+        row.preferredHour
+      );
+    });
+  }, [data, search, tierFilter, locationFilter]);
+
+  const hasActiveFilters = Boolean(search || tierFilter || locationFilter);
+
+  const clearFilters = () => {
+    setSearch("");
+    setTierFilter(undefined);
+    setLocationFilter(undefined);
+  };
 
   const columns: ColumnsType<GlobalCustomerListItem> = [
     { title: tSales("name"), dataIndex: "name", render: (name) => <span className="font-semibold">{name}</span> },
@@ -75,14 +124,40 @@ export function CustomerListScreen() {
         <h1 className="location-page-title">{t("title")}</h1>
       </header>
 
+      <ListScreenFilters
+        searchValue={search}
+        onSearchChange={setSearch}
+        searchPlaceholder={tFilter("customer.search")}
+        clearLabel={tFilter("clear")}
+        onClear={clearFilters}
+        hasActiveFilters={hasActiveFilters}
+        selects={[
+          {
+            id: "tier",
+            label: tFilter("customer.tier"),
+            value: tierFilter,
+            onChange: (v) => setTierFilter(v as CustomerTier | undefined),
+            options: tierOptions,
+          },
+          {
+            id: "location",
+            label: tFilter("customer.location"),
+            value: locationFilter,
+            onChange: setLocationFilter,
+            options: locationOptions,
+            minWidth: 200,
+          },
+        ]}
+      />
+
       <Table<GlobalCustomerListItem>
-        className="location-list-table"
+        className="location-list-table gl-table-scroll"
         rowKey="globalId"
         columns={columns}
-        dataSource={data}
-        pagination={false}
+        dataSource={filtered}
+        pagination={defaultTablePagination}
         tableLayout="auto"
-        scroll={{ x: "max-content" }}
+        scroll={tableScroll("max-content")}
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
           onClick: () => router.push(customerDetailPath(row.locationId, row.id)),

@@ -1,0 +1,24 @@
+/* Bảng cố định chiều cao: header + pagination cố định, chỉ tbody scroll dọc (Ant Design scroll.y) */
+.gl-table-scroll .ant-table-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.gl-table-scroll .ant-table-pagination {
+  flex-shrink: 0;
+  margin: 12px 0 0 !important;
+}
+
+.gl-table-scroll .ant-table-header {
+  flex-shrink: 0;
+}
+
+.gl-table-scroll .ant-table-body {
+  overflow-y: auto !important;
+}
+
+/* Tránh scroll kép khi bọc bảng trong container cũ */
+.customer-activity-scroll:has(.gl-table-scroll) {
+  max-height: none;
+  overflow: visible;
+}

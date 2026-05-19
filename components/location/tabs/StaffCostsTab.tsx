@@ -11,6 +11,7 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { useLocationStaffCosts } from "@/hooks/useLocation";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { LocationCostLine, LocationTeamMember } from "@/types/location";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
 import {
@@ -202,11 +203,11 @@ export function StaffCostsTab({
       <div className="location-split-row location-split-row--tables">
         <div className="location-panel">
           <h4 className="m-0 mb-3 text-sm font-semibold">{t("fixedCosts")}</h4>
-          <Table size="small" rowKey="id" columns={costColumns} dataSource={data.costs.fixed} pagination={false} />
+          <Table size="small" className="gl-table-scroll" rowKey="id" columns={costColumns} dataSource={data.costs.fixed} pagination={defaultTablePagination} scroll={tableScroll()} />
         </div>
         <div className="location-panel">
           <h4 className="m-0 mb-3 text-sm font-semibold">{t("variableCosts")}</h4>
-          <Table size="small" rowKey="id" columns={costColumns} dataSource={data.costs.variable} pagination={false} />
+          <Table size="small" className="gl-table-scroll" rowKey="id" columns={costColumns} dataSource={data.costs.variable} pagination={defaultTablePagination} scroll={tableScroll()} />
         </div>
       </div>
 
@@ -217,8 +218,9 @@ export function StaffCostsTab({
           rowKey="id"
           columns={staffColumns}
           dataSource={data.staff}
-          pagination={false}
-          scroll={{ x: 700 }}
+          pagination={defaultTablePagination}
+          className="gl-table-scroll"
+          scroll={tableScroll(700)}
         />
       </div>
     </>

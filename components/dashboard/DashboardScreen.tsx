@@ -13,6 +13,7 @@ import { Card, Col, Row, Spin, Statistic, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { useDashboardOverview } from "@/hooks/useDashboard";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { DashboardAlert, DashboardKpi } from "@/types/dashboard";
 import { useDashboardCharts } from "./useDashboardCharts";
 import { CustomerCountChartPanel } from "./CustomerCountChartPanel";
@@ -178,12 +179,13 @@ export function DashboardScreen() {
       <div className="dashboard-panel">
         <h4>{t("alerts.section")}</h4>
         <Table<DashboardAlert>
+          className="gl-table-scroll"
           size="small"
           rowKey="id"
           columns={alertColumns}
           dataSource={data.alerts}
-          pagination={false}
-          scroll={{ x: 900 }}
+          pagination={defaultTablePagination}
+          scroll={tableScroll(900)}
         />
       </div>
     </div>

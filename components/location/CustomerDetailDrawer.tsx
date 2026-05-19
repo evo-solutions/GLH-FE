@@ -100,7 +100,7 @@ export function CustomerDetailDrawer({
               <Timeline
                 className="location-drawer-timeline"
                 items={data.timeline.map((ev) => ({
-                  children: (
+                  content: (
                     <div>
                       <div className="text-sm font-semibold"> 
                         {ev.date} · {ev.time} — {ev.amount}

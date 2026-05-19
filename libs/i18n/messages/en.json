@@ -309,5 +309,32 @@
     "locationCode": "Location code",
     "locationName": "Location",
     "lastVisitLocation": "Last visited"
+  },
+  "listFilters": {
+    "results": "results",
+    "clear": "Clear filters",
+    "location": {
+      "search": "Search code, name, address, manager…",
+      "type": "Type",
+      "status": "Status",
+      "city": "City"
+    },
+    "customer": {
+      "search": "Search name, phone, location…",
+      "tier": "Tier",
+      "location": "Location"
+    },
+    "order": {
+      "search": "Order code, supplier, location, products, tracking…",
+      "status": "Order status",
+      "location": "Location",
+      "supplier": "Supplier"
+    },
+    "product": {
+      "search": "Name, code, category, brand…",
+      "category": "Category",
+      "brand": "Brand",
+      "salesStatus": "Sales status"
+    }
   }
 }

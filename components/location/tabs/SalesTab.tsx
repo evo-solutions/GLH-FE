@@ -16,6 +16,7 @@ import {
   readThemeColor,
 } from "@/components/dashboard/chartOptions";
 import { locationCustomerPath } from "@/lib/locationRoutes";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 
 function tierColor(tier: CustomerTier) {
   if (tier === "gold") return "warning";
@@ -171,13 +172,14 @@ export function SalesTab({
       <div className="location-panel">
         <h4 className="m-0 mb-3 text-sm font-semibold">{t("customerList")}</h4>
         <Table<LocationSalesCustomer>
-          className="location-customers-table"
+          className="location-customers-table gl-table-scroll"
           size="small"
           rowKey="id"
           columns={columns}
           dataSource={data.customers}
-          pagination={{ pageSize: 20, showSizeChanger: false }}
+          pagination={defaultTablePagination}
           tableLayout="auto"
+          scroll={tableScroll("max-content")}
           onRow={(row) => ({
             onClick: () => router.push(locationCustomerPath(locationId, row.id)),
             style: { cursor: "pointer" },

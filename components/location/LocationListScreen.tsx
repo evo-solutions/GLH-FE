@@ -1,11 +1,15 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { ListScreenFilters } from "@/components/list/ListScreenFilters";
 import { useLocationList } from "@/hooks/useLocation";
-import type { LocationListItem } from "@/types/location";
+import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
+import type { LocationListItem, LocationStatus, LocationType } from "@/types/location";
 import "./location.css";
 
 function statusColor(status: LocationListItem["status"]) {
@@ -16,8 +20,55 @@ function statusColor(status: LocationListItem["status"]) {
 
 export function LocationListScreen() {
   const t = useTranslations("location");
+  const tFilter = useTranslations("listFilters");
   const router = useRouter();
   const { data, isLoading, isError, refetch } = useLocationList();
+
+  const [search, setSearch] = useState("");
+  const [typeFilter, setTypeFilter] = useState<LocationType | undefined>();
+  const [statusFilter, setStatusFilter] = useState<LocationStatus | undefined>();
+  const [cityFilter, setCityFilter] = useState<string | undefined>();
+
+  const typeOptions = useMemo(
+    () => uniqueFilterOptions(data ?? [], (r) => r.type, (r) => r.typeLabel),
+    [data]
+  );
+  const statusOptions = useMemo(
+    () => uniqueFilterOptions(data ?? [], (r) => r.status, (r) => r.statusLabel),
+    [data]
+  );
+  const cityOptions = useMemo(
+    () => uniqueFilterOptions(data ?? [], (r) => r.city),
+    [data]
+  );
+
+  const filtered = useMemo(() => {
+    if (!data) return [];
+    return data.filter((row) => {
+      if (typeFilter && row.type !== typeFilter) return false;
+      if (statusFilter && row.status !== statusFilter) return false;
+      if (cityFilter && row.city !== cityFilter) return false;
+      return matchesSearch(
+        search,
+        row.code,
+        row.name,
+        row.address,
+        row.city,
+        row.managerName,
+        row.typeLabel,
+        row.statusLabel
+      );
+    });
+  }, [data, search, typeFilter, statusFilter, cityFilter]);
+
+  const hasActiveFilters = Boolean(search || typeFilter || statusFilter || cityFilter);
+
+  const clearFilters = () => {
+    setSearch("");
+    setTypeFilter(undefined);
+    setStatusFilter(undefined);
+    setCityFilter(undefined);
+  };
 
   const columns: ColumnsType<LocationListItem> = [
     {
@@ -83,14 +134,47 @@ export function LocationListScreen() {
         <h1 className="location-page-title">{t("title")}</h1>
       </header>
 
+      <ListScreenFilters
+        searchValue={search}
+        onSearchChange={setSearch}
+        searchPlaceholder={tFilter("location.search")}
+        clearLabel={tFilter("clear")}
+        onClear={clearFilters}
+        hasActiveFilters={hasActiveFilters}
+        selects={[
+          {
+            id: "type",
+            label: tFilter("location.type"),
+            value: typeFilter,
+            onChange: (v) => setTypeFilter(v as LocationType | undefined),
+            options: typeOptions,
+          },
+          {
+            id: "status",
+            label: tFilter("location.status"),
+            value: statusFilter,
+            onChange: (v) => setStatusFilter(v as LocationStatus | undefined),
+            options: statusOptions,
+          },
+          {
+            id: "city",
+            label: tFilter("location.city"),
+            value: cityFilter,
+            onChange: setCityFilter,
+            options: cityOptions,
+            minWidth: 160,
+          },
+        ]}
+      />
+
       <Table<LocationListItem>
-        className="location-list-table"
+        className="location-list-table gl-table-scroll"
         rowKey="id"
         columns={columns}
-        dataSource={data}
-        pagination={false}
+        dataSource={filtered}
+        pagination={defaultTablePagination}
         tableLayout="auto"
-        scroll={{ x: "max-content" }}
+        scroll={tableScroll("max-content")}
         onRow={(row) => ({
           onClick: () => router.push(`/location/${row.id}`),
           style: { cursor: "pointer" },

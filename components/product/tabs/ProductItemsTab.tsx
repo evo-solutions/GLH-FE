@@ -5,6 +5,7 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import type { ProductDetail, ProductUnitInstance } from "@/types/product";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 
 function instanceStatusColor(status: ProductUnitInstance["status"]) {
   if (status === "expired") return "error";
@@ -106,9 +107,10 @@ export function ProductItemsTab({
         rowKey="id"
         columns={columns}
         dataSource={data.instances}
-        pagination={{ pageSize: 20, showSizeChanger: true, pageSizeOptions: ["20", "50"] }}
+        pagination={defaultTablePagination}
         tableLayout="auto"
-        scroll={{ x: "max-content" }}
+        className="gl-table-scroll"
+        scroll={tableScroll("max-content")}
       />
     </section>
   );

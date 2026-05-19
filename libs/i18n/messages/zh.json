@@ -309,5 +309,32 @@
     "locationCode": "门店代码",
     "locationName": "门店",
     "lastVisitLocation": "最近到访"
+  },
+  "listFilters": {
+    "results": "条结果",
+    "clear": "清除筛选",
+    "location": {
+      "search": "搜索代码、名称、地址、负责人…",
+      "type": "类型",
+      "status": "状态",
+      "city": "城市"
+    },
+    "customer": {
+      "search": "搜索姓名、电话、门店…",
+      "tier": "等级",
+      "location": "门店"
+    },
+    "order": {
+      "search": "订单号、供应商、门店、产品、运单…",
+      "status": "订单状态",
+      "location": "门店",
+      "supplier": "供应商"
+    },
+    "product": {
+      "search": "名称、代码、类别、品牌…",
+      "category": "类别",
+      "brand": "品牌",
+      "salesStatus": "销售状态"
+    }
   }
 }

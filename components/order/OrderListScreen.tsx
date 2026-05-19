@@ -1,11 +1,15 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { ListScreenFilters } from "@/components/list/ListScreenFilters";
 import { orderDetailPath } from "@/lib/orderRoutes";
+import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useOrderList } from "@/hooks/useOrder";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
 import type { LocationInboundOrder, InboundOrderStatus } from "@/types/location";
@@ -18,12 +22,77 @@ function orderStatusColor(status: InboundOrderStatus) {
   return "default";
 }
 
+function orderSearchFields(row: LocationInboundOrder): (string | number | undefined | null)[] {
+  const productFields = (row.productLineItems ?? []).flatMap((item) => [
+    item.productCode,
+    item.name,
+  ]);
+  return [
+    row.orderCode,
+    row.supplier,
+    row.locationName,
+    row.locationCode,
+    row.statusLabel,
+    row.shipmentTracking,
+    row.lastEvent,
+    row.productCodes,
+    row.productSummary,
+    row.trackingCodes,
+    ...productFields,
+  ];
+}
+
 export function OrderListScreen() {
   const t = useTranslations("order");
   const tWh = useTranslations("location.warehouse");
   const tProduct = useTranslations("product");
+  const tFilter = useTranslations("listFilters");
   const router = useRouter();
   const { data, isLoading, isError, refetch } = useOrderList();
+
+  const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState<InboundOrderStatus | undefined>();
+  const [locationFilter, setLocationFilter] = useState<string | undefined>();
+  const [supplierFilter, setSupplierFilter] = useState<string | undefined>();
+
+  const statusOptions = useMemo(
+    () => uniqueFilterOptions(data ?? [], (r) => r.status, (r) => r.statusLabel),
+    [data]
+  );
+  const locationOptions = useMemo(
+    () =>
+      uniqueFilterOptions(
+        data ?? [],
+        (r) => r.locationId,
+        (r) => `${r.locationName} (${r.locationCode})`
+      ),
+    [data]
+  );
+  const supplierOptions = useMemo(
+    () => uniqueFilterOptions(data ?? [], (r) => r.supplier),
+    [data]
+  );
+
+  const filtered = useMemo(() => {
+    if (!data) return [];
+    return data.filter((row) => {
+      if (statusFilter && row.status !== statusFilter) return false;
+      if (locationFilter && row.locationId !== locationFilter) return false;
+      if (supplierFilter && row.supplier !== supplierFilter) return false;
+      return matchesSearch(search, ...orderSearchFields(row));
+    });
+  }, [data, search, statusFilter, locationFilter, supplierFilter]);
+
+  const hasActiveFilters = Boolean(
+    search || statusFilter || locationFilter || supplierFilter
+  );
+
+  const clearFilters = () => {
+    setSearch("");
+    setStatusFilter(undefined);
+    setLocationFilter(undefined);
+    setSupplierFilter(undefined);
+  };
 
   const dash = (v?: string | number | null) =>
     v === undefined || v === null || v === "" ? "—" : String(v);
@@ -105,14 +174,49 @@ export function OrderListScreen() {
         <h1 className="location-page-title">{t("title")}</h1>
       </header>
 
+      <ListScreenFilters
+        searchValue={search}
+        onSearchChange={setSearch}
+        searchPlaceholder={tFilter("order.search")}
+        clearLabel={tFilter("clear")}
+        onClear={clearFilters}
+        hasActiveFilters={hasActiveFilters}
+        selects={[
+          {
+            id: "status",
+            label: tFilter("order.status"),
+            value: statusFilter,
+            onChange: (v) => setStatusFilter(v as InboundOrderStatus | undefined),
+            options: statusOptions,
+            minWidth: 168,
+          },
+          {
+            id: "location",
+            label: tFilter("order.location"),
+            value: locationFilter,
+            onChange: setLocationFilter,
+            options: locationOptions,
+            minWidth: 200,
+          },
+          {
+            id: "supplier",
+            label: tFilter("order.supplier"),
+            value: supplierFilter,
+            onChange: setSupplierFilter,
+            options: supplierOptions,
+            minWidth: 180,
+          },
+        ]}
+      />
+
       <Table<LocationInboundOrder>
-        className="location-list-table"
+        className="location-list-table gl-table-scroll"
         rowKey="id"
         columns={columns}
-        dataSource={data}
-        pagination={false}
+        dataSource={filtered}
+        pagination={defaultTablePagination}
         tableLayout="auto"
-        scroll={{ x: "max-content" }}
+        scroll={tableScroll("max-content")}
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
           onClick: () => router.push(orderDetailPath(row.id)),

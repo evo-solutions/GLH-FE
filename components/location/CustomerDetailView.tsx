@@ -7,6 +7,7 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { useLocationCustomerDetail } from "@/hooks/useLocation";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
 import {
   chartDoughnutLabelsPlugin,
@@ -304,14 +305,15 @@ export function CustomerDetailView({
             ))}
           </p>
         )}
-        <div className="customer-activity-scroll">
+        <div>
           <Table
             size="small"
             rowKey="id"
             columns={activityColumns}
             dataSource={data.activityTouchpoints}
-            pagination={false}
-            scroll={{ x: "max-content" }}
+            pagination={defaultTablePagination}
+            className="gl-table-scroll"
+            scroll={tableScroll("max-content")}
             tableLayout="auto"
             onRow={(row) => ({
               onClick: () => {
@@ -338,10 +340,12 @@ export function CustomerDetailView({
           <div className="customer-chart-table">
             <Table
               size="small"
+              className="gl-table-scroll"
               rowKey="segment"
               columns={segmentColumns}
               dataSource={data.purchaseSegments}
-              pagination={false}
+              pagination={defaultTablePagination}
+              scroll={tableScroll("max-content")}
               tableLayout="auto"
             />
           </div>
@@ -357,10 +361,12 @@ export function CustomerDetailView({
           <div className="customer-chart-table">
             <Table
               size="small"
+              className="gl-table-scroll"
               rowKey="period"
               columns={cohortColumns}
               dataSource={data.cohortRetention}
-              pagination={false}
+              pagination={defaultTablePagination}
+              scroll={tableScroll("max-content")}
               tableLayout="auto"
             />
           </div>
@@ -375,8 +381,9 @@ export function CustomerDetailView({
           rowKey="segment"
           columns={loyaltyColumns}
           dataSource={data.loyaltyBenchmarks}
-          pagination={false}
-          scroll={{ x: "max-content" }}
+          pagination={defaultTablePagination}
+          className="gl-table-scroll"
+          scroll={tableScroll("max-content")}
           tableLayout="auto"
         />
       </section>

@@ -1,0 +1,27 @@
+.list-filters-bar {
+  margin-bottom: 1rem;
+}
+
+.list-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+}
+
+.list-filters-search {
+  flex: 1 1 220px;
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.list-filters-search-icon {
+  color: var(--muted);
+}
+
+.list-filters-clear.ant-btn {
+  padding-inline: 0;
+  height: auto;
+  font-size: 0.8125rem;
+  flex-shrink: 0;
+}

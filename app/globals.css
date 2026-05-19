@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "../styles/table.css";
+@import "../styles/list-filters.css";
 
 :root,
 .light {

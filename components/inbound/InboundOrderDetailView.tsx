@@ -6,6 +6,7 @@ import type { ColumnsType } from "antd/es/table";
 import { useLocale, useTranslations } from "next-intl";
 import { getLocationSeed } from "@/lib/locationRegistry";
 import { getInboundOrderProductUnits } from "@/lib/productInstanceCatalog";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
 import { useLocationInboundOrderDetail } from "@/hooks/useLocation";
 import type {
@@ -241,8 +242,9 @@ export function InboundOrderDetailView({
                 rowKey="id"
                 columns={unitColumns}
                 dataSource={orderUnits}
-                pagination={orderUnits.length > 20 ? { pageSize: 20, showSizeChanger: false } : false}
-                scroll={{ x: "max-content" }}
+                pagination={defaultTablePagination}
+                className="gl-table-scroll"
+                scroll={tableScroll("max-content")}
                 tableLayout="auto"
                 locale={{ emptyText: tInbound("orderUnitsEmpty") }}
               />
@@ -255,8 +257,9 @@ export function InboundOrderDetailView({
                 rowKey={(row) => row.trackingCode}
                 columns={lineColumns}
                 dataSource={data.lineItems}
-                pagination={false}
-                scroll={{ x: "max-content" }}
+                pagination={defaultTablePagination}
+                className="gl-table-scroll"
+                scroll={tableScroll("max-content")}
                 tableLayout="auto"
               />
             </section>
@@ -270,8 +273,9 @@ export function InboundOrderDetailView({
                 rowKey={(row) => row.trackingCode}
                 columns={returnColumns}
                 dataSource={data.returnItems}
-                pagination={false}
-                scroll={{ x: "max-content" }}
+                pagination={defaultTablePagination}
+                className="gl-table-scroll"
+                scroll={tableScroll("max-content")}
               />
             </section>
           )}
@@ -283,7 +287,7 @@ export function InboundOrderDetailView({
             <Timeline
               className="location-drawer-timeline"
               items={data.timeline.map((ev) => ({
-                children: (
+                content: (
                   <div>
                     <div className="text-sm font-semibold">
                       {ev.date}

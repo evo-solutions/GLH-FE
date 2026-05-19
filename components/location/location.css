@@ -643,6 +643,10 @@
   min-width: 0;
 }
 
+.customer-chart-table .gl-table-scroll {
+  width: 100%;
+}
+
 .customer-chart-table {
   min-width: 0;
 }

@@ -309,5 +309,32 @@
     "locationCode": "Mã cơ sở",
     "locationName": "Cơ sở",
     "lastVisitLocation": "Lần cuối đến"
+  },
+  "listFilters": {
+    "results": "kết quả",
+    "clear": "Xóa bộ lọc",
+    "location": {
+      "search": "Tìm mã, tên, địa chỉ, quản lý…",
+      "type": "Loại hình",
+      "status": "Trạng thái",
+      "city": "Thành phố"
+    },
+    "customer": {
+      "search": "Tìm tên, SĐT, cơ sở…",
+      "tier": "Hạng khách",
+      "location": "Cơ sở"
+    },
+    "order": {
+      "search": "Mã đơn, NCC, cơ sở, SP, vận đơn…",
+      "status": "Trạng thái đơn",
+      "location": "Cơ sở",
+      "supplier": "Nhà cung cấp"
+    },
+    "product": {
+      "search": "Tên, mã, danh mục, thương hiệu…",
+      "category": "Danh mục",
+      "brand": "Thương hiệu",
+      "salesStatus": "Tình trạng bán"
+    }
   }
 }

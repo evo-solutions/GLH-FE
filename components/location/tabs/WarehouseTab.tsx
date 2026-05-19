@@ -5,6 +5,7 @@ import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
 import { useLocationWarehouse } from "@/hooks/useLocation";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { LocationInventoryItem } from "@/types/location";
 
 function stockColor(status: LocationInventoryItem["status"]) {
@@ -86,8 +87,9 @@ export function WarehouseTab({
           rowKey="id"
           columns={stockColumns}
           dataSource={data.items}
-          pagination={false}
-          scroll={{ x: "max-content" }}
+          pagination={defaultTablePagination}
+          className="gl-table-scroll"
+          scroll={tableScroll("max-content")}
           tableLayout="auto"
         />
       </div>

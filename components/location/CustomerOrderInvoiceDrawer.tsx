@@ -5,6 +5,7 @@ import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
 import type { CustomerOrderInvoice, CustomerOrderInvoiceLine } from "@/types/location";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 
 export function CustomerOrderInvoiceDrawer({
   invoice,
@@ -81,8 +82,9 @@ export function CustomerOrderInvoiceDrawer({
               rowKey="id"
               columns={lineColumns}
               dataSource={invoice.lines}
-              pagination={false}
-              scroll={{ x: "max-content" }}
+              pagination={defaultTablePagination}
+              className="gl-table-scroll"
+              scroll={tableScroll("max-content")}
               tableLayout="auto"
             />
           </div>

@@ -6,6 +6,7 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { productInboundOrderPath } from "@/lib/productRoutes";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { ProductDetail, ProductInboundOrder } from "@/types/product";
 import type { InboundOrderStatus } from "@/types/location";
 
@@ -86,8 +87,9 @@ export function ProductInboundTab({
         rowKey="id"
         columns={columns}
         dataSource={data.inboundOrders}
-        pagination={{ pageSize: 20, showSizeChanger: false }}
-        scroll={{ x: "max-content" }}
+        pagination={defaultTablePagination}
+        className="gl-table-scroll"
+        scroll={tableScroll("max-content")}
         tableLayout="auto"
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({

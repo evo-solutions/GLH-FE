@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { getLocationSeed } from "@/lib/locationRegistry";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
 import { useLocationInboundOrderDetail } from "@/hooks/useLocation";
+import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type {
   InboundOrderLineItem,
   InboundOrderStatus,
@@ -161,8 +162,9 @@ export function InboundOrderDetailDrawer({
               rowKey={(row) => row.trackingCode}
               columns={lineColumns}
               dataSource={data.lineItems}
-              pagination={false}
-              scroll={{ x: "max-content" }}
+              pagination={defaultTablePagination}
+              className="gl-table-scroll"
+              scroll={tableScroll("max-content")}
             />
           </section>
 
@@ -174,8 +176,9 @@ export function InboundOrderDetailDrawer({
                 rowKey={(row) => row.trackingCode}
                 columns={returnColumns}
                 dataSource={data.returnItems}
-                pagination={false}
-                scroll={{ x: "max-content" }}
+                pagination={defaultTablePagination}
+                className="gl-table-scroll"
+                scroll={tableScroll("max-content")}
               />
             </section>
           )}
@@ -186,7 +189,7 @@ export function InboundOrderDetailDrawer({
               <Timeline
                 className="location-drawer-timeline"
                 items={data.timeline.map((ev) => ({
-                  children: (
+                  content: (
                     <div>
                       <div className="text-sm font-semibold">
                         {ev.date}
