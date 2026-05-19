@@ -7,4 +7,5 @@ export default async function LocationCustomerPage({
 }) {
   const { id, customerId } = await params;
   return <CustomerDetailScreen locationId={id} customerId={customerId} />;
+
 }
