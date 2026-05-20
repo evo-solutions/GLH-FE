@@ -26,7 +26,7 @@
 }
 
 .dashboard-chart-wrap--customer-count {
-  height: 200px;
+  height: 300px;
 }
 
 .location-chart-panel--customer-count {
@@ -34,7 +34,7 @@
 }
 
 .location-chart-wrap--customer-count {
-  height: 200px;
+  height: 300px;
 }
 
 @media (max-width: 576px) {

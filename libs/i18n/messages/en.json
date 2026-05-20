@@ -18,36 +18,42 @@
       "revenueWeek": "Week",
       "revenueMonth": "Month",
       "revenueYear": "Year",
-      "customerCount": "Customer count",
+      "customerCount": "Customer (K)",
       "customerCountMonth": "Month",
       "customerCountWeek": "Week",
-      "customerCountDay": "Day",
+      "customerCountYear": "Year",
       "customerCountVsStart": "vs period start",
-      "campaign": "Campaign ROI"
+      "customerCountUnitThousands": "K"
     },
-    "purchaseTime": {
-      "title": "Customer purchase timing"
+    "storePerformance": {
+      "topStores": "TOP STORES",
+      "worstStores": "WORST STORES",
+      "colStore": "Store",
+      "colRevenue": "Revenue",
+      "colCost": "Cost",
+      "colGrowth": "Growth"
     },
-    "map": {
-      "title": "Vietnam demand hotspot map",
-      "aria": "Vietnam regional demand hotspot map",
-      "regions": "regions monitored",
-      "stockOut": "Stock-out",
-      "vendorScore": "Vendor score",
-      "demandTrend": "Demand trend",
-      "legendDanger": "Danger / high volatility",
-      "legendWarning": "Warning",
-      "legendStable": "Stable"
+    "productPerformance": {
+      "topSku": "TOP SKU",
+      "deadSku": "DEAD SKU",
+      "colProduct": "Product",
+      "colRevenue": "Revenue",
+      "colCustomers": "Customers"
     },
-    "alerts": {
-      "section": "Alerts & decisions",
-      "priority": "Priority",
-      "signal": "Signal",
-      "source": "Source",
-      "decision": "Decision",
-      "owner": "Owner",
-      "sla": "SLA",
-      "status": "Status"
+    "quickAlerts": {
+      "title": "Alerts",
+      "count": "signals",
+      "aria": "Quick alert list"
+    },
+    "salesMap": {
+      "title": "Points of sale map",
+      "aria": "National points of sale map",
+      "stores": "stores",
+      "todayRevenue": "Today's revenue",
+      "vsYesterday": "vs yesterday",
+      "legendUp": "Up vs yesterday",
+      "legendDown": "Down vs yesterday",
+      "legendFlat": "Flat vs yesterday"
     }
   },
   "location": {
@@ -81,11 +87,12 @@
       "revenueWeek": "Week",
       "revenueMonth": "Month",
       "revenueYear": "Year",
-      "customerCount": "Customer count",
+      "customerCount": "Customer (K)",
       "customerCountMonth": "Month",
       "customerCountWeek": "Week",
-      "customerCountDay": "Day",
-      "customerCountVsStart": "vs period start"
+      "customerCountYear": "Year",
+      "customerCountVsStart": "vs period start",
+      "customerCountUnitThousands": "K"
     },
     "charts": {
       "segmentTotal": "total"

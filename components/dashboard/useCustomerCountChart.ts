@@ -9,10 +9,14 @@ import type {
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
 import { colorWithAlpha } from "@/libs/theme";
 import {
-  chartValueLabelsPlugin,
+  chartValueLabelsThousandsPlugin,
   compactChartOptions,
+  customerCountYScale,
+  formatCountInThousands,
+  markChartThousandsLabels,
   readChartAccentColors,
   readThemeColor,
+  unmarkChartThousandsLabels,
 } from "./chartOptions";
 
 export function useCustomerCountChart(
@@ -27,12 +31,7 @@ export function useCustomerCountChart(
   useEffect(() => {
     if (!enabled || !data) return;
 
-    const series =
-      granularity === "month"
-        ? data.month
-        : granularity === "week"
-          ? data.week
-          : data.day;
+    const series = data[granularity];
 
     let cancelled = false;
 
@@ -40,9 +39,7 @@ export function useCustomerCountChart(
       const { default: Chart } = await import("chart.js/auto");
       if (cancelled) return;
 
-      if (granularity !== "week") {
-        Chart.register(chartValueLabelsPlugin);
-      }
+      Chart.register(chartValueLabelsThousandsPlugin);
 
       ref.current?.destroy();
       ref.current = null;
@@ -50,10 +47,12 @@ export function useCustomerCountChart(
       const el = document.getElementById(canvasId) as HTMLCanvasElement | null;
       if (!el) return;
 
+      markChartThousandsLabels(canvasId);
       const { primary } = readChartAccentColors();
 
       const maxTicks =
-        granularity === "month" ? 12 : granularity === "week" ? 13 : 10;
+        granularity === "month" ? 12 : granularity === "week" ? 12 : 6;
+      const yScale = customerCountYScale(series.values);
 
       ref.current = new Chart(el, {
         type: "line",
@@ -67,7 +66,7 @@ export function useCustomerCountChart(
               backgroundColor: colorWithAlpha(primary, 0.13),
               fill: true,
               borderWidth: 2,
-              pointRadius: granularity === "week" ? 0 : 3,
+              pointRadius: 3,
               pointHoverRadius: 5,
               tension: 0.35,
             },
@@ -75,6 +74,7 @@ export function useCustomerCountChart(
         },
         options: {
           ...compactChartOptions("line"),
+          layout: { padding: { top: 28, right: 8, bottom: 4, left: 4 } },
           plugins: {
             ...compactChartOptions("line").plugins,
             legend: { display: false },
@@ -82,7 +82,7 @@ export function useCustomerCountChart(
               ...compactChartOptions("line").plugins?.tooltip,
               callbacks: {
                 label: (ctx: { parsed: { y: number } }) =>
-                  ` ${ctx.parsed.y.toLocaleString()}`,
+                  ` ${formatCountInThousands(ctx.parsed.y)}`,
               },
             },
           },
@@ -91,43 +91,37 @@ export function useCustomerCountChart(
               grid: { display: false },
               ticks: {
                 color: readThemeColor("--muted"),
-                font: { size: granularity === "week" ? 8 : 10 },
+                font: { size: 10 },
                 maxTicksLimit: maxTicks,
                 maxRotation: 0,
               },
             },
             y: {
               beginAtZero: false,
+              suggestedMin: yScale.suggestedMin,
+              suggestedMax: yScale.suggestedMax,
               grid: {
                 color: readThemeColor("--border"),
               },
               ticks: {
+                stepSize: yScale.stepSize,
                 color: readThemeColor("--muted"),
                 font: { size: 10 },
                 callback: (v) =>
-                  typeof v === "number" ? v.toLocaleString() : v,
+                  typeof v === "number" ? formatCountInThousands(v) : v,
               },
             },
           },
         },
-        plugins: granularity === "week" ? [] : [chartValueLabelsPlugin],
+        plugins: [chartValueLabelsThousandsPlugin],
       } as ConstructorParameters<typeof Chart>[1]) as ChartType;
     })();
 
     return () => {
       cancelled = true;
+      unmarkChartThousandsLabels(canvasId);
       ref.current?.destroy();
       ref.current = null;
     };
   }, [data, granularity, canvasId, enabled, theme]);
-}
-
-export function customerCountTrend(values: number[]) {
-  const first = values[0] ?? 0;
-  const last = values[values.length - 1] ?? 0;
-  if (first === 0) {
-    return { growthUp: last >= 0, growthPct: 0 };
-  }
-  const pct = Math.round(((last - first) / first) * 1000) / 10;
-  return { growthUp: last >= first, growthPct: Math.abs(pct) };
 }

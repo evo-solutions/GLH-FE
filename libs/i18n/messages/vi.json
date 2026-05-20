@@ -18,36 +18,42 @@
       "revenueWeek": "Tuần",
       "revenueMonth": "Tháng",
       "revenueYear": "Năm",
-      "customerCount": "Số lượng khách hàng",
+      "customerCount": "Khách hàng (nghìn)",
       "customerCountMonth": "Tháng",
       "customerCountWeek": "Tuần",
-      "customerCountDay": "Ngày",
+      "customerCountYear": "Năm",
       "customerCountVsStart": "so với đầu kỳ",
-      "campaign": "ROI chiến dịch"
+      "customerCountUnitThousands": "nghìn"
     },
-    "purchaseTime": {
-      "title": "Thời điểm mua của khách"
+    "storePerformance": {
+      "topStores": "TOP STORES",
+      "worstStores": "WORST STORES",
+      "colStore": "Cửa hàng",
+      "colRevenue": "Doanh thu",
+      "colCost": "Chi phí",
+      "colGrowth": "Tăng trưởng"
     },
-    "map": {
-      "title": "Bản đồ hotspot nhu cầu Việt Nam",
-      "aria": "Bản đồ hotspot nhu cầu theo vùng",
-      "regions": "vùng giám sát",
-      "stockOut": "Hết hàng",
-      "vendorScore": "Điểm nhà cung cấp",
-      "demandTrend": "Xu hướng nhu cầu",
-      "legendDanger": "Nguy cơ / biến động cao",
-      "legendWarning": "Cảnh báo",
-      "legendStable": "Ổn định"
+    "productPerformance": {
+      "topSku": "TOP SKU",
+      "deadSku": "DEAD SKU",
+      "colProduct": "Sản phẩm",
+      "colRevenue": "Doanh thu",
+      "colCustomers": "Khách hàng"
     },
-    "alerts": {
-      "section": "Cảnh báo & quyết định",
-      "priority": "Ưu tiên",
-      "signal": "Tín hiệu",
-      "source": "Nguồn",
-      "decision": "Quyết định",
-      "owner": "Phụ trách",
-      "sla": "Thời gian phản hồi",
-      "status": "Trạng thái"
+    "quickAlerts": {
+      "title": "Cảnh báo",
+      "count": "tín hiệu",
+      "aria": "Danh sách cảnh báo nhanh"
+    },
+    "salesMap": {
+      "title": "Bản đồ điểm bán",
+      "aria": "Bản đồ điểm bán trên toàn quốc",
+      "stores": "điểm bán",
+      "todayRevenue": "Doanh thu hôm nay",
+      "vsYesterday": "So với hôm qua",
+      "legendUp": "Tăng so với hôm qua",
+      "legendDown": "Giảm so với hôm qua",
+      "legendFlat": "Ngang so với hôm qua"
     }
   },
   "location": {
@@ -81,11 +87,12 @@
       "revenueWeek": "Tuần",
       "revenueMonth": "Tháng",
       "revenueYear": "Năm",
-      "customerCount": "Số lượng khách hàng",
+      "customerCount": "Khách hàng (nghìn)",
       "customerCountMonth": "Tháng",
       "customerCountWeek": "Tuần",
-      "customerCountDay": "Ngày",
-      "customerCountVsStart": "so với đầu kỳ"
+      "customerCountYear": "Năm",
+      "customerCountVsStart": "so với đầu kỳ",
+      "customerCountUnitThousands": "nghìn"
     },
     "charts": {
       "segmentTotal": "tổng"

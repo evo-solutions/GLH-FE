@@ -75,6 +75,90 @@ function parseColorToRgb(color: string): [number, number, number] | null {
   return null;
 }
 
+/** Giá trị đếm (khách hàng, tồn kho…) hiển thị theo nghìn — làm tròn, không thập phân. */
+export function formatCountInThousands(value: number): string {
+  return `${Math.round(value / 1000)}`;
+}
+
+const CUSTOMER_COUNT_Y_STEP_K = 10;
+const CUSTOMER_COUNT_EXTRA_Y_LEVELS = 3;
+
+/** Trục Y khách hàng (nghìn): thêm 3 mức trên đỉnh dữ liệu. */
+export function customerCountYScale(values: number[]) {
+  const step = CUSTOMER_COUNT_Y_STEP_K * 1000;
+  if (values.length === 0) {
+    return { suggestedMin: undefined as number | undefined, suggestedMax: undefined, stepSize: step };
+  }
+  const minK = Math.min(...values.map((v) => Math.round(v / 1000)));
+  const maxK = Math.max(...values.map((v) => Math.round(v / 1000)));
+  const stepK = CUSTOMER_COUNT_Y_STEP_K;
+  const bottomK = Math.max(0, Math.floor(minK / stepK) * stepK - stepK);
+  const topK =
+    bottomK +
+    Math.ceil((maxK - bottomK) / stepK) * stepK -
+    stepK +
+    CUSTOMER_COUNT_EXTRA_Y_LEVELS * stepK;
+  return {
+    suggestedMin: bottomK * 1000,
+    suggestedMax: topK * 1000,
+    stepSize: step,
+  };
+}
+
+const thousandsLabelChartIds = new Set<string>();
+
+export function markChartThousandsLabels(canvasId: string) {
+  thousandsLabelChartIds.add(canvasId);
+}
+
+export function unmarkChartThousandsLabels(canvasId: string) {
+  thousandsLabelChartIds.delete(canvasId);
+}
+
+function chartUsesThousandsLabels(chart: { canvas?: { id?: string } }) {
+  const id = chart.canvas?.id;
+  return id != null && thousandsLabelChartIds.has(id);
+}
+
+/** Nhãn trên line chart — đơn vị nghìn (3 chữ số). */
+export const chartValueLabelsThousandsPlugin: Plugin = {
+  id: "chartValueLabelsThousands",
+  afterDatasetsDraw(chart) {
+    const chartType = (chart.config as { type?: string }).type;
+    if (chartType === "doughnut" || chartType === "pie") return;
+    if (!chartUsesThousandsLabels(chart)) return;
+
+    const { ctx } = chart;
+    const labelColor = readThemeColor("--text", fallback.text);
+    const pointCount = chart.data.datasets[0]?.data?.length ?? 0;
+
+    chart.data.datasets.forEach((dataset, datasetIndex) => {
+      const meta = chart.getDatasetMeta(datasetIndex);
+      if (meta.hidden) return;
+
+      meta.data.forEach((element, index) => {
+        const raw = dataset.data[index];
+        if (raw == null || typeof raw !== "number") return;
+
+        const label = formatCountInThousands(raw);
+        const pos = element.tooltipPosition(false);
+        if (pos.x == null || pos.y == null) return;
+
+        const stagger = index % 2 === 0 ? 12 : 22;
+        const fontSize = pointCount > 10 ? 9 : 10;
+
+        ctx.save();
+        ctx.fillStyle = labelColor;
+        ctx.font = `600 ${fontSize}px Inter, sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "bottom";
+        ctx.fillText(label, pos.x, pos.y - stagger);
+        ctx.restore();
+      });
+    });
+  },
+};
+
 /** Chữ sáng/tối theo độ sáng nền segment. */
 export function contrastTextOnFill(fill: string): string {
   const rgb = parseColorToRgb(fill);
@@ -93,6 +177,7 @@ export const chartValueLabelsPlugin: Plugin = {
   afterDatasetsDraw(chart) {
     const chartType = (chart.config as { type?: string }).type;
     if (chartType === "doughnut" || chartType === "pie") return;
+    if (chartUsesThousandsLabels(chart)) return;
 
     const { ctx } = chart;
     const labelColor = readThemeColor("--text", fallback.text);

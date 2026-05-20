@@ -1,23 +1,36 @@
-export type AlertStatus = "danger" | "warning" | "success" | "processing";
-
-export interface DashboardHighlight {
-  c1t: string;
-  c1v: string;
-  c1s?: string;
-  c2t: string;
-  c2v: string;
-  c3t: string;
-  c3v: string;
+export interface DashboardDailyRevenueHighlight {
+  title: string;
+  todayValue: string;
+  unit?: string;
+  /** % change vs yesterday (positive = up) */
+  changePct: number;
+  changeLabel: string;
+  sparkline7d: number[];
 }
 
-export interface DashboardKpi {
-  id: string;
-  label: string;
-  value: number;
-  display: string;
-  growth: string;
-  growthUp: boolean;
-  spark: number[];
+export interface DashboardInventoryHighlight {
+  title: string;
+  totalDisplay: string;
+  deadStockPct: number;
+  deadStockLabel: string;
+  lowStockCount: number;
+  lowStockLabel: string;
+}
+
+export interface DashboardStoreHealthHighlight {
+  title: string;
+  healthyCount: number;
+  totalStores: number;
+  healthyLabel: string;
+  issueCount: number;
+  issueLabel: string;
+  statusSummary: string;
+}
+
+export interface DashboardHighlight {
+  dailyRevenue: DashboardDailyRevenueHighlight;
+  inventory: DashboardInventoryHighlight;
+  storeHealth: DashboardStoreHealthHighlight;
 }
 
 export interface ChartSeries {
@@ -35,7 +48,6 @@ export interface RevenueChartData {
 
 export interface DashboardCharts {
   revenue: RevenueChartData;
-  campaign: ChartSeries;
 }
 
 export interface ProductRevenueSeries {
@@ -51,7 +63,7 @@ export interface ProductRevenueChartData {
   products: ProductRevenueSeries[];
 }
 
-export type CustomerCountGranularity = "month" | "week" | "day";
+export type CustomerCountGranularity = "week" | "month" | "year";
 
 export interface CustomerCountSeries {
   labels: string[];
@@ -59,59 +71,73 @@ export interface CustomerCountSeries {
 }
 
 export interface CustomerCountChartData {
-  month: CustomerCountSeries;
   week: CustomerCountSeries;
-  day: CustomerCountSeries;
+  month: CustomerCountSeries;
+  year: CustomerCountSeries;
 }
 
-export interface DashboardAlert {
-  id: string;
-  priority: string;
-  signal: string;
-  source: string;
-  decision: string;
-  owner: string;
-  sla: string;
-  status: AlertStatus;
-  statusLabel: string;
-}
+export type SalesTrend = "up" | "down" | "flat";
 
-export type HotspotStatus = "danger" | "warning" | "stable";
-
-export interface DemandHotspot {
+export interface SalesPoint {
   id: string;
-  city: string;
-  status: HotspotStatus;
-  stockOutPct: number;
-  vendorScore: number;
-  demandTrend: string;
+  name: string;
+  todayRevenue: string;
+  /** % thay đổi doanh thu so với hôm qua */
+  changePct: number;
+  trend: SalesTrend;
   top: string;
   left: string;
 }
 
-export interface DemandMapData {
-  hotspots: DemandHotspot[];
+export interface SalesPointsMapData {
+  points: SalesPoint[];
   summary: {
-    regionsMonitored: number;
-    dangerCount: number;
-    warningCount: number;
-    stableCount: number;
+    storeCount: number;
+    upCount: number;
+    downCount: number;
+    flatCount: number;
   };
 }
 
-/** Tỷ lệ đơn mua theo khung giờ trong ngày (%). */
-export interface PurchaseTimeData {
-  labels: string[];
-  values: number[];
-  peakIndices: number[];
+export type QuickAlertSeverity = "danger" | "warning" | "info";
+
+export interface DashboardQuickAlert {
+  id: string;
+  message: string;
+  severity: QuickAlertSeverity;
+}
+
+export interface StorePerformanceRow {
+  storeCode: string;
+  revenue: string;
+  cost: string;
+  growthPct: number;
+  growth: string;
+}
+
+export interface StorePerformanceData {
+  topStores: StorePerformanceRow[];
+  worstStores: StorePerformanceRow[];
+}
+
+export interface ProductPerformanceRow {
+  id: string;
+  productName: string;
+  revenue: string;
+  customerCount: string;
+}
+
+export interface ProductPerformanceData {
+  topProducts: ProductPerformanceRow[];
+  deadProducts: ProductPerformanceRow[];
 }
 
 export interface DashboardOverview {
   highlight: DashboardHighlight;
-  kpis: DashboardKpi[];
   charts: DashboardCharts;
   customerCount: CustomerCountChartData;
-  demandMap: DemandMapData;
-  purchaseTime: PurchaseTimeData;
-  alerts: DashboardAlert[];
+  storePerformance: StorePerformanceData;
+  productPerformance: ProductPerformanceData;
+  salesPointsMap: SalesPointsMapData;
+  quickAlerts: DashboardQuickAlert[];
 }

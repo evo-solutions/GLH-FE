@@ -3,29 +3,6 @@ import type { CustomerCountChartData } from "@/types/dashboard";
 
 type Locale = "vi" | "en" | "zh";
 
-function monthLabels(locale: Locale): string[] {
-  if (locale === "en") {
-    return ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  }
-  if (locale === "zh") {
-    return ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-  }
-  return ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12"];
-}
-
-function weekLabels(): string[] {
-  return Array.from({ length: 52 }, (_, i) => `W${i + 1}`);
-}
-
-function dayLabels(locale: Locale): string[] {
-  return Array.from({ length: 30 }, (_, i) => {
-    const day = i + 1;
-    if (locale === "en") return `D${day}`;
-    if (locale === "zh") return `${day}日`;
-    return `N${day}`;
-  });
-}
-
 function locationScale(locationId?: string): number {
   if (!locationId) return 1;
   const idx = locationIndex(locationId);
@@ -48,7 +25,35 @@ function trendValues(
   });
 }
 
-/** Số lượng khách hàng theo tháng / tuần / ngày — toàn hệ thống hoặc theo cơ sở. */
+function monthLabels(locale: Locale): string[] {
+  if (locale === "zh") {
+    return Array.from({ length: 12 }, (_, i) => `${i + 1}月`);
+  }
+  if (locale === "en") {
+    return Array.from({ length: 12 }, (_, i) => `M${i + 1}`);
+  }
+  return Array.from({ length: 12 }, (_, i) => `T${i + 1}`);
+}
+
+function weekLabels(locale: Locale): string[] {
+  if (locale === "zh") {
+    return Array.from({ length: 12 }, (_, i) => `第${i + 1}周`);
+  }
+  if (locale === "en") {
+    return Array.from({ length: 12 }, (_, i) => `W${i + 1}`);
+  }
+  return Array.from({ length: 12 }, (_, i) => `Tuần ${i + 1}`);
+}
+
+function yearLabels(locale: Locale): string[] {
+  const years = [2022, 2023, 2024, 2025, 2026];
+  if (locale === "zh") {
+    return years.map((y) => `${y}年`);
+  }
+  return years.map(String);
+}
+
+/** Số lượng khách hàng theo tuần / tháng / năm — toàn hệ thống hoặc theo cơ sở. */
 export function buildCustomerCountChart(
   locale: Locale,
   locationId?: string
@@ -58,17 +63,17 @@ export function buildCustomerCountChart(
   const endTotal = Math.round((locationId ? 4200 : 248420) * scale);
 
   return {
+    week: {
+      labels: weekLabels(locale),
+      values: trendValues(12, endTotal, growthUp, 0.03),
+    },
     month: {
       labels: monthLabels(locale),
       values: trendValues(12, endTotal, growthUp, 0.02),
     },
-    week: {
-      labels: weekLabels(),
-      values: trendValues(52, endTotal, growthUp, 0.035),
-    },
-    day: {
-      labels: dayLabels(locale),
-      values: trendValues(30, endTotal, growthUp, 0.04),
+    year: {
+      labels: yearLabels(locale),
+      values: trendValues(5, endTotal, growthUp, 0.015),
     },
   };
 }

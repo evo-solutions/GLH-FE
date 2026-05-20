@@ -1,14 +1,20 @@
 "use client";
 
-import type { DemandMapData } from "@/types/dashboard";
-import { DemandHotspotMap } from "./DemandHotspotMap";
-import { PurchaseTimeChart } from "./PurchaseTimeChart";
+import type { DashboardQuickAlert, SalesPointsMapData } from "@/types/dashboard";
+import { DashboardQuickAlertsPanel } from "./DashboardQuickAlertsPanel";
+import { SalesPointsMap } from "./SalesPointsMap";
 
-export function DemandInsightsRow({ demandMap }: { demandMap: DemandMapData }) {
+export function DemandInsightsRow({
+  salesPointsMap,
+  quickAlerts,
+}: {
+  salesPointsMap: SalesPointsMapData;
+  quickAlerts: DashboardQuickAlert[];
+}) {
   return (
     <div className="dashboard-insights-row">
-      <DemandHotspotMap data={demandMap} />
-      <PurchaseTimeChart />
+      <SalesPointsMap data={salesPointsMap} />
+      <DashboardQuickAlertsPanel alerts={quickAlerts} />
     </div>
   );
 }

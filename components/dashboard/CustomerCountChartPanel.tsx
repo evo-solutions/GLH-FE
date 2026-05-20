@@ -1,12 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { Segmented } from "antd";
 import type { CustomerCountChartData, CustomerCountGranularity } from "@/types/dashboard";
-import {
-  customerCountTrend,
-  useCustomerCountChart,
-} from "./useCustomerCountChart";
+import { useCustomerCountChart } from "./useCustomerCountChart";
 import "./customerCountChart.css";
 
 type PanelVariant = "dashboard" | "location";
@@ -23,24 +20,14 @@ export function CustomerCountChartPanel({
   variant: PanelVariant;
   title: string;
   labels: {
-    month: string;
     week: string;
-    day: string;
-    vsPeriodStart: string;
+    month: string;
+    year: string;
   };
 }) {
   const [granularity, setGranularity] = useState<CustomerCountGranularity>("month");
 
   useCustomerCountChart(data, granularity, canvasId, !!data);
-
-  const series = useMemo(() => {
-    if (!data) return { labels: [] as string[], values: [] as number[] };
-    if (granularity === "month") return data.month;
-    if (granularity === "week") return data.week;
-    return data.day;
-  }, [data, granularity]);
-
-  const trend = useMemo(() => customerCountTrend(series.values), [series.values]);
 
   const panelClass =
     variant === "dashboard"
@@ -59,21 +46,14 @@ export function CustomerCountChartPanel({
           <h4>{title}</h4>
         </div>
         <div className="customer-count-chart-header__controls">
-          <span
-            className={
-              trend.growthUp ? "dashboard-growth-up" : "dashboard-growth-down"
-            }
-          >
-            {trend.growthUp ? "↑" : "↓"} {trend.growthPct}% {labels.vsPeriodStart}
-          </span>
           <Segmented
             size="small"
             value={granularity}
             onChange={(v) => setGranularity(v as CustomerCountGranularity)}
             options={[
-              { label: labels.month, value: "month" },
               { label: labels.week, value: "week" },
-              { label: labels.day, value: "day" },
+              { label: labels.month, value: "month" },
+              { label: labels.year, value: "year" },
             ]}
           />
         </div>

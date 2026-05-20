@@ -78,30 +78,31 @@ export function OverviewTab({ locationId }: { locationId: string }) {
     <>
       <LocationInfoCard meta={meta} />
       <KpiGrid data={data} />
-      <RevenueChartPanel
-        variant="location"
-        data={data.revenue}
-        canvasId="loc-chart-revenue"
-        title={t("overviewCharts.totalRevenue")}
-        datasetLabel={t("overviewCharts.totalRevenue")}
-        labels={{
-          week: t("overviewCharts.revenueWeek"),
-          month: t("overviewCharts.revenueMonth"),
-          year: t("overviewCharts.revenueYear"),
-        }}
-      />
-      <CustomerCountChartPanel
-        variant="location"
-        data={data.customerCount}
-        canvasId="loc-chart-customer-count"
-        title={t("overviewCharts.customerCount")}
-        labels={{
-          month: t("overviewCharts.customerCountMonth"),
-          week: t("overviewCharts.customerCountWeek"),
-          day: t("overviewCharts.customerCountDay"),
-          vsPeriodStart: t("overviewCharts.customerCountVsStart"),
-        }}
-      />
+      <div className="location-charts-row">
+        <CustomerCountChartPanel
+          variant="location"
+          data={data.customerCount}
+          canvasId="loc-chart-customer-count"
+          title={t("overviewCharts.customerCount")}
+          labels={{
+            week: t("overviewCharts.customerCountWeek"),
+            month: t("overviewCharts.customerCountMonth"),
+            year: t("overviewCharts.customerCountYear"),
+          }}
+        />
+        <RevenueChartPanel
+          variant="location"
+          data={data.revenue}
+          canvasId="loc-chart-revenue"
+          title={t("overviewCharts.totalRevenue")}
+          datasetLabel={t("overviewCharts.totalRevenue")}
+          labels={{
+            week: t("overviewCharts.revenueWeek"),
+            month: t("overviewCharts.revenueMonth"),
+            year: t("overviewCharts.revenueYear"),
+          }}
+        />
+      </div>
       <div className="location-chart-grid location-chart-grid--3">
         <div className="location-chart-panel">
           <h4>{t("overviewCharts.staffCosts")}</h4>

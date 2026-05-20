@@ -18,36 +18,42 @@
       "revenueWeek": "周",
       "revenueMonth": "月",
       "revenueYear": "年",
-      "customerCount": "客户数量",
+      "customerCount": "客户（千）",
       "customerCountMonth": "月",
       "customerCountWeek": "周",
-      "customerCountDay": "日",
+      "customerCountYear": "年",
       "customerCountVsStart": "较期初",
-      "campaign": "活动回报率"
+      "customerCountUnitThousands": "千"
     },
-    "purchaseTime": {
-      "title": "客户购买时段"
+    "storePerformance": {
+      "topStores": "TOP STORES",
+      "worstStores": "WORST STORES",
+      "colStore": "门店",
+      "colRevenue": "营收",
+      "colCost": "成本",
+      "colGrowth": "增长"
     },
-    "map": {
-      "title": "越南需求热点地图",
-      "aria": "越南区域需求热点地图",
-      "regions": "个监控区域",
-      "stockOut": "缺货率",
-      "vendorScore": "供应商评分",
-      "demandTrend": "需求趋势",
-      "legendDanger": "高风险 / 波动大",
-      "legendWarning": "预警",
-      "legendStable": "稳定"
+    "productPerformance": {
+      "topSku": "TOP SKU",
+      "deadSku": "DEAD SKU",
+      "colProduct": "产品",
+      "colRevenue": "营收",
+      "colCustomers": "客户"
     },
-    "alerts": {
-      "section": "预警与决策",
-      "priority": "优先级",
-      "signal": "信号",
-      "source": "来源",
-      "decision": "决策",
-      "owner": "负责人",
-      "sla": "时限",
-      "status": "状态"
+    "quickAlerts": {
+      "title": "预警",
+      "count": "条信号",
+      "aria": "快速预警列表"
+    },
+    "salesMap": {
+      "title": "销售点地图",
+      "aria": "全国销售点分布地图",
+      "stores": "个销售点",
+      "todayRevenue": "今日营收",
+      "vsYesterday": "较昨日",
+      "legendUp": "较昨日上升",
+      "legendDown": "较昨日下降",
+      "legendFlat": "与昨日持平"
     }
   },
   "location": {
@@ -81,11 +87,12 @@
       "revenueWeek": "周",
       "revenueMonth": "月",
       "revenueYear": "年",
-      "customerCount": "客户数量",
+      "customerCount": "客户（千）",
       "customerCountMonth": "月",
       "customerCountWeek": "周",
-      "customerCountDay": "日",
-      "customerCountVsStart": "较期初"
+      "customerCountYear": "年",
+      "customerCountVsStart": "较期初",
+      "customerCountUnitThousands": "千"
     },
     "charts": {
       "segmentTotal": "合计"
