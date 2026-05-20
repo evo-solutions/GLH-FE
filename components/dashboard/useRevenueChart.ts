@@ -4,9 +4,11 @@ import { useEffect, useRef } from "react";
 import type { Chart as ChartType } from "chart.js";
 import type { RevenueChartData, RevenueGranularity } from "@/types/dashboard";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
+import { colorWithAlpha } from "@/libs/theme";
 import {
   chartValueLabelsPlugin,
   compactChartOptions,
+  readChartAccentColors,
   readThemeColor,
 } from "./chartOptions";
 
@@ -39,7 +41,7 @@ export function useRevenueChart(
       const el = document.getElementById(canvasId) as HTMLCanvasElement | null;
       if (!el) return;
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
+      const { primary } = readChartAccentColors();
       const maxTicks =
         granularity === "month" ? 12 : granularity === "week" ? 12 : 6;
 
@@ -51,8 +53,8 @@ export function useRevenueChart(
             {
               label: datasetLabel,
               data: series.values,
-              borderColor: pharma,
-              backgroundColor: "rgba(13,110,141,0.1)",
+              borderColor: primary,
+              backgroundColor: colorWithAlpha(primary, 0.1),
               fill: true,
               borderWidth: 2,
               pointRadius: 3,
@@ -78,7 +80,7 @@ export function useRevenueChart(
             x: {
               grid: { display: false },
               ticks: {
-                color: readThemeColor("--muted", "#5a7580"),
+                color: readThemeColor("--muted"),
                 font: { size: 10 },
                 maxTicksLimit: maxTicks,
                 maxRotation: 0,
@@ -87,10 +89,10 @@ export function useRevenueChart(
             y: {
               beginAtZero: false,
               grid: {
-                color: readThemeColor("--border", "rgba(13, 110, 141, 0.18)"),
+                color: readThemeColor("--border"),
               },
               ticks: {
-                color: readThemeColor("--muted", "#5a7580"),
+                color: readThemeColor("--muted"),
                 font: { size: 10 },
               },
             },

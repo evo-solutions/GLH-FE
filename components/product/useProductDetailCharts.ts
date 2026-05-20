@@ -4,11 +4,12 @@ import { useEffect, useRef } from "react";
 import type { Chart as ChartType } from "chart.js";
 import type { ProductDetail } from "@/types/product";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
+import { colorWithAlpha } from "@/libs/theme";
 import {
   chartDoughnutLabelsPlugin,
   chartValueLabelsPlugin,
   compactChartOptions,
-  readThemeColor,
+  readChartAccentColors,
 } from "@/components/dashboard/chartOptions";
 
 export function useProductDetailCharts(data: ProductDetail | undefined, enabled: boolean) {
@@ -26,10 +27,7 @@ export function useProductDetailCharts(data: ProductDetail | undefined, enabled:
       if (cancelled) return;
       Chart.register(chartValueLabelsPlugin, chartDoughnutLabelsPlugin);
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
-      const gold = readThemeColor("--gold", "#c9a94f");
-      const leaf = readThemeColor("--leaf", "#1b5e3c");
-      const bronze = readThemeColor("--bronze", "#8b6914");
+      const { primary, success, warning, chart3 } = readChartAccentColors();
 
       const destroy = () => {
         salesRef.current?.destroy();
@@ -50,8 +48,8 @@ export function useProductDetailCharts(data: ProductDetail | undefined, enabled:
             datasets: [
               {
                 data: data.overview.salesTrend.values,
-                borderColor: pharma,
-                backgroundColor: "rgba(13, 110, 141, 0.12)",
+                borderColor: primary,
+                backgroundColor: colorWithAlpha(primary, 0.12),
                 fill: true,
                 tension: 0.35,
                 pointRadius: 3,
@@ -72,7 +70,7 @@ export function useProductDetailCharts(data: ProductDetail | undefined, enabled:
             datasets: [
               {
                 data: data.overview.locationShare.values,
-                backgroundColor: [pharma, leaf, gold, bronze],
+                backgroundColor: [primary, success, warning, chart3],
                 borderWidth: 0,
               },
             ],
@@ -91,7 +89,7 @@ export function useProductDetailCharts(data: ProductDetail | undefined, enabled:
             datasets: [
               {
                 data: data.overview.channelMix.values,
-                backgroundColor: [pharma, gold, leaf, bronze],
+                backgroundColor: [primary, warning, success, chart3],
                 borderWidth: 0,
               },
             ],

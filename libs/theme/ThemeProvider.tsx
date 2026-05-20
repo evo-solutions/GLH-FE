@@ -8,6 +8,8 @@ import {
   type ReactNode,
 } from "react";
 import type { ThemeMode } from "./colors";
+import { applyBrandFavicon } from "@/libs/brand/logo";
+import { applyThemeCssVariables } from "./cssVars";
 
 const STORAGE_KEY = "theme";
 
@@ -34,6 +36,8 @@ function setDomTheme(mode: ThemeMode) {
   if (typeof window === "undefined") return;
   document.documentElement.classList.remove("light", "dark");
   document.documentElement.classList.add(mode);
+  applyThemeCssVariables(mode);
+  applyBrandFavicon(mode);
 }
 
 if (typeof window !== "undefined") {

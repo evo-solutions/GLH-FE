@@ -7,22 +7,26 @@ import { useThemeContext } from "@/libs/theme/ThemeProvider";
 import {
   chartValueLabelsPlugin,
   compactChartOptions,
+  readChartAccentColors,
   readThemeColor,
 } from "./chartOptions";
 
-const PRODUCT_LINE_COLORS = [
-  "#0d6e8d",
-  "#1b5e3c",
-  "#c9a94f",
-  "#1f6fad",
-  "#c45c4a",
-  "#6b4fa0",
-  "#2a9d8f",
-  "#e76f51",
-  "#5a7580",
-  "#84a98c",
-  "#bc6c25",
-];
+function productLineColors() {
+  const c = readChartAccentColors();
+  return [
+    c.primary,
+    c.success,
+    c.warning,
+    c.info,
+    c.danger,
+    c.chart2,
+    c.chart3,
+    c.chart4,
+    c.primary,
+    c.success,
+    c.warning,
+  ];
+}
 
 export function useProductRevenueChart(
   data: ProductRevenueChartData | undefined,
@@ -57,7 +61,8 @@ export function useProductRevenueChart(
         data: {
           labels: data.labels,
           datasets: data.products.map((p, i) => {
-            const color = PRODUCT_LINE_COLORS[i % PRODUCT_LINE_COLORS.length];
+            const colors = productLineColors();
+            const color = colors[i % colors.length];
             const trend = p.growthUp ? "↑" : "↓";
             return {
               label: `${p.name} (${trend}${p.growthPct}%)`,
@@ -84,7 +89,7 @@ export function useProductRevenueChart(
                 boxHeight: 2,
                 padding: 8,
                 font: { size: 9, weight: 500 },
-                color: readThemeColor("--text", "#0e2a33"),
+                color: readThemeColor("--text"),
               },
             },
             tooltip: {
@@ -99,23 +104,23 @@ export function useProductRevenueChart(
             x: {
               grid: { display: false },
               ticks: {
-                color: readThemeColor("--muted", "#5a7580"),
+                color: readThemeColor("--muted"),
                 font: { size: 10 },
               },
             },
             y: {
               beginAtZero: true,
               grid: {
-                color: readThemeColor("--border", "rgba(13, 110, 141, 0.18)"),
+                color: readThemeColor("--border"),
               },
               ticks: {
-                color: readThemeColor("--muted", "#5a7580"),
+                color: readThemeColor("--muted"),
                 font: { size: 10 },
               },
               title: {
                 display: true,
                 text: labels.productRevenueUnit,
-                color: readThemeColor("--muted", "#5a7580"),
+                color: readThemeColor("--muted"),
                 font: { size: 10 },
               },
             },

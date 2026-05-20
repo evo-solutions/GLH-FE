@@ -3,6 +3,7 @@
 import { Layout, Menu } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
+import { Logo } from "./Logo";
 import { navSelectedKey } from "./navSelectedKey";
 import { useNavMenuItems } from "./useNavMenuItems";
 

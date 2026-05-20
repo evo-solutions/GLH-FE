@@ -144,7 +144,7 @@
 }
 
 .product-location-link {
-  color: var(--pharma, #0d6e8d);
+  color: var(--pharma);
   text-decoration: none;
 }
 

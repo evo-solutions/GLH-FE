@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { BRAND_LOGO } from "@/libs/brand/logo";
 import { ThemeProvider } from "@/libs/theme/ThemeProvider";
+import { buildThemeBootstrapScript } from "@/libs/theme/cssVars";
 import { AntdProvider } from "@/libs/antd/AntdProvider";
 import { ReactQueryProvider } from "@/libs/tanstack/ReactQueryProvider";
 import { getLocale, getMessages, getTranslations } from "next-intl/server";
@@ -18,7 +20,17 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
-  return { title: t("app_title"), description: t("app_description") };
+  return {
+    title: t("app_title"),
+    description: t("app_description"),
+    icons: {
+      icon: [
+        { url: BRAND_LOGO.light, media: "(prefers-color-scheme: light)" },
+        { url: BRAND_LOGO.dark, media: "(prefers-color-scheme: dark)" },
+      ],
+      apple: BRAND_LOGO.light,
+    },
+  };
 }
 
 export default async function RootLayout({
@@ -30,9 +42,10 @@ export default async function RootLayout({
   return (
     <html lang={locale} className="light" suppressHydrationWarning>
       <head>
+        <link rel="icon" href={BRAND_LOGO.light} data-brand="true" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.classList.remove("light","dark");document.documentElement.classList.add(t)}catch(e){}})();`,
+            __html: buildThemeBootstrapScript(),
           }}
         />
       </head>

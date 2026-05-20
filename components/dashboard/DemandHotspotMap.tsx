@@ -17,13 +17,14 @@ const VN_SILHOUETTE = (
   >
     <defs>
       <linearGradient id="vnMapFill" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="rgba(13, 110, 141, 0.18)" />
-        <stop offset="100%" stopColor="rgba(27, 94, 60, 0.12)" />
+        <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.18" />
+        <stop offset="100%" stopColor="var(--success)" stopOpacity="0.12" />
       </linearGradient>
     </defs>
     <path
       fill="url(#vnMapFill)"
-      stroke="rgba(13, 110, 141, 0.35)"
+      stroke="var(--primary)"
+      strokeOpacity="0.35"
       strokeWidth="1.5"
       strokeLinejoin="round"
       d={VIETNAM_MAP_PATH}

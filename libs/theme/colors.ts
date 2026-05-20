@@ -1,32 +1,66 @@
-/** Palette pharma + herbals — dùng cho Ant Design tokens */
+/** Golden Lotus Herbals — brand green #005828 */
+export const BRAND_GREEN = "#005828";
+
+/** Minimal green enterprise palette — Ant Design tokens */
 export const palette = {
   light: {
-    pharma: "#0d6e8d",
-    pharmaDeep: "#085a73",
-    leaf: "#1b5e3c",
-    gold: "#c9a94f",
-    danger: "#c0392b",
-    success: "#1e8449",
-    info: "#1f6fad",
+    // Brand
+    primary: BRAND_GREEN,
+    primaryHover: "#007a35",
+    primaryActive: "#003d1f",
+
+    // Semantic
+    success: BRAND_GREEN,
     warning: "#d68910",
-    bgPage: "#eef5f7",
-    text: "#0e2a33",
-    muted: "#5a7580",
-    border: "rgba(13, 110, 141, 0.18)",
+    danger: "#c0392b",
+    info: "#2a9d55",
+
+    // Neutral UI
+    bgPage: "#ffffff",
+    bgContainer: "#fafafa",
+
+    text: "#111111",
+    textSecondary: "#666666",
+    textMuted: "#999999",
+
+    border: "#e5e7eb",
+    borderSecondary: "#f0f0f0",
+
+    // Charts / data viz
+    chart1: BRAND_GREEN,
+    chart2: "#6b7280",
+    chart3: "#9ca3af",
+    chart4: "#d1d5db",
   },
+
   dark: {
-    pharma: "#4aafc9",
-    pharmaDeep: "#2d8fa8",
-    leaf: "#3d9a62",
-    gold: "#d4b86a",
-    danger: "#e74c3c",
-    success: "#52c97a",
-    info: "#5dade2",
+    // Brand (lighter tints for contrast on dark UI)
+    primary: "#52b878",
+    primaryHover: "#6ed090",
+    primaryActive: "#3d9a60",
+
+    // Semantic
+    success: "#52b878",
     warning: "#f5b041",
-    bgPage: "#0c1920",
-    text: "#e8f4f7",
-    muted: "#8aa8b3",
-    border: "rgba(74, 175, 201, 0.22)",
+    danger: "#e74c3c",
+    info: "#6bc990",
+
+    // Neutral UI
+    bgPage: "#0f0f10",
+    bgContainer: "#18181b",
+
+    text: "#ffffff",
+    textSecondary: "#a1a1aa",
+    textMuted: "#71717a",
+
+    border: "#27272a",
+    borderSecondary: "#3f3f46",
+
+    // Charts / data viz
+    chart1: "#52b878",
+    chart2: "#71717a",
+    chart3: "#a1a1aa",
+    chart4: "#d4d4d8",
   },
 } as const;
 

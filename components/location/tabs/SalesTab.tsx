@@ -13,6 +13,7 @@ import {
   chartDoughnutLabelsPlugin,
   chartValueLabelsPlugin,
   compactChartOptions,
+  readChartAccentColors,
   readThemeColor,
 } from "@/components/dashboard/chartOptions";
 import { locationCustomerPath } from "@/lib/locationRoutes";
@@ -51,10 +52,8 @@ export function SalesTab({
       peakRef.current?.destroy();
       tierRef.current?.destroy();
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
-      const gold = readThemeColor("--gold", "#c9a94f");
-      const silver = readThemeColor("--muted", "#94a3b8");
-      const bronze = readThemeColor("--info", "#1f6fad");
+      const { primary, warning, info } = readChartAccentColors();
+      const silver = readThemeColor("--chart-2");
 
       const peakEl = document.getElementById("loc-peak-hours") as HTMLCanvasElement | null;
       if (peakEl) {
@@ -68,7 +67,7 @@ export function SalesTab({
                 label: t("peakHoursTitle"),
                 data: data.peakHours.values,
                 backgroundColor: data.peakHours.values.map((_, i) =>
-                  peakSet.has(i) ? gold : pharma
+                  peakSet.has(i) ? warning : primary
                 ),
               },
             ],
@@ -87,7 +86,7 @@ export function SalesTab({
             datasets: [
               {
                 data: data.tierChart.values,
-                backgroundColor: [gold, silver, bronze],
+                backgroundColor: [warning, silver, info],
                 borderWidth: 0,
               },
             ],

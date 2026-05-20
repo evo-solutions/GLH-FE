@@ -13,8 +13,9 @@ import {
   chartDoughnutLabelsPlugin,
   chartValueLabelsPlugin,
   compactChartOptions,
-  readThemeColor,
+  readChartAccentColors,
 } from "@/components/dashboard/chartOptions";
+import { colorWithAlpha } from "@/libs/theme";
 import { CustomerOrderInvoiceDrawer } from "@/components/location/CustomerOrderInvoiceDrawer";
 import type {
   CustomerActivityTouchpoint,
@@ -48,11 +49,8 @@ function useCustomerCharts(data: LocationCustomerDetail | undefined, customerId:
       segmentRef.current?.destroy();
       cohortRef.current?.destroy();
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
-      const forest = readThemeColor("--success", "#1e5631");
-      const gold = readThemeColor("--gold", "#c9a94f");
-      const info = readThemeColor("--info", "#1f6fad");
-      const segmentColors = [pharma, forest, gold, info];
+      const { primary, success, warning, info } = readChartAccentColors();
+      const segmentColors = [primary, success, warning, info];
 
       const segmentEl = document.getElementById(
         `customer-segment-chart-${customerId}`
@@ -96,7 +94,6 @@ function useCustomerCharts(data: LocationCustomerDetail | undefined, customerId:
         const lineOpts = compactChartOptions("line") as {
           scales?: { x?: object; y?: { ticks?: { callback?: (v: string | number) => string } } };
         };
-        const pharmaRgb = "13, 110, 141";
         cohortRef.current = new Chart(cohortEl, {
           type: "line",
           data: {
@@ -105,12 +102,12 @@ function useCustomerCharts(data: LocationCustomerDetail | undefined, customerId:
               {
                 label: "Retention %",
                 data: data.cohortRetention.map((r) => r.retentionPct),
-                borderColor: forest,
-                backgroundColor: `rgba(${pharmaRgb}, 0.12)`,
+                borderColor: success,
+                backgroundColor: colorWithAlpha(primary, 0.12),
                 fill: true,
                 tension: 0.35,
                 pointRadius: 4,
-                pointBackgroundColor: forest,
+                pointBackgroundColor: success,
                 pointBorderColor: "#fff",
                 pointBorderWidth: 1,
               },

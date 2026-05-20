@@ -2,53 +2,77 @@
 @import "../styles/table.css";
 @import "../styles/list-filters.css";
 
+/* Initial values — synced with libs/theme/colors.ts (light). JS applies palette on theme change. */
 :root,
 .light {
-  --pharma: #0d6e8d;
-  --leaf: #1b5e3c;
-  --gold: #c9a94f;
-  --danger: #c0392b;
-  --success: #1e8449;
-  --info: #1f6fad;
+  --primary: #005828;
+  --primary-hover: #007a35;
+  --primary-active: #003d1f;
+  --success: #005828;
   --warning: #d68910;
-  --bg-page: #eef5f7;
-  --text: #0e2a33;
-  --muted: #5a7580;
-  --border: rgba(13, 110, 141, 0.18);
+  --danger: #c0392b;
+  --info: #2a9d55;
+  --bg-page: #ffffff;
+  --bg-container: #fafafa;
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border: #e5e7eb;
+  --border-secondary: #f0f0f0;
+  --chart-1: #005828;
+  --chart-2: #6b7280;
+  --chart-3: #9ca3af;
+  --chart-4: #d1d5db;
+  /* Legacy aliases */
+  --pharma: var(--primary);
+  --leaf: var(--success);
+  --gold: var(--warning);
+  --muted: var(--text-secondary);
+  --bronze: var(--chart-3);
   --background: var(--bg-page);
   --foreground: var(--text);
-  --primary: var(--pharma);
 }
 
 .dark {
-  --pharma: #4aafc9;
-  --leaf: #3d9a62;
-  --gold: #d4b86a;
-  --danger: #e74c3c;
-  --success: #52c97a;
-  --info: #5dade2;
+  --primary: #52b878;
+  --primary-hover: #6ed090;
+  --primary-active: #3d9a60;
+  --success: #52b878;
   --warning: #f5b041;
-  --bg-page: #0c1920;
-  --text: #e8f4f7;
-  --muted: #8aa8b3;
-  --border: rgba(74, 175, 201, 0.22);
+  --danger: #e74c3c;
+  --info: #6bc990;
+  --bg-page: #0f0f10;
+  --bg-container: #18181b;
+  --text: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: #27272a;
+  --border-secondary: #3f3f46;
+  --chart-1: #52b878;
+  --chart-2: #71717a;
+  --chart-3: #a1a1aa;
+  --chart-4: #d4d4d8;
+  --pharma: var(--primary);
+  --leaf: var(--success);
+  --gold: var(--warning);
+  --muted: var(--text-secondary);
+  --bronze: var(--chart-3);
   --background: var(--bg-page);
   --foreground: var(--text);
-  --primary: var(--pharma);
 }
 
 @theme inline {
   --color-pharma: var(--pharma);
   --color-leaf: var(--leaf);
   --color-gold: var(--gold);
-  --color-danger: var(--danger);
+  --color-primary: var(--primary);
   --color-success: var(--success);
-  --color-info: var(--info);
   --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-background: var(--background);
-  --color-primary: var(--primary);
   --color-border: var(--border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

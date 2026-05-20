@@ -284,7 +284,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: var(--pharma, #0d6e8d);
+  color: var(--pharma);
   background: rgba(13, 110, 141, 0.12);
   border: 1px solid rgba(13, 110, 141, 0.2);
 }
@@ -309,7 +309,7 @@
   border-radius: 6px;
   font-size: 0.68rem;
   font-weight: 600;
-  color: var(--pharma, #0d6e8d);
+  color: var(--pharma);
   background: rgba(13, 110, 141, 0.08);
   border: 1px solid rgba(13, 110, 141, 0.15);
 }
@@ -335,7 +335,7 @@
 .location-manager-meta .anticon {
   flex-shrink: 0;
   font-size: 0.8rem;
-  color: var(--pharma, #0d6e8d);
+  color: var(--pharma);
   opacity: 0.85;
 }
 
@@ -376,7 +376,7 @@
 }
 
 .location-staff-stat--active .location-staff-stat-value {
-  color: var(--leaf, #1b5e3c);
+  color: var(--leaf);
 }
 
 .location-staff-stat--leave {
@@ -385,7 +385,7 @@
 }
 
 .location-staff-stat--leave .location-staff-stat-value {
-  color: var(--gold, #9a7b2e);
+  color: var(--gold);
 }
 
 .location-staff-stat-value {

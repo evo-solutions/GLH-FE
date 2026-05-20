@@ -18,7 +18,7 @@ import {
   chartDoughnutLabelsPlugin,
   chartValueLabelsPlugin,
   compactChartOptions,
-  readThemeColor,
+  readChartAccentColors,
 } from "@/components/dashboard/chartOptions";
 
 function managerInitials(name: string) {
@@ -57,9 +57,7 @@ export function StaffCostsTab({
       const el = document.getElementById("loc-staff-cost-chart") as HTMLCanvasElement | null;
       if (!el) return;
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
-      const gold = readThemeColor("--gold", "#c9a94f");
-      const leaf = readThemeColor("--leaf", "#1b5e3c");
+      const { primary, warning, success } = readChartAccentColors();
 
       chartRef.current = new Chart(el, {
         type: "doughnut",
@@ -68,7 +66,7 @@ export function StaffCostsTab({
           datasets: [
             {
               data: data.costs.chart.values,
-              backgroundColor: [pharma, gold, leaf],
+              backgroundColor: [primary, warning, success],
               borderWidth: 0,
             },
           ],

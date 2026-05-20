@@ -1,10 +1,52 @@
 import type { Plugin } from "chart.js";
+import { themeColors } from "@/libs/theme/fallbacks";
 
-export function readThemeColor(name: string, fallback: string) {
-  if (typeof document === "undefined") return fallback;
+const fallback = themeColors("light");
+
+const CSS_VAR_FALLBACK: Record<string, string> = {
+  "--primary": fallback.primary,
+  "--success": fallback.success,
+  "--warning": fallback.warning,
+  "--danger": fallback.danger,
+  "--info": fallback.info,
+  "--text": fallback.text,
+  "--muted": fallback.textSecondary,
+  "--text-secondary": fallback.textSecondary,
+  "--text-muted": fallback.textMuted,
+  "--border": fallback.border,
+  "--background": fallback.bgPage,
+  "--bg-page": fallback.bgPage,
+  "--chart-1": fallback.chart1,
+  "--chart-2": fallback.chart2,
+  "--chart-3": fallback.chart3,
+  "--chart-4": fallback.chart4,
+  "--pharma": fallback.primary,
+  "--leaf": fallback.success,
+  "--gold": fallback.warning,
+  "--bronze": fallback.chart3,
+};
+
+/** Chart dataset accent colors from CSS variables (theme-aware). */
+export function readChartAccentColors() {
+  const fb = fallback;
+  return {
+    primary: readThemeColor("--primary", fb.primary),
+    success: readThemeColor("--success", fb.success),
+    warning: readThemeColor("--warning", fb.warning),
+    info: readThemeColor("--info", fb.info),
+    danger: readThemeColor("--danger", fb.danger),
+    chart2: readThemeColor("--chart-2", fb.chart2),
+    chart3: readThemeColor("--chart-3", fb.chart3),
+    chart4: readThemeColor("--chart-4", fb.chart4),
+  };
+}
+
+export function readThemeColor(name: string, fallbackColor?: string) {
+  const fb = fallbackColor ?? CSS_VAR_FALLBACK[name] ?? fallback.text;
+  if (typeof document === "undefined") return fb;
   return (
     getComputedStyle(document.documentElement).getPropertyValue(name).trim() ||
-    fallback
+    fb
   );
 }
 
@@ -36,15 +78,13 @@ function parseColorToRgb(color: string): [number, number, number] | null {
 /** Chữ sáng/tối theo độ sáng nền segment. */
 export function contrastTextOnFill(fill: string): string {
   const rgb = parseColorToRgb(fill);
-  if (!rgb) return readThemeColor("--text", "#0e2a33");
+  if (!rgb) return readThemeColor("--text", fallback.text);
   const [r, g, b] = rgb.map((v) => {
     const c = v / 255;
     return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
   });
   const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-  return luminance > 0.45
-    ? readThemeColor("--text", "#0e2a33")
-    : "#ffffff";
+  return luminance > 0.45 ? readThemeColor("--text", fallback.text) : "#ffffff";
 }
 
 /** Hiển thị giá trị trên bar / điểm line (không dùng cho doughnut/pie). */
@@ -55,7 +95,7 @@ export const chartValueLabelsPlugin: Plugin = {
     if (chartType === "doughnut" || chartType === "pie") return;
 
     const { ctx } = chart;
-    const labelColor = readThemeColor("--text", "#0e2a33");
+    const labelColor = readThemeColor("--text", fallback.text);
 
     chart.data.datasets.forEach((dataset, datasetIndex) => {
       const meta = chart.getDatasetMeta(datasetIndex);
@@ -120,7 +160,7 @@ export const chartDoughnutLabelsPlugin: Plugin = {
       const pos = element.tooltipPosition(false);
       if (pos.x == null || pos.y == null) return;
 
-      const fill = String(bg[index] ?? readThemeColor("--pharma", "#0d6e8d"));
+      const fill = String(bg[index] ?? readThemeColor("--primary", fallback.primary));
       const label = String(Math.round(raw));
 
       ctx.save();
@@ -141,10 +181,10 @@ export const chartDoughnutLabelsPlugin: Plugin = {
 export function compactChartOptions(
   type: "line" | "bar" | "barH" | "doughnut"
 ) {
-  const muted = readThemeColor("--muted", "#5a7580");
-  const border = readThemeColor("--border", "rgba(13, 110, 141, 0.18)");
-  const text = readThemeColor("--text", "#0e2a33");
-  const bg = readThemeColor("--background", "#eef5f7");
+  const muted = readThemeColor("--muted", fallback.textSecondary);
+  const border = readThemeColor("--border", fallback.border);
+  const text = readThemeColor("--text", fallback.text);
+  const bg = readThemeColor("--background", fallback.bgPage);
 
   const tick = { color: muted, font: { size: 10 } as const };
   const grid = { color: border, drawBorder: false };

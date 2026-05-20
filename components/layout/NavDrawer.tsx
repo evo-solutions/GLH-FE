@@ -1,9 +1,9 @@
 "use client";
 
 import { Drawer, Menu } from "antd";
-import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
+import { Logo } from "./Logo";
 import { navSelectedKey } from "./navSelectedKey";
 import { useNavMenuItems } from "./useNavMenuItems";
 
@@ -14,7 +14,6 @@ export function NavDrawer({
   open: boolean;
   onClose: () => void;
 }) {
-  const t = useTranslations();
   const router = useRouter();
   const pathname = usePathname();
   const { theme } = useThemeContext();
@@ -22,7 +21,7 @@ export function NavDrawer({
 
   return (
     <Drawer
-      title={t("app_title")}
+      title={<Logo size="sm" href={null} />}
       placement="left"
       open={open}
       onClose={onClose}

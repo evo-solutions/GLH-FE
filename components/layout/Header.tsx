@@ -2,6 +2,7 @@
 
 import { MenuOutlined } from "@ant-design/icons";
 import { Button, Layout } from "antd";
+import { Logo } from "@/components/layout/Logo";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
 import { useTranslations } from "next-intl";
@@ -21,9 +22,7 @@ export function Header({ onOpenNav }: { onOpenNav: () => void }) {
           onClick={onOpenNav}
           aria-label={t("nav.open")}
         />
-        <span className="truncate text-pharma uppercase text-lg font-bold">
-          {t("app_title")}
-        </span>
+        <Logo size="md" priority className="min-w-0 max-h-9" />
       </div>
       <div className="flex shrink-0 items-center gap-1">
         <ThemeToggle />

@@ -4,9 +4,11 @@ import { useEffect, useRef } from "react";
 import type { Chart as ChartType } from "chart.js";
 import type { DashboardCharts, PurchaseTimeData } from "@/types/dashboard";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
+import { colorWithAlpha } from "@/libs/theme";
 import {
   chartValueLabelsPlugin,
   compactChartOptions,
+  readChartAccentColors,
   readThemeColor,
 } from "./chartOptions";
 
@@ -32,9 +34,7 @@ export function useDashboardCharts(
 
       Chart.register(chartValueLabelsPlugin);
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
-      const leaf = readThemeColor("--leaf", "#1b5e3c");
-      const gold = readThemeColor("--gold", "#c9a94f");
+      const { primary, success, warning } = readChartAccentColors();
 
       const destroy = (key: string) => {
         ref.current[key]?.destroy();
@@ -60,7 +60,7 @@ export function useDashboardCharts(
               label: labels.campaign,
               data: charts.campaign.values,
               backgroundColor: charts.campaign.values.map((v, i) =>
-                i % 3 === 0 ? pharma : i % 3 === 1 ? leaf : gold
+                i % 3 === 0 ? primary : i % 3 === 1 ? success : warning
               ),
             },
           ],
@@ -80,7 +80,7 @@ export function useDashboardCharts(
                 label: labels.purchaseTime,
                 data: purchaseTime.values,
                 backgroundColor: purchaseTime.values.map((_, i) =>
-                  peakSet.has(i) ? gold : `${pharma}55`
+                  peakSet.has(i) ? warning : colorWithAlpha(primary, 0.33)
                 ),
                 borderRadius: 6,
               },
@@ -103,7 +103,7 @@ export function useDashboardCharts(
               x: {
                 grid: { display: false },
                 ticks: {
-                  color: readThemeColor("--muted", "#5a7580"),
+                  color: readThemeColor("--muted"),
                   font: { size: 10 },
                 },
               },
@@ -111,10 +111,10 @@ export function useDashboardCharts(
                 beginAtZero: true,
                 max: 25,
                 grid: {
-                  color: readThemeColor("--border", "rgba(13, 110, 141, 0.18)"),
+                  color: readThemeColor("--border"),
                 },
                 ticks: {
-                  color: readThemeColor("--muted", "#5a7580"),
+                  color: readThemeColor("--muted"),
                   font: { size: 10 },
                   callback: (v: string | number) => `${v}%`,
                 },

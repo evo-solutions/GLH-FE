@@ -8,7 +8,7 @@ import {
   chartDoughnutLabelsPlugin,
   chartValueLabelsPlugin,
   compactChartOptions,
-  readThemeColor,
+  readChartAccentColors,
 } from "@/components/dashboard/chartOptions";
 
 export function useLocationOverviewCharts(
@@ -35,11 +35,7 @@ export function useLocationOverviewCharts(
 
       Chart.register(chartValueLabelsPlugin, chartDoughnutLabelsPlugin);
 
-      const pharma = readThemeColor("--pharma", "#0d6e8d");
-      const leaf = readThemeColor("--leaf", "#1b5e3c");
-      const gold = readThemeColor("--gold", "#c9a94f");
-      const info = readThemeColor("--info", "#1f6fad");
-      const danger = readThemeColor("--danger", "#c0392b");
+      const { primary, success, warning, info, danger } = readChartAccentColors();
 
       const destroy = (key: string) => {
         ref.current[key]?.destroy();
@@ -65,7 +61,7 @@ export function useLocationOverviewCharts(
           datasets: [
             {
               data: data.charts.staffCosts.values,
-              backgroundColor: [pharma, gold, leaf],
+              backgroundColor: [primary, warning, success],
               borderWidth: 0,
             },
           ],
@@ -108,7 +104,7 @@ export function useLocationOverviewCharts(
               label: labels.sales,
               data: data.charts.sales.values,
               backgroundColor: data.charts.sales.values.map((_, i) =>
-                peakSet.has(i) ? gold : pharma
+                peakSet.has(i) ? warning : primary
               ),
             },
           ],
@@ -124,7 +120,7 @@ export function useLocationOverviewCharts(
           datasets: [
             {
               data: data.charts.warehouse.values,
-              backgroundColor: [info, pharma, leaf, gold, danger],
+              backgroundColor: [info, primary, success, warning, danger],
             },
           ],
         },
