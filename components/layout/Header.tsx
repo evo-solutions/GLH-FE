@@ -22,7 +22,10 @@ export function Header({ onOpenNav }: { onOpenNav: () => void }) {
           onClick={onOpenNav}
           aria-label={t("nav.open")}
         />
-        <Logo size="md" priority className="min-w-0 max-h-9" />
+        <Logo size="lg" priority className="min-w-0 max-h-9" />
+        <div className="flex items-center gap-1">
+          <span className="text-lg font-semibold">{t("app_title")}</span>
+        </div>
       </div>
       <div className="flex shrink-0 items-center gap-1">
         <ThemeToggle />

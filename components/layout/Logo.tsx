@@ -38,7 +38,7 @@ export function Logo({
       width={width}
       height={heightPx}
       priority={priority}
-      className={`block w-auto max-w-full object-contain object-left ${SIZE_CLASS[size]} ${className}`.trim()}
+      className={`block w-auto max-w-full object-contain object-lef rounded-lg ${SIZE_CLASS[size]} ${className}`.trim()}
     />
   );
 
