@@ -1,3 +1,5 @@
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { getProductListForModel } from "@/lib/productListForModel";
 import { api } from "@/services/api/axios";
 import type { ProductDetail, ProductListItem } from "@/types/product";
 import { PRODUCT_API } from "./product.api";
@@ -14,10 +16,15 @@ function mockFor(locale: string) {
   return productMockVi;
 }
 
-export async function fetchProductList(locale = "vi"): Promise<ProductListItem[]> {
+export async function fetchProductList(
+  locale = "vi",
+  businessModel?: BusinessModelSlug
+): Promise<ProductListItem[]> {
   if (USE_MOCK) {
     await delay(350);
-    return mockFor(locale).list();
+    const loc = locale === "zh" ? "zh" : locale === "en" ? "en" : "vi";
+    const all = mockFor(locale).list();
+    return businessModel ? getProductListForModel(all, businessModel, loc) : all;
   }
   const { data } = await api.get<ProductListItem[]>(PRODUCT_API.list);
   return data;

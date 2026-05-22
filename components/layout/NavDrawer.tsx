@@ -1,11 +1,11 @@
 "use client";
 
 import { Drawer, Menu } from "antd";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
 import { Logo } from "./Logo";
-import { navSelectedKey } from "./navSelectedKey";
 import { useNavMenuItems } from "./useNavMenuItems";
+import { useNavMenuState } from "./useNavMenuState";
 
 export function NavDrawer({
   open,
@@ -15,9 +15,9 @@ export function NavDrawer({
   onClose: () => void;
 }) {
   const router = useRouter();
-  const pathname = usePathname();
   const { theme } = useThemeContext();
   const menuItems = useNavMenuItems();
+  const { selectedKeys, openKeys, onOpenChange } = useNavMenuState();
 
   return (
     <Drawer
@@ -31,7 +31,9 @@ export function NavDrawer({
     >
       <Menu
         mode="inline"
-        selectedKeys={[navSelectedKey(pathname)].filter(Boolean)}
+        selectedKeys={selectedKeys}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
         items={menuItems}
         theme={theme === "dark" ? "dark" : "light"}
         className="app-nav-drawer-menu border-0 font-semibold"

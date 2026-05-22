@@ -6,6 +6,9 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
+import { modelLocationDetailPath } from "@/lib/businessModelRoutes";
+import { BusinessModelModuleHeader } from "@/components/layout/BusinessModelModuleHeader";
+import { useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
 import { useLocationList } from "@/hooks/useLocation";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
@@ -22,6 +25,7 @@ export function LocationListScreen() {
   const t = useTranslations("location");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const businessModel = useBusinessModelSlug();
   const { data, isLoading, isError, refetch } = useLocationList();
 
   const [search, setSearch] = useState("");
@@ -130,9 +134,7 @@ export function LocationListScreen() {
 
   return (
     <div className="location-page">
-      <header className="location-page-header">
-        <h1 className="location-page-title">{t("title")}</h1>
-      </header>
+      <BusinessModelModuleHeader pageKey="stores" />
 
       <ListScreenFilters
         searchValue={search}
@@ -176,7 +178,7 @@ export function LocationListScreen() {
         tableLayout="auto"
         scroll={tableScroll("max-content")}
         onRow={(row) => ({
-          onClick: () => router.push(`/location/${row.id}`),
+          onClick: () => router.push(modelLocationDetailPath(businessModel, row.id)),
           style: { cursor: "pointer" },
         })}
       />

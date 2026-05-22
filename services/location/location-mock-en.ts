@@ -3,12 +3,14 @@ import { buildRevenueChart } from "@/lib/dashboardRevenueChart";
 import type { LocationOverview, LocationSales, LocationStaffCosts } from "@/types/location";
 import { buildSalesCustomersForLocation, getLocationCustomerDetail } from "@/lib/customerDetailData";
 import { locationIndex } from "@/lib/locationRegistry";
+import type { BusinessModelSlug } from "@/libs/business-models/config";
 import { locationListEn, locationMetaFromList } from "@/lib/locationList";
 import { locationMockVi } from "./location.mock";
 
-const listEn = locationListEn();
+const listEn = (model?: BusinessModelSlug) => locationListEn(model);
 
-const metaEn = (id: string) => locationMetaFromList(listEn, id);
+const metaEn = (id: string, model?: BusinessModelSlug) =>
+  locationMetaFromList(listEn(model), id);
 
 function overviewEn(locationId: string): LocationOverview {
   return {
@@ -99,8 +101,8 @@ function salesEn(locationId: string): LocationSales {
 }
 
 export const locationMockEn = {
-  list: () => listEn,
-  meta: metaEn,
+  list: (model?: BusinessModelSlug) => listEn(model),
+  meta: (id: string, model?: BusinessModelSlug) => metaEn(id, model),
   overview: (id: string) => overviewEn(id),
   staffCosts: () => staffCostsEn,
   sales: (id: string) => salesEn(id),

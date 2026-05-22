@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { productDetailPath } from "@/lib/productCode";
+import { productDetailPath } from "@/lib/productRoutes";
+import { useOptionalBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
+import { DEFAULT_SUBSIDIARY_SLUG } from "@/libs/business-models/config";
 
 export function ProductCodeLink({
   productCode,
@@ -14,6 +16,7 @@ export function ProductCodeLink({
   stopPropagation?: boolean;
   className?: string;
 }) {
+  const model = useOptionalBusinessModelSlug() ?? DEFAULT_SUBSIDIARY_SLUG;
   const label = name ?? productCode;
   const defaultClass = name
     ? "font-semibold text-pharma hover:underline"
@@ -21,7 +24,7 @@ export function ProductCodeLink({
 
   return (
     <Link
-      href={productDetailPath(productCode)}
+      href={productDetailPath(productCode, model)}
       className={className ?? defaultClass}
       onClick={stopPropagation ? (e) => e.stopPropagation() : undefined}
     >

@@ -1,0 +1,44 @@
+.marketing-page__intro {
+  margin: 0 0 0.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+.marketing-page__legal {
+  margin: 0 0 1rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.marketing-kpis {
+  margin-bottom: 1.25rem;
+}
+
+.marketing-page__stores-link {
+  margin: 0 0 1.25rem;
+  font-size: 0.875rem;
+}
+
+.marketing-campaigns__title {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.marketing-campaigns__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.marketing-campaign-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.marketing-campaign-card__meta {
+  font-size: 0.8125rem;
+}

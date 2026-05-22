@@ -2,21 +2,26 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useLocale } from "next-intl";
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { useOptionalBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
+import { DEFAULT_RETAIL_MODEL } from "@/libs/business-models/config";
 import { fetchOrderDetail, fetchOrderDetailMeta, fetchOrderList } from "@/services/order/order.service";
 
 export const orderKeys = {
   all: ["orders"] as const,
-  list: (locale: string) => [...orderKeys.all, "list", locale] as const,
+  list: (locale: string, model?: BusinessModelSlug) =>
+    [...orderKeys.all, "list", locale, model ?? "all"] as const,
   meta: (orderId: string) => [...orderKeys.all, "meta", orderId] as const,
   detail: (locationId: string, orderId: string, locale: string) =>
     [...orderKeys.all, "detail", locationId, orderId, locale] as const,
 };
 
-export function useOrderList() {
+export function useOrderList(businessModel?: BusinessModelSlug) {
   const locale = useLocale();
+  const model = businessModel ?? useOptionalBusinessModelSlug() ?? DEFAULT_RETAIL_MODEL;
   return useQuery({
-    queryKey: orderKeys.list(locale),
-    queryFn: () => fetchOrderList(locale),
+    queryKey: orderKeys.list(locale, model),
+    queryFn: () => fetchOrderList(locale, model),
     staleTime: 60_000,
   });
 }

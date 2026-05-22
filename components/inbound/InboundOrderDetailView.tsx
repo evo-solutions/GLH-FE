@@ -4,7 +4,15 @@ import Link from "next/link";
 import { Spin, Table, Tag, Timeline } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useLocale, useTranslations } from "next-intl";
+import { modelLocationDetailPath, modelOrderListPath } from "@/lib/businessModelRoutes";
+import { getLocationBusinessModel } from "@/lib/businessModelLocationMap";
+import {
+  HOLDING_CENTRAL_WAREHOUSE_ID,
+  HOLDING_WAREHOUSE_LABEL,
+} from "@/lib/holdingWarehouseData";
 import { getLocationSeed } from "@/lib/locationRegistry";
+import { useOptionalBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
+import { DEFAULT_SUBSIDIARY_SLUG } from "@/libs/business-models/config";
 import { getInboundOrderProductUnits } from "@/lib/productInstanceCatalog";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
@@ -48,6 +56,12 @@ export function InboundOrderDetailView({
   const tInbound = useTranslations("product.inbound");
   const tOrder = useTranslations("order");
   const tProduct = useTranslations("product");
+  const businessModel = useOptionalBusinessModelSlug() ?? DEFAULT_SUBSIDIARY_SLUG;
+
+  const locationHref =
+    locationId === HOLDING_CENTRAL_WAREHOUSE_ID
+      ? modelOrderListPath("bong-sen-vang")
+      : modelLocationDetailPath(getLocationBusinessModel(locationId), locationId);
   const locale = useLocale();
   const { data, isLoading, isError } = useLocationInboundOrderDetail(
     locationId,
@@ -151,8 +165,17 @@ export function InboundOrderDetailView({
     return <p className="text-muted text-center py-16 m-0">{t("loadOrderError")}</p>;
   }
 
-  const seed = getLocationSeed(locationId);
-  const locationName = locale === "zh" ? seed.nameZh : locale === "en" ? seed.nameEn : seed.nameVi;
+  const locationName =
+    locationId === HOLDING_CENTRAL_WAREHOUSE_ID
+      ? locale === "zh"
+        ? HOLDING_WAREHOUSE_LABEL.zh
+        : locale === "en"
+          ? HOLDING_WAREHOUSE_LABEL.en
+          : HOLDING_WAREHOUSE_LABEL.vi
+      : (() => {
+          const seed = getLocationSeed(locationId);
+          return locale === "zh" ? seed.nameZh : locale === "en" ? seed.nameEn : seed.nameVi;
+        })();
   const productLines = productCode
     ? data.lineItems.filter((l) => l.productCode === productCode)
     : data.lineItems;
@@ -192,7 +215,7 @@ export function InboundOrderDetailView({
           <div>
             <dt>{tOrder("locationName")}</dt>
             <dd>
-              <Link href={`/location/${locationId}`} className="product-location-link font-semibold">
+              <Link href={locationHref} className="product-location-link font-semibold">
                 {locationName}
               </Link>
             </dd>

@@ -77,6 +77,41 @@
   color: var(--muted);
 }
 
+.dashboard-highlight-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dashboard-highlight-live-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.1rem 0.45rem;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--danger);
+  border-radius: 999px;
+  animation: location-live-pulse 2s ease-in-out infinite;
+}
+
+.dashboard-highlight-value--pulse {
+  transform: scale(1.015);
+  transition: transform 0.35s ease, color 0.35s ease;
+  color: var(--success);
+}
+
+.dashboard-highlight-live-tick {
+  margin: 0.2rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--success);
+  animation: location-live-tick-in 0.45s ease-out;
+}
+
 .dashboard-highlight-metrics {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Breadcrumb } from "antd";
 import { useTranslations } from "next-intl";
 import { CustomerDetailView } from "@/components/location/CustomerDetailView";
+import { modelLocationDetailPath, modelLocationListPath } from "@/lib/businessModelRoutes";
+import { useBusinessModel, useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
 import { useLocationMeta } from "@/hooks/useLocation";
-import { locationDetailPath } from "@/lib/locationRoutes";
 import "./location.css";
 
 export function CustomerDetailScreen({
@@ -16,11 +17,15 @@ export function CustomerDetailScreen({
   customerId: string;
 }) {
   const t = useTranslations("location");
+  const tNav = useTranslations("nav.businessModels");
   const tSales = useTranslations("location.sales");
+  const businessModel = useBusinessModelSlug();
+  const { navKey } = useBusinessModel();
   const { data: meta } = useLocationMeta(locationId);
 
   const locationName = meta?.name ?? locationId;
-  const locationHref = locationDetailPath(locationId, "sales");
+  const locationHref = modelLocationDetailPath(businessModel, locationId, "sales");
+  const moduleTitle = tNav(navKey);
 
   return (
     <div className="location-page">
@@ -28,7 +33,7 @@ export function CustomerDetailScreen({
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/location">{t("title")}</Link> },
+            { title: <Link href={modelLocationListPath(businessModel)}>{moduleTitle}</Link> },
             { title: <Link href={locationHref}>{locationName}</Link> },
             { title: <Link href={locationHref}>{tSales("customerList")}</Link> },
             { title: tSales("customerDetail") },

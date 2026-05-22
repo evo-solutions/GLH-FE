@@ -1,5 +1,12 @@
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { getLocationIdsForModel } from "@/lib/locationRegistry";
 import type { LocationListItem, LocationMeta } from "@/types/location";
 import { LOCATION_SEEDS } from "./locationRegistry";
+
+function filterListByModel(list: LocationListItem[], model: BusinessModelSlug): LocationListItem[] {
+  const ids = new Set(getLocationIdsForModel(model));
+  return list.filter((row) => ids.has(row.id));
+}
 
 export function locationMetaFromList(list: LocationListItem[], id: string): LocationMeta {
   const row = list.find((l) => l.id === id) ?? list[0];
@@ -28,8 +35,8 @@ function statusLabelVi(status: LocationListItem["status"]) {
   return "Tạm dừng";
 }
 
-export function locationListVi(): LocationListItem[] {
-  return LOCATION_SEEDS.map((s) => ({
+export function locationListVi(model?: BusinessModelSlug): LocationListItem[] {
+  const rows = LOCATION_SEEDS.map((s) => ({
     id: s.id,
     code: s.code,
     name: s.nameVi,
@@ -45,10 +52,11 @@ export function locationListVi(): LocationListItem[] {
     fillRatePct: s.fillRatePct,
     openSince: s.openSince,
   }));
+  return model ? filterListByModel(rows, model) : rows;
 }
 
-export function locationListEn(): LocationListItem[] {
-  return LOCATION_SEEDS.map((s) => ({
+export function locationListEn(model?: BusinessModelSlug): LocationListItem[] {
+  const rows = LOCATION_SEEDS.map((s) => ({
     id: s.id,
     code: s.code,
     name: s.nameEn,
@@ -65,10 +73,11 @@ export function locationListEn(): LocationListItem[] {
     fillRatePct: s.fillRatePct,
     openSince: s.openSince,
   }));
+  return model ? filterListByModel(rows, model) : rows;
 }
 
-export function locationListZh(): LocationListItem[] {
-  return LOCATION_SEEDS.map((s) => ({
+export function locationListZh(model?: BusinessModelSlug): LocationListItem[] {
+  const rows = LOCATION_SEEDS.map((s) => ({
     id: s.id,
     code: s.code,
     name: s.nameZh,
@@ -85,4 +94,5 @@ export function locationListZh(): LocationListItem[] {
     fillRatePct: s.fillRatePct,
     openSince: s.openSince,
   }));
+  return model ? filterListByModel(rows, model) : rows;
 }

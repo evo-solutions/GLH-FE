@@ -6,6 +6,7 @@ import { useLocationMeta, useLocationOverview } from "@/hooks/useLocation";
 import type { LocationMeta, LocationOverview } from "@/types/location";
 import { CustomerCountChartPanel } from "@/components/dashboard/CustomerCountChartPanel";
 import { RevenueChartPanel } from "@/components/dashboard/RevenueChartPanel";
+import { LiveRevenueTicker } from "../LiveRevenueTicker";
 import { useLocationOverviewCharts } from "../useLocationOverviewCharts";
 
 function LocationInfoCard({ meta }: { meta: LocationMeta }) {
@@ -77,6 +78,7 @@ export function OverviewTab({ locationId }: { locationId: string }) {
   return (
     <>
       <LocationInfoCard meta={meta} />
+      <LiveRevenueTicker locationId={locationId} />
       <KpiGrid data={data} />
       <div className="location-charts-row">
         <CustomerCountChartPanel

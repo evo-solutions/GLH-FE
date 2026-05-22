@@ -7,7 +7,10 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
-import { customerDetailPath } from "@/lib/customerRoutes";
+import { modelCustomerDetailPath, modelLocationDetailPath } from "@/lib/businessModelRoutes";
+import { getLocationBusinessModel } from "@/lib/businessModelLocationMap";
+import { BusinessModelModuleHeader } from "@/components/layout/BusinessModelModuleHeader";
+import { useBusinessModel } from "@/libs/business-models/BusinessModelContext";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useCustomerList } from "@/hooks/useCustomer";
@@ -26,6 +29,7 @@ export function CustomerListScreen() {
   const tSales = useTranslations("location.sales");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const { slug, entityRole, customerSegment } = useBusinessModel();
   const { data, isLoading, isError, refetch } = useCustomerList();
 
   const [search, setSearch] = useState("");
@@ -87,15 +91,18 @@ export function CustomerListScreen() {
     {
       title: t("lastVisitLocation"),
       dataIndex: "locationName",
-      render: (name, row) => (
-        <Link
-          href={`/location/${row.locationId}?tab=sales`}
-          className="product-location-link font-semibold"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {name}
-        </Link>
-      ),
+      render: (name, row) =>
+        entityRole === "holding" ? (
+          <span className="font-semibold">{name}</span>
+        ) : (
+          <Link
+            href={modelLocationDetailPath(getLocationBusinessModel(row.locationId), row.locationId, "sales")}
+            className="product-location-link font-semibold"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {name}
+          </Link>
+        ),
     },
   ];
 
@@ -120,9 +127,13 @@ export function CustomerListScreen() {
 
   return (
     <div className="location-page">
-      <header className="location-page-header">
-        <h1 className="location-page-title">{t("title")}</h1>
-      </header>
+      <BusinessModelModuleHeader pageKey="customers" />
+      {customerSegment === "C" && (
+        <p className="text-muted text-sm mb-3 m-0">{t("titleC")}</p>
+      )}
+      {customerSegment === "B" && (
+        <p className="text-muted text-sm mb-3 m-0">{t("titleB")}</p>
+      )}
 
       <ListScreenFilters
         searchValue={search}
@@ -139,14 +150,18 @@ export function CustomerListScreen() {
             onChange: (v) => setTierFilter(v as CustomerTier | undefined),
             options: tierOptions,
           },
-          {
-            id: "location",
-            label: tFilter("customer.location"),
-            value: locationFilter,
-            onChange: setLocationFilter,
-            options: locationOptions,
-            minWidth: 200,
-          },
+          ...(entityRole === "subsidiary"
+            ? [
+                {
+                  id: "location",
+                  label: tFilter("customer.location"),
+                  value: locationFilter,
+                  onChange: setLocationFilter,
+                  options: locationOptions,
+                  minWidth: 200,
+                },
+              ]
+            : []),
         ]}
       />
 
@@ -160,7 +175,7 @@ export function CustomerListScreen() {
         scroll={tableScroll("max-content")}
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
-          onClick: () => router.push(customerDetailPath(row.locationId, row.id)),
+          onClick: () => router.push(modelCustomerDetailPath(slug, row.globalId)),
           style: { cursor: "pointer" },
         })}
       />

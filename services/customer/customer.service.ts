@@ -1,3 +1,5 @@
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { getBusinessModelConfig } from "@/libs/business-models/config";
 import { api } from "@/services/api/axios";
 import { getLocationCustomerDetail } from "@/lib/customerDetailData";
 import { getAllGlobalCustomers } from "@/lib/customerListData";
@@ -9,11 +11,17 @@ import { CUSTOMER_API } from "./customer.api";
 const USE_MOCK = process.env.NEXT_PUBLIC_USE_MOCK !== "false";
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-export async function fetchCustomerList(locale = "vi"): Promise<GlobalCustomerListItem[]> {
+export async function fetchCustomerList(
+  locale = "vi",
+  businessModel?: BusinessModelSlug
+): Promise<GlobalCustomerListItem[]> {
   if (USE_MOCK) {
     await delay(350);
     const loc = locale === "zh" ? "zh" : locale === "en" ? "en" : "vi";
-    return getAllGlobalCustomers(loc);
+    const segment = businessModel
+      ? getBusinessModelConfig(businessModel).customerSegment
+      : undefined;
+    return getAllGlobalCustomers(loc, { businessModel, segment });
   }
   const { data } = await api.get<GlobalCustomerListItem[]>(CUSTOMER_API.list);
   return data;

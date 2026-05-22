@@ -7,7 +7,12 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
+import { modelLocationDetailPath } from "@/lib/businessModelRoutes";
+import { getLocationBusinessModel } from "@/lib/businessModelLocationMap";
 import { orderDetailPath } from "@/lib/orderRoutes";
+import { BusinessModelModuleHeader } from "@/components/layout/BusinessModelModuleHeader";
+import { useBusinessModel } from "@/libs/business-models/BusinessModelContext";
+import { isHoldingB2B } from "@/libs/business-models/config";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useOrderList } from "@/hooks/useOrder";
@@ -48,6 +53,9 @@ export function OrderListScreen() {
   const tProduct = useTranslations("product");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const tBm = useTranslations("businessModel");
+  const { slug } = useBusinessModel();
+  const isHolding = isHoldingB2B(slug);
   const { data, isLoading, isError, refetch } = useOrderList();
 
   const [search, setSearch] = useState("");
@@ -123,15 +131,18 @@ export function OrderListScreen() {
     {
       title: t("locationName"),
       dataIndex: "locationName",
-      render: (name, row) => (
-        <Link
-          href={`/location/${row.locationId}`}
-          className="product-location-link font-semibold"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {name}
-        </Link>
-      ),
+      render: (name, row) =>
+        isHolding ? (
+          <span className="font-semibold">{name}</span>
+        ) : (
+          <Link
+            href={modelLocationDetailPath(getLocationBusinessModel(row.locationId), row.locationId)}
+            className="product-location-link font-semibold"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {name}
+          </Link>
+        ),
     },
     { title: tWh("orderCode"), dataIndex: "orderCode" },
     { title: tWh("supplier"), dataIndex: "supplier" },
@@ -170,10 +181,10 @@ export function OrderListScreen() {
 
   return (
     <div className="location-page">
-      <header className="location-page-header">
-        <h1 className="location-page-title">{t("title")}</h1>
-      </header>
-
+      <BusinessModelModuleHeader pageKey="warehouse" />
+      <p className="text-muted text-sm mb-3 m-0">
+        {isHolding ? tBm("warehouseHoldingHint") : tBm("warehouseSubsidiaryHint")}
+      </p>
       <ListScreenFilters
         searchValue={search}
         onSearchChange={setSearch}
@@ -190,14 +201,18 @@ export function OrderListScreen() {
             options: statusOptions,
             minWidth: 168,
           },
-          {
-            id: "location",
-            label: tFilter("order.location"),
-            value: locationFilter,
-            onChange: setLocationFilter,
-            options: locationOptions,
-            minWidth: 200,
-          },
+          ...(!isHolding
+            ? [
+                {
+                  id: "location",
+                  label: tFilter("order.location"),
+                  value: locationFilter,
+                  onChange: setLocationFilter,
+                  options: locationOptions,
+                  minWidth: 200,
+                },
+              ]
+            : []),
           {
             id: "supplier",
             label: tFilter("order.supplier"),
@@ -219,7 +234,7 @@ export function OrderListScreen() {
         scroll={tableScroll("max-content")}
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
-          onClick: () => router.push(orderDetailPath(row.id)),
+          onClick: () => router.push(orderDetailPath(row.id, slug)),
           style: { cursor: "pointer" },
         })}
       />

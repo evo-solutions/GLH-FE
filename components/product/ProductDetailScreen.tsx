@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Breadcrumb, Spin, Tabs } from "antd";
 import { useTranslations } from "next-intl";
+import { modelProductListPath } from "@/lib/businessModelRoutes";
+import { useBusinessModel, useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
 import { useProductDetail } from "@/hooks/useProduct";
 import { ProductInboundTab } from "./tabs/ProductInboundTab";
 import { ProductItemsTab } from "./tabs/ProductItemsTab";
@@ -15,6 +17,11 @@ export type ProductTabKey = "overview" | "items" | "inbound";
 
 export function ProductDetailScreen({ productCode }: { productCode: string }) {
   const t = useTranslations("product");
+  const tNav = useTranslations("nav.businessModels");
+  const businessModel = useBusinessModelSlug();
+  const { navKey } = useBusinessModel();
+  const productListHref = modelProductListPath(businessModel);
+  const unitLabel = tNav(navKey);
   const searchParams = useSearchParams();
   const tabFromUrl = searchParams.get("tab");
   const initialTab: ProductTabKey =
@@ -51,7 +58,7 @@ export function ProductDetailScreen({ productCode }: { productCode: string }) {
       <div className="product-page">
         <Breadcrumb
           className="location-breadcrumb"
-          items={[{ title: <Link href="/product">{t("title")}</Link> }]}
+          items={[{ title: <Link href={productListHref}>{unitLabel}</Link> }]}
         />
         <p className="text-muted text-center py-16 m-0">{t("error")}</p>
       </div>
@@ -64,7 +71,7 @@ export function ProductDetailScreen({ productCode }: { productCode: string }) {
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/product">{t("title")}</Link> },
+            { title: <Link href={productListHref}>{unitLabel}</Link> },
             { title: data.meta.name },
           ]}
         />

@@ -3,13 +3,64 @@
   "nav": {
     "open": "打开导航菜单",
     "dashboard": "总览",
-    "location": "门店",
-    "product": "产品",
-    "order": "入库单",
-    "customer": "客户"
+    "businessModels": {
+      "thaoDuocDiSan": "草药遗产",
+      "thanTra": "神茶",
+      "khangDuongDiSan": "康养遗产",
+      "yThucTriLieu": "药食理疗",
+      "bongSenVang": "金莲花"
+    },
+    "sections": {
+      "stores": "销售点",
+      "locations": "销售点",
+      "products": "产品",
+      "warehouse": "仓库",
+      "customersC": "客户 (C)",
+      "customersB": "客户 (B)",
+      "marketing": "营销"
+    }
+  },
+  "businessModel": {
+    "commerceB2c": "B2C",
+    "commerceB2b": "B2B",
+    "roleSubsidiary": "子公司",
+    "roleHolding": "控股",
+    "dataScope": "独立数据 · {entity}",
+    "warehouseSubsidiaryHint": "本单元各门店汇总仓库 — 营收与库存独立。",
+    "warehouseHoldingHint": "集团总仓 — 向各单元供应与调配。",
+    "linkStores": "管理销售点",
+    "legalSubsidiary": "现阶段隶属金莲花；股份制后：独立法人，BSV 控股。",
+    "legalHolding": "金莲花：B2B 控股 — 药材供应与总仓协调。",
+    "pages": {
+      "stores": "销售点",
+      "products": "产品",
+      "warehouse": "仓库",
+      "customers": "客户",
+      "marketing": "营销"
+    }
+  },
+  "marketing": {
+    "intro": "本单元的营销活动、渠道与归因营收。",
+    "legalSubsidiary": "C 端客户与营收按单元单独核算。",
+    "legalHolding": "B2B 营销：服务 B 类客户与集团品牌。",
+    "kpiRevenue": "营销营收",
+    "kpiRevenueNote": "单元范围",
+    "kpiCampaigns": "进行中活动",
+    "kpiSegment": "细分",
+    "manageStores": "管理销售点",
+    "storesHint": "本单元下属门店",
+    "campaignsTitle": "活动",
+    "statusActive": "进行中",
+    "statusPaused": "已暂停",
+    "reach": "触达",
+    "conversion": "转化"
   },
   "app_description": "金莲花草药管理后台",
   "dashboard": {
+    "highlight": {
+      "live": "实时",
+      "justIn": "刚记录 {amount}"
+    },
     "sectionOps": "运营与信号",
     "error": "无法加载仪表盘数据。",
     "retry": "重试",
@@ -57,7 +108,7 @@
     }
   },
   "location": {
-    "title": "门店",
+    "title": "草药遗产",
     "error": "无法加载门店数据。",
     "retry": "重试",
     "openSince": "开业自",
@@ -75,6 +126,12 @@
       "staffCosts": "人力与费用",
       "sales": "销售",
       "warehouse": "仓库管理"
+    },
+    "liveRevenue": {
+      "title": "实时营收",
+      "live": "实时",
+      "today": "本店今日",
+      "justIn": "刚记录 {amount}"
     },
     "overviewCharts": {
       "staffCosts": "人力与费用",
@@ -297,6 +354,7 @@
   },
   "order": {
     "title": "入库单",
+    "titleWarehouse": "仓库",
     "error": "无法加载入库单列表。",
     "retry": "重试",
     "empty": "暂无入库单。",
@@ -308,6 +366,8 @@
   },
   "customer": {
     "title": "客户",
+    "titleC": "客户 (C)",
+    "titleB": "企业客户 (B)",
     "error": "无法加载客户列表。",
     "retry": "重试",
     "empty": "暂无客户。",

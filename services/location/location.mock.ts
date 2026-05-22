@@ -3,14 +3,16 @@ import { buildRevenueChart } from "@/lib/dashboardRevenueChart";
 import type { LocationOverview, LocationSales, LocationStaffCosts, LocationWarehouse } from "@/types/location";
 import { buildSalesCustomersForLocation, getLocationCustomerDetail } from "@/lib/customerDetailData";
 import { getInboundOrderDetail } from "@/lib/inboundOrderData";
+import type { BusinessModelSlug } from "@/libs/business-models/config";
 import { locationListVi, locationMetaFromList } from "@/lib/locationList";
 import { countUnitsAtLocation } from "@/lib/productInstanceCatalog";
 import { LOCATION_IDS, locationIndex } from "@/lib/locationRegistry";
 import { mockStockItem } from "@/lib/locationMockItems";
 
-const listVi = locationListVi();
+const listVi = (model?: BusinessModelSlug) => locationListVi(model);
 
-const metaVi = (id: string) => locationMetaFromList(listVi, id);
+const metaVi = (id: string, model?: BusinessModelSlug) =>
+  locationMetaFromList(listVi(model), id);
 
 function overviewVi(locationId: string): LocationOverview {
   return {
@@ -193,8 +195,8 @@ function warehouseVi(locationId: string): LocationWarehouse {
 }
 
 export const locationMockVi = {
-  list: () => listVi,
-  meta: (id: string) => metaVi(id),
+  list: (model?: BusinessModelSlug) => listVi(model),
+  meta: (id: string, model?: BusinessModelSlug) => metaVi(id, model),
   overview: (id: string) => overviewVi(id),
   staffCosts: () => staffCostsVi,
   sales: (id: string) => salesVi(id),

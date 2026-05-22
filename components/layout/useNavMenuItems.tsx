@@ -1,23 +1,32 @@
 "use client";
 
-import {
-  AppstoreOutlined,
-  HomeOutlined,
-  ShoppingCartOutlined,
-  ShopOutlined,
-  TeamOutlined,
-} from "@ant-design/icons";
+import { HomeOutlined, ShopOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { useTranslations } from "next-intl";
+import { ALL_BUSINESS_MODELS } from "@/libs/business-models/config";
+import { getModuleNavItems } from "@/libs/business-models/modules";
 
 export function useNavMenuItems(): MenuProps["items"] {
   const t = useTranslations("nav");
+  const tSections = useTranslations("nav.sections");
+  const tModels = useTranslations("nav.businessModels");
+
+  const modelMenus: MenuProps["items"] = ALL_BUSINESS_MODELS.map((model) => {
+    const children = getModuleNavItems(model).map((c) => ({
+      key: c.href,
+      label: tSections(c.labelKey),
+    }));
+
+    return {
+      key: `bm-${model.slug}`,
+      icon: <ShopOutlined />,
+      label: tModels(model.navKey),
+      children,
+    };
+  });
 
   return [
     { key: "/", icon: <HomeOutlined />, label: t("dashboard") },
-    { key: "/location", icon: <ShopOutlined />, label: t("location") },
-    { key: "/product", icon: <AppstoreOutlined />, label: t("product") },
-    { key: "/order", icon: <ShoppingCartOutlined />, label: t("order") },
-    { key: "/customer", icon: <TeamOutlined />, label: t("customer") },
+    ...(modelMenus ?? []),
   ];
 }

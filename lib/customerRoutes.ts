@@ -1,3 +1,7 @@
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { modelCustomerDetailPath } from "@/lib/businessModelRoutes";
+import { DEFAULT_RETAIL_MODEL } from "@/libs/business-models/config";
+
 const GLOBAL_CUSTOMER_SEP = "__";
 
 export function globalCustomerId(locationId: string, customerId: string) {
@@ -16,6 +20,10 @@ export function parseGlobalCustomerId(globalId: string): {
   };
 }
 
-export function customerDetailPath(locationId: string, customerId: string) {
-  return `/customer/${globalCustomerId(locationId, customerId)}`;
+export function customerDetailPath(
+  locationId: string,
+  customerId: string,
+  businessModel: BusinessModelSlug = DEFAULT_RETAIL_MODEL
+) {
+  return modelCustomerDetailPath(businessModel, globalCustomerId(locationId, customerId));
 }

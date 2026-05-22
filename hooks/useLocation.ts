@@ -2,6 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useLocale } from "next-intl";
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { useOptionalBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
+import { DEFAULT_RETAIL_MODEL } from "@/libs/business-models/config";
 import {
   fetchLocationCustomerDetail,
   fetchLocationList,
@@ -15,9 +18,10 @@ import {
 
 export const locationKeys = {
   all: ["locations"] as const,
-  list: (locale: string) => [...locationKeys.all, "list", locale] as const,
-  meta: (id: string, locale: string) =>
-    [...locationKeys.all, "meta", id, locale] as const,
+  list: (locale: string, model?: BusinessModelSlug) =>
+    [...locationKeys.all, "list", locale, model ?? "all"] as const,
+  meta: (id: string, locale: string, model?: BusinessModelSlug) =>
+    [...locationKeys.all, "meta", id, locale, model ?? "all"] as const,
   overview: (id: string, locale: string) =>
     [...locationKeys.all, "overview", id, locale] as const,
   staffCosts: (id: string, locale: string) =>
@@ -32,20 +36,27 @@ export const locationKeys = {
     [...locationKeys.all, "inboundOrder", locationId, orderId, locale] as const,
 };
 
-export function useLocationList() {
+function resolveBusinessModel(explicit?: BusinessModelSlug): BusinessModelSlug {
+  const ctx = useOptionalBusinessModelSlug();
+  return explicit ?? ctx ?? DEFAULT_RETAIL_MODEL;
+}
+
+export function useLocationList(businessModel?: BusinessModelSlug) {
   const locale = useLocale();
+  const model = resolveBusinessModel(businessModel);
   return useQuery({
-    queryKey: locationKeys.list(locale),
-    queryFn: () => fetchLocationList(locale),
+    queryKey: locationKeys.list(locale, model),
+    queryFn: () => fetchLocationList(locale, model),
     staleTime: 60_000,
   });
 }
 
-export function useLocationMeta(id: string) {
+export function useLocationMeta(id: string, businessModel?: BusinessModelSlug) {
   const locale = useLocale();
+  const model = resolveBusinessModel(businessModel);
   return useQuery({
-    queryKey: locationKeys.meta(id, locale),
-    queryFn: () => fetchLocationMeta(id, locale),
+    queryKey: locationKeys.meta(id, locale, model),
+    queryFn: () => fetchLocationMeta(id, locale, model),
     enabled: !!id,
     staleTime: 60_000,
   });

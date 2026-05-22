@@ -132,6 +132,130 @@
   margin-bottom: 0.75rem;
 }
 
+.location-live-revenue {
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--primary) 10%, var(--background)) 0%,
+    var(--background) 55%,
+    color-mix(in srgb, var(--success) 6%, var(--background)) 100%
+  );
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 88, 40, 0.06);
+}
+
+.location-live-revenue__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.location-live-revenue__titles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location-live-revenue__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--danger);
+  border-radius: 999px;
+  animation: location-live-pulse 2s ease-in-out infinite;
+}
+
+.location-live-revenue__badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  animation: location-live-dot 2s ease-in-out infinite;
+}
+
+@keyframes location-live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.88;
+  }
+}
+
+@keyframes location-live-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.location-live-revenue__title {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.location-live-revenue__hint {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.location-live-revenue__amount {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.location-live-revenue__amount--pulse {
+  transform: scale(1.02);
+  color: var(--success);
+}
+
+.location-live-revenue__tick {
+  margin: 0.35rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--success);
+  animation: location-live-tick-in 0.45s ease-out;
+}
+
+@keyframes location-live-tick-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .location-info-address {
   font-size: 0.8rem;
   color: var(--muted);

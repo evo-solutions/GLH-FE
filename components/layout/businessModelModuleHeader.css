@@ -1,0 +1,33 @@
+.bm-module-header {
+  margin-bottom: 1.25rem;
+}
+
+.bm-module-header__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.bm-module-header__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.bm-module-header__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bm-module-header__entity {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.bm-module-header__sep {
+  opacity: 0.6;
+}

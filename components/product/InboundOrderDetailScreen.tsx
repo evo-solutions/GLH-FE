@@ -5,7 +5,14 @@ import { Breadcrumb } from "antd";
 import { useTranslations } from "next-intl";
 import { InboundOrderDetailView } from "@/components/inbound/InboundOrderDetailView";
 import { useProductDetail } from "@/hooks/useProduct";
-import { productDetailPath } from "@/lib/productRoutes";
+import {
+  modelProductDetailPath,
+  modelProductListPath,
+} from "@/lib/businessModelRoutes";
+import {
+  useBusinessModel,
+  useBusinessModelSlug,
+} from "@/libs/business-models/BusinessModelContext";
 import "@/components/location/location.css";
 import "./product.css";
 
@@ -19,11 +26,16 @@ export function InboundOrderDetailScreen({
   orderId: string;
 }) {
   const t = useTranslations("product");
+  const tNav = useTranslations("nav.businessModels");
   const tInbound = useTranslations("product.inbound");
+  const businessModel = useBusinessModelSlug();
+  const { navKey } = useBusinessModel();
   const { data: product } = useProductDetail(productCode);
 
   const productName = product?.meta.name ?? productCode;
-  const productHref = productDetailPath(productCode);
+  const productHref = modelProductDetailPath(businessModel, productCode);
+  const productListHref = modelProductListPath(businessModel);
+  const unitLabel = tNav(navKey);
 
   return (
     <div className="product-page">
@@ -31,7 +43,7 @@ export function InboundOrderDetailScreen({
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/product">{t("title")}</Link> },
+            { title: <Link href={productListHref}>{unitLabel}</Link> },
             { title: <Link href={productHref}>{productName}</Link> },
             { title: <Link href={`${productHref}?tab=inbound`}>{tInbound("title")}</Link> },
             { title: tInbound("orderDetail") },

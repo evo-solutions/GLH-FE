@@ -5,7 +5,10 @@ import Link from "next/link";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { modelLocationDetailPath } from "@/lib/businessModelRoutes";
+import { getLocationBusinessModel } from "@/lib/businessModelLocationMap";
 import { productInboundOrderPath } from "@/lib/productRoutes";
+import { useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { ProductDetail, ProductInboundOrder } from "@/types/product";
 import type { InboundOrderStatus } from "@/types/location";
@@ -29,6 +32,7 @@ export function ProductInboundTab({
   const t = useTranslations("product.inbound");
   const tWh = useTranslations("location.warehouse");
   const router = useRouter();
+  const businessModel = useBusinessModelSlug();
 
   if (!enabled) return null;
 
@@ -49,7 +53,10 @@ export function ProductInboundTab({
       dataIndex: "locationCode",
       fixed: "left",
       render: (code: string, row) => (
-        <Link href={`/location/${row.locationId}`} className="product-location-link font-semibold">
+        <Link
+          href={modelLocationDetailPath(getLocationBusinessModel(row.locationId), row.locationId)}
+          className="product-location-link font-semibold"
+        >
           {code}
         </Link>
       ),
@@ -58,7 +65,10 @@ export function ProductInboundTab({
       title: t("locationName"),
       dataIndex: "locationName",
       render: (name, row) => (
-        <Link href={`/location/${row.locationId}`} className="product-location-link">
+        <Link
+          href={modelLocationDetailPath(getLocationBusinessModel(row.locationId), row.locationId)}
+          className="product-location-link"
+        >
           {name}
         </Link>
       ),
@@ -94,7 +104,9 @@ export function ProductInboundTab({
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
           onClick: () =>
-            router.push(productInboundOrderPath(productCode, row.locationId, row.id)),
+            router.push(
+              productInboundOrderPath(productCode, row.locationId, row.id, businessModel)
+            ),
           style: { cursor: "pointer" },
         })}
       />

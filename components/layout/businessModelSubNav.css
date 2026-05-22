@@ -1,0 +1,25 @@
+.bm-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.bm-subnav__link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  padding: 0.25rem 0;
+}
+
+.bm-subnav__link:hover {
+  color: var(--pharma);
+}
+
+.bm-subnav__link--active {
+  color: var(--pharma);
+  border-bottom: 2px solid var(--pharma);
+}

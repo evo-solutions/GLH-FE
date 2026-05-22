@@ -3,13 +3,64 @@
   "nav": {
     "open": "Open navigation menu",
     "dashboard": "Dashboard",
-    "location": "Locations",
-    "product": "Products",
-    "order": "Inbound orders",
-    "customer": "Customers"
+    "businessModels": {
+      "thaoDuocDiSan": "Heritage Herbals",
+      "thanTra": "Than Tra",
+      "khangDuongDiSan": "Khang Duong Di San",
+      "yThucTriLieu": "Medicinal Diet Therapy",
+      "bongSenVang": "Golden Lotus"
+    },
+    "sections": {
+      "stores": "Stores",
+      "locations": "Stores",
+      "products": "Products",
+      "warehouse": "Warehouse",
+      "customersC": "Customers (C)",
+      "customersB": "Customers (B)",
+      "marketing": "Marketing"
+    }
+  },
+  "businessModel": {
+    "commerceB2c": "B2C",
+    "commerceB2b": "B2B",
+    "roleSubsidiary": "Subsidiary",
+    "roleHolding": "Holding",
+    "dataScope": "Scoped data · {entity}",
+    "warehouseSubsidiaryHint": "Warehouse aggregated across this unit's stores — separate revenue & stock.",
+    "warehouseHoldingHint": "Group consolidated warehouse — supply and allocation for all units.",
+    "linkStores": "Manage stores",
+    "legalSubsidiary": "Currently under Golden Lotus; after incorporation: separate legal entity with BSV as controlling shareholder.",
+    "legalHolding": "Golden Lotus: B2B holding — herbal supply and consolidated warehousing.",
+    "pages": {
+      "stores": "Stores",
+      "products": "Products",
+      "warehouse": "Warehouse",
+      "customers": "Customers",
+      "marketing": "Marketing"
+    }
+  },
+  "marketing": {
+    "intro": "Campaigns, channels and marketing-attributed revenue for this unit only.",
+    "legalSubsidiary": "C customers and revenue are recorded separately per unit.",
+    "legalHolding": "B2B marketing: supports B accounts and group brand.",
+    "kpiRevenue": "Marketing revenue",
+    "kpiRevenueNote": "Unit scope",
+    "kpiCampaigns": "Active campaigns",
+    "kpiSegment": "Segment",
+    "manageStores": "Manage stores",
+    "storesHint": "retail outlets under this unit",
+    "campaignsTitle": "Campaigns",
+    "statusActive": "Active",
+    "statusPaused": "Paused",
+    "reach": "Reach",
+    "conversion": "Conversion"
   },
   "app_description": "Golden Lotus Herbals admin",
   "dashboard": {
+    "highlight": {
+      "live": "Live",
+      "justIn": "{amount} just recorded"
+    },
     "sectionOps": "Operations & signals",
     "error": "Could not load dashboard data.",
     "retry": "Retry",
@@ -57,7 +108,7 @@
     }
   },
   "location": {
-    "title": "Locations",
+    "title": "Heritage Herbals",
     "error": "Could not load location data.",
     "retry": "Retry",
     "openSince": "Open since",
@@ -75,6 +126,12 @@
       "staffCosts": "Staff & costs",
       "sales": "Sales",
       "warehouse": "Warehouse"
+    },
+    "liveRevenue": {
+      "title": "Real-time revenue",
+      "live": "Live",
+      "today": "Today at this store",
+      "justIn": "{amount} just recorded"
     },
     "overviewCharts": {
       "staffCosts": "Staff & costs",
@@ -297,6 +354,7 @@
   },
   "order": {
     "title": "Inbound orders",
+    "titleWarehouse": "Warehouse",
     "error": "Could not load inbound orders.",
     "retry": "Retry",
     "empty": "No inbound orders yet.",
@@ -308,6 +366,8 @@
   },
   "customer": {
     "title": "Customers",
+    "titleC": "Customers (C)",
+    "titleB": "Business customers (B)",
     "error": "Could not load customers.",
     "retry": "Retry",
     "empty": "No customers yet.",

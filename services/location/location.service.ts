@@ -1,3 +1,4 @@
+import type { BusinessModelSlug } from "@/libs/business-models/config";
 import { api } from "@/services/api/axios";
 import type {
   LocationCustomerDetail,
@@ -23,10 +24,13 @@ function mockFor(locale: string) {
   return locationMockVi;
 }
 
-export async function fetchLocationList(locale = "vi"): Promise<LocationListItem[]> {
+export async function fetchLocationList(
+  locale = "vi",
+  businessModel?: BusinessModelSlug
+): Promise<LocationListItem[]> {
   if (USE_MOCK) {
     await delay(350);
-    return mockFor(locale).list();
+    return mockFor(locale).list(businessModel);
   }
   const { data } = await api.get<LocationListItem[]>(LOCATION_API.list);
   return data;
@@ -34,11 +38,12 @@ export async function fetchLocationList(locale = "vi"): Promise<LocationListItem
 
 export async function fetchLocationMeta(
   id: string,
-  locale = "vi"
+  locale = "vi",
+  businessModel?: BusinessModelSlug
 ): Promise<LocationMeta> {
   if (USE_MOCK) {
     await delay(200);
-    return mockFor(locale).meta(id);
+    return mockFor(locale).meta(id, businessModel);
   }
   const { data } = await api.get<LocationMeta>(LOCATION_API.meta(id));
   return data;

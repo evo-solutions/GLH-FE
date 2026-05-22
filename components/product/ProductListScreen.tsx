@@ -6,7 +6,9 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
-import { productDetailPath } from "@/lib/productCode";
+import { productDetailPath } from "@/lib/productRoutes";
+import { BusinessModelModuleHeader } from "@/components/layout/BusinessModelModuleHeader";
+import { useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useProductList } from "@/hooks/useProduct";
@@ -25,6 +27,7 @@ export function ProductListScreen() {
   const t = useTranslations("product");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const businessModel = useBusinessModelSlug();
   const { data, isLoading, isError, refetch } = useProductList();
 
   const [search, setSearch] = useState("");
@@ -125,9 +128,7 @@ export function ProductListScreen() {
 
   return (
     <div className="product-page">
-      <header className="product-page-header">
-        <h1 className="product-page-title">{t("title")}</h1>
-      </header>
+      <BusinessModelModuleHeader pageKey="products" />
 
       <ListScreenFilters
         searchValue={search}
@@ -173,7 +174,7 @@ export function ProductListScreen() {
         tableLayout="auto"
         scroll={tableScroll("max-content")}
         onRow={(row) => ({
-          onClick: () => router.push(productDetailPath(row.productCode)),
+          onClick: () => router.push(productDetailPath(row.productCode, businessModel)),
           style: { cursor: "pointer" },
         })}
       />

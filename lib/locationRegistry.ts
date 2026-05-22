@@ -1,3 +1,5 @@
+import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { getLocationBusinessModel } from "@/lib/businessModelLocationMap";
 import type { LocationStatus, LocationType } from "@/types/location";
 
 export interface LocationSeed {
@@ -507,4 +509,12 @@ export function getLocationSeed(id: string): LocationSeed {
 export function locationIndex(id: string): number {
   const i = LOCATION_SEEDS.findIndex((s) => s.id === id);
   return i >= 0 ? i : 0;
+}
+
+export function getLocationIdsForModel(model: BusinessModelSlug): string[] {
+  return LOCATION_IDS.filter((id) => getLocationBusinessModel(id) === model);
+}
+
+export function locationBelongsToModel(locationId: string, model: BusinessModelSlug): boolean {
+  return getLocationBusinessModel(locationId) === model;
 }

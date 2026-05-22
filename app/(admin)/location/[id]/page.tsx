@@ -1,10 +1,16 @@
-import { LocationDetailScreen } from "@/components/location/LocationDetailScreen";
+import { redirect } from "next/navigation";
+import { getLocationBusinessModel } from "@/lib/businessModelLocationMap";
+import { modelLocationDetailPath } from "@/lib/businessModelRoutes";
 
-export default async function LocationDetailPage({
+export default async function LegacyLocationDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ tab?: string }>;
 }) {
   const { id } = await params;
-  return <LocationDetailScreen locationId={id} />;
+  const { tab } = await searchParams;
+  const model = getLocationBusinessModel(id);
+  redirect(modelLocationDetailPath(model, id, tab));
 }

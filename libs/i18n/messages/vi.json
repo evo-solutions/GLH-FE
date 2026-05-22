@@ -3,13 +3,64 @@
   "nav": {
     "open": "Mở menu điều hướng",
     "dashboard": "Tổng quan",
-    "location": "Cơ sở",
-    "product": "Sản phẩm",
-    "order": "Đơn nhập kho",
-    "customer": "Khách hàng"
+    "businessModels": {
+      "thaoDuocDiSan": "Thảo dược di sản",
+      "thanTra": "Thần trà",
+      "khangDuongDiSan": "Khang dưỡng di sản",
+      "yThucTriLieu": "Y thực trị liệu",
+      "bongSenVang": "Bông Sen Vàng"
+    },
+    "sections": {
+      "stores": "Điểm bán",
+      "locations": "Điểm bán",
+      "products": "Sản phẩm",
+      "warehouse": "Kho",
+      "customersC": "Khách hàng (C)",
+      "customersB": "Khách hàng (B)",
+      "marketing": "Marketing"
+    }
+  },
+  "businessModel": {
+    "commerceB2c": "B2C",
+    "commerceB2b": "B2B",
+    "roleSubsidiary": "Công ty con",
+    "roleHolding": "Holding",
+    "dataScope": "Dữ liệu riêng · {entity}",
+    "warehouseSubsidiaryHint": "Kho tổng hợp các điểm bán thuộc cơ sở này — doanh thu & tồn riêng.",
+    "warehouseHoldingHint": "Tổng kho toàn hệ thống — cung ứng & điều phối cho các cơ sở.",
+    "linkStores": "Quản lý điểm bán",
+    "legalSubsidiary": "Giai đoạn hiện tại: trực thuộc Bông Sen Vàng. Sau cổ phần hóa: pháp nhân riêng, BSV nắm vốn chi phối.",
+    "legalHolding": "Bông Sen Vàng: holding B2B — cung ứng dược liệu & điều phối tổng kho cho các cơ sở.",
+    "pages": {
+      "stores": "Điểm bán",
+      "products": "Sản phẩm",
+      "warehouse": "Kho",
+      "customers": "Khách hàng",
+      "marketing": "Marketing"
+    }
+  },
+  "marketing": {
+    "intro": "Chiến dịch, kênh và doanh thu marketing — phạm vi riêng của cơ sở này.",
+    "legalSubsidiary": "Khách hàng C và doanh thu ghi nhận riêng, không gộp với cơ sở khác.",
+    "legalHolding": "Marketing B2B: hỗ trợ nhóm khách B & thương hiệu tập đoàn.",
+    "kpiRevenue": "Doanh thu marketing",
+    "kpiRevenueNote": "Riêng đơn vị",
+    "kpiCampaigns": "Chiến dịch đang chạy",
+    "kpiSegment": "Phân khúc",
+    "manageStores": "Quản lý điểm bán",
+    "storesHint": "điểm bán lẻ thuộc cơ sở",
+    "campaignsTitle": "Chiến dịch",
+    "statusActive": "Đang chạy",
+    "statusPaused": "Tạm dừng",
+    "reach": "Tiếp cận",
+    "conversion": "Chuyển đổi"
   },
   "app_description": "Quản trị Bông Sen Vàng",
   "dashboard": {
+    "highlight": {
+      "live": "Trực tiếp",
+      "justIn": "{amount} vừa ghi nhận"
+    },
     "sectionOps": "Vận hành & tín hiệu",
     "error": "Không tải được dữ liệu bảng điều khiển.",
     "retry": "Thử lại",
@@ -57,7 +108,7 @@
     }
   },
   "location": {
-    "title": "Cơ sở",
+    "title": "Thảo dược di sản",
     "error": "Không tải được dữ liệu cơ sở.",
     "retry": "Thử lại",
     "openSince": "Hoạt động từ",
@@ -75,6 +126,12 @@
       "staffCosts": "Nhân sự & chi phí",
       "sales": "Bán hàng",
       "warehouse": "Quản lý kho"
+    },
+    "liveRevenue": {
+      "title": "Doanh thu thời gian thực",
+      "live": "Trực tiếp",
+      "today": "Hôm nay tại cửa hàng",
+      "justIn": "{amount} vừa ghi nhận"
     },
     "overviewCharts": {
       "staffCosts": "Nhân sự & chi phí",
@@ -297,6 +354,7 @@
   },
   "order": {
     "title": "Đơn nhập kho",
+    "titleWarehouse": "Kho",
     "error": "Không tải được danh sách đơn nhập kho.",
     "retry": "Thử lại",
     "empty": "Chưa có đơn nhập kho nào.",
@@ -308,6 +366,8 @@
   },
   "customer": {
     "title": "Khách hàng",
+    "titleC": "Khách hàng (C)",
+    "titleB": "Khách hàng doanh nghiệp (B)",
     "error": "Không tải được danh sách khách hàng.",
     "retry": "Thử lại",
     "empty": "Chưa có khách hàng nào.",
