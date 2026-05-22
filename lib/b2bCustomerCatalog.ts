@@ -29,6 +29,7 @@ export type B2BCustomerSegmentKey =
   | "distributor-gt"
   | "ecommerce"
   | "social-media"
+  | "import"
   | "export";
 
 export interface B2BProductLine {
@@ -302,6 +303,19 @@ export const B2B_CUSTOMER_SEGMENTS: B2BCustomerSegment[] = [
     ],
   },
   {
+    key: "import",
+    labelVi: "NHẬP KHẨU",
+    labelEn: "Import",
+    labelZh: "进口",
+    productLineKeys: [
+      "medicinal-material",
+      "herb-ingredient",
+      "tcm-etc",
+      "tcm-otc",
+      "nutrition-snacks",
+    ],
+  },
+  {
     key: "export",
     labelVi: "XUẤT KHẨU",
     labelEn: "Export",
@@ -487,6 +501,20 @@ export const B2B_CUSTOMER_RECORDS: B2BCustomerRecord[] = [
     totalSpendEn: "₫680M",
     totalSpendZh: "6.8亿₫",
     visits: 890,
+  },
+  {
+    id: "b2b-import",
+    segmentKey: "import",
+    nameVi: "Cty TNHH Nhập khẩu Dược phẩm Đông Á",
+    nameEn: "East Asia Pharma Import Co.",
+    nameZh: "东亚药品进口公司",
+    phone: "+84 28 7300 2200",
+    tier: "gold",
+    lastVisit: "19/05/2026",
+    totalSpendVi: "₫5.8 tỷ",
+    totalSpendEn: "₫5.8B",
+    totalSpendZh: "58亿₫",
+    visits: 42,
   },
   {
     id: "b2b-export",

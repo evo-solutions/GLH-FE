@@ -23,11 +23,11 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
     <div className="admin-shell relative flex h-screen w-full flex-col overflow-hidden">
       <Header onOpenNav={() => setNavOpen(true)} />
       <div className="flex min-h-0 flex-1">
-        <div className="app-sidebar-desktop hidden md:block shrink-0">
+        <div className="app-sidebar-desktop hidden md:block shrink-0 overflow-auto">
           <Sidebar />
         </div>
         <NavDrawer open={navOpen} onClose={() => setNavOpen(false)} />
-        <main className="min-h-0 flex-1 overflow-y-auto">{children}</main>
+        <main className="min-h-0 flex-1 overflow-y-auto p-4">{children}</main>
       </div>
     </div>
   );

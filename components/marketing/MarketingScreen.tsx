@@ -15,7 +15,9 @@ import type { ReactNode } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { BusinessModelModuleHeader } from "@/components/layout/BusinessModelModuleHeader";
 import { useBusinessModel } from "@/libs/business-models/BusinessModelContext";
-import { isHoldingB2B } from "@/libs/business-models/config";
+import { isB2BChannelModel, isHoldingB2B } from "@/libs/business-models/config";
+import { getB2BSegment } from "@/lib/b2bCustomerCatalog";
+import { segmentLabel } from "@/lib/b2bCustomerCatalog";
 import {
   getTradeMarketingScope,
   type TradeMarketingPillarKey,
@@ -42,9 +44,9 @@ function loc<T extends { vi: string; en: string; zh: string }>(
 export function MarketingScreen() {
   const t = useTranslations("marketing");
   const locale = useLocale() as Locale;
-  const { slug, entityRole } = useBusinessModel();
+  const { slug, entityRole, b2bSegmentKey } = useBusinessModel();
   const isHolding = isHoldingB2B(slug);
-  const scope = getTradeMarketingScope(slug);
+  const isChannel = isB2BChannelModel(slug);
 
   if (isHolding) {
     return (
@@ -57,6 +59,22 @@ export function MarketingScreen() {
       </div>
     );
   }
+
+  if (isChannel && b2bSegmentKey) {
+    const segment = getB2BSegment(b2bSegmentKey);
+    const segmentTitle = segmentLabel(segment, locale);
+    return (
+      <div className="location-page marketing-page">
+        <BusinessModelModuleHeader pageKey="marketing" />
+        <p className="marketing-page__intro">{t("channelIntro", { segment: segmentTitle })}</p>
+        <Card size="small" className="marketing-mission-card">
+          <p className="marketing-mission-card__text">{t("channelNote")}</p>
+        </Card>
+      </div>
+    );
+  }
+
+  const scope = getTradeMarketingScope(slug);
 
   const pillarItems: CollapseProps["items"] = scope.pillars.map((pillar) => ({
     key: pillar.key,

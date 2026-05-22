@@ -1,6 +1,8 @@
 import { buildSalesCustomersForLocation } from "@/lib/customerDetailData";
 import { getB2BCustomers } from "@/lib/b2bCustomerListData";
 import type { BusinessModelSlug, CustomerSegment } from "@/libs/business-models/config";
+import { getB2BSegmentKeyForModel } from "@/libs/business-models/config";
+import { getB2BCustomersForSegment } from "@/lib/b2bCustomerListData";
 import { getLocationSeed, getLocationIdsForModel, LOCATION_IDS } from "@/lib/locationRegistry";
 import { globalCustomerId } from "@/lib/customerRoutes";
 import type { GlobalCustomerListItem } from "@/types/customer";
@@ -20,6 +22,13 @@ export function getAllGlobalCustomers(
     segment?: CustomerSegment;
   }
 ): GlobalCustomerListItem[] {
+  const channelSegment = options?.businessModel
+    ? getB2BSegmentKeyForModel(options.businessModel)
+    : undefined;
+  if (channelSegment) {
+    return getB2BCustomersForSegment(locale, channelSegment);
+  }
+
   if (options?.businessModel === "bong-sen-vang" || options?.segment === "B") {
     return getB2BCustomers(locale);
   }

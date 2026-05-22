@@ -1,4 +1,5 @@
 import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { isB2BChannelModel, isHoldingB2B } from "@/libs/business-models/config";
 
 /** SP có thể bán chung giữa nhiều cty con (không phải Đông y / dược liệu thô) */
 export const SHARED_B2C_PRODUCT_CODES = ["BSV-2281"] as const;
@@ -16,10 +17,14 @@ export const MODELS_EXCLUDE_TCM_HERBAL: BusinessModelSlug[] = [
  * Danh mục SP theo cty con — giải quyết nhu cầu C khác nhau.
  * SP chung được gộp thêm qua SHARED_B2C_PRODUCT_CODES.
  */
-export const B2C_PRODUCT_BY_MODEL: Record<
-  Exclude<BusinessModelSlug, "bong-sen-vang">,
-  string[]
-> = {
+type B2cSubsidiarySlug =
+  | "thao-duoc-di-san"
+  | "khang-duong-di-san"
+  | "yogi-food"
+  | "thuong-son-tra"
+  | "than-tra";
+
+export const B2C_PRODUCT_BY_MODEL: Record<B2cSubsidiarySlug, string[]> = {
   "thao-duoc-di-san": ["BSV-4412", "BSV-2281", "BSV-7710", "BSV-9033", "BSV-COV19", "BSV-1199"],
   "khang-duong-di-san": ["BSV-9033", "BSV-8801", "BSV-7022", "BSV-7710"],
   "yogi-food": ["BSV-7022", "BSV-5520", "BSV-8801"],
@@ -41,9 +46,9 @@ function mergeUnique(codes: string[]): string[] {
 }
 
 export function getProductCodesForModel(model: BusinessModelSlug): string[] {
-  if (model === "bong-sen-vang") return [...B2B_HOLDING_PRODUCT_CODES];
+  if (isHoldingB2B(model) || isB2BChannelModel(model)) return [];
 
-  const base = B2C_PRODUCT_BY_MODEL[model] ?? [];
+  const base = B2C_PRODUCT_BY_MODEL[model as B2cSubsidiarySlug] ?? [];
   const withShared = mergeUnique([...base, ...SHARED_B2C_PRODUCT_CODES]);
 
   if (MODELS_EXCLUDE_TCM_HERBAL.includes(model)) {

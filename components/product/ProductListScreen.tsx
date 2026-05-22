@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
@@ -8,7 +8,10 @@ import { useTranslations } from "next-intl";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
 import { productDetailPath } from "@/lib/productRoutes";
 import { BusinessModelModuleHeader } from "@/components/layout/BusinessModelModuleHeader";
-import { useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
+import { useBusinessModel, useBusinessModelSlug } from "@/libs/business-models/BusinessModelContext";
+import { getB2BProductLinesForSegment } from "@/lib/b2bCustomerCatalog";
+import type { B2BProductLineKey } from "@/lib/b2bCustomerCatalog";
+import { B2bProductLineTabs } from "@/components/product/B2bProductLineTabs";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useProductList } from "@/hooks/useProduct";
@@ -28,9 +31,22 @@ export function ProductListScreen() {
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
   const businessModel = useBusinessModelSlug();
+  const { b2bSegmentKey } = useBusinessModel();
+  const productLines = b2bSegmentKey ? getB2BProductLinesForSegment(b2bSegmentKey) : null;
   const { data, isLoading, isError, refetch } = useProductList();
 
+  const [activeLineKey, setActiveLineKey] = useState<B2BProductLineKey | undefined>();
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (productLines?.length) {
+      setActiveLineKey((prev) =>
+        prev && productLines.some((l) => l.key === prev) ? prev : productLines[0].key
+      );
+    } else {
+      setActiveLineKey(undefined);
+    }
+  }, [b2bSegmentKey, productLines]);
   const [categoryFilter, setCategoryFilter] = useState<string | undefined>();
   const [brandFilter, setBrandFilter] = useState<string | undefined>();
   const [statusFilter, setStatusFilter] = useState<ProductSalesStatus | undefined>();
@@ -51,6 +67,9 @@ export function ProductListScreen() {
   const filtered = useMemo(() => {
     if (!data) return [];
     return data.filter((row) => {
+      if (activeLineKey && row.b2bProductLineKey && row.b2bProductLineKey !== activeLineKey) {
+        return false;
+      }
       if (categoryFilter && row.category !== categoryFilter) return false;
       if (brandFilter && row.brand !== brandFilter) return false;
       if (statusFilter && row.status !== statusFilter) return false;
@@ -65,7 +84,7 @@ export function ProductListScreen() {
         row.importPrice
       );
     });
-  }, [data, search, categoryFilter, brandFilter, statusFilter]);
+  }, [data, search, categoryFilter, brandFilter, statusFilter, activeLineKey]);
 
   const hasActiveFilters = Boolean(
     search || categoryFilter || brandFilter || statusFilter
@@ -129,6 +148,14 @@ export function ProductListScreen() {
   return (
     <div className="product-page">
       <BusinessModelModuleHeader pageKey="products" />
+
+      {productLines && activeLineKey && (
+        <B2bProductLineTabs
+          lines={productLines}
+          activeKey={activeLineKey}
+          onChange={setActiveLineKey}
+        />
+      )}
 
       <ListScreenFilters
         searchValue={search}

@@ -4,6 +4,7 @@ import {
   getB2BProductLinesForSegment,
   productLineLabel,
   type B2BProductLineKey,
+  type B2BCustomerSegmentKey,
 } from "@/lib/b2bCustomerCatalog";
 import { getB2BCustomerDisplayName } from "@/lib/b2bCustomerListData";
 import { mockLineItem } from "@/lib/locationMockItems";
@@ -255,6 +256,28 @@ const HOLDING_ORDER_SPECS: HoldingOrderSpec[] = [
     ],
   },
   {
+    id: "h-io-import",
+    orderCode: "SO-BSV-2026-0930",
+    customerId: "b2b-import",
+    status: "confirmed",
+    statusLabel: { vi: "Đã xác nhận", en: "Confirmed", zh: "已确认" },
+    items: 420,
+    totalValue: { vi: "₫2.4 tỷ", en: "₫2.4B", zh: "24亿₫" },
+    orderedAt: "19/05/2026",
+    eta: "25/05/2026",
+    lines: [
+      { key: "medicinal-material", qty: 150, totalVi: "₫270 tr" },
+      { key: "herb-ingredient", qty: 100, totalVi: "₫450 tr" },
+      { key: "tcm-etc", qty: 80, totalVi: "₫960 tr" },
+      { key: "tcm-otc", qty: 60, totalVi: "₫510 tr" },
+      { key: "nutrition-snacks", qty: 30, totalVi: "₫210 tr" },
+    ],
+    timeline: [
+      { id: "h18", date: "19/05/2026", time: "11:00", title: "Đặt đơn", detail: "Nhập khẩu · lô Đài Loan" },
+      { id: "h19", date: "20/05/2026", time: "08:00", title: "Đã xuất kho", detail: "Chờ cảng" },
+    ],
+  },
+  {
     id: "h-io12",
     orderCode: "SO-BSV-2026-0920",
     customerId: "b2b-export",
@@ -370,6 +393,16 @@ function toListRow(detail: LocationInboundOrderDetail, locale: Locale): Location
 
 export function getHoldingInboundOrders(locale: Locale = "vi"): LocationInboundOrder[] {
   return HOLDING_ORDER_SPECS.map((spec) => toListRow(buildOrderFromSpec(spec, locale), locale));
+}
+
+export function getHoldingInboundOrdersForSegment(
+  segmentKey: B2BCustomerSegmentKey,
+  locale: Locale = "vi"
+): LocationInboundOrder[] {
+  return HOLDING_ORDER_SPECS.filter((spec) => {
+    const record = getB2BCustomerRecord(spec.customerId);
+    return record?.segmentKey === segmentKey;
+  }).map((spec) => toListRow(buildOrderFromSpec(spec, locale), locale));
 }
 
 export function getHoldingInboundOrderDetail(

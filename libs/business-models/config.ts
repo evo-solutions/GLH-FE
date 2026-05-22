@@ -1,12 +1,22 @@
 /**
  * Tổ chức GLH (giai đoạn hiện tại: cty con trực thuộc BSV → sau cổ phần hóa: BSV = holding).
  *
- * Giao diện hiển thị 6 đơn vị ở sidebar (5 cty con B2C + BSV holding); bên trong mỗi đơn vị:
- * Điểm bán · Sản phẩm · Kho · Khách hàng · Marketing
- *
- * - Cty con B2C: SP/KH/DT riêng; kho = tổng hợp các điểm bán thuộc cty đó
- * - BSV B2B: tổng kho toàn hệ thống; SP dược liệu; khách B
+ * Sidebar:
+ * - 5 cty con B2C (Điểm bán · SP · Kho · KH C · Trade MKT)
+ * - 13 kênh B2B (SP theo tab dòng hàng · Kho · KH B · Trade MKT)
+ * - Bông Sen Vàng Holding (Nguồn cung · tổng kho · KH B tổng hợp)
  */
+
+import type { B2BCustomerSegmentKey, B2BProductLineKey } from "@/lib/b2bCustomerCatalog";
+import { getB2BSegment } from "@/lib/b2bCustomerCatalog";
+import {
+  B2B_CHANNEL_DEFINITIONS,
+  type B2BChannelSlug,
+  isB2BChannelSlug,
+  getSegmentKeyForChannelSlug,
+} from "@/libs/business-models/b2bChannels";
+
+export type { B2BChannelSlug };
 
 export type BusinessModelSlug =
   | "thao-duoc-di-san"
@@ -14,13 +24,13 @@ export type BusinessModelSlug =
   | "yogi-food"
   | "thuong-son-tra"
   | "than-tra"
+  | B2BChannelSlug
   | "bong-sen-vang";
 
-export type EntityRole = "subsidiary" | "holding";
+export type EntityRole = "subsidiary" | "holding" | "b2b-channel";
 
 export type CommerceModel = "b2c" | "b2b";
 
-/** Phân hệ hiển thị trong từng đơn vị (sidebar chỉ mở tên đơn vị) */
 export type BusinessModule =
   | "products"
   | "warehouse"
@@ -39,8 +49,11 @@ export interface BusinessModelConfig {
   commerceModel: CommerceModel;
   customerSegment: CustomerSegment;
   modules: BusinessModule[];
+  /** Phân khúc B2B — kênh B2B & mapping tab sản phẩm */
+  b2bSegmentKey?: B2BCustomerSegmentKey;
+  productLineKeys?: B2BProductLineKey[];
   /** @deprecated */
-  kind: "retail" | "holding";
+  kind: "retail" | "holding" | "b2b-channel";
 }
 
 const SUBSIDIARY_MODULES: BusinessModule[] = [
@@ -59,6 +72,13 @@ const HOLDING_MODULES: BusinessModule[] = [
   "marketing",
 ];
 
+const B2B_CHANNEL_MODULES: BusinessModule[] = [
+  "products",
+  "warehouse",
+  "customers-b",
+  "marketing",
+];
+
 function subsidiary(slug: BusinessModelSlug, navKey: string): BusinessModelConfig {
   return {
     slug,
@@ -71,6 +91,21 @@ function subsidiary(slug: BusinessModelSlug, navKey: string): BusinessModelConfi
   };
 }
 
+function b2bChannel(def: (typeof B2B_CHANNEL_DEFINITIONS)[number]): BusinessModelConfig {
+  const segment = getB2BSegment(def.segmentKey);
+  return {
+    slug: def.slug,
+    navKey: def.navKey,
+    entityRole: "b2b-channel",
+    commerceModel: "b2b",
+    customerSegment: "B",
+    modules: B2B_CHANNEL_MODULES,
+    b2bSegmentKey: def.segmentKey,
+    productLineKeys: segment.productLineKeys,
+    kind: "b2b-channel",
+  };
+}
+
 export const SUBSIDIARY_B2C_MODELS: BusinessModelConfig[] = [
   subsidiary("thao-duoc-di-san", "thaoDuocDiSan"),
   subsidiary("khang-duong-di-san", "khangDuongDiSan"),
@@ -78,6 +113,9 @@ export const SUBSIDIARY_B2C_MODELS: BusinessModelConfig[] = [
   subsidiary("thuong-son-tra", "thuongSonTra"),
   subsidiary("than-tra", "thanTra"),
 ];
+
+export const B2B_CHANNEL_MODELS: BusinessModelConfig[] =
+  B2B_CHANNEL_DEFINITIONS.map(b2bChannel);
 
 export const HOLDING_B2B_MODEL: BusinessModelConfig = {
   slug: "bong-sen-vang",
@@ -94,6 +132,7 @@ export const HOLDING_B2B_MODEL: BusinessModelConfig = {
 
 export const ALL_BUSINESS_MODELS: BusinessModelConfig[] = [
   ...SUBSIDIARY_B2C_MODELS,
+  ...B2B_CHANNEL_MODELS,
   HOLDING_B2B_MODEL,
 ];
 
@@ -112,7 +151,22 @@ export function isSubsidiaryB2C(slug: BusinessModelSlug): boolean {
 }
 
 export function isHoldingB2B(slug: BusinessModelSlug): boolean {
-  return getBusinessModelConfig(slug).entityRole === "holding";
+  return slug === "bong-sen-vang";
+}
+
+export function isB2BChannelModel(slug: BusinessModelSlug): slug is B2BChannelSlug {
+  return isB2BChannelSlug(slug);
+}
+
+export function isB2BCommerce(slug: BusinessModelSlug): boolean {
+  return isHoldingB2B(slug) || isB2BChannelModel(slug);
+}
+
+export function getB2BSegmentKeyForModel(
+  slug: BusinessModelSlug
+): B2BCustomerSegmentKey | undefined {
+  if (isB2BChannelModel(slug)) return getSegmentKeyForChannelSlug(slug);
+  return getBusinessModelConfig(slug).b2bSegmentKey;
 }
 
 export const DEFAULT_SUBSIDIARY_SLUG: BusinessModelSlug = "thao-duoc-di-san";

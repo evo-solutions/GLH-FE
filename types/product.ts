@@ -30,9 +30,13 @@ export interface ProductUnitInstance {
   statusLabel: string;
 }
 
+import type { B2BProductLineKey } from "@/lib/b2bCustomerCatalog";
+
 export interface ProductListItem {
   productCode: string;
   name: string;
+  /** Tab dòng hàng B2B (kênh B2B) */
+  b2bProductLineKey?: B2BProductLineKey;
   category: string;
   brand: string;
   sellPrice: string;

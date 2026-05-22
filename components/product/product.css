@@ -1,6 +1,15 @@
 /* Reuse location page layout tokens */
-.product-page {
-  padding: 1.25rem 1.5rem 2rem;
+.b2b-product-line-tabs {
+  margin-bottom: 1rem;
+}
+
+.b2b-product-line-tabs .ant-tabs-nav {
+  margin-bottom: 0 !important;
+}
+
+.b2b-product-line-tabs .ant-tabs-tab {
+  font-size: 0.8125rem;
+  padding: 0.35rem 0.65rem !important;
 }
 
 .product-page-header {

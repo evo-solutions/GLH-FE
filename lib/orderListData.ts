@@ -1,8 +1,9 @@
 import type { BusinessModelSlug } from "@/libs/business-models/config";
-import { isHoldingB2B } from "@/libs/business-models/config";
+import { getB2BSegmentKeyForModel, isHoldingB2B } from "@/libs/business-models/config";
 import { getAllInboundOrderListRows } from "@/lib/inboundOrderData";
 import {
   getHoldingInboundOrders,
+  getHoldingInboundOrdersForSegment,
   HOLDING_CENTRAL_WAREHOUSE_ID,
   HOLDING_WAREHOUSE_LABEL,
 } from "@/lib/holdingWarehouseData";
@@ -18,6 +19,12 @@ export function getAllInboundOrdersSorted(
   businessModel?: BusinessModelSlug,
   locale: "vi" | "en" | "zh" = "vi"
 ): LocationInboundOrder[] {
+  const segmentKey = businessModel ? getB2BSegmentKeyForModel(businessModel) : undefined;
+  if (segmentKey) {
+    return getHoldingInboundOrdersForSegment(segmentKey, locale).sort(
+      (a, b) => parseDateKey(b.orderedAt) - parseDateKey(a.orderedAt)
+    );
+  }
   if (businessModel && isHoldingB2B(businessModel)) {
     return getHoldingInboundOrders(locale).sort(
       (a, b) => parseDateKey(b.orderedAt) - parseDateKey(a.orderedAt)
