@@ -4,7 +4,7 @@
  * Sidebar:
  * - 5 cty con B2C (Điểm bán · SP · Kho · KH C · Trade MKT)
  * - 13 kênh B2B (SP theo tab dòng hàng · Kho · KH B · Trade MKT)
- * - Bông Sen Vàng Holding (Nguồn cung · tổng kho · KH B tổng hợp)
+ * - Bông Sen Vàng Holding (ngay sau 5 cty con B2C · Nguồn cung · tổng kho · KH B tổng hợp)
  */
 
 import type { B2BCustomerSegmentKey, B2BProductLineKey } from "@/lib/b2bCustomerCatalog";
@@ -132,8 +132,8 @@ export const HOLDING_B2B_MODEL: BusinessModelConfig = {
 
 export const ALL_BUSINESS_MODELS: BusinessModelConfig[] = [
   ...SUBSIDIARY_B2C_MODELS,
-  ...B2B_CHANNEL_MODELS,
   HOLDING_B2B_MODEL,
+  ...B2B_CHANNEL_MODELS,
 ];
 
 const SLUG_SET = new Set(ALL_BUSINESS_MODELS.map((m) => m.slug));

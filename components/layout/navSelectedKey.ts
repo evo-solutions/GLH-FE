@@ -1,4 +1,8 @@
 import { parseBusinessModelFromPathname } from "@/lib/businessModelRoutes";
+import {
+  B2B_DISTRIBUTOR_GROUP_KEY,
+  isB2BDistributorChannelSlug,
+} from "@/libs/business-models/b2bChannels";
 
 /** Ant Design menu key for the current admin route (leaf menu item). */
 export function navSelectedKey(pathname: string): string {
@@ -16,9 +20,13 @@ export function navSelectedKey(pathname: string): string {
   return "";
 }
 
-/** Parent submenu key when inside a business model route. */
+/** Parent submenu keys when inside a business model route. */
 export function navOpenKeys(pathname: string): string[] {
   const model = parseBusinessModelFromPathname(pathname);
-  if (model) return [`bm-${model}`];
-  return [];
+  if (!model) return [];
+  const keys = [`bm-${model}`];
+  if (isB2BDistributorChannelSlug(model)) {
+    keys.unshift(B2B_DISTRIBUTOR_GROUP_KEY);
+  }
+  return keys;
 }

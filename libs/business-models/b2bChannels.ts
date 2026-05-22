@@ -71,3 +71,16 @@ export function getB2BChannelDefinition(
 ): B2BChannelDefinition | undefined {
   return B2B_CHANNEL_DEFINITIONS.find((d) => d.slug === slug);
 }
+
+/** Sidebar: NHÀ PHÂN PHỐI (cha) → MT · Mẹ Bé · GT (con). */
+export const B2B_DISTRIBUTOR_GROUP_KEY = "bm-group-nha-phan-phoi";
+
+export const B2B_DISTRIBUTOR_CHANNEL_SLUGS = [
+  "npp-mt",
+  "npp-mbaby",
+  "npp-gt",
+] as const satisfies readonly B2BChannelSlug[];
+
+export function isB2BDistributorChannelSlug(slug: string): boolean {
+  return (B2B_DISTRIBUTOR_CHANNEL_SLUGS as readonly string[]).includes(slug);
+}
