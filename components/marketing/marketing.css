@@ -1,44 +1,303 @@
+/* Cùng khung nội dung với Điểm bán / Khách hàng / Kho (.location-page) */
+.marketing-page {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.marketing-page__intro,
+.marketing-page__legal,
+.marketing-pillars__hint {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
 .marketing-page__intro {
-  margin: 0 0 0.5rem;
-  color: var(--muted-foreground);
-  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
 }
 
 .marketing-page__legal {
-  margin: 0 0 1rem;
+  margin: 1.25rem 0 0;
   font-size: 0.8125rem;
-  line-height: 1.5;
 }
 
-.marketing-kpis {
+.marketing-mission-card {
+  margin-bottom: 1rem;
+  border-color: var(--border) !important;
+  background: var(--bg-container) !important;
+}
+
+.marketing-mission-card .ant-card-body {
+  color: var(--text);
+}
+
+.marketing-mission-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.marketing-mission-card__text {
+  margin: 0 0 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.marketing-mission-card__list {
+  margin: 0 0 0.5rem;
+  padding-left: 1.15rem;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.marketing-mission-card__exclude {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.marketing-page .marketing-kpis {
   margin-bottom: 1.25rem;
+  max-width: 100%;
 }
 
-.marketing-page__stores-link {
-  margin: 0 0 1.25rem;
-  font-size: 0.875rem;
+.marketing-page .marketing-kpis > .ant-col {
+  min-width: 0;
 }
 
-.marketing-campaigns__title {
-  margin: 0 0 0.75rem;
+.marketing-stat-card {
+  border-color: var(--border) !important;
+  height: 100%;
+}
+
+.marketing-stat-card .ant-card-body {
+  background: var(--bg-container);
+}
+
+.marketing-stat-card .ant-statistic-title {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.marketing-stat-card .ant-statistic-content {
+  color: var(--text);
+}
+
+.marketing-pillars-section {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.marketing-pillars__title {
+  margin: 0 0 0.25rem;
   font-size: 1rem;
   font-weight: 600;
+  color: var(--text);
 }
 
-.marketing-campaigns__list {
+.marketing-pillars__hint {
+  margin: 0 0 0.75rem;
+}
+
+/* Accordion trụ cột — mặc định đóng, click mở */
+.marketing-pillars-collapse.ant-collapse {
+  border: none;
+  background: transparent;
+  max-width: 100%;
+}
+
+.marketing-pillars-collapse > .ant-collapse-item {
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  background: var(--bg-container);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.marketing-pillars-collapse > .ant-collapse-item:last-child {
+  margin-bottom: 0;
+}
+
+.marketing-pillars-collapse > .ant-collapse-item > .ant-collapse-header {
+  align-items: center !important;
+  padding: 0.85rem 1rem !important;
+  background: var(--bg-page);
+  color: var(--text);
+  transition: background 0.15s ease;
+}
+
+.marketing-pillars-collapse > .ant-collapse-item > .ant-collapse-header:hover {
+  background: color-mix(in srgb, var(--pharma) 6%, var(--bg-page));
+}
+
+.marketing-pillars-collapse > .ant-collapse-item.ant-collapse-item-active {
+  border-color: color-mix(in srgb, var(--pharma) 45%, var(--border)) !important;
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--pharma) 12%, transparent);
+}
+
+.marketing-pillars-collapse > .ant-collapse-item.ant-collapse-item-active > .ant-collapse-header {
+  background: color-mix(in srgb, var(--pharma) 8%, var(--bg-page));
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.marketing-pillars-collapse > .ant-collapse-item > .ant-collapse-content {
+  border-top: none;
+  background: var(--bg-container);
+}
+
+.marketing-pillars-collapse > .ant-collapse-item > .ant-collapse-content > .ant-collapse-content-box {
+  padding: 0.85rem 1rem 1rem !important;
+}
+
+.marketing-pillars-collapse__chevron {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.15s ease;
+}
+
+.marketing-pillars-collapse > .ant-collapse-item.ant-collapse-item-active .marketing-pillars-collapse__chevron {
+  color: var(--pharma);
+}
+
+/* Header panel (luôn hiển thị khi đóng/mở) */
+.marketing-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  flex: 1;
+  padding-right: 0.25rem;
+}
+
+.marketing-pillar-header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--pharma) 12%, var(--bg-container));
+  color: var(--pharma);
+  font-size: 0.95rem;
+}
+
+.marketing-pillar-header__main {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.15rem;
 }
 
-.marketing-campaign-card__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.35rem;
+.marketing-pillar-header__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  word-break: break-word;
 }
 
-.marketing-campaign-card__meta {
+.marketing-pillar-header__focus {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.marketing-pillar-header__kpi {
+  display: none;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.1rem;
+  text-align: right;
+}
+
+@media (min-width: 640px) {
+  .marketing-pillar-header__kpi {
+    display: flex;
+  }
+}
+
+.marketing-pillar-header__kpi-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  line-height: 1.2;
+  max-width: 7rem;
+}
+
+.marketing-pillar-header__kpi-value {
   font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--pharma);
+}
+
+/* Nội dung khi mở */
+.marketing-pillar-body__desc {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+.marketing-pillar-body__activities {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marketing-activity-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border-secondary);
+  font-size: 0.8125rem;
+  min-width: 0;
+}
+
+@media (min-width: 520px) {
+  .marketing-activity-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+}
+
+.marketing-activity-row__label {
+  color: var(--text);
+  font-weight: 500;
+  word-break: break-word;
+  flex: 1;
+  min-width: 0;
+}
+
+.marketing-activity-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  flex-shrink: 0;
+}
+
+.marketing-activity-row__tag {
+  margin: 0 !important;
+  font-size: 0.68rem;
+}
+
+.marketing-activity-row__metric {
+  color: var(--text-muted);
+  font-size: 0.75rem;
 }

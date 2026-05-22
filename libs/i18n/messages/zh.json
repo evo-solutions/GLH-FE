@@ -5,9 +5,10 @@
     "dashboard": "总览",
     "businessModels": {
       "thaoDuocDiSan": "草药遗产",
-      "thanTra": "神茶",
       "khangDuongDiSan": "康养遗产",
-      "yThucTriLieu": "药食理疗",
+      "yogiFood": "YOGI FOOD",
+      "thuongSonTra": "上山茶",
+      "thanTra": "神茶",
       "bongSenVang": "金莲花"
     },
     "sections": {
@@ -17,7 +18,8 @@
       "warehouse": "仓库",
       "customersC": "客户 (C)",
       "customersB": "客户 (B)",
-      "marketing": "营销"
+      "supply": "供应来源",
+      "marketing": "Trade Marketing"
     }
   },
   "businessModel": {
@@ -36,24 +38,79 @@
       "products": "产品",
       "warehouse": "仓库",
       "customers": "客户",
-      "marketing": "营销"
+      "supply": "供应来源",
+      "marketing": "Trade Marketing"
+    }
+  },
+  "supply": {
+    "intro": "药材、饮片及进口供应管理 — 金莲花控股范围。",
+    "permissionNote": "带锁字段按权限指令 (PLQ) 加密，需解密权限查看完整内容。",
+    "encodedHint": "PLQ 令牌 — 需权限指令查看完整内容",
+    "decryptPreview": "解密内容（演示 — PLQ 权限）",
+    "maskedValue": "••••••••",
+    "growingZone": "种植区",
+    "mainTabs": {
+      "domestic": "国内",
+      "foreign": "境外",
+      "import": "进口"
+    },
+    "detailTabs": {
+      "profile": "产区与伙伴",
+      "cultivation": "种植与产量",
+      "trade": "物流与价格",
+      "product": "产地与产品"
+    },
+    "importSupplier": "供应商",
+    "selectZone": "请从左侧选择种植区",
+    "selectImport": "请从左侧选择供应商",
+    "sections": {
+      "domestic": "国内药材与饮片供应",
+      "domesticHint": "越南境内种植区与供应链。",
+      "foreign": "境外药材与饮片供应",
+      "foreignHint": "与境内相同的信息结构 — 国际伙伴与种植区。",
+      "importTcm": "进口 · 中成药",
+      "importTcmHint": "中成药 (ETC/OTC) 进口来源。",
+      "importSnacks": "进口 · 营养零食",
+      "importSnacksHint": "营养零食及 OEM 进口来源。",
+      "importHint": "中成药与营养零食 — 选择供应商查看详情。",
+      "importTcmShort": "中成药",
+      "importSnacksShort": "营养零食"
+    },
+    "fields": {
+      "zoneName": "种植区名称",
+      "location": "地点 / 面积 / 海拔",
+      "entity": "企业 / 组织 / 个人",
+      "soilClimate": "土壤、气候、水文",
+      "species": "药用植物品种",
+      "harvest": "采收季节与产量",
+      "logistics": "运输、初加工、仓储",
+      "commercial": "单价 / 付款 / 运输 / 交货",
+      "origin": "产地",
+      "productLine": "产品线"
     }
   },
   "marketing": {
-    "intro": "本单元的营销活动、渠道与归因营收。",
-    "legalSubsidiary": "C 端客户与营收按单元单独核算。",
-    "legalHolding": "B2B 营销：服务 B 类客户与集团品牌。",
-    "kpiRevenue": "营销营收",
-    "kpiRevenueNote": "单元范围",
-    "kpiCampaigns": "进行中活动",
-    "kpiSegment": "细分",
-    "manageStores": "管理销售点",
-    "storesHint": "本单元下属门店",
-    "campaignsTitle": "活动",
-    "statusActive": "进行中",
-    "statusPaused": "已暂停",
-    "reach": "触达",
-    "conversion": "转化"
+    "intro": "Trade Marketing — 在销售点连接产品与客户。数据服务销售决策，非品牌或大众传播。",
+    "holdingIntro": "Trade Marketing 在各 B2C 子公司（门店）执行。B2B 控股不在此管理品牌传播。",
+    "holdingNote": "请进入各 B2C 单元的 Trade Marketing 查看陈列、培训、销售政策与拓店。",
+    "missionTitle": "Trade Marketing 使命",
+    "missionBody": "在销售点赢得客户 — 唯一关注：客户（四类需求与满意）与门店（拓新店、保持强竞争力）。",
+    "missionCustomer": "客户：理解四类需求与各店满意度",
+    "missionStore": "门店：拓展新点并保持老店竞争力",
+    "missionFourNeeds": "基于门店数据设计销售方案与政策",
+    "notBrandMkt": "不含品牌营销与大众传播。",
+    "kpiStoresCompetitive": "强竞争力门店",
+    "kpiCampaigns": "进行中的 trade 活动",
+    "kpiNewStores": "本年新开店",
+    "kpiSatisfaction": "C 端门店 CSAT",
+    "pillarsTitle": "TRADE MARKETING",
+    "pillarsHint": "点击各组查看门店活动详情。",
+    "legalSubsidiary": "单元范围 — trade mkt 绑定本子公司门店。",
+    "status": {
+      "active": "进行中",
+      "planned": "计划中",
+      "done": "已完成"
+    }
   },
   "app_description": "金莲花草药管理后台",
   "dashboard": {
@@ -375,7 +432,9 @@
     "backToList": "返回列表",
     "locationCode": "门店代码",
     "locationName": "门店",
-    "lastVisitLocation": "最近到访"
+    "lastVisitLocation": "最近到访",
+    "b2bSegment": "B端客户类型",
+    "b2bSegmentFilter": "B端客户类型"
   },
   "listFilters": {
     "results": "条结果",

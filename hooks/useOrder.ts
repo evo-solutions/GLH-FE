@@ -27,9 +27,10 @@ export function useOrderList(businessModel?: BusinessModelSlug) {
 }
 
 export function useOrderDetailMeta(orderId: string) {
+  const locale = useLocale();
   return useQuery({
-    queryKey: orderKeys.meta(orderId),
-    queryFn: () => fetchOrderDetailMeta(orderId),
+    queryKey: [...orderKeys.meta(orderId), locale] as const,
+    queryFn: () => fetchOrderDetailMeta(orderId, locale),
     enabled: !!orderId,
     staleTime: 60_000,
   });

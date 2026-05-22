@@ -1,7 +1,7 @@
 /**
  * Tổ chức GLH (giai đoạn hiện tại: cty con trực thuộc BSV → sau cổ phần hóa: BSV = holding).
  *
- * Giao diện chỉ hiển thị 5 đơn vị ở sidebar; bên trong mỗi đơn vị:
+ * Giao diện hiển thị 6 đơn vị ở sidebar (5 cty con B2C + BSV holding); bên trong mỗi đơn vị:
  * Điểm bán · Sản phẩm · Kho · Khách hàng · Marketing
  *
  * - Cty con B2C: SP/KH/DT riêng; kho = tổng hợp các điểm bán thuộc cty đó
@@ -10,9 +10,10 @@
 
 export type BusinessModelSlug =
   | "thao-duoc-di-san"
-  | "than-tra"
   | "khang-duong-di-san"
-  | "y-thuc-tri-lieu"
+  | "yogi-food"
+  | "thuong-son-tra"
+  | "than-tra"
   | "bong-sen-vang";
 
 export type EntityRole = "subsidiary" | "holding";
@@ -26,7 +27,8 @@ export type BusinessModule =
   | "customers-c"
   | "customers-b"
   | "marketing"
-  | "stores";
+  | "stores"
+  | "supply";
 
 export type CustomerSegment = "C" | "B";
 
@@ -53,6 +55,7 @@ const HOLDING_MODULES: BusinessModule[] = [
   "products",
   "warehouse",
   "customers-b",
+  "supply",
   "marketing",
 ];
 
@@ -70,9 +73,10 @@ function subsidiary(slug: BusinessModelSlug, navKey: string): BusinessModelConfi
 
 export const SUBSIDIARY_B2C_MODELS: BusinessModelConfig[] = [
   subsidiary("thao-duoc-di-san", "thaoDuocDiSan"),
-  subsidiary("than-tra", "thanTra"),
   subsidiary("khang-duong-di-san", "khangDuongDiSan"),
-  subsidiary("y-thuc-tri-lieu", "yThucTriLieu"),
+  subsidiary("yogi-food", "yogiFood"),
+  subsidiary("thuong-son-tra", "thuongSonTra"),
+  subsidiary("than-tra", "thanTra"),
 ];
 
 export const HOLDING_B2B_MODEL: BusinessModelConfig = {

@@ -28,15 +28,16 @@ export async function fetchOrderList(
   return data;
 }
 
-function resolveInboundDetail(orderId: string): LocationInboundOrderDetail {
-  if (orderId.startsWith("h-io")) return getHoldingInboundOrderDetail(orderId);
+function resolveInboundDetail(orderId: string, locale: "vi" | "en" | "zh" = "vi"): LocationInboundOrderDetail {
+  if (orderId.startsWith("h-io")) return getHoldingInboundOrderDetail(orderId, locale);
   return getInboundOrderDetail(orderId);
 }
 
-export async function fetchOrderDetailMeta(orderId: string): Promise<OrderDetailMeta> {
+export async function fetchOrderDetailMeta(orderId: string, locale = "vi"): Promise<OrderDetailMeta> {
   if (USE_MOCK) {
     await delay(150);
-    const detail = resolveInboundDetail(orderId);
+    const loc = locale === "zh" ? "zh" : locale === "en" ? "en" : "vi";
+    const detail = resolveInboundDetail(orderId, loc);
     return { orderId: detail.id, locationId: detail.locationId, orderCode: detail.orderCode };
   }
   const { data } = await api.get<OrderDetailMeta>(ORDER_API.detail(orderId));
@@ -50,7 +51,8 @@ export async function fetchOrderDetail(
 ): Promise<LocationInboundOrderDetail> {
   if (USE_MOCK) {
     await delay(250);
-    return resolveInboundDetail(orderId);
+    const loc = locale === "zh" ? "zh" : locale === "en" ? "en" : "vi";
+    return resolveInboundDetail(orderId, loc);
   }
   const { data } = await api.get<LocationInboundOrderDetail>(
     `/api/v1/locations/${locationId}/inbound-orders/${orderId}?locale=${locale}`

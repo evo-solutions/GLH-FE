@@ -1,5 +1,8 @@
+import { buildB2BCustomerDetail } from "@/lib/b2bCustomerDetailData";
 import { buildLocationCustomerDetail } from "@/lib/customerDetailBuilder";
 import type { LocationCustomerDetail, LocationSalesCustomer } from "@/types/location";
+
+const HOLDING_B2B_LOCATION_ID = "holding-bsv";
 
 /** Khách mẫu + sinh thêm theo cơ sở. */
 export function buildSalesCustomersForLocation(
@@ -91,6 +94,9 @@ export function getLocationCustomerDetail(
   customerId: string,
   locale: "vi" | "en" | "zh"
 ): LocationCustomerDetail {
+  if (locationId === HOLDING_B2B_LOCATION_ID) {
+    return buildB2BCustomerDetail(customerId, locale);
+  }
   const customers = buildSalesCustomersForLocation(locationId, locale);
   const summary = customers.find((c) => c.id === customerId) ?? customers[0];
   return buildLocationCustomerDetail(locationId, summary, locale);

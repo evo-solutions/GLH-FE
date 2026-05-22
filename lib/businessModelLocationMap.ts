@@ -10,16 +10,16 @@ export const LOCATION_BUSINESS_MODEL: Record<string, BusinessModelSlug> = {
   "loc-hcm-4": "than-tra",
   "loc-hcm-5": "than-tra",
   "loc-hn-2": "than-tra",
-  "loc-hn-3": "than-tra",
-  "loc-hp-1": "than-tra",
+  "loc-hn-3": "thuong-son-tra",
+  "loc-hp-1": "thuong-son-tra",
   "loc-hn-4": "khang-duong-di-san",
   "loc-dn-2": "khang-duong-di-san",
   "loc-ct-1": "khang-duong-di-san",
   "loc-ct-2": "khang-duong-di-san",
   "loc-bd-1": "khang-duong-di-san",
-  "loc-nt-1": "y-thuc-tri-lieu",
-  "loc-hue-1": "y-thuc-tri-lieu",
-  "loc-vt-1": "y-thuc-tri-lieu",
+  "loc-nt-1": "yogi-food",
+  "loc-hue-1": "yogi-food",
+  "loc-vt-1": "yogi-food",
 };
 
 export function getLocationBusinessModel(locationId: string): BusinessModelSlug {

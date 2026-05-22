@@ -5,6 +5,7 @@ import {
   modelMarketingPath,
   modelOrderListPath,
   modelProductListPath,
+  modelSupplyPath,
 } from "@/lib/businessModelRoutes";
 
 const MODULE_I18N: Record<BusinessModule, string> = {
@@ -14,6 +15,7 @@ const MODULE_I18N: Record<BusinessModule, string> = {
   "customers-c": "customersC",
   "customers-b": "customersB",
   marketing: "marketing",
+  supply: "supply",
 };
 
 export function moduleSectionLabelKey(module: BusinessModule): string {
@@ -29,6 +31,7 @@ export function getModuleNavItems(config: BusinessModelConfig) {
     "customers-c": modelCustomerListPath(slug),
     "customers-b": modelCustomerListPath(slug),
     marketing: modelMarketingPath(slug),
+    supply: modelSupplyPath(slug),
   };
 
   return modules.map((module) => ({

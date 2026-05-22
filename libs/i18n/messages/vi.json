@@ -4,11 +4,12 @@
     "open": "Mở menu điều hướng",
     "dashboard": "Tổng quan",
     "businessModels": {
-      "thaoDuocDiSan": "Thảo dược di sản",
-      "thanTra": "Thần trà",
-      "khangDuongDiSan": "Khang dưỡng di sản",
-      "yThucTriLieu": "Y thực trị liệu",
-      "bongSenVang": "Bông Sen Vàng"
+      "thaoDuocDiSan": "THẢO DƯỢC DI SẢN",
+      "khangDuongDiSan": "KHANG DƯỠNG DI SẢN",
+      "yogiFood": "YOGI FOOD",
+      "thuongSonTra": "THƯỢNG SƠN TRÀ",
+      "thanTra": "THẦN TRÀ",
+      "bongSenVang": "BÔNG SEN VÀNG"
     },
     "sections": {
       "stores": "Điểm bán",
@@ -17,7 +18,8 @@
       "warehouse": "Kho",
       "customersC": "Khách hàng (C)",
       "customersB": "Khách hàng (B)",
-      "marketing": "Marketing"
+      "supply": "Nguồn cung",
+      "marketing": "Trade Marketing"
     }
   },
   "businessModel": {
@@ -36,24 +38,79 @@
       "products": "Sản phẩm",
       "warehouse": "Kho",
       "customers": "Khách hàng",
-      "marketing": "Marketing"
+      "supply": "Nguồn cung",
+      "marketing": "Trade Marketing"
+    }
+  },
+  "supply": {
+    "intro": "Quản lý nguồn cung dược liệu, vị thuốc và nhập khẩu — phạm vi Holding Bông Sen Vàng.",
+    "permissionNote": "Các trường đánh dấu khóa được mã hóa theo lệnh phân quyền (PLQ). Cần quyền giải mã để xem nội dung đầy đủ.",
+    "encodedHint": "Mã PLQ — cần lệnh phân quyền để truy cập đầy đủ",
+    "decryptPreview": "Nội dung giải mã (demo — quyền PLQ)",
+    "maskedValue": "••••••••",
+    "growingZone": "Vùng trồng",
+    "mainTabs": {
+      "domestic": "Nội địa",
+      "foreign": "Ngoài Việt Nam",
+      "import": "Nhập khẩu"
+    },
+    "detailTabs": {
+      "profile": "Vùng & đối tác",
+      "cultivation": "Canh tác & sản lượng",
+      "trade": "Vận chuyển & giá",
+      "product": "Xuất xứ & sản phẩm"
+    },
+    "importSupplier": "Nhà cung cấp",
+    "selectZone": "Chọn một vùng trồng bên trái",
+    "selectImport": "Chọn một nhà cung cấp bên trái",
+    "sections": {
+      "domestic": "NGUỒN CUNG DƯỢC LIỆU & VỊ THUỐC NỘI ĐỊA",
+      "domesticHint": "Vùng trồng và chuỗi cung ứng trong lãnh thổ Việt Nam.",
+      "foreign": "NGUỒN CUNG DƯỢC LIỆU & VỊ THUỐC NGOÀI VIỆT NAM",
+      "foreignHint": "Cùng cấu trúc thông tin như nội địa — đối tác & vùng trồng quốc tế.",
+      "importTcm": "Nhập khẩu · Thuốc YHCT",
+      "importTcmHint": "Nguồn nhập thuốc Y học cổ truyền (ETC / OTC).",
+      "importSnacks": "Nhập khẩu · Snacks dinh dưỡng",
+      "importSnacksHint": "Nguồn nhập snacks dinh dưỡng & OEM.",
+      "importHint": "Thuốc YHCT và Snacks dinh dưỡng — chọn NCC để xem chi tiết.",
+      "importTcmShort": "Thuốc YHCT",
+      "importSnacksShort": "Snacks dinh dưỡng"
+    },
+    "fields": {
+      "zoneName": "Tên vùng trồng",
+      "location": "Địa điểm / diện tích / độ cao",
+      "entity": "Doanh nghiệp / tổ chức / cá nhân",
+      "soilClimate": "Thổ nhưỡng, khí hậu, thủy văn",
+      "species": "Chủng loại cây thuốc",
+      "harvest": "Thời vụ thu hái & năng suất",
+      "logistics": "Vận chuyển, sơ chế, chế biến, bảo quản",
+      "commercial": "Đơn giá / thanh toán / vận chuyển / giao hàng",
+      "origin": "Xuất xứ",
+      "productLine": "Dòng hàng"
     }
   },
   "marketing": {
-    "intro": "Chiến dịch, kênh và doanh thu marketing — phạm vi riêng của cơ sở này.",
-    "legalSubsidiary": "Khách hàng C và doanh thu ghi nhận riêng, không gộp với cơ sở khác.",
-    "legalHolding": "Marketing B2B: hỗ trợ nhóm khách B & thương hiệu tập đoàn.",
-    "kpiRevenue": "Doanh thu marketing",
-    "kpiRevenueNote": "Riêng đơn vị",
-    "kpiCampaigns": "Chiến dịch đang chạy",
-    "kpiSegment": "Phân khúc",
-    "manageStores": "Quản lý điểm bán",
-    "storesHint": "điểm bán lẻ thuộc cơ sở",
-    "campaignsTitle": "Chiến dịch",
-    "statusActive": "Đang chạy",
-    "statusPaused": "Tạm dừng",
-    "reach": "Tiếp cận",
-    "conversion": "Chuyển đổi"
+    "intro": "Trade Marketing — cầu nối sản phẩm với khách hàng tại điểm bán. Dữ liệu phục vụ quyết định bán hàng, không phải brand hay truyền thông đại chúng.",
+    "holdingIntro": "Trade Marketing triển khai tại từng công ty con B2C (điểm bán lẻ). Holding B2B không quản lý brand ATL/truyền thông tại module này.",
+    "holdingNote": "Vui lòng mở module Trade Marketing trong từng đơn vị B2C (Thảo dược di sản, Khang dưỡng, YOGI FOOD, …) để xem trưng bày, đào tạo NVBH, chính sách bán và mở điểm bán.",
+    "missionTitle": "Sứ mệnh Trade Marketing",
+    "missionBody": "Chiến thắng khách hàng tại điểm bán — mối quan tâm duy nhất: khách hàng (4 nhu cầu & hài lòng) và điểm bán (mở mới, giữ cạnh tranh mạnh).",
+    "missionCustomer": "Khách hàng: hiểu 4 nhu cầu và mức hài lòng tại từng điểm mua",
+    "missionStore": "Điểm bán: mở mới và duy trì điểm cũ ở trạng thái cạnh tranh mạnh",
+    "missionFourNeeds": "Thiết kế chương trình & chính sách bán hàng dựa trên dữ liệu điểm bán",
+    "notBrandMkt": "Không bao gồm brand marketing hay truyền thông đại chúng.",
+    "kpiStoresCompetitive": "Điểm bán cạnh tranh mạnh",
+    "kpiCampaigns": "Chiến dịch trade đang chạy",
+    "kpiNewStores": "Mở mới YTD",
+    "kpiSatisfaction": "CSAT khách C tại ĐB",
+    "pillarsTitle": "TRADE MARKETING",
+    "pillarsHint": "Bấm từng nhóm để xem chi tiết hoạt động tại điểm bán.",
+    "legalSubsidiary": "Phạm vi riêng đơn vị — trade mkt gắn với điểm bán thuộc công ty con này.",
+    "status": {
+      "active": "Đang triển khai",
+      "planned": "Kế hoạch",
+      "done": "Hoàn tất"
+    }
   },
   "app_description": "Quản trị Bông Sen Vàng",
   "dashboard": {
@@ -375,7 +432,9 @@
     "backToList": "Quay lại danh sách",
     "locationCode": "Mã cơ sở",
     "locationName": "Cơ sở",
-    "lastVisitLocation": "Lần cuối đến"
+    "lastVisitLocation": "Lần cuối đến",
+    "b2bSegment": "Phân loại KH (B)",
+    "b2bSegmentFilter": "Phân loại khách B"
   },
   "listFilters": {
     "results": "kết quả",

@@ -26,6 +26,10 @@ export function modelMarketingPath(slug: BusinessModelSlug): string {
   return `${businessModelBasePath(slug)}/marketing`;
 }
 
+export function modelSupplyPath(slug: BusinessModelSlug): string {
+  return `${businessModelBasePath(slug)}/supply`;
+}
+
 /** Trang mặc định khi mở một đơn vị */
 export function modelDefaultModulePath(slug: BusinessModelSlug): string {
   return modelProductListPath(slug);

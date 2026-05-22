@@ -5,9 +5,10 @@
     "dashboard": "Dashboard",
     "businessModels": {
       "thaoDuocDiSan": "Heritage Herbals",
-      "thanTra": "Than Tra",
       "khangDuongDiSan": "Khang Duong Di San",
-      "yThucTriLieu": "Medicinal Diet Therapy",
+      "yogiFood": "YOGI FOOD",
+      "thuongSonTra": "Thuong Son Tra",
+      "thanTra": "Than Tra",
       "bongSenVang": "Golden Lotus"
     },
     "sections": {
@@ -17,7 +18,8 @@
       "warehouse": "Warehouse",
       "customersC": "Customers (C)",
       "customersB": "Customers (B)",
-      "marketing": "Marketing"
+      "supply": "Supply sources",
+      "marketing": "Trade Marketing"
     }
   },
   "businessModel": {
@@ -36,24 +38,79 @@
       "products": "Products",
       "warehouse": "Warehouse",
       "customers": "Customers",
-      "marketing": "Marketing"
+      "supply": "Supply sources",
+      "marketing": "Trade Marketing"
+    }
+  },
+  "supply": {
+    "intro": "Herbal supply, ingredients and import sources — Golden Lotus Holding scope.",
+    "permissionNote": "Locked fields are encrypted per permission command (PLQ). Decrypt permission required for full detail.",
+    "encodedHint": "PLQ token — permission command required for full access",
+    "decryptPreview": "Decrypted content (demo — PLQ permission)",
+    "maskedValue": "••••••••",
+    "growingZone": "Growing zone",
+    "mainTabs": {
+      "domestic": "Domestic",
+      "foreign": "International",
+      "import": "Import"
+    },
+    "detailTabs": {
+      "profile": "Zone & partner",
+      "cultivation": "Cultivation & yield",
+      "trade": "Logistics & pricing",
+      "product": "Origin & products"
+    },
+    "importSupplier": "Supplier",
+    "selectZone": "Select a growing zone on the left",
+    "selectImport": "Select a supplier on the left",
+    "sections": {
+      "domestic": "DOMESTIC HERBAL & INGREDIENT SUPPLY",
+      "domesticHint": "Growing zones and supply chains within Vietnam.",
+      "foreign": "INTERNATIONAL HERBAL & INGREDIENT SUPPLY",
+      "foreignHint": "Same data structure as domestic — international partners and zones.",
+      "importTcm": "Import · TCM medicine",
+      "importTcmHint": "Imported traditional medicine sources (ETC / OTC).",
+      "importSnacks": "Import · Nutrition snacks",
+      "importSnacksHint": "Imported nutrition snacks & OEM sources.",
+      "importHint": "TCM and nutrition snacks — select a supplier for details.",
+      "importTcmShort": "TCM",
+      "importSnacksShort": "Nutrition snacks"
+    },
+    "fields": {
+      "zoneName": "Growing zone name",
+      "location": "Site / area / elevation",
+      "entity": "Enterprise / organization / individual",
+      "soilClimate": "Soil, climate, hydrology",
+      "species": "Medicinal plant species",
+      "harvest": "Harvest season & yield",
+      "logistics": "Transport, processing, storage",
+      "commercial": "Price / payment / shipping / delivery",
+      "origin": "Origin",
+      "productLine": "Product line"
     }
   },
   "marketing": {
-    "intro": "Campaigns, channels and marketing-attributed revenue for this unit only.",
-    "legalSubsidiary": "C customers and revenue are recorded separately per unit.",
-    "legalHolding": "B2B marketing: supports B accounts and group brand.",
-    "kpiRevenue": "Marketing revenue",
-    "kpiRevenueNote": "Unit scope",
-    "kpiCampaigns": "Active campaigns",
-    "kpiSegment": "Segment",
-    "manageStores": "Manage stores",
-    "storesHint": "retail outlets under this unit",
-    "campaignsTitle": "Campaigns",
-    "statusActive": "Active",
-    "statusPaused": "Paused",
-    "reach": "Reach",
-    "conversion": "Conversion"
+    "intro": "Trade Marketing — bridge products and customers at the point of sale. Data for sales decisions; not brand or mass communications.",
+    "holdingIntro": "Trade Marketing runs in each B2C subsidiary (retail stores). B2B holding does not manage brand ATL/communications here.",
+    "holdingNote": "Open Trade Marketing under each B2C unit (Heritage Herbals, YOGI FOOD, etc.) for display, training, sales policies and store openings.",
+    "missionTitle": "Trade Marketing mission",
+    "missionBody": "Win the customer at the store — sole focus: customer (four needs & satisfaction) and store (open new, keep competitive).",
+    "missionCustomer": "Customer: understand four needs and satisfaction at each outlet",
+    "missionStore": "Store: open new sites and keep existing stores highly competitive",
+    "missionFourNeeds": "Design sales programs and policies from store-level data",
+    "notBrandMkt": "Excludes brand marketing and mass media.",
+    "kpiStoresCompetitive": "Stores highly competitive",
+    "kpiCampaigns": "Active trade campaigns",
+    "kpiNewStores": "New openings YTD",
+    "kpiSatisfaction": "C-customer CSAT at store",
+    "pillarsTitle": "TRADE MARKETING",
+    "pillarsHint": "Click each group to view in-store activity details.",
+    "legalSubsidiary": "Unit scope — trade mkt tied to this subsidiary's stores.",
+    "status": {
+      "active": "In progress",
+      "planned": "Planned",
+      "done": "Done"
+    }
   },
   "app_description": "Golden Lotus Herbals admin",
   "dashboard": {
@@ -375,7 +432,9 @@
     "backToList": "Back to list",
     "locationCode": "Location code",
     "locationName": "Location",
-    "lastVisitLocation": "Last visited"
+    "lastVisitLocation": "Last visited",
+    "b2bSegment": "B2B segment",
+    "b2bSegmentFilter": "B2B segment"
   },
   "listFilters": {
     "results": "results",

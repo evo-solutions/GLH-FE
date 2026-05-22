@@ -79,9 +79,11 @@ export function CustomerListScreen() {
   const columns: ColumnsType<GlobalCustomerListItem> = [
     { title: tSales("name"), dataIndex: "name", render: (name) => <span className="font-semibold">{name}</span> },
     {
-      title: tSales("tier"),
+      title: customerSegment === "B" ? t("b2bSegment") : tSales("tier"),
       dataIndex: "tierLabel",
-      render: (_, row) => <Tag color={tierColor(row.tier)}>{row.tierLabel}</Tag>,
+      render: (_, row) => (
+        <Tag color={customerSegment === "B" ? "blue" : tierColor(row.tier)}>{row.tierLabel}</Tag>
+      ),
     },
     { title: tSales("phone"), dataIndex: "phone" },
     { title: tSales("totalSpent"), dataIndex: "totalSpent" },
@@ -145,7 +147,7 @@ export function CustomerListScreen() {
         selects={[
           {
             id: "tier",
-            label: tFilter("customer.tier"),
+            label: customerSegment === "B" ? t("b2bSegmentFilter") : tFilter("customer.tier"),
             value: tierFilter,
             onChange: (v) => setTierFilter(v as CustomerTier | undefined),
             options: tierOptions,

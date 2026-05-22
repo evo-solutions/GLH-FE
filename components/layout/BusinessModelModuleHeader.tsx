@@ -7,7 +7,7 @@ import "./businessModelModuleHeader.css";
 
 type Props = {
   /** i18n key under businessModel.pages.{pageKey} */
-  pageKey: "stores" | "products" | "warehouse" | "customers" | "marketing";
+  pageKey: "stores" | "products" | "warehouse" | "customers" | "supply" | "marketing";
   className?: string;
 };
 
