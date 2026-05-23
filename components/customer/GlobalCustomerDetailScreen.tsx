@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Breadcrumb, Spin } from "antd";
 import { useLocale, useTranslations } from "next-intl";
 import { CustomerDetailView } from "@/components/location/CustomerDetailView";
-import { parseGlobalCustomerId } from "@/lib/customerRoutes";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
+import { customerListPath, parseGlobalCustomerId } from "@/lib/customerRoutes";
 import { useGlobalCustomerDetail } from "@/hooks/useCustomer";
 import { getLocationSeed } from "@/lib/locationRegistry";
 import { locationDetailPath } from "@/lib/locationRoutes";
@@ -13,6 +14,8 @@ import "@/components/location/location.css";
 export function GlobalCustomerDetailScreen({ globalId }: { globalId: string }) {
   const t = useTranslations("customer");
   const locale = useLocale();
+  const { moduleBasePath } = useBusinessModuleScope();
+  const listHref = customerListPath(moduleBasePath);
   const parsed = parseGlobalCustomerId(globalId);
   const { data, isLoading, isError } = useGlobalCustomerDetail(globalId, !!parsed);
 
@@ -20,7 +23,7 @@ export function GlobalCustomerDetailScreen({ globalId }: { globalId: string }) {
     return (
       <div className="location-page text-center py-20 text-muted">
         <p>{t("detailError")}</p>
-        <Link href="/customer" className="mt-3 inline-block text-pharma underline">
+        <Link href={listHref} className="mt-3 inline-block text-pharma underline">
           {t("backToList")}
         </Link>
       </div>
@@ -41,14 +44,14 @@ export function GlobalCustomerDetailScreen({ globalId }: { globalId: string }) {
     return (
       <div className="location-page text-center py-20 text-muted">
         <p>{t("detailError")}</p>
-        <Link href="/customer" className="mt-3 inline-block text-pharma underline">
+        <Link href={listHref} className="mt-3 inline-block text-pharma underline">
           {t("backToList")}
         </Link>
       </div>
     );
   }
 
-  const locationHref = locationDetailPath(locationId, "sales");
+  const locationHref = locationDetailPath(locationId, "sales", moduleBasePath);
   const seed = getLocationSeed(locationId);
   const locationName = locale === "zh" ? seed.nameZh : locale === "en" ? seed.nameEn : seed.nameVi;
 
@@ -58,7 +61,7 @@ export function GlobalCustomerDetailScreen({ globalId }: { globalId: string }) {
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/customer">{t("title")}</Link> },
+            { title: <Link href={listHref}>{t("title")}</Link> },
             {
               title: (
                 <Link href={locationHref}>

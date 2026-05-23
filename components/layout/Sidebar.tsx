@@ -3,7 +3,7 @@
 import { Layout, Menu } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
-import { Logo } from "./Logo";
+import { useNavMenuOpenKeys } from "@/hooks/useNavMenuOpenKeys";
 import { navSelectedKey } from "./navSelectedKey";
 import { useNavMenuItems } from "./useNavMenuItems";
 
@@ -14,6 +14,7 @@ export function Sidebar() {
   const pathname = usePathname();
   const { theme } = useThemeContext();
   const menuItems = useNavMenuItems();
+  const { openKeys, onOpenChange } = useNavMenuOpenKeys(pathname);
 
   return (
     <Sider
@@ -24,8 +25,12 @@ export function Sidebar() {
       <Menu
         mode="inline"
         selectedKeys={[navSelectedKey(pathname)].filter(Boolean)}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
         items={menuItems}
-        onClick={({ key }) => router.push(key)}
+        onClick={({ key }) => {
+          if (typeof key === "string" && key.startsWith("/")) router.push(key);
+        }}
         style={{ background: "transparent", borderInlineEnd: "none" }}
         className="app-sidebar-menu font-semibold"
       />

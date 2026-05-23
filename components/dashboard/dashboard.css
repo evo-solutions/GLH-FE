@@ -46,6 +46,194 @@
   font-weight: 700;
   color: var(--primary);
   line-height: 1.15;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.dashboard-highlight-value--tick {
+  color: var(--success);
+  transform: scale(1.02);
+}
+
+/* —— Real-time daily revenue card (screenshot layout) —— */
+.dashboard-revenue-live-card {
+  overflow: hidden;
+}
+
+.dashboard-revenue-live-card .ant-card-body {
+  position: relative;
+  padding: 1.15rem 1.25rem 1.1rem !important;
+  min-height: 148px;
+}
+
+.dashboard-revenue-live-spark {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.75rem;
+  pointer-events: none;
+  opacity: 0.95;
+}
+
+.dashboard-revenue-live-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  padding-right: 6.5rem;
+}
+
+.dashboard-revenue-live-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+}
+
+.dashboard-revenue-live-badge {
+  flex-shrink: 0;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  background: #c62828;
+  color: #fff;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  animation: dashboard-live-badge-pulse 2s ease-in-out infinite;
+}
+
+.dark .dashboard-revenue-live-badge {
+  background: #ef5350;
+}
+
+@keyframes dashboard-live-badge-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.82;
+  }
+}
+
+.dashboard-revenue-live-total {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--success);
+  font-variant-numeric: tabular-nums;
+  transition: transform 0.35s ease;
+}
+
+.dashboard-revenue-live-total--pulse {
+  transform: scale(1.015);
+}
+
+.dashboard-revenue-live-amount {
+  color: var(--success);
+}
+
+.dashboard-revenue-live-unit {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--success) 88%, var(--text));
+}
+
+.dashboard-revenue-live-tick {
+  margin: 0.4rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--success);
+  font-variant-numeric: tabular-nums;
+  transition: opacity 0.3s ease;
+}
+
+.dashboard-revenue-live-tick--flash {
+  animation: dashboard-revenue-tick-flash 0.8s ease;
+}
+
+.dashboard-revenue-live-tick--placeholder {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+@keyframes dashboard-revenue-tick-flash {
+  0% {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.dashboard-revenue-live-compare {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.4rem;
+  margin: 0.55rem 0 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.dashboard-revenue-live-compare--up {
+  color: var(--success);
+}
+
+.dashboard-revenue-live-compare--down {
+  color: var(--danger);
+}
+
+.dashboard-revenue-live-compare-pct {
+  font-weight: 700;
+}
+
+.dashboard-revenue-live-compare-label {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.dashboard-realtime-live {
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  margin: 0 !important;
+  animation: dashboard-live-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dashboard-live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.revenue-chart-live-total {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.25s ease;
+}
+
+.revenue-chart-live-total--tick {
+  color: var(--success);
+}
+
+.revenue-chart-live-meta {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
 }
 
 .dashboard-highlight-unit {

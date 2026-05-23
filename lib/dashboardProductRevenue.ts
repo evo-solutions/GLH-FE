@@ -1,3 +1,4 @@
+import { productDisplayName } from "@/lib/productCatalog";
 import { locationIndex } from "@/lib/locationRegistry";
 import type { ProductRevenueChartData } from "@/types/dashboard";
 
@@ -5,114 +6,26 @@ type Locale = "vi" | "en" | "zh";
 
 interface ProductRevenueSeed {
   productCode: string;
-  nameVi: string;
-  nameEn: string;
-  nameZh: string;
   endBillions: number;
   growthUp: boolean;
   growthPct: number;
 }
 
 const PRODUCT_REVENUE_SEEDS: ProductRevenueSeed[] = [
-  {
-    productCode: "BSV-4412",
-    nameVi: "Omega-3 Premium 60v",
-    nameEn: "Omega-3 Premium 60ct",
-    nameZh: "Omega-3 优质 60粒",
-    endBillions: 0.353,
-    growthUp: true,
-    growthPct: 12.4,
-  },
-  {
-    productCode: "BSV-7710",
-    nameVi: "Men vi sinh 30g",
-    nameEn: "Probiotic 30g",
-    nameZh: "益生菌 30g",
-    endBillions: 0.151,
-    growthUp: true,
-    growthPct: 9.6,
-  },
-  {
-    productCode: "BSV-8801",
-    nameVi: "Magnesium Glycinate",
-    nameEn: "Magnesium Glycinate",
-    nameZh: "甘氨酸镁",
-    endBillions: 0.124,
-    growthUp: true,
-    growthPct: 15.1,
-  },
-  {
-    productCode: "BSV-2281",
-    nameVi: "Vitamin C 1000mg",
-    nameEn: "Vitamin C 1000mg",
-    nameZh: "维生素 C 1000mg",
-    endBillions: 0.115,
-    growthUp: true,
-    growthPct: 3.1,
-  },
-  {
-    productCode: "BSV-9033",
-    nameVi: "Collagen Peptide",
-    nameEn: "Collagen Peptide",
-    nameZh: "胶原蛋白肽",
-    endBillions: 0.104,
-    growthUp: false,
-    growthPct: 8.2,
-  },
-  {
-    productCode: "BSV-5520",
-    nameVi: "Kẽm + Vitamin D3",
-    nameEn: "Zinc + Vitamin D3",
-    nameZh: "锌 + 维生素 D3",
-    endBillions: 0.097,
-    growthUp: true,
-    growthPct: 1.8,
-  },
-  {
-    productCode: "BSV-COV19",
-    nameVi: "Vaccine Covid Vietnam",
-    nameEn: "Covid Vaccine Vietnam",
-    nameZh: "越南新冠疫苗",
-    endBillions: 0.034,
-    growthUp: true,
-    growthPct: 18.2,
-  },
-  {
-    productCode: "BSV-1199",
-    nameVi: "Dầu gội thảo dược",
-    nameEn: "Herbal shampoo",
-    nameZh: "草本洗发水",
-    endBillions: 0.057,
-    growthUp: true,
-    growthPct: 4.2,
-  },
-  {
-    productCode: "BSV-6108",
-    nameVi: "Glucosamine 120v",
-    nameEn: "Glucosamine 120ct",
-    nameZh: "氨基葡萄糖 120粒",
-    endBillions: 0.054,
-    growthUp: false,
-    growthPct: 5.4,
-  },
-  {
-    productCode: "BSV-3344",
-    nameVi: "Sữa rửa Collagen",
-    nameEn: "Collagen face wash",
-    nameZh: "胶原洁面乳",
-    endBillions: 0.044,
-    growthUp: true,
-    growthPct: 24.0,
-  },
-  {
-    productCode: "BSV-7022",
-    nameVi: "Vitamin B Complex",
-    nameEn: "Vitamin B Complex",
-    nameZh: "复合维生素 B",
-    endBillions: 0.012,
-    growthUp: false,
-    growthPct: 22.0,
-  },
+  { productCode: "BSV-4412", endBillions: 0.353, growthUp: true, growthPct: 12.4 },
+  { productCode: "BSV-7710", endBillions: 0.151, growthUp: true, growthPct: 9.6 },
+  { productCode: "BSV-8801", endBillions: 0.124, growthUp: true, growthPct: 15.1 },
+  { productCode: "BSV-2281", endBillions: 0.115, growthUp: true, growthPct: 3.1 },
+  { productCode: "BSV-9033", endBillions: 0.104, growthUp: false, growthPct: 8.2 },
+  { productCode: "BSV-5520", endBillions: 0.097, growthUp: true, growthPct: 1.8 },
+  { productCode: "BSV-COV19", endBillions: 0.034, growthUp: true, growthPct: 18.2 },
+  { productCode: "BSV-1199", endBillions: 0.057, growthUp: true, growthPct: 4.2 },
+  { productCode: "BSV-7022", endBillions: 0.024, growthUp: true, growthPct: 6.8 },
+  { productCode: "BSV-9301", endBillions: 0.064, growthUp: true, growthPct: 21.3 },
+  { productCode: "BSV-9302", endBillions: 0.085, growthUp: true, growthPct: 14.7 },
+  { productCode: "BSV-9303", endBillions: 0.04, growthUp: true, growthPct: 32.5 },
+  { productCode: "BSV-6108", endBillions: 0.048, growthUp: false, growthPct: 5.4 },
+  { productCode: "BSV-3344", endBillions: 0.038, growthUp: true, growthPct: 24.0 },
 ];
 
 function monthLabels(locale: Locale): string[] {
@@ -143,9 +56,7 @@ function trendSeries(end: number, months: number, growthUp: boolean): number[] {
 }
 
 function productName(seed: ProductRevenueSeed, locale: Locale): string {
-  if (locale === "zh") return seed.nameZh;
-  if (locale === "en") return seed.nameEn;
-  return seed.nameVi;
+  return productDisplayName(seed.productCode, locale);
 }
 
 /** Doanh thu theo SP — toàn hệ thống hoặc theo một cơ sở (scale theo locationId). */

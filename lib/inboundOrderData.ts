@@ -1,3 +1,4 @@
+import { productDisplayName } from "@/lib/productCatalog";
 import { getLocationSeed } from "@/lib/locationRegistry";
 import { mockLineItem, mockReturnLine } from "@/lib/locationMockItems";
 import {
@@ -11,16 +12,22 @@ import type { ProductInboundOrder } from "@/types/product";
 function line(
   locationId: string,
   productCode: string,
-  name: string,
   qty: number,
   unitPrice: string,
   lineTotal: string
 ) {
-  return mockLineItem(locationId, productCode, name, qty, unitPrice, lineTotal);
+  return mockLineItem(
+    locationId,
+    productCode,
+    productDisplayName(productCode, "vi"),
+    qty,
+    unitPrice,
+    lineTotal
+  );
 }
 
-function ret(locationId: string, productCode: string, name: string, qty: number) {
-  return mockReturnLine(locationId, productCode, name, qty);
+function ret(locationId: string, productCode: string, qty: number) {
+  return mockReturnLine(locationId, productCode, productDisplayName(productCode, "vi"), qty);
 }
 
 /** 6 đơn mẫu tay — io7+ sinh tự động. */
@@ -37,8 +44,9 @@ const seedInboundOrders: Record<string, LocationInboundOrderDetail> = {
     orderedAt: "15/05/2026",
     eta: "20/05/2026",
     lineItems: [
-      line("loc-hcm-1", "BSV-4412", "Omega-3 Premium 60v", 12, "₫268,000", "₫3.2 tr"),
-      line("loc-hcm-1", "BSV-2281", "Vitamin C 1000mg", 12, "₫92,000", "₫1.1 tr"),
+      line("loc-hcm-1", "BSV-4412", 12, "₫268,000", "₫3.2 tr"),
+      line("loc-hcm-1", "BSV-2281", 12, "₫92,000", "₫1.1 tr"),
+      line("loc-hcm-1", "BSV-9302", 6, "₫88,000", "₫528 nghìn"),
     ],
     timeline: [
       { id: "e1", date: "15/05/2026", time: "09:10", title: "Đặt đơn", detail: "24 SKU · ₫86 tr" },
@@ -58,8 +66,8 @@ const seedInboundOrders: Record<string, LocationInboundOrderDetail> = {
     orderedAt: "14/05/2026",
     eta: "22/05/2026",
     lineItems: [
-      line("loc-hn-2", "BSV-7710", "Men vi sinh 30g", 10, "₫168,000", "₫1.68 tr"),
-      line("loc-hn-2", "BSV-2281", "Vitamin C 1000mg", 8, "₫92,000", "₫736 nghìn"),
+      line("loc-hn-2", "BSV-7710", 10, "₫168,000", "₫1.68 tr"),
+      line("loc-hn-2", "BSV-2281", 8, "₫92,000", "₫736 nghìn"),
     ],
     timeline: [
       { id: "e1", date: "14/05/2026", time: "11:00", title: "Đặt đơn", detail: "18 SKU · ₫52 tr" },
@@ -77,7 +85,7 @@ const seedInboundOrders: Record<string, LocationInboundOrderDetail> = {
     totalValue: "₫14.2 tr",
     orderedAt: "08/05/2026",
     receivedAt: "12/05/2026",
-    lineItems: [line("loc-hcm-1", "BSV-COV19", "Vaccine Covid Vietnam", 100, "₫142,000", "₫14.2 tr")],
+    lineItems: [line("loc-hcm-1", "BSV-COV19", 100, "₫142,000", "₫14.2 tr")],
     timeline: [
       {
         id: "e1",
@@ -109,12 +117,12 @@ const seedInboundOrders: Record<string, LocationInboundOrderDetail> = {
     orderedAt: "01/05/2026",
     receivedAt: "05/05/2026",
     lineItems: [
-      line("loc-dn-1", "BSV-9033", "Collagen Peptide", 4, "₫340,000", "₫13.6 tr"),
-      line("loc-dn-1", "BSV-2281", "Vitamin C 1000mg", 2, "₫92,000", "₫184 nghìn"),
+      line("loc-dn-1", "BSV-9033", 4, "₫340,000", "₫13.6 tr"),
+      line("loc-dn-1", "BSV-2281", 2, "₫92,000", "₫184 nghìn"),
     ],
     returnItems: [
-      ret("loc-dn-1", "BSV-9033", "Collagen Peptide", 4),
-      ret("loc-dn-1", "BSV-2281", "Vitamin C 1000mg", 2),
+      ret("loc-dn-1", "BSV-9033", 4),
+      ret("loc-dn-1", "BSV-2281", 2),
     ],
     timeline: [
       { id: "e1", date: "01/05/2026", time: "08:00", title: "Đặt đơn", detail: "6 SKU · ₫18 tr" },
@@ -135,8 +143,8 @@ const seedInboundOrders: Record<string, LocationInboundOrderDetail> = {
     totalValue: "₫9.2 tr",
     orderedAt: "25/04/2026",
     receivedAt: "28/04/2026",
-    lineItems: [line("loc-hcm-2", "BSV-7710", "Men vi sinh 30g", 4, "₫168,000", "₫672 nghìn")],
-    returnItems: [ret("loc-hcm-2", "BSV-7710", "Men vi sinh 30g", 4)],
+    lineItems: [line("loc-hcm-2", "BSV-7710", 4, "₫168,000", "₫672 nghìn")],
+    returnItems: [ret("loc-hcm-2", "BSV-7710", 4)],
     timeline: [
       { id: "e1", date: "25/04/2026", title: "Đặt đơn", detail: "4 SKU · ₫9.2 tr" },
       { id: "e2", date: "26/04/2026", title: "Đã xác nhận" },
@@ -156,8 +164,8 @@ const seedInboundOrders: Record<string, LocationInboundOrderDetail> = {
     totalValue: "₫38 tr",
     orderedAt: "18/05/2026",
     lineItems: [
-      line("loc-ct-1", "BSV-4412", "Omega-3 Premium 60v", 8, "₫268,000", "₫2.14 tr"),
-      line("loc-ct-1", "BSV-2281", "Vitamin C 1000mg", 4, "₫92,000", "₫368 nghìn"),
+      line("loc-ct-1", "BSV-4412", 8, "₫268,000", "₫2.14 tr"),
+      line("loc-ct-1", "BSV-2281", 4, "₫92,000", "₫368 nghìn"),
     ],
     timeline: [{ id: "e1", date: "18/05/2026", time: "13:50", title: "Đặt đơn", detail: "12 SKU · ₫38 tr" }],
   },

@@ -6,6 +6,7 @@ import type { Chart as ChartType } from "chart.js";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useLocationSales } from "@/hooks/useLocation";
 import type { CustomerTier, LocationSalesCustomer } from "@/types/location";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
@@ -34,6 +35,7 @@ export function SalesTab({
 }) {
   const t = useTranslations("location.sales");
   const tRoot = useTranslations("location");
+  const { moduleBasePath } = useBusinessModuleScope();
   const router = useRouter();
   const { data, isLoading, isError } = useLocationSales(locationId, enabled);
   const peakRef = useRef<ChartType | null>(null);
@@ -180,7 +182,8 @@ export function SalesTab({
           tableLayout="auto"
           scroll={tableScroll("max-content")}
           onRow={(row) => ({
-            onClick: () => router.push(locationCustomerPath(locationId, row.id)),
+            onClick: () =>
+              router.push(locationCustomerPath(locationId, row.id, moduleBasePath)),
             style: { cursor: "pointer" },
           })}
         />

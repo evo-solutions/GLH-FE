@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import type { ProductDetail, ProductUnitInstance } from "@/types/product";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 
@@ -25,6 +27,7 @@ export function ProductItemsTab({
   enabled: boolean;
 }) {
   const t = useTranslations("product");
+  const { moduleBasePath } = useBusinessModuleScope();
 
   if (!enabled) return null;
 
@@ -79,7 +82,10 @@ export function ProductItemsTab({
       dataIndex: "locationName",
       render: (name, row) =>
         row.locationId ? (
-          <Link href={`/location/${row.locationId}`} className="product-location-link font-semibold">
+          <Link
+            href={locationDetailPath(row.locationId, undefined, moduleBasePath)}
+            className="product-location-link font-semibold"
+          >
             {row.locationCode} · {name}
           </Link>
         ) : (

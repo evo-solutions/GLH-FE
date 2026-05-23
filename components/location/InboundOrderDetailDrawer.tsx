@@ -6,7 +6,9 @@ import type { ColumnsType } from "antd/es/table";
 import { useLocale, useTranslations } from "next-intl";
 import { getLocationSeed } from "@/lib/locationRegistry";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useLocationInboundOrderDetail } from "@/hooks/useLocation";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type {
   InboundOrderLineItem,
@@ -34,6 +36,7 @@ export function InboundOrderDetailDrawer({
 }) {
   const t = useTranslations("location.warehouse");
   const locale = useLocale();
+  const { moduleBasePath } = useBusinessModuleScope();
   const { data, isLoading, isError } = useLocationInboundOrderDetail(
     locationId,
     orderId,
@@ -117,7 +120,10 @@ export function InboundOrderDetailDrawer({
                     const name =
                       locale === "zh" ? seed.nameZh : locale === "en" ? seed.nameEn : seed.nameVi;
                     return (
-                      <Link href={`/location/${locationId}`} className="product-location-link font-semibold">
+                      <Link
+                        href={locationDetailPath(locationId, undefined, moduleBasePath)}
+                        className="product-location-link font-semibold"
+                      >
                         {name}
                       </Link>
                     );

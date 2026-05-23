@@ -1,20 +1,141 @@
 {
   "app_title": "Bông Sen Vàng",
+  "moduleHeader": {
+    "breadcrumbHolding": "Bông sen vàng · Dữ liệu riêng · Bông sen vàng",
+    "breadcrumbOrg": "Bông sen vàng · Dữ liệu riêng · {org}",
+    "tagB2b": "B2B",
+    "tagHolding": "Holding",
+    "tagB2c": "B2C",
+    "tagCompany": "Company"
+  },
   "nav": {
     "open": "Mở menu điều hướng",
     "dashboard": "Tổng quan",
+    "subsidiary": "Công ty con",
+    "externalOrganization": "Tổ chức bên ngoài",
+    "extBenhVienYhct": "Bệnh viện YHCT",
+    "extPhongChanTriYhct": "Phòng chẩn trị YHCT",
+    "extNhaThuoc": "Nhà thuốc",
+    "extDnKdDuocLieu": "Doanh nghiệp kinh doanh dược liệu",
+    "extDnSxDuoc": "Doanh nghiệp sản xuất dược",
+    "extThucPhamChucNang": "Thực phẩm chức năng",
+    "extThucPhamBoSung": "Thực phẩm bổ sung",
+    "extDnSxHoaMyPham": "Doanh nghiệp sản xuất hoá mỹ phẩm & hàng tiêu dùng",
+    "extNhaPhanPhoiHangTieuDung": "Nhà phân phối hàng tiêu dùng",
+    "extNhaPhanPhoiMt": "Kênh siêu thị MT",
+    "extNhaPhanPhoiMeBe": "Kênh siêu thị Mẹ Bé",
+    "extNhaPhanPhoiGt": "Kênh tạp hoá GT",
+    "extKenhEcommerce": "Kênh E-commerce",
+    "extKenhSocialMedia": "Kênh Social media",
+    "extNhapKhau": "Nhập khẩu",
+    "extXuatKhau": "Xuất khẩu",
+    "thaoDuocDiSan": "Thảo dược di sản",
+    "khangDuongDiSan": "Khang dưỡng di sản",
+    "yogiFood": "Yogi Food",
+    "thuongSonTra": "Thượng sơn trà",
+    "thanTra": "Thần trà",
+    "heritageOverview": "Tổng quan",
     "location": "Cơ sở",
     "product": "Sản phẩm",
     "order": "Đơn nhập kho",
-    "customer": "Khách hàng"
+    "customer": "Khách hàng",
+    "tradeMarketing": "Tiếp thị thương mại",
+    "brandMarketing": "Tiếp thị thương hiệu",
+    "supplySource": "Nguồn cung",
+    "insightsDecisions": "Thông tin & Quyết định"
+  },
+  "supplySource": {
+    "subtitle": "Quản lý nguồn cung dược liệu & vị thuốc — thông tin vùng trồng được mã hóa theo lệnh phân quyền.",
+    "error": "Không tải được dữ liệu nguồn cung.",
+    "noSectionData": "Chưa có dữ liệu cho nhóm này.",
+    "maskedValue": "••••••••",
+    "maskedTooltip": "Nội dung được mã hóa theo phân quyền của bạn",
+    "scopeTabs": {
+      "domestic": "Nội địa",
+      "international": "Ngoài Việt Nam",
+      "import": "Nhập khẩu"
+    },
+    "detailTabs": {
+      "regionPartner": "Vùng & đối tác",
+      "cultivation": "Canh tác & sản lượng",
+      "logisticsPrice": "Vận chuyển & giá"
+    },
+    "sections": {
+      "location": "Thông tin địa điểm / diện tích / độ cao",
+      "enterprise": "Thông tin doanh nghiệp / tổ chức / cá nhân",
+      "soilClimate": "Đặc điểm thổ nhưỡng, khí hậu, thủy văn",
+      "species": "Thông tin chủng loại cây thuốc",
+      "harvestYield": "Thời vụ thu hái và năng suất",
+      "processingLogistics": "Vận chuyển, sơ chế, chế biến, định dạng, bảo quản",
+      "pricingTerms": "Đơn giá / điều kiện thanh toán / vận chuyển / giao hàng"
+    }
+  },
+  "brandMarketing": {
+    "title": "Tiếp thị thương hiệu",
+    "subtitle": "Quản lý thương hiệu tập đoàn Bông Sen Vàng — chiến lược, truyền thông và hiệu quả toàn chuỗi.",
+    "error": "Không tải được dữ liệu tiếp thị thương hiệu.",
+    "colName": "Hạng mục",
+    "colStatus": "Trạng thái",
+    "colMetric": "Chỉ số",
+    "colPeriod": "Kỳ",
+    "colOwner": "Phụ trách",
+    "tabs": {
+      "brandStrategy": "Chiến lược thương hiệu",
+      "campaigns": "Chiến dịch thương hiệu",
+      "channels": "Kênh truyền thông",
+      "partnerships": "Hợp tác & đại sứ",
+      "budgetPerformance": "Ngân sách & hiệu quả"
+    }
+  },
+  "heritageTrade": {
+    "subtitle": "Quản lý hoạt động trade marketing tại điểm bán.",
+    "error": "Không tải được dữ liệu trade marketing.",
+    "colName": "Tên",
+    "colStatus": "Trạng thái",
+    "colMetric": "Chỉ số",
+    "colPeriod": "Kỳ",
+    "colOwner": "Phụ trách",
+    "tabs": {
+      "merchandiseDisplay": "Trưng bày hàng hoá",
+      "salesTraining": "Đào tạo nhân viên bán hàng",
+      "customerCare": "Chăm sóc khách hàng",
+      "salesPolicy": "Chính sách bán hàng",
+      "seasonalCampaigns": "Chiến dịch marketing theo thời điểm",
+      "newStoreOpening": "Mở mới điểm bán"
+    }
+  },
+  "heritageInsights": {
+    "title": "Thông tin & Quyết định",
+    "subtitle": "Phân tích rủi ro, cơ hội và đề xuất quyết định.",
+    "error": "Không tải được dữ liệu thông tin & quyết định.",
+    "colName": "Tên",
+    "colStatus": "Mức độ",
+    "colMetric": "Chỉ số",
+    "colPeriod": "Kỳ",
+    "colOwner": "Phụ trách",
+    "tabs": {
+      "risks": "Rủi ro",
+      "opportunities": "Cơ hội",
+      "forecasts": "Dự báo",
+      "recommendations": "Đề xuất"
+    }
   },
   "app_description": "Quản trị Bông Sen Vàng",
   "dashboard": {
-    "sectionOps": "Vận hành & tín hiệu",
     "error": "Không tải được dữ liệu bảng điều khiển.",
     "retry": "Thử lại",
+    "highlight": {
+      "dailyRevenue": "Doanh thu ngày",
+      "realtimeRevenue": "Doanh thu real-time",
+      "realtimeRevenueChart": "Doanh thu real-time (tỷ)",
+      "live": "TRỰC TIẾP",
+      "billionUnit": "tỷ",
+      "justRecorded": "vừa ghi nhận",
+      "waitingTick": "Đang chờ giao dịch mới…",
+      "realtimeHint": "Tự động cộng thêm khi có giao dịch mới"
+    },
     "charts": {
-      "revenue": "Doanh thu (tỷ)",
+      "revenue": "Doanh thu real-time (tỷ)",
       "revenueWeek": "Tuần",
       "revenueMonth": "Tháng",
       "revenueYear": "Năm",
@@ -28,10 +149,16 @@
     "storePerformance": {
       "topStores": "TOP STORES",
       "worstStores": "WORST STORES",
+      "topImportCompanies": "Top CTY nhập nhiều",
+      "lowImportCompanies": "Top CTY nhập ít",
       "colStore": "Cửa hàng",
       "colRevenue": "Doanh thu",
       "colCost": "Chi phí",
-      "colGrowth": "Tăng trưởng"
+      "colGrowth": "Tăng trưởng",
+      "colCompany": "Công ty",
+      "colImportValue": "Giá trị nhập",
+      "colImportOrders": "Số đơn nhập",
+      "colChange": "Thay đổi"
     },
     "productPerformance": {
       "topSku": "TOP SKU",
@@ -83,7 +210,10 @@
       "salesDesc": "Giờ khách hay mua nhất tại cơ sở",
       "warehouse": "Đơn nhập & tồn kho",
       "warehouseDesc": "Trạng thái đơn nhập kho",
-      "totalRevenue": "Doanh thu tổng (tỷ)",
+      "totalRevenue": "Doanh thu real-time (tỷ)",
+      "realtimeHint": "Tự động cộng thêm khi có giao dịch mới",
+      "live": "LIVE",
+      "billionUnit": "tỷ",
       "revenueWeek": "Tuần",
       "revenueMonth": "Tháng",
       "revenueYear": "Năm",

@@ -8,7 +8,9 @@ import { getLocationSeed } from "@/lib/locationRegistry";
 import { getInboundOrderProductUnits } from "@/lib/productInstanceCatalog";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useLocationInboundOrderDetail } from "@/hooks/useLocation";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import type {
   InboundOrderLineItem,
   InboundOrderStatus,
@@ -47,6 +49,7 @@ export function InboundOrderDetailView({
   const t = useTranslations("location.warehouse");
   const tInbound = useTranslations("product.inbound");
   const tOrder = useTranslations("order");
+  const { moduleBasePath } = useBusinessModuleScope();
   const tProduct = useTranslations("product");
   const locale = useLocale();
   const { data, isLoading, isError } = useLocationInboundOrderDetail(
@@ -192,7 +195,10 @@ export function InboundOrderDetailView({
           <div>
             <dt>{tOrder("locationName")}</dt>
             <dd>
-              <Link href={`/location/${locationId}`} className="product-location-link font-semibold">
+              <Link
+                href={locationDetailPath(locationId, undefined, moduleBasePath)}
+                className="product-location-link font-semibold"
+              >
                 {locationName}
               </Link>
             </dd>

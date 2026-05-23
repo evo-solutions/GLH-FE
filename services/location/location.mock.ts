@@ -4,6 +4,7 @@ import type { LocationOverview, LocationSales, LocationStaffCosts, LocationWareh
 import { buildSalesCustomersForLocation, getLocationCustomerDetail } from "@/lib/customerDetailData";
 import { getInboundOrderDetail } from "@/lib/inboundOrderData";
 import { locationListVi, locationMetaFromList } from "@/lib/locationList";
+import { productDisplayCategory, productDisplayName } from "@/lib/productCatalog";
 import { countUnitsAtLocation } from "@/lib/productInstanceCatalog";
 import { LOCATION_IDS, locationIndex } from "@/lib/locationRegistry";
 import { mockStockItem } from "@/lib/locationMockItems";
@@ -114,6 +115,8 @@ function warehouseVi(locationId: string): LocationWarehouse {
   const vitStock = countUnitsAtLocation(locationId, "BSV-2281");
   const collagenStock = countUnitsAtLocation(locationId, "BSV-9033");
   const probioticStock = countUnitsAtLocation(locationId, "BSV-7710");
+  const yogiStock = countUnitsAtLocation(locationId, "BSV-6108");
+  const cafeStock = countUnitsAtLocation(locationId, "BSV-9302");
   return {
     summary: {
       skuCount: 128 + bump,
@@ -127,8 +130,8 @@ function warehouseVi(locationId: string): LocationWarehouse {
         locationId,
         "cov1",
         "BSV-COV19",
-        "Vaccine Covid Vietnam",
-        "Vaccine",
+        productDisplayName("BSV-COV19", "vi"),
+        productDisplayCategory("BSV-COV19", "vi"),
         "₫185,000",
         "₫142,000",
         covStock,
@@ -140,8 +143,8 @@ function warehouseVi(locationId: string): LocationWarehouse {
         locationId,
         "p1",
         "BSV-4412",
-        "Omega-3 Premium 60v",
-        "TPCN",
+        productDisplayName("BSV-4412", "vi"),
+        productDisplayCategory("BSV-4412", "vi"),
         "₫420,000",
         "₫268,000",
         omegaStock,
@@ -153,8 +156,8 @@ function warehouseVi(locationId: string): LocationWarehouse {
         locationId,
         "p2",
         "BSV-2281",
-        "Vitamin C 1000mg",
-        "Vitamin",
+        productDisplayName("BSV-2281", "vi"),
+        productDisplayCategory("BSV-2281", "vi"),
         "₫185,000",
         "₫92,000",
         vitStock,
@@ -166,8 +169,8 @@ function warehouseVi(locationId: string): LocationWarehouse {
         locationId,
         "p3",
         "BSV-9033",
-        "Collagen Peptide",
-        "Làm đẹp",
+        productDisplayName("BSV-9033", "vi"),
+        productDisplayCategory("BSV-9033", "vi"),
         "₫560,000",
         "₫340,000",
         collagenStock,
@@ -179,14 +182,40 @@ function warehouseVi(locationId: string): LocationWarehouse {
         locationId,
         "p4",
         "BSV-7710",
-        "Men vi sinh 30g",
-        "Tiêu hóa",
+        productDisplayName("BSV-7710", "vi"),
+        productDisplayCategory("BSV-7710", "vi"),
         "₫295,000",
         "₫168,000",
         Math.max(probioticStock, 10),
         25,
         probioticStock > 15 ? "ok" : probioticStock > 0 ? "low" : "out",
         probioticStock > 15 ? "Đủ hàng" : probioticStock > 0 ? "Sắp hết" : "Hết hàng"
+      ),
+      mockStockItem(
+        locationId,
+        "p5",
+        "BSV-6108",
+        productDisplayName("BSV-6108", "vi"),
+        productDisplayCategory("BSV-6108", "vi"),
+        "₫380,000",
+        "₫210,000",
+        Math.max(yogiStock, 8),
+        18,
+        yogiStock > 12 ? "ok" : yogiStock > 0 ? "low" : "out",
+        yogiStock > 12 ? "Đủ hàng" : yogiStock > 0 ? "Sắp hết" : "Hết hàng"
+      ),
+      mockStockItem(
+        locationId,
+        "p6",
+        "BSV-9302",
+        productDisplayName("BSV-9302", "vi"),
+        productDisplayCategory("BSV-9302", "vi"),
+        "₫156,000",
+        "₫88,000",
+        Math.max(cafeStock, 12),
+        22,
+        cafeStock > 14 ? "ok" : cafeStock > 0 ? "low" : "out",
+        cafeStock > 14 ? "Đủ hàng" : cafeStock > 0 ? "Sắp hết" : "Hết hàng"
       ),
     ],
   };

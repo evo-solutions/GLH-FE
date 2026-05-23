@@ -6,7 +6,9 @@ import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useLocationList } from "@/hooks/useLocation";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { LocationListItem, LocationStatus, LocationType } from "@/types/location";
@@ -22,6 +24,7 @@ export function LocationListScreen() {
   const t = useTranslations("location");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const { moduleBasePath } = useBusinessModuleScope();
   const { data, isLoading, isError, refetch } = useLocationList();
 
   const [search, setSearch] = useState("");
@@ -176,7 +179,8 @@ export function LocationListScreen() {
         tableLayout="auto"
         scroll={tableScroll("max-content")}
         onRow={(row) => ({
-          onClick: () => router.push(`/location/${row.id}`),
+          onClick: () =>
+            router.push(locationDetailPath(row.id, undefined, moduleBasePath)),
           style: { cursor: "pointer" },
         })}
       />

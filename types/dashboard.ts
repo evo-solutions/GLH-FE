@@ -108,6 +108,7 @@ export interface DashboardQuickAlert {
 }
 
 export interface StorePerformanceRow {
+  id: string;
   storeCode: string;
   revenue: string;
   cost: string;
@@ -115,10 +116,17 @@ export interface StorePerformanceRow {
   growth: string;
 }
 
-export interface StorePerformanceData {
-  topStores: StorePerformanceRow[];
-  worstStores: StorePerformanceRow[];
-}
+export type StorePerformanceData =
+  | {
+      variant: "stores";
+      topStores: StorePerformanceRow[];
+      worstStores: StorePerformanceRow[];
+    }
+  | {
+      variant: "imports";
+      topImportCompanies: StorePerformanceRow[];
+      lowImportCompanies: StorePerformanceRow[];
+    };
 
 export interface ProductPerformanceRow {
   id: string;
@@ -136,7 +144,7 @@ export interface DashboardOverview {
   highlight: DashboardHighlight;
   charts: DashboardCharts;
   customerCount: CustomerCountChartData;
-  storePerformance: StorePerformanceData;
+  storePerformance: StorePerformanceData | null;
   productPerformance: ProductPerformanceData;
   salesPointsMap: SalesPointsMapData;
   quickAlerts: DashboardQuickAlert[];

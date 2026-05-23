@@ -19,7 +19,7 @@ function formatCustomers(locale: Locale, count: number): string {
   return count.toLocaleString("vi-VN");
 }
 
-const TOP_STORES: Array<{
+type StoreSeed = {
   storeCode: string;
   revenueVi: string;
   revenueEn: string;
@@ -28,7 +28,9 @@ const TOP_STORES: Array<{
   costEn: string;
   costZh: string;
   growthPct: number;
-}> = [
+};
+
+const TOP_STORES: StoreSeed[] = [
   {
     storeCode: "HN-01",
     revenueVi: "420tr",
@@ -81,16 +83,7 @@ const TOP_STORES: Array<{
   },
 ];
 
-const WORST_STORES: Array<{
-  storeCode: string;
-  revenueVi: string;
-  revenueEn: string;
-  revenueZh: string;
-  costVi: string;
-  costEn: string;
-  costZh: string;
-  growthPct: number;
-}> = [
+const WORST_STORES: StoreSeed[] = [
   {
     storeCode: "DN-02",
     revenueVi: "90tr",
@@ -143,6 +136,156 @@ const WORST_STORES: Array<{
   },
 ];
 
+type CompanyImportSeed = {
+  id: string;
+  nameVi: string;
+  nameEn: string;
+  nameZh: string;
+  importValueVi: string;
+  importValueEn: string;
+  importValueZh: string;
+  importOrdersVi: string;
+  importOrdersEn: string;
+  importOrdersZh: string;
+  growthPct: number;
+};
+
+const TOP_IMPORT_COMPANIES: CompanyImportSeed[] = [
+  {
+    id: "heritage",
+    nameVi: "Thảo dược di sản",
+    nameEn: "Heritage botanicals",
+    nameZh: "传承草本",
+    importValueVi: "2,4 tỷ",
+    importValueEn: "₫2.4B",
+    importValueZh: "24亿",
+    importOrdersVi: "128 đơn",
+    importOrdersEn: "128 orders",
+    importOrdersZh: "128 单",
+    growthPct: 18,
+  },
+  {
+    id: "khang-duong",
+    nameVi: "Khang dưỡng di sản",
+    nameEn: "Khang Duong heritage",
+    nameZh: "康养传承",
+    importValueVi: "1,8 tỷ",
+    importValueEn: "₫1.8B",
+    importValueZh: "18亿",
+    importOrdersVi: "96 đơn",
+    importOrdersEn: "96 orders",
+    importOrdersZh: "96 单",
+    growthPct: 12,
+  },
+  {
+    id: "yogi-food",
+    nameVi: "Yogi Food",
+    nameEn: "Yogi Food",
+    nameZh: "Yogi Food",
+    importValueVi: "1,2 tỷ",
+    importValueEn: "₫1.2B",
+    importValueZh: "12亿",
+    importOrdersVi: "84 đơn",
+    importOrdersEn: "84 orders",
+    importOrdersZh: "84 单",
+    growthPct: 9,
+  },
+  {
+    id: "thuong-son-tra",
+    nameVi: "Thượng Sơn Trà",
+    nameEn: "Thuong Son Tra",
+    nameZh: "上山茶",
+    importValueVi: "980 tr",
+    importValueEn: "₫980M",
+    importValueZh: "9.8亿",
+    importOrdersVi: "72 đơn",
+    importOrdersEn: "72 orders",
+    importOrdersZh: "72 单",
+    growthPct: 7,
+  },
+  {
+    id: "than-tra",
+    nameVi: "Thần Trà",
+    nameEn: "Than Tra",
+    nameZh: "神茶",
+    importValueVi: "820 tr",
+    importValueEn: "₫820M",
+    importValueZh: "8.2亿",
+    importOrdersVi: "65 đơn",
+    importOrdersEn: "65 orders",
+    importOrdersZh: "65 单",
+    growthPct: 5,
+  },
+];
+
+const LOW_IMPORT_COMPANIES: CompanyImportSeed[] = [
+  {
+    id: "ext-xuat-khau",
+    nameVi: "Xuất khẩu",
+    nameEn: "Export",
+    nameZh: "出口",
+    importValueVi: "210 tr",
+    importValueEn: "₫210M",
+    importValueZh: "2.1亿",
+    importOrdersVi: "18 đơn",
+    importOrdersEn: "18 orders",
+    importOrdersZh: "18 单",
+    growthPct: -22,
+  },
+  {
+    id: "ext-phong-chan",
+    nameVi: "Phòng chẩn trị YHCT",
+    nameEn: "TCM clinic",
+    nameZh: "中医诊室",
+    importValueVi: "185 tr",
+    importValueEn: "₫185M",
+    importValueZh: "1.85亿",
+    importOrdersVi: "22 đơn",
+    importOrdersEn: "22 orders",
+    importOrdersZh: "22 单",
+    growthPct: -14,
+  },
+  {
+    id: "ext-nha-thuoc",
+    nameVi: "Nhà thuốc",
+    nameEn: "Pharmacy",
+    nameZh: "药店",
+    importValueVi: "168 tr",
+    importValueEn: "₫168M",
+    importValueZh: "1.68亿",
+    importOrdersVi: "26 đơn",
+    importOrdersEn: "26 orders",
+    importOrdersZh: "26 单",
+    growthPct: -11,
+  },
+  {
+    id: "ext-kenh-ecommerce",
+    nameVi: "Kênh E-commerce",
+    nameEn: "E-commerce",
+    nameZh: "电商",
+    importValueVi: "142 tr",
+    importValueEn: "₫142M",
+    importValueZh: "1.42亿",
+    importOrdersVi: "31 đơn",
+    importOrdersEn: "31 orders",
+    importOrdersZh: "31 单",
+    growthPct: -8,
+  },
+  {
+    id: "ext-social",
+    nameVi: "Kênh Social media",
+    nameEn: "Social media",
+    nameZh: "社交媒体",
+    importValueVi: "128 tr",
+    importValueEn: "₫128M",
+    importValueZh: "1.28亿",
+    importOrdersVi: "34 đơn",
+    importOrdersEn: "34 orders",
+    importOrdersZh: "34 单",
+    growthPct: -6,
+  },
+];
+
 const TOP_PRODUCTS: Array<{
   id: string;
   nameVi: string;
@@ -155,9 +298,9 @@ const TOP_PRODUCTS: Array<{
 }> = [
   {
     id: "top-1",
-    nameVi: "Cao dược Tết · GLH-HERB-A",
-    nameEn: "Tet herb blend · GLH-HERB-A",
-    nameZh: "春节草本 · GLH-HERB-A",
+    nameVi: "Thuốc YHCT - ETC (Ethical Channels) · BSV-4412",
+    nameEn: "TCM Medicine - ETC (Ethical Channels) · BSV-4412",
+    nameZh: "中成药 ETC（专业渠道） · BSV-4412",
     revenueVi: "320tr",
     revenueEn: "₫320M",
     revenueZh: "3200万",
@@ -165,9 +308,9 @@ const TOP_PRODUCTS: Array<{
   },
   {
     id: "top-2",
-    nameVi: "Omega-3 GLH · GLH-OMEGA3",
-    nameEn: "Omega-3 GLH · GLH-OMEGA3",
-    nameZh: "深海鱼油 · GLH-OMEGA3",
+    nameVi: "Cafe · BSV-9302",
+    nameEn: "Coffee · BSV-9302",
+    nameZh: "咖啡 · BSV-9302",
     revenueVi: "248tr",
     revenueEn: "₫248M",
     revenueZh: "2480万",
@@ -175,9 +318,9 @@ const TOP_PRODUCTS: Array<{
   },
   {
     id: "top-3",
-    nameVi: "Vitamin C 1000mg · GLH-VITC",
-    nameEn: "Vitamin C 1000mg · GLH-VITC",
-    nameZh: "维生素C 1000mg · GLH-VITC",
+    nameVi: "Vị thuốc YHCT · BSV-2281",
+    nameEn: "TCM Medicinal Ingredients · BSV-2281",
+    nameZh: "中药材 · BSV-2281",
     revenueVi: "186tr",
     revenueEn: "₫186M",
     revenueZh: "1860万",
@@ -185,9 +328,9 @@ const TOP_PRODUCTS: Array<{
   },
   {
     id: "top-4",
-    nameVi: "Collagen peptide · GLH-COLLAG",
-    nameEn: "Collagen peptide · GLH-COLLAG",
-    nameZh: "胶原蛋白肽 · GLH-COLLAG",
+    nameVi: "Dược liệu · BSV-9033",
+    nameEn: "Medicinal herbs · BSV-9033",
+    nameZh: "药材 · BSV-9033",
     revenueVi: "142tr",
     revenueEn: "₫142M",
     revenueZh: "1420万",
@@ -195,9 +338,9 @@ const TOP_PRODUCTS: Array<{
   },
   {
     id: "top-5",
-    nameVi: "Probiotic 10 tỷ CFU · GLH-PROBIO",
-    nameEn: "Probiotic 10B CFU · GLH-PROBIO",
-    nameZh: "益生菌 100亿 · GLH-PROBIO",
+    nameVi: "Trái cây · BSV-9301",
+    nameEn: "Fruit products · BSV-9301",
+    nameZh: "水果制品 · BSV-9301",
     revenueVi: "118tr",
     revenueEn: "₫118M",
     revenueZh: "1180万",
@@ -217,9 +360,9 @@ const DEAD_PRODUCTS: Array<{
 }> = [
   {
     id: "dead-1",
-    nameVi: "Detox thảo dược · GLH-DETOX-B",
-    nameEn: "Herbal detox · GLH-DETOX-B",
-    nameZh: "草本排毒 · GLH-DETOX-B",
+    nameVi: "Yogi Food · BSV-6108",
+    nameEn: "Yogi Food · BSV-6108",
+    nameZh: "Yogi Food · BSV-6108",
     revenueVi: "8tr",
     revenueEn: "₫8M",
     revenueZh: "80万",
@@ -227,9 +370,9 @@ const DEAD_PRODUCTS: Array<{
   },
   {
     id: "dead-2",
-    nameVi: "Sleep support · GLH-SLEEP-X",
-    nameEn: "Sleep support · GLH-SLEEP-X",
-    nameZh: "助眠配方 · GLH-SLEEP-X",
+    nameVi: "Thượng Sơn Trà · BSV-3344",
+    nameEn: "Thuong Son Tra · BSV-3344",
+    nameZh: "上山茶 · BSV-3344",
     revenueVi: "11tr",
     revenueEn: "₫11M",
     revenueZh: "110万",
@@ -237,9 +380,9 @@ const DEAD_PRODUCTS: Array<{
   },
   {
     id: "dead-3",
-    nameVi: "Mặt nạ collagen · GLH-MASK-02",
-    nameEn: "Collagen mask · GLH-MASK-02",
-    nameZh: "胶原面膜 · GLH-MASK-02",
+    nameVi: "Hương dược · BSV-7022",
+    nameEn: "Medicinal aromatics · BSV-7022",
+    nameZh: "香药 · BSV-7022",
     revenueVi: "6tr",
     revenueEn: "₫6M",
     revenueZh: "60万",
@@ -247,9 +390,9 @@ const DEAD_PRODUCTS: Array<{
   },
   {
     id: "dead-4",
-    nameVi: "Trà thảo mộc legacy · GLH-TEA-OLD",
-    nameEn: "Legacy herbal tea · GLH-TEA-OLD",
-    nameZh: "经典草本茶 · GLH-TEA-OLD",
+    nameVi: "Gia vị · BSV-1199",
+    nameEn: "Herbal spices · BSV-1199",
+    nameZh: "药膳香料 · BSV-1199",
     revenueVi: "5tr",
     revenueEn: "₫5M",
     revenueZh: "50万",
@@ -257,9 +400,9 @@ const DEAD_PRODUCTS: Array<{
   },
   {
     id: "dead-5",
-    nameVi: "Combo kit cũ · GLH-KIT-09",
-    nameEn: "Legacy combo kit · GLH-KIT-09",
-    nameZh: "旧款组合装 · GLH-KIT-09",
+    nameVi: "Snacks dinh dưỡng · BSV-8801",
+    nameEn: "Nutritional snacks · BSV-8801",
+    nameZh: "营养零食 · BSV-8801",
     revenueVi: "9tr",
     revenueEn: "₫9M",
     revenueZh: "90万",
@@ -267,15 +410,38 @@ const DEAD_PRODUCTS: Array<{
   },
 ];
 
-function mapStores(
-  locale: Locale,
-  seeds: typeof TOP_STORES
-): StorePerformanceRow[] {
+function mapStores(locale: Locale, seeds: StoreSeed[]): StorePerformanceRow[] {
   return seeds.map((s) => ({
+    id: s.storeCode,
     storeCode: s.storeCode,
     revenue:
       locale === "zh" ? s.revenueZh : locale === "en" ? s.revenueEn : s.revenueVi,
     cost: locale === "zh" ? s.costZh : locale === "en" ? s.costEn : s.costVi,
+    growthPct: s.growthPct,
+    growth: formatGrowth(s.growthPct),
+  }));
+}
+
+function mapCompanyImports(
+  locale: Locale,
+  seeds: CompanyImportSeed[],
+): StorePerformanceRow[] {
+  return seeds.map((s) => ({
+    id: s.id,
+    storeCode:
+      locale === "zh" ? s.nameZh : locale === "en" ? s.nameEn : s.nameVi,
+    revenue:
+      locale === "zh"
+        ? s.importValueZh
+        : locale === "en"
+          ? s.importValueEn
+          : s.importValueVi,
+    cost:
+      locale === "zh"
+        ? s.importOrdersZh
+        : locale === "en"
+          ? s.importOrdersEn
+          : s.importOrdersVi,
     growthPct: s.growthPct,
     growth: formatGrowth(s.growthPct),
   }));
@@ -295,10 +461,19 @@ function mapProducts(
   }));
 }
 
-export function buildStorePerformance(locale: Locale): StorePerformanceData {
+export function buildSubsidiaryStorePerformance(locale: Locale): StorePerformanceData {
   return {
+    variant: "stores",
     topStores: mapStores(locale, TOP_STORES),
     worstStores: mapStores(locale, WORST_STORES),
+  };
+}
+
+export function buildHoldingImportPerformance(locale: Locale): StorePerformanceData {
+  return {
+    variant: "imports",
+    topImportCompanies: mapCompanyImports(locale, TOP_IMPORT_COMPANIES),
+    lowImportCompanies: mapCompanyImports(locale, LOW_IMPORT_COMPANIES),
   };
 }
 

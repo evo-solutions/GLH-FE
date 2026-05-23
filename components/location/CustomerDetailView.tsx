@@ -6,7 +6,9 @@ import type { Chart as ChartType } from "chart.js";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useLocationCustomerDetail } from "@/hooks/useLocation";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
 import {
@@ -151,6 +153,7 @@ export function CustomerDetailView({
   customerId: string;
 }) {
   const t = useTranslations("location.sales");
+  const { moduleBasePath } = useBusinessModuleScope();
   const { data, isLoading, isError } = useLocationCustomerDetail(locationId, customerId, true);
   const { segmentCanvasId, cohortCanvasId } = useCustomerCharts(data, customerId);
   const [selectedOrderCode, setSelectedOrderCode] = useState<string | null>(null);
@@ -165,7 +168,7 @@ export function CustomerDetailView({
       dataIndex: "locationName",
       render: (name: string, row) => (
         <Link
-          href={`/location/${row.locationId}?tab=sales`}
+          href={locationDetailPath(row.locationId, "sales", moduleBasePath)}
           className="product-location-link font-semibold"
           onClick={(e) => e.stopPropagation()}
         >
@@ -295,7 +298,10 @@ export function CustomerDetailView({
             {data.visitedLocations.map((loc, index) => (
               <span key={loc.locationId}>
                 {index > 0 && ", "}
-                <Link href={`/location/${loc.locationId}?tab=sales`} className="product-location-link">
+                <Link
+                  href={locationDetailPath(loc.locationId, "sales", moduleBasePath)}
+                  className="product-location-link"
+                >
                   {loc.locationName}
                 </Link>
               </span>

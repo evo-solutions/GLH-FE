@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import { productInboundOrderPath } from "@/lib/productRoutes";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
 import type { ProductDetail, ProductInboundOrder } from "@/types/product";
@@ -29,6 +31,7 @@ export function ProductInboundTab({
   const t = useTranslations("product.inbound");
   const tWh = useTranslations("location.warehouse");
   const router = useRouter();
+  const { moduleBasePath } = useBusinessModuleScope();
 
   if (!enabled) return null;
 
@@ -49,7 +52,10 @@ export function ProductInboundTab({
       dataIndex: "locationCode",
       fixed: "left",
       render: (code: string, row) => (
-        <Link href={`/location/${row.locationId}`} className="product-location-link font-semibold">
+        <Link
+          href={locationDetailPath(row.locationId, undefined, moduleBasePath)}
+          className="product-location-link font-semibold"
+        >
           {code}
         </Link>
       ),
@@ -58,7 +64,10 @@ export function ProductInboundTab({
       title: t("locationName"),
       dataIndex: "locationName",
       render: (name, row) => (
-        <Link href={`/location/${row.locationId}`} className="product-location-link">
+        <Link
+          href={locationDetailPath(row.locationId, undefined, moduleBasePath)}
+          className="product-location-link"
+        >
           {name}
         </Link>
       ),
@@ -94,7 +103,14 @@ export function ProductInboundTab({
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
           onClick: () =>
-            router.push(productInboundOrderPath(productCode, row.locationId, row.id)),
+            router.push(
+              productInboundOrderPath(
+                productCode,
+                row.locationId,
+                row.id,
+                moduleBasePath,
+              ),
+            ),
           style: { cursor: "pointer" },
         })}
       />

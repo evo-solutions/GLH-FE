@@ -1,3 +1,7 @@
+import {
+  productDisplayCategory,
+  productDisplayName,
+} from "@/lib/productCatalog";
 import { buildProductInstances, type BuildProductInstancesOptions } from "@/lib/productInstances";
 import type { ProductUnitInstance } from "@/types/product";
 
@@ -15,8 +19,8 @@ export interface InstanceProductSpec {
 export const INSTANCE_PRODUCT_SPECS: InstanceProductSpec[] = [
   {
     productCode: "BSV-COV19",
-    name: "Vaccine Covid Vietnam",
-    category: "Vaccine",
+    name: productDisplayName("BSV-COV19", "vi"),
+    category: productDisplayCategory("BSV-COV19", "vi"),
     sellPrice: "₫185,000",
     importPrice: "₫142,000",
     poolSize: 200,
@@ -24,8 +28,8 @@ export const INSTANCE_PRODUCT_SPECS: InstanceProductSpec[] = [
   },
   {
     productCode: "BSV-4412",
-    name: "Omega-3 Premium 60v",
-    category: "TPCN",
+    name: productDisplayName("BSV-4412", "vi"),
+    category: productDisplayCategory("BSV-4412", "vi"),
     sellPrice: "₫420,000",
     importPrice: "₫268,000",
     poolSize: 160,
@@ -33,8 +37,8 @@ export const INSTANCE_PRODUCT_SPECS: InstanceProductSpec[] = [
   },
   {
     productCode: "BSV-2281",
-    name: "Vitamin C 1000mg",
-    category: "Vitamin",
+    name: productDisplayName("BSV-2281", "vi"),
+    category: productDisplayCategory("BSV-2281", "vi"),
     sellPrice: "₫185,000",
     importPrice: "₫92,000",
     poolSize: 120,
@@ -42,8 +46,8 @@ export const INSTANCE_PRODUCT_SPECS: InstanceProductSpec[] = [
   },
   {
     productCode: "BSV-9033",
-    name: "Collagen Peptide",
-    category: "Làm đẹp",
+    name: productDisplayName("BSV-9033", "vi"),
+    category: productDisplayCategory("BSV-9033", "vi"),
     sellPrice: "₫560,000",
     importPrice: "₫340,000",
     poolSize: 80,
@@ -51,11 +55,38 @@ export const INSTANCE_PRODUCT_SPECS: InstanceProductSpec[] = [
   },
   {
     productCode: "BSV-7710",
-    name: "Men vi sinh 30g",
-    category: "Tiêu hóa",
+    name: productDisplayName("BSV-7710", "vi"),
+    category: productDisplayCategory("BSV-7710", "vi"),
     sellPrice: "₫295,000",
     importPrice: "₫168,000",
     poolSize: 100,
+    centralRatio: 0.2,
+  },
+  {
+    productCode: "BSV-6108",
+    name: productDisplayName("BSV-6108", "vi"),
+    category: productDisplayCategory("BSV-6108", "vi"),
+    sellPrice: "₫380,000",
+    importPrice: "₫210,000",
+    poolSize: 72,
+    centralRatio: 0.2,
+  },
+  {
+    productCode: "BSV-9301",
+    name: productDisplayName("BSV-9301", "vi"),
+    category: productDisplayCategory("BSV-9301", "vi"),
+    sellPrice: "₫89,000",
+    importPrice: "₫42,000",
+    poolSize: 90,
+    centralRatio: 0.18,
+  },
+  {
+    productCode: "BSV-9302",
+    name: productDisplayName("BSV-9302", "vi"),
+    category: productDisplayCategory("BSV-9302", "vi"),
+    sellPrice: "₫156,000",
+    importPrice: "₫88,000",
+    poolSize: 85,
     centralRatio: 0.2,
   },
 ];

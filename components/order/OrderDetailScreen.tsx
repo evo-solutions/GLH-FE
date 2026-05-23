@@ -4,12 +4,16 @@ import Link from "next/link";
 import { Breadcrumb, Spin } from "antd";
 import { useTranslations } from "next-intl";
 import { InboundOrderDetailView } from "@/components/inbound/InboundOrderDetailView";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useOrderDetailMeta } from "@/hooks/useOrder";
+import { orderListPath } from "@/lib/orderRoutes";
 import "@/components/location/location.css";
 import "@/components/product/product.css";
 
 export function OrderDetailScreen({ orderId }: { orderId: string }) {
   const t = useTranslations("order");
+  const { moduleBasePath } = useBusinessModuleScope();
+  const listHref = orderListPath(moduleBasePath);
   const { data: meta, isLoading, isError } = useOrderDetailMeta(orderId);
 
   if (isLoading) {
@@ -24,7 +28,7 @@ export function OrderDetailScreen({ orderId }: { orderId: string }) {
     return (
       <div className="location-page text-center py-20 text-muted">
         <p>{t("detailError")}</p>
-        <Link href="/order" className="mt-3 inline-block text-pharma underline">
+        <Link href={listHref} className="mt-3 inline-block text-pharma underline">
           {t("backToList")}
         </Link>
       </div>
@@ -37,7 +41,7 @@ export function OrderDetailScreen({ orderId }: { orderId: string }) {
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/order">{t("title")}</Link> },
+            { title: <Link href={listHref}>{t("title")}</Link> },
             { title: meta.orderCode },
           ]}
         />

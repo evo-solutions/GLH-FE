@@ -1,0 +1,39 @@
+.module-page-header {
+  margin-bottom: 1.25rem;
+}
+
+.module-page-title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.module-page-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.module-page-tag {
+  margin: 0;
+  font-size: 0.6875rem;
+  border-radius: 4px;
+}
+
+.module-page-breadcrumb {
+  margin: 0.35rem 0 0;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.module-page-tabs {
+  margin-top: 1rem;
+}
+
+.module-page-tabs .ant-tabs-nav {
+  margin-bottom: 1rem;
+}

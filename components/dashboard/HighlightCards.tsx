@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  ArrowDownOutlined,
-  ArrowUpOutlined,
   CheckCircleOutlined,
   ExclamationCircleOutlined,
   WarningOutlined,
@@ -13,36 +11,7 @@ import type {
   DashboardInventoryHighlight,
   DashboardStoreHealthHighlight,
 } from "@/types/dashboard";
-import { MiniSparkline } from "./MiniSparkline";
-
-function DailyRevenueCard({ data }: { data: DashboardHighlight["dailyRevenue"] }) {
-  const up = data.changePct >= 0;
-
-  return (
-    <Card size="small" variant="borderless" className="dashboard-highlight-card">
-      <div className="dashboard-highlight-head">
-        <span className="dashboard-highlight-title">{data.title}</span>
-        <MiniSparkline values={data.sparkline7d} />
-      </div>
-      <div className="dashboard-highlight-value">
-        {data.todayValue}
-        {data.unit ? (
-          <span className="dashboard-highlight-unit">{data.unit}</span>
-        ) : null}
-      </div>
-      <div
-        className={`dashboard-highlight-change ${up ? "dashboard-highlight-change--up" : "dashboard-highlight-change--down"}`}
-      >
-        {up ? <ArrowUpOutlined /> : <ArrowDownOutlined />}
-        <span>
-          {up ? "+" : ""}
-          {data.changePct.toFixed(1)}%
-        </span>
-        <span className="dashboard-highlight-change-label">{data.changeLabel}</span>
-      </div>
-    </Card>
-  );
-}
+import { RealtimeRevenueHighlightCard } from "./RealtimeRevenueHighlightCard";
 
 function InventoryCard({ data }: { data: DashboardInventoryHighlight }) {
   const hasWarning = data.lowStockCount > 0 || data.deadStockPct >= 3;
@@ -128,7 +97,7 @@ export function HighlightCards({ highlight }: { highlight: DashboardHighlight })
   return (
     <Row gutter={[16, 16]} className="dashboard-highlight-row">
       <Col xs={24} md={8}>
-        <DailyRevenueCard data={highlight.dailyRevenue} />
+        <RealtimeRevenueHighlightCard data={highlight.dailyRevenue} />
       </Col>
       <Col xs={24} md={8}>
         <InventoryCard data={highlight.inventory} />

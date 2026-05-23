@@ -2,6 +2,7 @@
 
 import { Spin } from "antd";
 import { useTranslations } from "next-intl";
+import { ModulePageHeader } from "@/components/layout/ModulePageHeader";
 import { useDashboardOverview } from "@/hooks/useDashboard";
 import { CustomerCountChartPanel } from "./CustomerCountChartPanel";
 import { DashboardPerformanceSection } from "./DashboardPerformanceSection";
@@ -12,6 +13,7 @@ import "./dashboard.css";
 
 export function DashboardScreen() {
   const t = useTranslations("dashboard");
+  const tNav = useTranslations("nav");
   const { data, isLoading, isError, refetch } = useDashboardOverview();
 
   if (isLoading) {
@@ -39,7 +41,7 @@ export function DashboardScreen() {
 
   return (
     <div className="dashboard-page">
-      <h2 className="dashboard-section-title">{t("sectionOps")}</h2>
+      <ModulePageHeader title={tNav("dashboard")} />
 
       <HighlightCards highlight={data.highlight} />
 

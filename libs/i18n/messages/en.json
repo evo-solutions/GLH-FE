@@ -1,20 +1,142 @@
 {
   "app_title": "Golden Lotus Herbals",
+  "moduleHeader": {
+    "breadcrumbHolding": "Golden Lotus Herbals · Private data · Golden Lotus Herbals",
+    "breadcrumbOrg": "Golden Lotus Herbals · Private data · {org}",
+    "tagB2b": "B2B",
+    "tagHolding": "Holding",
+    "tagB2c": "B2C",
+    "tagCompany": "Company"
+  },
   "nav": {
     "open": "Open navigation menu",
     "dashboard": "Dashboard",
+    "subsidiary": "Subsidiaries",
+    "externalOrganization": "External Organization",
+    "extBenhVienYhct": "TCM hospital",
+    "extPhongChanTriYhct": "TCM diagnosis & treatment clinic",
+    "extNhaThuoc": "Pharmacy",
+    "extDnKdDuocLieu": "Medicinal herb trading enterprise",
+    "extDnSxDuoc": "Pharmaceutical manufacturer",
+    "extThucPhamChucNang": "Functional foods",
+    "extThucPhamBoSung": "Dietary supplements",
+    "extDnSxHoaMyPham": "Cosmetics & FMCG manufacturer",
+    "extNhaPhanPhoiHangTieuDung": "FMCG distributor",
+    "extNhaPhanPhoiMt": "Modern trade (MT)",
+    "extNhaPhanPhoiMeBe": "Mom & baby retail",
+    "extNhaPhanPhoiGt": "General trade (GT)",
+    "extKenhEcommerce": "E-commerce channel",
+    "extKenhSocialMedia": "Social media channel",
+    "extNhapKhau": "Import",
+    "extXuatKhau": "Export",
+    "thaoDuocDiSan": "Heritage herbs",
+    "khangDuongDiSan": "Khang Duong heritage",
+    "yogiFood": "Yogi Food",
+    "thuongSonTra": "Thuong Son tea",
+    "thanTra": "Than Tra tea",
+    "heritageOverview": "Overview",
     "location": "Locations",
     "product": "Products",
     "order": "Inbound orders",
-    "customer": "Customers"
+    "customer": "Customers",
+    "tradeMarketing": "Trade Marketing",
+    "brandMarketing": "Brand Marketing",
+    "supplySource": "Supply source",
+    "insightsDecisions": "Insights & Decisions"
+  },
+  "supplySource": {
+    "subtitle": "Medicinal herb & raw material supply — growing region data encrypted by permission commands.",
+    "breadcrumb": "Golden Lotus Herbals · Private data · Golden Lotus Herbals",
+    "error": "Could not load supply source data.",
+    "noSectionData": "No data for this group yet.",
+    "maskedValue": "••••••••",
+    "maskedTooltip": "Content is encrypted based on your access level",
+    "scopeTabs": {
+      "domestic": "Domestic",
+      "international": "International",
+      "import": "Import"
+    },
+    "detailTabs": {
+      "regionPartner": "Region & partners",
+      "cultivation": "Cultivation & yield",
+      "logisticsPrice": "Logistics & pricing"
+    },
+    "sections": {
+      "location": "Location / area / altitude",
+      "enterprise": "Enterprise / organization / individual",
+      "soilClimate": "Soil, climate & hydrology",
+      "species": "Medicinal plant species",
+      "harvestYield": "Harvest season & yield",
+      "processingLogistics": "Transport, processing, format & storage",
+      "pricingTerms": "Unit price / payment / shipping / delivery"
+    }
+  },
+  "brandMarketing": {
+    "title": "Brand Marketing",
+    "subtitle": "Golden Lotus Herbals group brand management — strategy, communications and chain-wide performance.",
+    "error": "Could not load brand marketing data.",
+    "colName": "Initiative",
+    "colStatus": "Status",
+    "colMetric": "Metric",
+    "colPeriod": "Period",
+    "colOwner": "Owner",
+    "tabs": {
+      "brandStrategy": "Brand strategy",
+      "campaigns": "Brand campaigns",
+      "channels": "Media channels",
+      "partnerships": "Partnerships & ambassadors",
+      "budgetPerformance": "Budget & performance"
+    }
+  },
+  "heritageTrade": {
+    "subtitle": "Manage in-store trade marketing activities.",
+    "error": "Could not load trade marketing data.",
+    "colName": "Name",
+    "colStatus": "Status",
+    "colMetric": "Metric",
+    "colPeriod": "Period",
+    "colOwner": "Owner",
+    "tabs": {
+      "merchandiseDisplay": "Merchandising",
+      "salesTraining": "Sales staff training",
+      "customerCare": "Customer care",
+      "salesPolicy": "Sales policy",
+      "seasonalCampaigns": "Seasonal marketing campaigns",
+      "newStoreOpening": "New store opening"
+    }
+  },
+  "heritageInsights": {
+    "title": "Insights & Decisions",
+    "subtitle": "Risk, opportunity, and decision support insights.",
+    "error": "Could not load insights & decisions data.",
+    "colName": "Name",
+    "colStatus": "Status",
+    "colMetric": "Metric",
+    "colPeriod": "Period",
+    "colOwner": "Owner",
+    "tabs": {
+      "risks": "Risks",
+      "opportunities": "Opportunities",
+      "forecasts": "Forecasts",
+      "recommendations": "Recommendations"
+    }
   },
   "app_description": "Golden Lotus Herbals admin",
   "dashboard": {
-    "sectionOps": "Operations & signals",
     "error": "Could not load dashboard data.",
     "retry": "Retry",
+    "highlight": {
+      "dailyRevenue": "Daily revenue",
+      "realtimeRevenue": "Real-time revenue",
+      "realtimeRevenueChart": "Real-time revenue (B)",
+      "live": "LIVE",
+      "billionUnit": "B",
+      "justRecorded": "just recorded",
+      "waitingTick": "Waiting for next sale…",
+      "realtimeHint": "Auto-increments as new sales arrive"
+    },
     "charts": {
-      "revenue": "Revenue (B)",
+      "revenue": "Real-time revenue (B)",
       "revenueWeek": "Week",
       "revenueMonth": "Month",
       "revenueYear": "Year",
@@ -28,10 +150,16 @@
     "storePerformance": {
       "topStores": "TOP STORES",
       "worstStores": "WORST STORES",
+      "topImportCompanies": "Top companies — most imports",
+      "lowImportCompanies": "Top companies — fewest imports",
       "colStore": "Store",
       "colRevenue": "Revenue",
       "colCost": "Cost",
-      "colGrowth": "Growth"
+      "colGrowth": "Growth",
+      "colCompany": "Company",
+      "colImportValue": "Import value",
+      "colImportOrders": "Inbound orders",
+      "colChange": "Change"
     },
     "productPerformance": {
       "topSku": "TOP SKU",
@@ -83,7 +211,10 @@
       "salesDesc": "When customers buy most at this location",
       "warehouse": "Inbound orders & stock",
       "warehouseDesc": "Inbound order pipeline",
-      "totalRevenue": "Total revenue (B)",
+      "totalRevenue": "Real-time revenue (B)",
+      "realtimeHint": "Auto-increments as new sales arrive",
+      "live": "LIVE",
+      "billionUnit": "B",
       "revenueWeek": "Week",
       "revenueMonth": "Month",
       "revenueYear": "Year",

@@ -17,16 +17,16 @@ export function useRevenueChart(
   granularity: RevenueGranularity,
   canvasId: string,
   datasetLabel: string,
-  enabled: boolean
+  enabled: boolean,
 ) {
   const ref = useRef<ChartType | null>(null);
   const { theme } = useThemeContext();
+  const valuesKey = data?.[granularity]?.values.join(",") ?? "";
 
   useEffect(() => {
     if (!enabled || !data) return;
 
     const series = data[granularity];
-
     let cancelled = false;
 
     (async () => {
@@ -52,7 +52,7 @@ export function useRevenueChart(
           datasets: [
             {
               label: datasetLabel,
-              data: series.values,
+              data: [...series.values],
               borderColor: primary,
               backgroundColor: colorWithAlpha(primary, 0.1),
               fill: true,
@@ -107,5 +107,18 @@ export function useRevenueChart(
       ref.current?.destroy();
       ref.current = null;
     };
-  }, [data, granularity, canvasId, datasetLabel, enabled, theme]);
+  }, [enabled, granularity, canvasId, datasetLabel, theme]);
+
+  useEffect(() => {
+    if (!enabled || !data || !ref.current) return;
+    const series = data[granularity];
+    const chart = ref.current;
+    chart.data.labels = series.labels;
+    const dataset = chart.data.datasets[0];
+    if (dataset) {
+      dataset.data = [...series.values];
+      dataset.label = datasetLabel;
+    }
+    chart.update("none");
+  }, [valuesKey, granularity, datasetLabel, enabled, data]);
 }

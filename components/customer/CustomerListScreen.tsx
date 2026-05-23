@@ -10,7 +10,9 @@ import { ListScreenFilters } from "@/components/list/ListScreenFilters";
 import { customerDetailPath } from "@/lib/customerRoutes";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useCustomerList } from "@/hooks/useCustomer";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import type { GlobalCustomerListItem } from "@/types/customer";
 import type { CustomerTier } from "@/types/location";
 import "@/components/location/location.css";
@@ -26,6 +28,7 @@ export function CustomerListScreen() {
   const tSales = useTranslations("location.sales");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const { moduleBasePath } = useBusinessModuleScope();
   const { data, isLoading, isError, refetch } = useCustomerList();
 
   const [search, setSearch] = useState("");
@@ -89,7 +92,7 @@ export function CustomerListScreen() {
       dataIndex: "locationName",
       render: (name, row) => (
         <Link
-          href={`/location/${row.locationId}?tab=sales`}
+          href={locationDetailPath(row.locationId, "sales", moduleBasePath)}
           className="product-location-link font-semibold"
           onClick={(e) => e.stopPropagation()}
         >
@@ -160,7 +163,8 @@ export function CustomerListScreen() {
         scroll={tableScroll("max-content")}
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
-          onClick: () => router.push(customerDetailPath(row.locationId, row.id)),
+          onClick: () =>
+            router.push(customerDetailPath(row.locationId, row.id, moduleBasePath)),
           style: { cursor: "pointer" },
         })}
       />

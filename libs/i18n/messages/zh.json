@@ -1,20 +1,142 @@
 {
   "app_title": "金莲花草药",
+  "moduleHeader": {
+    "breadcrumbHolding": "金莲花草本 · 私有数据 · 金莲花草本",
+    "breadcrumbOrg": "金莲花草本 · 私有数据 · {org}",
+    "tagB2b": "B2B",
+    "tagHolding": "Holding",
+    "tagB2c": "B2C",
+    "tagCompany": "Company"
+  },
   "nav": {
     "open": "打开导航菜单",
     "dashboard": "总览",
+    "subsidiary": "子公司",
+    "externalOrganization": "外部组织",
+    "extBenhVienYhct": "中医院",
+    "extPhongChanTriYhct": "中医诊疗室",
+    "extNhaThuoc": "药店",
+    "extDnKdDuocLieu": "药材经营企业",
+    "extDnSxDuoc": "制药企业",
+    "extThucPhamChucNang": "功能性食品",
+    "extThucPhamBoSung": "膳食补充剂",
+    "extDnSxHoaMyPham": "化妆品与日化生产企业",
+    "extNhaPhanPhoiHangTieuDung": "快消品分销商",
+    "extNhaPhanPhoiMt": "现代渠道 MT",
+    "extNhaPhanPhoiMeBe": "母婴渠道",
+    "extNhaPhanPhoiGt": "传统渠道 GT",
+    "extKenhEcommerce": "电商渠道",
+    "extKenhSocialMedia": "社交媒体渠道",
+    "extNhapKhau": "进口",
+    "extXuatKhau": "出口",
+    "thaoDuocDiSan": "传承草本",
+    "khangDuongDiSan": "康养传承",
+    "yogiFood": "Yogi Food",
+    "thuongSonTra": "上山茶",
+    "thanTra": "神茶",
+    "heritageOverview": "总览",
     "location": "门店",
     "product": "产品",
     "order": "入库单",
-    "customer": "客户"
+    "customer": "客户",
+    "tradeMarketing": "贸易营销",
+    "brandMarketing": "品牌营销",
+    "supplySource": "供应来源",
+    "insightsDecisions": "洞察与决策"
+  },
+  "supplySource": {
+    "subtitle": "药材与原料供应管理 — 种植区信息按权限命令加密显示。",
+    "breadcrumb": "金莲花草本 · 私有数据 · 金莲花草本",
+    "error": "无法加载供应来源数据。",
+    "noSectionData": "该分组暂无数据。",
+    "maskedValue": "••••••••",
+    "maskedTooltip": "根据您的权限，内容已加密",
+    "scopeTabs": {
+      "domestic": "国内",
+      "international": "境外",
+      "import": "进口"
+    },
+    "detailTabs": {
+      "regionPartner": "产区与伙伴",
+      "cultivation": "种植与产量",
+      "logisticsPrice": "物流与价格"
+    },
+    "sections": {
+      "location": "地点 / 面积 / 海拔",
+      "enterprise": "企业 / 组织 / 个人",
+      "soilClimate": "土壤、气候与水文",
+      "species": "药用植物品种",
+      "harvestYield": "采收季与产量",
+      "processingLogistics": "运输、初加工、加工、规格与储存",
+      "pricingTerms": "单价 / 付款 / 运输 / 交货"
+    }
+  },
+  "brandMarketing": {
+    "title": "品牌营销",
+    "subtitle": "金莲花草本集团品牌管理 — 全链品牌战略、传播与效果。",
+    "error": "无法加载品牌营销数据。",
+    "colName": "项目",
+    "colStatus": "状态",
+    "colMetric": "指标",
+    "colPeriod": "周期",
+    "colOwner": "负责人",
+    "tabs": {
+      "brandStrategy": "品牌战略",
+      "campaigns": "品牌战役",
+      "channels": "传播渠道",
+      "partnerships": "合作与大使",
+      "budgetPerformance": "预算与效果"
+    }
+  },
+  "heritageTrade": {
+    "subtitle": "门店贸易营销活动管理。",
+    "error": "无法加载贸易营销数据。",
+    "colName": "名称",
+    "colStatus": "状态",
+    "colMetric": "指标",
+    "colPeriod": "周期",
+    "colOwner": "负责人",
+    "tabs": {
+      "merchandiseDisplay": "商品陈列",
+      "salesTraining": "销售培训",
+      "customerCare": "客户关怀",
+      "salesPolicy": "销售政策",
+      "seasonalCampaigns": "时点营销活动",
+      "newStoreOpening": "新开销售点"
+    }
+  },
+  "heritageInsights": {
+    "title": "洞察与决策",
+    "subtitle": "风险、机会与决策支持分析。",
+    "error": "无法加载洞察与决策数据。",
+    "colName": "名称",
+    "colStatus": "级别",
+    "colMetric": "指标",
+    "colPeriod": "周期",
+    "colOwner": "负责人",
+    "tabs": {
+      "risks": "风险",
+      "opportunities": "机会",
+      "forecasts": "预测",
+      "recommendations": "建议"
+    }
   },
   "app_description": "金莲花草药管理后台",
   "dashboard": {
-    "sectionOps": "运营与信号",
     "error": "无法加载仪表盘数据。",
     "retry": "重试",
+    "highlight": {
+      "dailyRevenue": "当日营收",
+      "realtimeRevenue": "实时营收",
+      "realtimeRevenueChart": "实时营收（十亿）",
+      "live": "直播",
+      "billionUnit": "十亿",
+      "justRecorded": "刚刚入账",
+      "waitingTick": "等待下一笔交易…",
+      "realtimeHint": "随新交易自动累加"
+    },
     "charts": {
-      "revenue": "营收（十亿）",
+      "revenue": "实时营收（十亿）",
       "revenueWeek": "周",
       "revenueMonth": "月",
       "revenueYear": "年",
@@ -28,10 +150,16 @@
     "storePerformance": {
       "topStores": "TOP STORES",
       "worstStores": "WORST STORES",
+      "topImportCompanies": "入库最多公司",
+      "lowImportCompanies": "入库最少公司",
       "colStore": "门店",
       "colRevenue": "营收",
       "colCost": "成本",
-      "colGrowth": "增长"
+      "colGrowth": "增长",
+      "colCompany": "公司",
+      "colImportValue": "入库金额",
+      "colImportOrders": "入库单数",
+      "colChange": "变化"
     },
     "productPerformance": {
       "topSku": "TOP SKU",
@@ -83,7 +211,10 @@
       "salesDesc": "客户最常购买的时段",
       "warehouse": "入库单与库存",
       "warehouseDesc": "入库订单状态",
-      "totalRevenue": "总营收（十亿）",
+      "totalRevenue": "实时营收（十亿）",
+      "realtimeHint": "随新交易自动累加",
+      "live": "实时",
+      "billionUnit": "十亿",
       "revenueWeek": "周",
       "revenueMonth": "月",
       "revenueYear": "年",

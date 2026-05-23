@@ -1,3 +1,5 @@
+import { withModulePrefix } from "@/libs/business-modules/paths";
+
 const GLOBAL_CUSTOMER_SEP = "__";
 
 export function globalCustomerId(locationId: string, customerId: string) {
@@ -16,6 +18,17 @@ export function parseGlobalCustomerId(globalId: string): {
   };
 }
 
-export function customerDetailPath(locationId: string, customerId: string) {
-  return `/customer/${globalCustomerId(locationId, customerId)}`;
+export function customerListPath(moduleBasePath?: string) {
+  return withModulePrefix(moduleBasePath, "/customer");
+}
+
+export function customerDetailPath(
+  locationId: string,
+  customerId: string,
+  moduleBasePath?: string,
+) {
+  return withModulePrefix(
+    moduleBasePath,
+    `/customer/${globalCustomerId(locationId, customerId)}`,
+  );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { productDetailPath } from "@/lib/productCode";
 
 export function ProductCodeLink({
@@ -14,6 +15,7 @@ export function ProductCodeLink({
   stopPropagation?: boolean;
   className?: string;
 }) {
+  const { moduleBasePath } = useBusinessModuleScope();
   const label = name ?? productCode;
   const defaultClass = name
     ? "font-semibold text-pharma hover:underline"
@@ -21,7 +23,7 @@ export function ProductCodeLink({
 
   return (
     <Link
-      href={productDetailPath(productCode)}
+      href={productDetailPath(productCode, moduleBasePath)}
       className={className ?? defaultClass}
       onClick={stopPropagation ? (e) => e.stopPropagation() : undefined}
     >

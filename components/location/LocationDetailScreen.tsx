@@ -5,7 +5,9 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Breadcrumb, Spin, Tabs } from "antd";
 import { useTranslations } from "next-intl";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useLocationMeta } from "@/hooks/useLocation";
+import { locationListPath } from "@/lib/locationRoutes";
 import { OverviewTab } from "./tabs/OverviewTab";
 import { StaffCostsTab } from "./tabs/StaffCostsTab";
 import { SalesTab } from "./tabs/SalesTab";
@@ -26,6 +28,8 @@ export function LocationDetailScreen({ locationId }: { locationId: string }) {
 
   const [tab, setTab] = useState<LocationTabKey>(initialTab);
   const [loadedTabs, setLoadedTabs] = useState<LocationTabKey[]>([initialTab]);
+  const { moduleBasePath } = useBusinessModuleScope();
+  const listHref = locationListPath(moduleBasePath);
   const { data: meta, isLoading, isError } = useLocationMeta(locationId);
 
   useEffect(() => {
@@ -57,7 +61,7 @@ export function LocationDetailScreen({ locationId }: { locationId: string }) {
       <div className="location-page">
         <Breadcrumb
           className="location-breadcrumb"
-          items={[{ title: <Link href="/location">{t("title")}</Link> }]}
+          items={[{ title: <Link href={listHref}>{t("title")}</Link> }]}
         />
         <p className="text-muted text-center py-16 m-0">{t("error")}</p>
       </div>
@@ -70,7 +74,7 @@ export function LocationDetailScreen({ locationId }: { locationId: string }) {
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/location">{t("title")}</Link> },
+            { title: <Link href={listHref}>{t("title")}</Link> },
             { title: meta.name },
           ]}
         />

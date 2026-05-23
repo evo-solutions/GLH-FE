@@ -3,6 +3,7 @@
 import { Drawer, Menu } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import { useThemeContext } from "@/libs/theme/ThemeProvider";
+import { useNavMenuOpenKeys } from "@/hooks/useNavMenuOpenKeys";
 import { Logo } from "./Logo";
 import { navSelectedKey } from "./navSelectedKey";
 import { useNavMenuItems } from "./useNavMenuItems";
@@ -18,6 +19,7 @@ export function NavDrawer({
   const pathname = usePathname();
   const { theme } = useThemeContext();
   const menuItems = useNavMenuItems();
+  const { openKeys, onOpenChange } = useNavMenuOpenKeys(pathname);
 
   return (
     <Drawer
@@ -32,12 +34,16 @@ export function NavDrawer({
       <Menu
         mode="inline"
         selectedKeys={[navSelectedKey(pathname)].filter(Boolean)}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
         items={menuItems}
         theme={theme === "dark" ? "dark" : "light"}
         className="app-nav-drawer-menu border-0 font-semibold"
         onClick={({ key }) => {
-          router.push(key);
-          onClose();
+          if (typeof key === "string" && key.startsWith("/")) {
+            router.push(key);
+            onClose();
+          }
         }}
       />
     </Drawer>

@@ -1,14 +1,16 @@
 import { getProductInboundOrders } from "@/lib/inboundOrderData";
+import {
+  productDisplayBrand,
+  productDisplayCategory,
+  productDisplayName,
+} from "@/lib/productCatalog";
 import { getProductDetailInstances } from "@/lib/productInstanceCatalog";
 import { LOCATION_SEEDS } from "@/lib/locationRegistry";
 import type { ProductDetail, ProductListItem, ProductMeta } from "@/types/product";
 
-const listVi: ProductListItem[] = [
+const listData: Omit<ProductListItem, "name" | "category" | "brand">[] = [
   {
     productCode: "BSV-COV19",
-    name: "Vaccine Covid Vietnam",
-    category: "Vaccine",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫185,000",
     importPrice: "₫142,000",
     status: "hot",
@@ -23,9 +25,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-4412",
-    name: "Omega-3 Premium 60v",
-    category: "TPCN",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫420,000",
     importPrice: "₫268,000",
     status: "hot",
@@ -40,9 +39,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-2281",
-    name: "Vitamin C 1000mg",
-    category: "Vitamin",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫185,000",
     importPrice: "₫92,000",
     status: "stable",
@@ -57,9 +53,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-9033",
-    name: "Collagen Peptide",
-    category: "Làm đẹp",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫560,000",
     importPrice: "₫340,000",
     status: "slow",
@@ -74,9 +67,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-7710",
-    name: "Men vi sinh 30g",
-    category: "Tiêu hóa",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫295,000",
     importPrice: "₫168,000",
     status: "hot",
@@ -91,9 +81,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-5520",
-    name: "Kẽm + Vitamin D3",
-    category: "Vitamin",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫245,000",
     importPrice: "₫128,000",
     status: "stable",
@@ -108,9 +95,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-6108",
-    name: "Glucosamine 120v",
-    category: "TPCN",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫380,000",
     importPrice: "₫210,000",
     status: "slow",
@@ -125,9 +109,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-3344",
-    name: "Sữa rửa Collagen",
-    category: "Làm đẹp",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫165,000",
     importPrice: "₫78,000",
     status: "new",
@@ -142,9 +123,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-1199",
-    name: "Dầu gội thảo dược",
-    category: "Chăm sóc",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫125,000",
     importPrice: "₫62,000",
     status: "stable",
@@ -159,9 +137,6 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-8801",
-    name: "Magnesium Glycinate",
-    category: "TPCN",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫320,000",
     importPrice: "₫175,000",
     status: "hot",
@@ -176,22 +151,75 @@ const listVi: ProductListItem[] = [
   },
   {
     productCode: "BSV-7022",
-    name: "Vitamin B Complex",
-    category: "Vitamin",
-    brand: "Bông Sen Vàng",
     sellPrice: "₫198,000",
     importPrice: "₫98,000",
-    status: "out",
-    statusLabel: "Hết hàng",
-    monthlyUnits: 0,
-    monthlyRevenue: "₫0",
-    growth: "—",
-    growthUp: false,
-    totalStock: 0,
-    locationCount: 0,
-    avgDailyUnits: 0,
+    status: "stable",
+    statusLabel: "Ổn định",
+    monthlyUnits: 124,
+    monthlyRevenue: "₫24 tr",
+    growth: "+6.8%",
+    growthUp: true,
+    totalStock: 64,
+    locationCount: 9,
+    avgDailyUnits: 4,
+  },
+  {
+    productCode: "BSV-9301",
+    sellPrice: "₫89,000",
+    importPrice: "₫42,000",
+    status: "hot",
+    statusLabel: "Bán chạy",
+    monthlyUnits: 720,
+    monthlyRevenue: "₫64 tr",
+    growth: "+21.3%",
+    growthUp: true,
+    totalStock: 210,
+    locationCount: 14,
+    avgDailyUnits: 24,
+  },
+  {
+    productCode: "BSV-9302",
+    sellPrice: "₫156,000",
+    importPrice: "₫88,000",
+    status: "hot",
+    statusLabel: "Bán chạy",
+    monthlyUnits: 548,
+    monthlyRevenue: "₫85 tr",
+    growth: "+14.7%",
+    growthUp: true,
+    totalStock: 176,
+    locationCount: 13,
+    avgDailyUnits: 18,
+  },
+  {
+    productCode: "BSV-9303",
+    sellPrice: "₫128,000",
+    importPrice: "₫65,000",
+    status: "new",
+    statusLabel: "Mới",
+    monthlyUnits: 312,
+    monthlyRevenue: "₫40 tr",
+    growth: "+32.5%",
+    growthUp: true,
+    totalStock: 98,
+    locationCount: 10,
+    avgDailyUnits: 10,
   },
 ];
+
+function toListItem(
+  row: (typeof listData)[number],
+  locale: "vi" | "en" | "zh" = "vi",
+): ProductListItem {
+  return {
+    ...row,
+    name: productDisplayName(row.productCode, locale),
+    category: productDisplayCategory(row.productCode, locale),
+    brand: productDisplayBrand(row.productCode),
+  };
+}
+
+const listVi: ProductListItem[] = listData.map((row) => toListItem(row, "vi"));
 
 const ACTIVE_LOCATIONS = LOCATION_SEEDS.filter((s) => s.status === "active");
 
@@ -201,7 +229,7 @@ function chartLocationShare(count: number) {
   return {
     labels: slice.map((l) => l.code),
     values: slice.map((_, i, arr) =>
-      i === arr.length - 1 ? Math.max(0, count - per * (arr.length - 1)) : per
+      i === arr.length - 1 ? Math.max(0, count - per * (arr.length - 1)) : per,
     ),
   };
 }
@@ -212,7 +240,7 @@ function instanceOpts(item: ProductListItem) {
     sellPrice: item.sellPrice,
     importPrice: item.importPrice,
     centralRatio:
-      item.productCode === "BSV-COV19" ? 0.35 : item.productCode === "BSV-7022" ? 0 : 0.2,
+      item.productCode === "BSV-COV19" ? 0.35 : 0.2,
   };
 }
 
@@ -314,3 +342,7 @@ export const productMockVi = {
     buildDetail(listVi.find((p) => p.productCode === productCode) ?? listVi[0]),
   meta: (code: string): ProductMeta => productMockVi.detail(code).meta,
 };
+
+export function buildLocalizedProductList(locale: "en" | "zh"): ProductListItem[] {
+  return listData.map((row) => toListItem(row, locale));
+}

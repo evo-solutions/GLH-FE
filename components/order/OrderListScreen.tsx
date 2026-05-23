@@ -6,11 +6,14 @@ import Link from "next/link";
 import { Spin, Table, Tag } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useTranslations } from "next-intl";
+import { ModulePageHeader } from "@/components/layout/ModulePageHeader";
 import { ListScreenFilters } from "@/components/list/ListScreenFilters";
 import { orderDetailPath } from "@/lib/orderRoutes";
 import { matchesSearch, uniqueFilterOptions } from "@/lib/listFilter";
 import { defaultTablePagination, tableScroll } from "@/lib/tablePagination";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useOrderList } from "@/hooks/useOrder";
+import { locationDetailPath } from "@/lib/locationRoutes";
 import { ProductCodeLink } from "@/components/product/ProductCodeLink";
 import type { LocationInboundOrder, InboundOrderStatus } from "@/types/location";
 import "@/components/location/location.css";
@@ -48,6 +51,7 @@ export function OrderListScreen() {
   const tProduct = useTranslations("product");
   const tFilter = useTranslations("listFilters");
   const router = useRouter();
+  const { moduleBasePath } = useBusinessModuleScope();
   const { data, isLoading, isError, refetch } = useOrderList();
 
   const [search, setSearch] = useState("");
@@ -125,7 +129,7 @@ export function OrderListScreen() {
       dataIndex: "locationName",
       render: (name, row) => (
         <Link
-          href={`/location/${row.locationId}`}
+          href={locationDetailPath(row.locationId, undefined, moduleBasePath)}
           className="product-location-link font-semibold"
           onClick={(e) => e.stopPropagation()}
         >
@@ -170,9 +174,7 @@ export function OrderListScreen() {
 
   return (
     <div className="location-page">
-      <header className="location-page-header">
-        <h1 className="location-page-title">{t("title")}</h1>
-      </header>
+      <ModulePageHeader title={t("title")} />
 
       <ListScreenFilters
         searchValue={search}
@@ -219,7 +221,7 @@ export function OrderListScreen() {
         scroll={tableScroll("max-content")}
         locale={{ emptyText: t("empty") }}
         onRow={(row) => ({
-          onClick: () => router.push(orderDetailPath(row.id)),
+          onClick: () => router.push(orderDetailPath(row.id, moduleBasePath)),
           style: { cursor: "pointer" },
         })}
       />

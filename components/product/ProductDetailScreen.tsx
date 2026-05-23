@@ -5,7 +5,9 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Breadcrumb, Spin, Tabs } from "antd";
 import { useTranslations } from "next-intl";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useProductDetail } from "@/hooks/useProduct";
+import { productListPath } from "@/lib/productRoutes";
 import { ProductInboundTab } from "./tabs/ProductInboundTab";
 import { ProductItemsTab } from "./tabs/ProductItemsTab";
 import { ProductOverviewTab } from "./tabs/ProductOverviewTab";
@@ -21,6 +23,8 @@ export function ProductDetailScreen({ productCode }: { productCode: string }) {
     tabFromUrl === "items" || tabFromUrl === "inbound" ? tabFromUrl : "overview";
   const [tab, setTab] = useState<ProductTabKey>(initialTab);
   const [loadedTabs, setLoadedTabs] = useState<ProductTabKey[]>([initialTab]);
+  const { moduleBasePath } = useBusinessModuleScope();
+  const listHref = productListPath(moduleBasePath);
   const { data, isLoading, isError } = useProductDetail(productCode);
 
   useEffect(() => {
@@ -51,7 +55,7 @@ export function ProductDetailScreen({ productCode }: { productCode: string }) {
       <div className="product-page">
         <Breadcrumb
           className="location-breadcrumb"
-          items={[{ title: <Link href="/product">{t("title")}</Link> }]}
+          items={[{ title: <Link href={listHref}>{t("title")}</Link> }]}
         />
         <p className="text-muted text-center py-16 m-0">{t("error")}</p>
       </div>
@@ -64,7 +68,7 @@ export function ProductDetailScreen({ productCode }: { productCode: string }) {
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/product">{t("title")}</Link> },
+            { title: <Link href={listHref}>{t("title")}</Link> },
             { title: data.meta.name },
           ]}
         />

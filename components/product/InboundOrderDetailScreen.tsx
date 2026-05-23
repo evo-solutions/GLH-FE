@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Breadcrumb } from "antd";
 import { useTranslations } from "next-intl";
 import { InboundOrderDetailView } from "@/components/inbound/InboundOrderDetailView";
+import { useBusinessModuleScope } from "@/hooks/useBusinessModuleScope";
 import { useProductDetail } from "@/hooks/useProduct";
-import { productDetailPath } from "@/lib/productRoutes";
+import { productDetailPath, productListPath } from "@/lib/productRoutes";
 import "@/components/location/location.css";
 import "./product.css";
 
@@ -20,10 +21,12 @@ export function InboundOrderDetailScreen({
 }) {
   const t = useTranslations("product");
   const tInbound = useTranslations("product.inbound");
+  const { moduleBasePath } = useBusinessModuleScope();
   const { data: product } = useProductDetail(productCode);
 
   const productName = product?.meta.name ?? productCode;
-  const productHref = productDetailPath(productCode);
+  const listHref = productListPath(moduleBasePath);
+  const productHref = productDetailPath(productCode, moduleBasePath);
 
   return (
     <div className="product-page">
@@ -31,7 +34,7 @@ export function InboundOrderDetailScreen({
         <Breadcrumb
           className="location-breadcrumb"
           items={[
-            { title: <Link href="/product">{t("title")}</Link> },
+            { title: <Link href={listHref}>{t("title")}</Link> },
             { title: <Link href={productHref}>{productName}</Link> },
             { title: <Link href={`${productHref}?tab=inbound`}>{tInbound("title")}</Link> },
             { title: tInbound("orderDetail") },

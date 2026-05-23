@@ -11,12 +11,12 @@ export function DashboardPerformanceSection({
   storePerformance,
   productPerformance,
 }: {
-  storePerformance: StorePerformanceData;
+  storePerformance: StorePerformanceData | null;
   productPerformance: ProductPerformanceData;
 }) {
   return (
     <div className="dashboard-performance-section">
-      <StorePerformanceRow data={storePerformance} />
+      {storePerformance ? <StorePerformanceRow data={storePerformance} /> : null}
       <ProductPerformanceRow data={productPerformance} />
     </div>
   );
