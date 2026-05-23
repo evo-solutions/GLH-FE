@@ -7,7 +7,16 @@ import "./businessModelModuleHeader.css";
 
 type Props = {
   /** i18n key under businessModel.pages.{pageKey} */
-  pageKey: "stores" | "products" | "warehouse" | "customers" | "supply" | "marketing";
+  pageKey:
+    | "stores"
+    | "products"
+    | "warehouse"
+    | "customers"
+    | "supply"
+    | "marketing"
+    | "brandOverview"
+    | "brandAwareness"
+    | "brandCampaigns";
   className?: string;
 };
 
@@ -20,7 +29,13 @@ export function BusinessModelModuleHeader({ pageKey, className }: Props) {
   const commerceLabel =
     commerceModel === "b2c" ? tOrg("commerceB2c") : tOrg("commerceB2b");
   const roleLabel =
-    entityRole === "subsidiary" ? tOrg("roleSubsidiary") : tOrg("roleHolding");
+    entityRole === "subsidiary"
+      ? tOrg("roleSubsidiary")
+      : entityRole === "brand-marketing"
+        ? tOrg("roleBrandMarketing")
+        : entityRole === "holding"
+          ? tOrg("roleHolding")
+          : tOrg("roleB2bChannel");
 
   return (
     <header className={`bm-module-header ${className ?? ""}`}>

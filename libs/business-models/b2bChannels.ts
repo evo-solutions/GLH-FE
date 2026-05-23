@@ -15,6 +15,7 @@ export const B2B_CHANNEL_SLUGS = [
   "kenh-social",
   "nhap-khau",
   "xuat-khau",
+  "marketing-thuong-hieu",
 ] as const;
 
 export type B2BChannelSlug = (typeof B2B_CHANNEL_SLUGS)[number];
@@ -40,6 +41,7 @@ export const B2B_CHANNEL_DEFINITIONS: B2BChannelDefinition[] = [
   { slug: "kenh-social", navKey: "kenhSocial", segmentKey: "social-media" },
   { slug: "nhap-khau", navKey: "nhapKhau", segmentKey: "import" },
   { slug: "xuat-khau", navKey: "xuatKhau", segmentKey: "export" },
+  { slug: "marketing-thuong-hieu", navKey: "marketingThuongHieu", segmentKey: "brand-marketing" },
 ];
 
 const SLUG_TO_SEGMENT = Object.fromEntries(
@@ -83,4 +85,10 @@ export const B2B_DISTRIBUTOR_CHANNEL_SLUGS = [
 
 export function isB2BDistributorChannelSlug(slug: string): boolean {
   return (B2B_DISTRIBUTOR_CHANNEL_SLUGS as readonly string[]).includes(slug);
+}
+
+export const BRAND_MARKETING_CHANNEL_SLUG = "marketing-thuong-hieu" as const;
+
+export function isBrandMarketingChannel(slug: string): boolean {
+  return slug === BRAND_MARKETING_CHANNEL_SLUG;
 }

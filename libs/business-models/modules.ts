@@ -1,5 +1,8 @@
 import type { BusinessModelConfig, BusinessModule } from "@/libs/business-models/config";
 import {
+  modelBrandAwarenessPath,
+  modelBrandCampaignsPath,
+  modelBrandOverviewPath,
   modelCustomerListPath,
   modelLocationListPath,
   modelMarketingPath,
@@ -16,6 +19,9 @@ const MODULE_I18N: Record<BusinessModule, string> = {
   "customers-b": "customersB",
   marketing: "marketing",
   supply: "supply",
+  "brand-overview": "brandOverview",
+  "brand-awareness": "brandAwareness",
+  "brand-campaigns": "brandCampaigns",
 };
 
 export function moduleSectionLabelKey(module: BusinessModule): string {
@@ -32,6 +38,9 @@ export function getModuleNavItems(config: BusinessModelConfig) {
     "customers-b": modelCustomerListPath(slug),
     marketing: modelMarketingPath(slug),
     supply: modelSupplyPath(slug),
+    "brand-overview": modelBrandOverviewPath(slug),
+    "brand-awareness": modelBrandAwarenessPath(slug),
+    "brand-campaigns": modelBrandCampaignsPath(slug),
   };
 
   return modules.map((module) => ({

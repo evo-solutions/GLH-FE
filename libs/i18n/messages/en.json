@@ -23,6 +23,7 @@
       "kenhSocial": "Social Media Channel",
       "nhapKhau": "Import",
       "xuatKhau": "Export",
+      "marketingThuongHieu": "Brand Marketing",
       "bongSenVang": "GOLDEN LOTUS"
     },
     "sections": {
@@ -33,7 +34,10 @@
       "customersC": "Customers (C)",
       "customersB": "Customers (B)",
       "supply": "Supply sources",
-      "marketing": "Trade Marketing"
+      "marketing": "Trade Marketing",
+      "brandOverview": "Brand Overview",
+      "brandAwareness": "Brand Awareness",
+      "brandCampaigns": "Brand Campaigns"
     }
   },
   "businessModel": {
@@ -41,6 +45,8 @@
     "commerceB2b": "B2B",
     "roleSubsidiary": "Subsidiary",
     "roleHolding": "Holding",
+    "roleB2bChannel": "B2B channel",
+    "roleBrandMarketing": "Brand development",
     "dataScope": "Scoped data · {entity}",
     "warehouseSubsidiaryHint": "Warehouse aggregated across this unit's stores — separate revenue & stock.",
     "warehouseHoldingHint": "Group consolidated warehouse — supply and allocation for all units.",
@@ -53,8 +59,39 @@
       "warehouse": "Warehouse",
       "customers": "Customers",
       "supply": "Supply sources",
-      "marketing": "Trade Marketing"
+      "marketing": "Trade Marketing",
+      "brandOverview": "Brand Overview",
+      "brandAwareness": "Brand Awareness",
+      "brandCampaigns": "Brand Campaigns"
     }
+  },
+  "brandMarketing": {
+    "overviewIntro": "Track Golden Lotus brand strength — composite index, awareness KPIs, and priorities to build a stronger TCM & herbal brand.",
+    "awarenessIntro": "Manage brand awareness surveys by region and period — measure recognition and purchase consideration.",
+    "campaignsIntro": "Monitor brand communication campaigns — budget, reach, and awareness lift.",
+    "strengthIndexLabel": "Brand strength index",
+    "aidedAwareness": "Aided awareness",
+    "unaidedAwareness": "Unaided awareness",
+    "shareOfVoice": "Share of voice",
+    "brandPreference": "Brand preference",
+    "activeCampaigns": "Active campaigns",
+    "pillarsTitle": "Brand pillars",
+    "prioritiesTitle": "Next-quarter priorities",
+    "awarenessHint": "Periodic surveys (CATI + online panel) — target: higher unaided awareness and top-of-mind in health · TCM.",
+    "surveyTableTitle": "Awareness survey results",
+    "surveyPeriod": "Period",
+    "surveyRegion": "Region",
+    "sampleSize": "Sample",
+    "topOfMind": "Top-of-mind",
+    "consideration": "Consideration",
+    "campaignsTableTitle": "Campaign list",
+    "campaignName": "Campaign",
+    "campaignChannel": "Channel",
+    "campaignStatus": "Status",
+    "campaignPeriod": "Period",
+    "campaignBudget": "Budget",
+    "campaignReach": "Reach",
+    "campaignLift": "Brand impact"
   },
   "supply": {
     "intro": "Herbal supply, ingredients and import sources — Golden Lotus Holding scope.",

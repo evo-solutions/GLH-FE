@@ -10,6 +10,9 @@ export function navSelectedKey(pathname: string): string {
 
   const model = parseBusinessModelFromPathname(pathname);
   if (model) {
+    if (pathname.includes("/brand/campaigns")) return `/m/${model}/brand/campaigns`;
+    if (pathname.includes("/brand/awareness")) return `/m/${model}/brand/awareness`;
+    if (pathname.includes("/brand")) return `/m/${model}/brand`;
     if (pathname.includes("/location")) return `/m/${model}/location`;
     if (pathname.includes("/product")) return `/m/${model}/product`;
     if (pathname.includes("/order")) return `/m/${model}/order`;

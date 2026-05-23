@@ -1,4 +1,5 @@
 import type { BusinessModelSlug } from "@/libs/business-models/config";
+import { isBrandMarketingChannel } from "@/libs/business-models/b2bChannels";
 
 const PREFIX = "/m";
 
@@ -30,8 +31,21 @@ export function modelSupplyPath(slug: BusinessModelSlug): string {
   return `${businessModelBasePath(slug)}/supply`;
 }
 
+export function modelBrandOverviewPath(slug: BusinessModelSlug): string {
+  return `${businessModelBasePath(slug)}/brand`;
+}
+
+export function modelBrandAwarenessPath(slug: BusinessModelSlug): string {
+  return `${businessModelBasePath(slug)}/brand/awareness`;
+}
+
+export function modelBrandCampaignsPath(slug: BusinessModelSlug): string {
+  return `${businessModelBasePath(slug)}/brand/campaigns`;
+}
+
 /** Trang mặc định khi mở một đơn vị */
 export function modelDefaultModulePath(slug: BusinessModelSlug): string {
+  if (isBrandMarketingChannel(slug)) return modelBrandOverviewPath(slug);
   return modelProductListPath(slug);
 }
 

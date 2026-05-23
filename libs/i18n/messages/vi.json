@@ -23,6 +23,7 @@
       "kenhSocial": "Kênh Social Media",
       "nhapKhau": "Nhập Khẩu",
       "xuatKhau": "Xuất Khẩu",
+      "marketingThuongHieu": "Marketing Thương Hiệu",
       "bongSenVang": "BÔNG SEN VÀNG"
     },
     "sections": {
@@ -33,7 +34,10 @@
       "customersC": "Khách Hàng (C)",
       "customersB": "Khách Hàng (B)",
       "supply": "Nguồn Cung",
-      "marketing": "Trade Marketing"
+      "marketing": "Trade Marketing",
+      "brandOverview": "Tổng Quan Thương Hiệu",
+      "brandAwareness": "Nhận Diện Thương Hiệu",
+      "brandCampaigns": "Chiến Dịch Truyền Thông"
     }
   },
   "businessModel": {
@@ -41,6 +45,8 @@
     "commerceB2b": "B2B",
     "roleSubsidiary": "Công ty con",
     "roleHolding": "Holding",
+    "roleB2bChannel": "Kênh B2B",
+    "roleBrandMarketing": "Phát Triển Thương Hiệu",
     "dataScope": "Dữ liệu riêng · {entity}",
     "warehouseSubsidiaryHint": "Kho tổng hợp các điểm bán thuộc cơ sở này — doanh thu & tồn riêng.",
     "warehouseHoldingHint": "Tổng kho toàn hệ thống — cung ứng & điều phối cho các cơ sở.",
@@ -53,8 +59,39 @@
       "warehouse": "Kho",
       "customers": "Khách Hàng",
       "supply": "Nguồn Cung",
-      "marketing": "Trade Marketing"
+      "marketing": "Trade Marketing",
+      "brandOverview": "Tổng Quan Thương Hiệu",
+      "brandAwareness": "Nhận Diện Thương Hiệu",
+      "brandCampaigns": "Chiến Dịch Truyền Thông"
     }
+  },
+  "brandMarketing": {
+    "overviewIntro": "Theo dõi sức mạnh thương hiệu Bông Sen Vàng — chỉ số tổng hợp, nhận diện, ưu tiên xây dựng thương hiệu mạnh trên thị trường YHCT & dược liệu.",
+    "awarenessIntro": "Quản lý khảo sát nhận diện thương hiệu theo vùng và kỳ — đo lường mức độ người tiêu dùng biết đến và ưu tiên thương hiệu.",
+    "campaignsIntro": "Theo dõi các chiến dịch truyền thông thương hiệu — ngân sách, phạm vi tiếp cận và hiệu quả nâng cao nhận diện.",
+    "strengthIndexLabel": "Chỉ số sức mạnh thương hiệu",
+    "aidedAwareness": "Nhận biết có hỗ trợ",
+    "unaidedAwareness": "Nhận biết không hỗ trợ",
+    "shareOfVoice": "Thị phần truyền thông",
+    "brandPreference": "Ưu tiên thương hiệu",
+    "activeCampaigns": "Chiến dịch đang chạy",
+    "pillarsTitle": "Trụ cột thương hiệu",
+    "prioritiesTitle": "Ưu tiên quý tới",
+    "awarenessHint": "Khảo sát định kỳ (CATI + online panel) — mục tiêu: tăng nhận biết không hỗ trợ và top-of-mind trong phân khúc sức khỏe · YHCT.",
+    "surveyTableTitle": "Kết quả khảo sát nhận diện",
+    "surveyPeriod": "Kỳ",
+    "surveyRegion": "Vùng",
+    "sampleSize": "Mẫu",
+    "topOfMind": "Top-of-mind",
+    "consideration": "Cân nhắc mua",
+    "campaignsTableTitle": "Danh sách chiến dịch",
+    "campaignName": "Chiến dịch",
+    "campaignChannel": "Kênh",
+    "campaignStatus": "Trạng thái",
+    "campaignPeriod": "Thời gian",
+    "campaignBudget": "Ngân sách",
+    "campaignReach": "Tiếp cận",
+    "campaignLift": "Hiệu quả thương hiệu"
   },
   "supply": {
     "intro": "Quản lý nguồn cung dược liệu, vị thuốc và nhập khẩu — phạm vi Holding Bông Sen Vàng.",

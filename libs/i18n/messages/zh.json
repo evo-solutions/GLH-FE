@@ -23,6 +23,7 @@
       "kenhSocial": "社交媒体",
       "nhapKhau": "进口",
       "xuatKhau": "出口",
+      "marketingThuongHieu": "品牌营销",
       "bongSenVang": "金莲花"
     },
     "sections": {
@@ -33,7 +34,10 @@
       "customersC": "客户 (C)",
       "customersB": "客户 (B)",
       "supply": "供应来源",
-      "marketing": "Trade Marketing"
+      "marketing": "Trade Marketing",
+      "brandOverview": "品牌总览",
+      "brandAwareness": "品牌认知",
+      "brandCampaigns": "品牌传播活动"
     }
   },
   "businessModel": {
@@ -41,6 +45,8 @@
     "commerceB2b": "B2B",
     "roleSubsidiary": "子公司",
     "roleHolding": "控股",
+    "roleB2bChannel": "B2B 渠道",
+    "roleBrandMarketing": "品牌发展",
     "dataScope": "独立数据 · {entity}",
     "warehouseSubsidiaryHint": "本单元各门店汇总仓库 — 营收与库存独立。",
     "warehouseHoldingHint": "集团总仓 — 向各单元供应与调配。",
@@ -53,8 +59,39 @@
       "warehouse": "仓库",
       "customers": "客户",
       "supply": "供应来源",
-      "marketing": "Trade Marketing"
+      "marketing": "Trade Marketing",
+      "brandOverview": "品牌总览",
+      "brandAwareness": "品牌认知",
+      "brandCampaigns": "品牌传播活动"
     }
+  },
+  "brandMarketing": {
+    "overviewIntro": "跟踪金莲花品牌实力 — 综合指数、认知 KPI 与建设强势品牌的优先事项。",
+    "awarenessIntro": "按区域与周期管理品牌认知调研 — 衡量知名度与购买考虑度。",
+    "campaignsIntro": "跟踪品牌传播活动 — 预算、触达与认知提升效果。",
+    "strengthIndexLabel": "品牌实力指数",
+    "aidedAwareness": "提示认知",
+    "unaidedAwareness": "无提示认知",
+    "shareOfVoice": "传播声量份额",
+    "brandPreference": "品牌偏好",
+    "activeCampaigns": "进行中活动",
+    "pillarsTitle": "品牌支柱",
+    "prioritiesTitle": "下季度重点",
+    "awarenessHint": "定期调研（CATI + 在线样本）— 目标：提升无提示认知与第一提及率。",
+    "surveyTableTitle": "认知调研结果",
+    "surveyPeriod": "周期",
+    "surveyRegion": "区域",
+    "sampleSize": "样本",
+    "topOfMind": "第一提及",
+    "consideration": "购买考虑",
+    "campaignsTableTitle": "活动列表",
+    "campaignName": "活动",
+    "campaignChannel": "渠道",
+    "campaignStatus": "状态",
+    "campaignPeriod": "时间",
+    "campaignBudget": "预算",
+    "campaignReach": "触达",
+    "campaignLift": "品牌效果"
   },
   "supply": {
     "intro": "药材、饮片及进口供应管理 — 金莲花控股范围。",

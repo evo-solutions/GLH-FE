@@ -3,7 +3,7 @@
  *
  * Sidebar:
  * - 5 cty con B2C (Điểm bán · SP · Kho · KH C · Trade MKT)
- * - 13 kênh B2B (SP theo tab dòng hàng · Kho · KH B · Trade MKT)
+ * - 14 kênh B2B (SP theo tab dòng hàng · Kho · KH B · Trade MKT)
  * - Bông Sen Vàng Holding (ngay sau 5 cty con B2C · Nguồn cung · tổng kho · KH B tổng hợp)
  */
 
@@ -13,6 +13,7 @@ import {
   B2B_CHANNEL_DEFINITIONS,
   type B2BChannelSlug,
   isB2BChannelSlug,
+  isBrandMarketingChannel,
   getSegmentKeyForChannelSlug,
 } from "@/libs/business-models/b2bChannels";
 
@@ -27,7 +28,7 @@ export type BusinessModelSlug =
   | B2BChannelSlug
   | "bong-sen-vang";
 
-export type EntityRole = "subsidiary" | "holding" | "b2b-channel";
+export type EntityRole = "subsidiary" | "holding" | "b2b-channel" | "brand-marketing";
 
 export type CommerceModel = "b2c" | "b2b";
 
@@ -38,7 +39,10 @@ export type BusinessModule =
   | "customers-b"
   | "marketing"
   | "stores"
-  | "supply";
+  | "supply"
+  | "brand-overview"
+  | "brand-awareness"
+  | "brand-campaigns";
 
 export type CustomerSegment = "C" | "B";
 
@@ -79,6 +83,12 @@ const B2B_CHANNEL_MODULES: BusinessModule[] = [
   "marketing",
 ];
 
+const BRAND_MARKETING_MODULES: BusinessModule[] = [
+  "brand-overview",
+  "brand-awareness",
+  "brand-campaigns",
+];
+
 function subsidiary(slug: BusinessModelSlug, navKey: string): BusinessModelConfig {
   return {
     slug,
@@ -92,6 +102,17 @@ function subsidiary(slug: BusinessModelSlug, navKey: string): BusinessModelConfi
 }
 
 function b2bChannel(def: (typeof B2B_CHANNEL_DEFINITIONS)[number]): BusinessModelConfig {
+  if (isBrandMarketingChannel(def.slug)) {
+    return {
+      slug: def.slug,
+      navKey: def.navKey,
+      entityRole: "brand-marketing",
+      commerceModel: "b2b",
+      customerSegment: "B",
+      modules: BRAND_MARKETING_MODULES,
+      kind: "b2b-channel",
+    };
+  }
   const segment = getB2BSegment(def.segmentKey);
   return {
     slug: def.slug,
@@ -162,9 +183,14 @@ export function isB2BCommerce(slug: BusinessModelSlug): boolean {
   return isHoldingB2B(slug) || isB2BChannelModel(slug);
 }
 
+export function isBrandMarketingModel(slug: BusinessModelSlug): boolean {
+  return isBrandMarketingChannel(slug);
+}
+
 export function getB2BSegmentKeyForModel(
   slug: BusinessModelSlug
 ): B2BCustomerSegmentKey | undefined {
+  if (isBrandMarketingModel(slug)) return undefined;
   if (isB2BChannelModel(slug)) return getSegmentKeyForChannelSlug(slug);
   return getBusinessModelConfig(slug).b2bSegmentKey;
 }

@@ -30,7 +30,8 @@ export type B2BCustomerSegmentKey =
   | "ecommerce"
   | "social-media"
   | "import"
-  | "export";
+  | "export"
+  | "brand-marketing";
 
 export interface B2BProductLine {
   key: B2BProductLineKey;
@@ -330,6 +331,21 @@ export const B2B_CUSTOMER_SEGMENTS: B2BCustomerSegment[] = [
       "spices",
     ],
   },
+  {
+    key: "brand-marketing",
+    labelVi: "Marketing Thương Hiệu",
+    labelEn: "Brand marketing",
+    labelZh: "品牌营销",
+    productLineKeys: [
+      "medicinal-tea",
+      "yogi-food",
+      "thuong-son-tra",
+      "spices",
+      "nutrition-snacks",
+      "medicinal-aroma",
+      "medicinal-diet",
+    ],
+  },
 ];
 
 export interface B2BCustomerRecord {
@@ -529,6 +545,20 @@ export const B2B_CUSTOMER_RECORDS: B2BCustomerRecord[] = [
     totalSpendEn: "₫9.6B",
     totalSpendZh: "96亿₫",
     visits: 36,
+  },
+  {
+    id: "b2b-brand-marketing",
+    segmentKey: "brand-marketing",
+    nameVi: "Cty CP Marketing Thương Hiệu Golden Lotus",
+    nameEn: "Golden Lotus Brand Marketing JSC",
+    nameZh: "金莲花品牌营销公司",
+    phone: "028 3822 9900",
+    tier: "gold",
+    lastVisit: "21/05/2026",
+    totalSpendVi: "₫4.2 tỷ",
+    totalSpendEn: "₫4.2B",
+    totalSpendZh: "42亿₫",
+    visits: 28,
   },
 ];
 
