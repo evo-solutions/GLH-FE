@@ -187,16 +187,16 @@
       "customerCountUnitThousands": "K"
     },
     "storePerformance": {
-      "topStores": "TOP STORES",
-      "worstStores": "WORST STORES",
+      "topStores": "Top stores",
+      "worstStores": "Worst stores",
       "colStore": "Store",
       "colRevenue": "Revenue",
       "colCost": "Cost",
       "colGrowth": "Growth"
     },
     "productPerformance": {
-      "topSku": "TOP SKU",
-      "deadSku": "DEAD SKU",
+      "topSku": "Top SKUs",
+      "deadSku": "Dead SKUs",
       "colProduct": "Product",
       "colRevenue": "Revenue",
       "colCustomers": "Customers"

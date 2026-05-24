@@ -308,9 +308,9 @@
 
 .dashboard-mini-table th.dashboard-mini-table-cell--primary,
 .dashboard-mini-table td.dashboard-mini-table-cell--primary {
-  width: 300px;
-  min-width: 300px;
-  max-width: 300px;
+  width: 230px;
+  min-width: 230px;
+  max-width: 230px;
   text-align: left;
   box-sizing: border-box;
 }

@@ -187,16 +187,16 @@
       "customerCountUnitThousands": "nghìn"
     },
     "storePerformance": {
-      "topStores": "TOP STORES",
-      "worstStores": "WORST STORES",
+      "topStores": "Cửa hàng bán tốt",
+      "worstStores": "Cửa hàng bán kém",
       "colStore": "Cửa hàng",
       "colRevenue": "Doanh thu",
       "colCost": "Chi phí",
       "colGrowth": "Tăng trưởng"
     },
     "productPerformance": {
-      "topSku": "TOP SKU",
-      "deadSku": "DEAD SKU",
+      "topSku": "Sản phẩm bán chạy",
+      "deadSku": "Sản phẩm tồn chậm",
       "colProduct": "Sản phẩm",
       "colRevenue": "Doanh thu",
       "colCustomers": "Khách hàng"

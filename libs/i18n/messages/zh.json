@@ -187,16 +187,16 @@
       "customerCountUnitThousands": "千"
     },
     "storePerformance": {
-      "topStores": "TOP STORES",
-      "worstStores": "WORST STORES",
+      "topStores": "销售最佳门店",
+      "worstStores": "销售最差门店",
       "colStore": "门店",
       "colRevenue": "营收",
       "colCost": "成本",
       "colGrowth": "增长"
     },
     "productPerformance": {
-      "topSku": "TOP SKU",
-      "deadSku": "DEAD SKU",
+      "topSku": "畅销SKU",
+      "deadSku": "滞销SKU",
       "colProduct": "产品",
       "colRevenue": "营收",
       "colCustomers": "客户"
