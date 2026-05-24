@@ -92,3 +92,13 @@ export const BRAND_MARKETING_CHANNEL_SLUG = "marketing-thuong-hieu" as const;
 export function isBrandMarketingChannel(slug: string): boolean {
   return slug === BRAND_MARKETING_CHANNEL_SLUG;
 }
+
+/** Kênh nhập / xuất khẩu — không có Trade Marketing. */
+export const B2B_IMPORT_EXPORT_CHANNEL_SLUGS = [
+  "nhap-khau",
+  "xuat-khau",
+] as const satisfies readonly B2BChannelSlug[];
+
+export function isB2BImportExportChannelSlug(slug: string): boolean {
+  return (B2B_IMPORT_EXPORT_CHANNEL_SLUGS as readonly string[]).includes(slug);
+}

@@ -13,6 +13,7 @@ import {
   B2B_CHANNEL_DEFINITIONS,
   type B2BChannelSlug,
   isB2BChannelSlug,
+  isB2BImportExportChannelSlug,
   isBrandMarketingChannel,
   getSegmentKeyForChannelSlug,
 } from "@/libs/business-models/b2bChannels";
@@ -83,6 +84,12 @@ const B2B_CHANNEL_MODULES: BusinessModule[] = [
   "marketing",
 ];
 
+const B2B_IMPORT_EXPORT_MODULES: BusinessModule[] = [
+  "products",
+  "warehouse",
+  "customers-b",
+];
+
 const BRAND_MARKETING_MODULES: BusinessModule[] = [
   "brand-overview",
   "brand-awareness",
@@ -120,7 +127,9 @@ function b2bChannel(def: (typeof B2B_CHANNEL_DEFINITIONS)[number]): BusinessMode
     entityRole: "b2b-channel",
     commerceModel: "b2b",
     customerSegment: "B",
-    modules: B2B_CHANNEL_MODULES,
+    modules: isB2BImportExportChannelSlug(def.slug)
+      ? B2B_IMPORT_EXPORT_MODULES
+      : B2B_CHANNEL_MODULES,
     b2bSegmentKey: def.segmentKey,
     productLineKeys: segment.productLineKeys,
     kind: "b2b-channel",
